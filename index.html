@@ -11,107 +11,76 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Cybershell Technologies" />
   <meta property="og:description" content="Die Zukunft der Robotik beginnt an ihrer Oberfläche. Adaptive Außenmodule, Skins & Panels für humanoide Roboter." />
-  <meta property="og:image" content="https://www.cybershell.tech/cybershell_explosion.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.cybershell.tech" />
 
-  <!-- Favicon -->
+  <!-- Favicon (inline) -->
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%235AF2D6"/><stop offset="1" stop-color="%238AA8FF"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="%230b0d12"/><circle cx="32" cy="32" r="18" fill="none" stroke="url(%23g)" stroke-width="4"/><circle cx="32" cy="32" r="14" fill="none" stroke="%235AF2D6" stroke-width="3" opacity="0.9"/></svg>'>
 
   <style>
-    :root{
-      --bg:#0b0d12; --panel:#121520; --ink:#e9eef6; --muted:#a7b0c0;
-      --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
-      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
-    }
+    :root{--bg:#0b0d12;--panel:#121520;--ink:#e9eef6;--muted:#a7b0c0;--accent:#5AF2D6;--accent2:#8AA8FF;--hair:#222637;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35);--max:1100px}
     *{box-sizing:border-box}
-    body{
-      margin:0; color:var(--ink);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      background:
-        radial-gradient(1200px 600px at 70% -10%, rgba(90,242,214,.08), transparent 60%),
-        radial-gradient(900px 500px at 10% 10%, rgba(138,168,255,.07), transparent 55%),
-        var(--bg);
-      letter-spacing:.2px;
-    }
-    a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
+    body{margin:0;color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:
+      radial-gradient(1200px 600px at 70% -10%, rgba(90,242,214,.08), transparent 60%),
+      radial-gradient(900px 500px at 10% 10%, rgba(138,168,255,.07), transparent 55%),
+      var(--bg);letter-spacing:.2px}
+    a{color:var(--accent);text-decoration:none} a:hover{opacity:.9}
 
-    header{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter:saturate(140%) blur(6px);
-      background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
-      border-bottom:1px solid var(--hair);
-    }
-    .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:14px 20px}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.6px}
-    .brand small{display:block; color:var(--muted); font-weight:500; letter-spacing:.3px}
-    .logo-svg{width:34px; height:34px; display:block}
-    nav{display:flex; gap:20px}
-    nav a{color:var(--muted); position:relative}
-    nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s;}
-    nav a:hover::after{width:100%;}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(140%) blur(6px);
+      background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));border-bottom:1px solid var(--hair)}
+    .bar{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.6px}
+    .brand small{display:block;color:var(--muted);font-weight:500;letter-spacing:.3px}
+    .logo-svg{width:34px;height:34px;display:block}
+    nav{display:flex;gap:20px} nav a{color:var(--muted);position:relative}
+    nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:.3s}
+    nav a:hover::after{width:100%}
 
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px}
     main{padding:40px 0 80px}
 
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
-    .hero .card{
-      position:relative;
-      background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
-      border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .hero .card::before{
-      content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
-      background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%);
-      pointer-events:none; z-index:0;
-    }
-    .sweep{
-      position:absolute; top:0; left:-40%;
-      width:40%; height:100%;
-      background:linear-gradient(75deg, transparent, rgba(255,255,255,.08), transparent);
-      filter:blur(6px);
-      animation:sweep 4.5s ease-in-out infinite;
-    }
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+    .hero .card{position:relative;background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
+      border:1px solid var(--hair);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);overflow:hidden}
+    .hero .card::before{content:"";position:absolute;inset:-2px;border-radius:calc(var(--radius) + 2px);
+      background:radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%);pointer-events:none;z-index:0}
+    .sweep{position:absolute;top:0;left:-40%;width:40%;height:100%;
+      background:linear-gradient(75deg, transparent, rgba(255,255,255,.08), transparent);filter:blur(6px);animation:sweep 4.5s ease-in-out infinite}
     @keyframes sweep{0%{left:-40%}50%{left:120%}100%{left:120%}}
 
-    h1{position:relative; z-index:1; margin:0 0 12px; font-size:clamp(32px,4vw,52px); line-height:1.1; letter-spacing:.3px}
-    .subtitle{position:relative; z-index:1; color:#cfe9e5; font-size:18px; margin:4px 0 14px}
-    .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
-      border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.4px}
-    .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
+    h1{position:relative;z-index:1;margin:0 0 12px;font-size:clamp(32px,4vw,52px);line-height:1.1;letter-spacing:.3px}
+    .subtitle{position:relative;z-index:1;color:#cfe9e5;font-size:18px;margin:4px 0 14px}
+    .tag{position:relative;z-index:1;display:inline-block;background:rgba(90,242,214,.12);color:var(--accent);
+      border:1px solid rgba(90,242,214,.35);padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.4px}
+    .lede{position:relative;z-index:1;color:var(--muted);font-size:18px}
 
-    .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
-    .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
+    .spec{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .chip{background:#0e1119;border:1px solid var(--hair);padding:10px 12px;border-radius:999px;color:var(--muted);font-size:13px}
 
-    .hero-vis img{width:100%; height:auto; border-radius:18px; border:1px solid var(--hair); box-shadow:var(--shadow); object-fit:cover}
-    .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
+    .hero-vis img,.hero-vis svg{width:100%;height:auto;border-radius:18px;border:1px solid var(--hair);box-shadow:var(--shadow);object-fit:cover;background:#0e1119}
+    .caption{margin-top:10px;color:var(--muted);font-size:13px;text-align:center}
 
     section{margin-top:56px}
-    h2{font-size:clamp(22px,3vw,28px); margin:0 0 18px; color:var(--accent)}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    .tile{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .tile h3{margin:0 0 8px; font-size:18px}
+    h2{font-size:clamp(22px,3vw,28px);margin:0 0 18px;color:var(--accent)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .tile{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .tile h3{margin:0 0 8px;font-size:18px}
     .muted{color:var(--muted)}
 
-    .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
-    .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
-    label{font-size:13px; color:var(--muted)}
-    input, textarea{background:#0e1119; color:var(--ink); border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+    .contact .card{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .field{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+    label{font-size:13px;color:var(--muted)}
+    input,textarea{background:#0e1119;color:var(--ink);border:1px solid var(--hair);border-radius:12px;padding:10px 12px;font:inherit}
     textarea{min-height:120px}
-    .btn{display:inline-block; background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
-    .btn:disabled{opacity:.6; cursor:not-allowed}
+    .btn{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#091018;border:none;padding:11px 14px;border-radius:12px;font-weight:700;cursor:pointer}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
 
-    footer{border-top:1px solid var(--hair); color:var(--muted);}
-    .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
+    footer{border-top:1px solid var(--hair);color:var(--muted)}
+    .foot{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:18px 20px}
     .legal{font-size:12px}
 
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-    }
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.contact{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -154,7 +123,9 @@
     </div>
 
     <div class="hero-vis">
-      <img src="cybershell_explosion.png" alt="Explosionszeichnung modularer Cybershell-Panels für humanoide Robotik">
+      <!-- Versucht zuerst die PNG zu laden. Falls sie fehlt, wird automatisch das SVG-Fallback eingesetzt. -->
+      <img src="cybershell_explosion.png" alt="Explosionszeichnung modularer Cybershell-Panels"
+           onerror="this.replaceWith(document.getElementById('exploded-fallback').content.cloneNode(true))">
       <div class="caption">Explosionsdarstellung • Cybershell Panelstruktur</div>
     </div>
   </section>
@@ -205,6 +176,58 @@
   </div>
 </footer>
 
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<!-- Inline-SVG als Fallback, falls PNG (cybershell_explosion.png) fehlt -->
+<template id="exploded-fallback">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Explosionsdarstellung Fallback"
+       style="width:100%;height:auto;display:block;border-radius:18px">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0b0d12"/><stop offset="1" stop-color="#121520"/>
+      </linearGradient>
+      <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#5AF2D6"/><stop offset="1" stop-color="#8AA8FF"/>
+      </linearGradient>
+      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="6"/>
+      </filter>
+    </defs>
+    <rect width="1200" height="800" fill="url(#bg)"/>
+    <!-- schematische 'Exploded View' Ebenen -->
+    <g transform="translate(600,400)">
+      <!-- Kern -->
+      <circle r="70" fill="none" stroke="url(#glow)" stroke-width="6"/>
+      <circle r="56" fill="none" stroke="#5AF2D6" stroke-width="4" opacity=".8"/>
+
+      <!-- Paneelsegmente -->
+      <g fill="none" stroke="#8AA8FF" opacity=".85">
+        <rect x="-230" y="-40" width="120" height="80" rx="12" stroke-width="3"/>
+        <rect x="110" y="-40" width="120" height="80" rx="12" stroke-width="3"/>
+        <rect x="-60" y="-200" width="120" height="80" rx="12" stroke-width="3"/>
+        <rect x="-60" y="120" width="120" height="80" rx="12" stroke-width="3"/>
+      </g>
+
+      <!-- Verbindungs-Linien -->
+      <g stroke="#5AF2D6" opacity=".8">
+        <line x1="-160" y1="-5" x2="-78" y2="-12" stroke-width="2"/>
+        <line x1="160" y1="5" x2="78" y2="12" stroke-width="2"/>
+        <line x1="0" y1="-160" x2="0" y2="-78" stroke-width="2"/>
+        <line x1="0" y1="160" x2="0" y2="78" stroke-width="2"/>
+      </g>
+
+      <!-- Glows -->
+      <circle r="120" fill="url(#glow)" opacity=".08" filter="url(#soft)"/>
+      <circle r="240" fill="url(#glow)" opacity=".05" filter="url(#soft)"/>
+    </g>
+
+    <text x="600" y="740" text-anchor="middle" fill="#a7b0c0" font-family="system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial" font-size="22">
+      Explosionsdarstellung • Cybershell Panelstruktur (SVG-Fallback)
+    </text>
+  </svg>
+</template>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
+
