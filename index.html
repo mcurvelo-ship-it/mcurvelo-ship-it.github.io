@@ -1,210 +1,210 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cybershell Technologies – adaptive, modulare Außenmodule (Skins & Panels) für humanoide Robotik. Fokus: Schutz, Montage, CE-Pfad, Materialvalidierung." />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#0b0d12" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Cybershell Technologies" />
-  <meta property="og:description" content="Adaptive Surfaces for Intelligent Robots – modulare, CE-fähige Außenmodule mit schneller Montage und Materialvalidierung." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mcurvelo-ship-it.github.io/" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cybershell Technologies</title>
 
-  <!-- Favicon als Inline-SVG (keine Datei nötig) -->
-  <link rel="icon" href='data:image/svg+xml,<?xml version="1.0" encoding="UTF-8"?>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="%235AF2D6"/><stop offset="1" stop-color="%238AA8FF"/></linearGradient></defs>
-    <rect width="64" height="64" rx="12" fill="%230b0d12"/>
-    <circle cx="32" cy="32" r="18" fill="none" stroke="url(%23g)" stroke-width="4"/>
-    <circle cx="32" cy="32" r="14" fill="none" stroke="%235AF2D6" stroke-width="3" opacity="0.9"/>
-  </svg>'>
+  <!-- Favicon -->
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%235AF2D6"/><stop offset="1" stop-color="%238AA8FF"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="%230b0d12"/><circle cx="32" cy="32" r="18" fill="none" stroke="url(%23g)" stroke-width="4"/><circle cx="32" cy="32" r="14" fill="none" stroke="%235AF2D6" stroke-width="3" opacity="0.9"/></svg>'>
 
   <style>
-    :root{
-      --bg:#0b0d12; --panel:#121520; --ink:#e9eef6; --muted:#a7b0c0;
-      --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
-      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #e6e6e6;
+      background: radial-gradient(circle at top left, #0d1117, #090b10);
+      line-height: 1.6;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0; color:var(--ink);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      background:
-        radial-gradient(1200px 600px at 70% -10%, rgba(90,242,214,.08), transparent 60%),
-        radial-gradient(900px 500px at 10% 10%, rgba(138,168,255,.07), transparent 55%),
-        var(--bg);
-      letter-spacing:.2px;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(15,17,24,0.6);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1e2230;
     }
-    a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
 
-    /* Topbar */
-    header{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter:saturate(140%) blur(6px);
-      background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
-      border-bottom:1px solid var(--hair);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
-    .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:14px 20px}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.6px}
-    .brand small{display:block; color:var(--muted); font-weight:500; letter-spacing:.3px}
-    .logo-svg{width:34px; height:34px; display:block}
-    nav{display:flex; gap:20px} nav a{color:var(--muted)}
 
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
-    main{padding:40px 0 80px}
-
-    /* Hero */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
-    .hero .card{
-      background:linear-gradient(180deg, rgba(18,21,32,.9), rgba(18,21,32,.7));
-      border:1px solid var(--hair); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow)
+    .logo-svg {
+      width: 34px;
+      height: 34px;
+      display: block;
     }
-    h1{margin:0 0 10px; font-size:clamp(32px, 4vw, 52px); line-height:1.1; letter-spacing:.4px}
-    .tag{display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
-      border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.4px}
-    .lede{color:var(--muted); font-size:18px}
-    .spec{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
-    .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    .hero-vis{position:relative; min-height:320px; border-radius:var(--radius); border:1px solid var(--hair);
-      background:radial-gradient(320px 180px at 65% 35%, rgba(90,242,214,.18), transparent 55%),
-                 linear-gradient(180deg, rgba(18,21,32,.85), rgba(18,21,32,.6));
-      box-shadow:var(--shadow); overflow:hidden}
-    .mesh{position:absolute; inset:0;
-      background-image:radial-gradient(circle at 25px 25px, rgba(138,168,255,.25) 1px, transparent 1px);
-      background-size:28px 28px; opacity:.25}
-    .orb{position:absolute; width:140px; height:140px; border-radius:50%; right:14%; top:16%;
-      background:radial-gradient(circle at 30% 30%, #fff, var(--accent)); filter:blur(6px); opacity:.4}
-    .caption{position:absolute; left:18px; bottom:18px; color:var(--muted); font-size:13px}
+    .brand small {
+      display: block;
+      font-size: 0.75rem;
+      color: #9aa0b6;
+    }
 
-    /* Sections */
-    section{margin-top:56px}
-    h2{font-size:clamp(22px, 3vw, 28px); margin:0 0 18px; color:var(--accent)}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    .tile{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .tile h3{margin:0 0 8px; font-size:18px}
-    .muted{color:var(--muted)}
+    nav a {
+      color: #cfd4e0;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 0.95rem;
+      transition: color .3s;
+    }
+    nav a:hover {
+      color: #5AF2D6;
+    }
 
-    /* Contact */
-    .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
-    .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
-    label{font-size:13px; color:var(--muted)}
-    input, textarea{background:#0e1119; color:var(--ink); border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
-    textarea{min-height:120px}
-    .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
-    .btn:disabled{opacity:.6; cursor:not-allowed}
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 10%;
+      gap: 60px;
+    }
 
-    footer{border-top:1px solid var(--hair); color:var(--muted);}
-    .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
-    .legal{font-size:12px}
+    .hero-text h1 {
+      font-size: 2.8rem;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      color: #f6f8fa;
+    }
 
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
+    .tag {
+      background: #0b2220;
+      border: 1px solid #1b3f3a;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: #57e2c8;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      color: #c3c8d2;
+      margin-bottom: 24px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      border: 1px solid #2a303e;
+      background: #131721;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      color: #aeb4c1;
+    }
+
+    .hero-vis {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-vis img {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      border: 1px solid #222637;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      object-fit: cover;
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #9ba0ac;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      background: #0b0d12;
+      border-top: 1px solid #1c1f26;
+    }
+
+    footer a {
+      color: #5AF2D6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer small {
+      display: block;
+      margin-top: 12px;
+      color: #808794;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="bar">
-      <div class="brand" aria-label="Cybershell Logo & Marke">
-        <!-- Inline SVG Logo -->
-        <svg class="logo-svg" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="Cybershell Logo">
-          <defs>
-            <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#5AF2D6"/><stop offset="1" stop-color="#8AA8FF"/>
-            </linearGradient>
-          </defs>
-          <rect width="128" height="128" rx="26" fill="#0b0d12"/>
-          <circle cx="64" cy="64" r="34" fill="none" stroke="url(#lg)" stroke-width="7"/>
-          <circle cx="64" cy="64" r="26" fill="none" stroke="#5AF2D6" stroke-width="5" opacity="0.9"/>
-        </svg>
-        <div>Cybershell Technologies<small>Adaptive Surfaces for Intelligent Robots</small></div>
+    <div class="brand" aria-label="Cybershell Logo & Marke">
+      <svg class="logo-svg" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="Cybershell Logo">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#5AF2D6"/>
+            <stop offset="1" stop-color="#8AA8FF"/>
+          </linearGradient>
+        </defs>
+        <rect width="128" height="128" rx="26" fill="#0b0d12"/>
+        <circle cx="64" cy="64" r="34" fill="none" stroke="url(#lg)" stroke-width="7"/>
+        <circle cx="64" cy="64" r="26" fill="none" stroke="#5AF2D6" stroke-width="5" opacity="0.9"/>
+      </svg>
+      <div>
+        Cybershell Technologies
+        <small>Adaptive Surfaces for Intelligent Robots</small>
       </div>
-      <nav aria-label="Hauptnavigation">
-        <a href="#forschung">Forschung</a>
-        <a href="#material">Materialien</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
     </div>
+    <nav>
+      <a href="#">Forschung</a>
+      <a href="#">Materialien</a>
+      <a href="#">Kontakt</a>
+    </nav>
   </header>
 
-  <main class="wrap">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="card">
-        <span class="tag">Forschungsprojekt • 2025–2026</span>
-        <h1 id="hero-title">Die äußere Intelligenz von humanoiden Robotern.</h1>
-        <p class="lede">Cybershell entwickelt <strong>modulare, CE-fähige Außenmodule</strong> für humanoide Systeme: schützende <em>Skins</em> und <em>Panels</em> mit schneller Montage (Clip/Magnet/Schraube), robust gegen Abrieb, UV und Chemikalien – geprüft mit einem akkreditierten Institut.</p>
-        <div class="spec" role="list">
-          <div class="chip" role="listitem">Montage &lt; 20 min</div>
-          <div class="chip" role="listitem">UV / Abrieb / Chemie-Resistenz</div>
-          <div class="chip" role="listitem">CE-Konformitäts-Pfad</div>
-        </div>
+  <section class="hero">
+    <div class="hero-text">
+      <span class="tag">Forschungsprojekt • 2025–2026</span>
+      <h1>Die äußere Intelligenz von humanoiden Robotern.</h1>
+      <p>Cybershell entwickelt <strong>modulare, CE-fähige Außenmodule</strong> für humanoide Systeme: schützende <em>Skins</em> und <em>Panels</em> mit schneller Montage (Clip/Magnet/Schraube), robust gegen Abrieb, UV und Chemikalien – geprüft mit einem akkreditierten Institut.</p>
+      <div class="chips">
+        <span class="chip">Montage &lt; 20 min</span>
+        <span class="chip">UV / Abrieb / Chemie-Resistenz</span>
+        <span class="chip">CE-Konformitäts-Pfad</span>
       </div>
-      <div class="hero-vis" aria-hidden="true">
-        <div class="mesh"></div>
-        <div class="orb"></div>
-        <div class="caption">Konzeptvisualisierung • Cybershell v0.1</div>
-      </div>
-    </section>
+    </div>
 
-    <!-- FORSCHUNG -->
-    <section id="forschung" aria-labelledby="forschung-title">
-      <h2 id="forschung-title">Forschungsschwerpunkte</h2>
-      <div class="grid">
-        <article class="tile"><h3>Mechanik &amp; Interfaces</h3><p class="muted">Clip-, Magnet- und Schraubaufnahmen, wechselbar ohne Eingriff in Sensorik/Kühlung. Fokus: Sicherheit, Toleranzen, Montagezeiten.</p></article>
-        <article class="tile"><h3>Werkstoffe &amp; Beschichtung</h3><p class="muted">TPU/PC/PA-Verbunde, ESD-Optionen, Anti-Soil-Topcoats. Laborprüfungen: Haftung, Abrieb, UV, Temperatur/Feuchte, Reinigungsmittel.</p></article>
-        <article class="tile"><h3>CE-Konformität</h3><p class="muted">Konformitätsmatrix, Risikoanalyse, Kennzeichnung. Ziel: klarer Pfad für Aftermarket-Kits – ohne Veränderung am Grundgerät.</p></article>
-      </div>
-    </section>
-
-    <!-- MATERIAL / VALIDIERUNG -->
-    <section id="material" aria-labelledby="material-title">
-      <h2 id="material-title">Materialpfad &amp; Validierung</h2>
-      <div class="grid">
-        <div class="tile"><h3>Laborpartnerschaften</h3><p class="muted">Zusammenarbeit mit einem akkreditierten österreichischen Institut für belastbare Prüfberichte als Grundlage für Förderungen &amp; Piloten.</p></div>
-        <div class="tile"><h3>Design for Service</h3><p class="muted">Austauschbare Module, rückstandsarme Demontage, Kennzeichnung für Fleet-Management, QR/ID-Optionen.</p></div>
-        <div class="tile"><h3>Nachhaltigkeit</h3><p class="muted">Modularität reduziert Abfall; beschädigte Bereiche werden als Teilmodule ersetzt statt kompletter Panels.</p></div>
-      </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section id="kontakt" class="contact" aria-labelledby="kontakt-title">
-      <div class="card">
-        <h2 id="kontakt-title">Kontakt</h2>
-        <p class="muted">Projektanfragen, Forschungs-Kooperationen und Materialangebote sind willkommen. Diese Seite dient ausschließlich der Information (kein Verkauf).</p>
-        <div class="field"><label for="name">Name</label><input id="name" type="text" placeholder="Ihr Name" /></div>
-        <div class="field"><label for="email">E-Mail</label><input id="email" type="email" placeholder="ihre.adresse@example.com" /></div>
-        <div class="field"><label for="msg">Nachricht</label><textarea id="msg" placeholder="Kurze Nachricht…"></textarea></div>
-        <button class="btn" type="button" disabled aria-disabled="true">Formular offline – bitte per E-Mail an info@cybershell.tech</button>
-      </div>
-      <aside class="card" aria-label="Direktkontakt">
-        <h3>Direkt</h3>
-        <p class="muted">E-Mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br> Projektleitung: Mario Curvelo Carvalho</p>
-        <h3>Impressum (Light)</h3>
-        <p class="muted">Cybershell Technologies (Projekt, in Vorbereitung). Zweck: F&amp;E zu modularen Außenmodulen für Robotik. Keine Verkaufsangebote auf dieser Seite.</p>
-      </aside>
-    </section>
-  </main>
+    <div class="hero-vis" aria-hidden="false">
+      <img src="A_detailed,_digital,_exploded_view_illustration_of.png"
+           alt="Explosionszeichnung der modularen Cybershell Panels">
+      <div class="caption">Explosionsdarstellung • Cybershell Panelstruktur</div>
+    </div>
+  </section>
 
   <footer>
-    <div class="foot">
-      <div class="legal">© <span id="y"></span> Cybershell Technologies • Forschungsprojekt • Alle Rechte vorbehalten</div>
-      <div class="legal">Barrierefreiheit: kontrastreich, tastaturbedienbar, keine Cookies/Tracker.</div>
-    </div>
+    <a href="mailto:info@cybershell.tech">📧 info@cybershell.tech</a>
+    <small>© 2025 Cybershell Technologies – Alle Rechte vorbehalten.</small>
   </footer>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
 
 
