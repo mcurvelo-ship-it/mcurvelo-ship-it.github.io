@@ -10,7 +10,8 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Cybershell Technologies" />
-  <meta property="og:description" content="Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche. Adaptive Außenmodule, Skins & Panels für humanoide Roboter." />
+  <meta property="og:description" content="Die Zukunft der Robotik beginnt an ihrer Oberfläche. Adaptive Außenmodule, Skins & Panels für humanoide Roboter." />
+  <meta property="og:image" content="https://www.cybershell.tech/cybershell_explosion.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.cybershell.tech" />
 
@@ -45,7 +46,10 @@
     .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.6px}
     .brand small{display:block; color:var(--muted); font-weight:500; letter-spacing:.3px}
     .logo-svg{width:34px; height:34px; display:block}
-    nav{display:flex; gap:20px} nav a{color:var(--muted)}
+    nav{display:flex; gap:20px}
+    nav a{color:var(--muted); position:relative}
+    nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s;}
+    nav a:hover::after{width:100%;}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:40px 0 80px}
@@ -126,17 +130,19 @@
 </header>
 
 <main class="wrap">
+  <!-- HERO -->
   <section class="hero">
     <div class="card">
       <span class="sweep"></span>
       <span class="tag">Forschungsprojekt • 2025–2026</span>
       <h1>Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
-      <p class="subtitle">Modulare Schutz- und Designelemente für humanoide Roboter.</p>
+      <p class="subtitle">Adaptive Außenmodule für humanoide Roboter.</p>
 
       <p class="lede">
         Die Zukunft der Robotik beginnt nicht im Inneren – sondern an ihrer Oberfläche.<br>
-        Cybershell entwickelt <strong>adaptive Außenmodule</strong>, die <strong>Design und Intelligenz verbinden</strong>.<br>
-        Jede Hülle ist <strong>robust, brandgeprüft und in den Farben Ihrer Marke gestaltbar</strong> – ein neues Level an Identität für humanoide Systeme.<br>
+        Cybershell entwickelt <strong>adaptive Außenmodule</strong>, die <strong>Design, Funktion und Intelligenz verbinden</strong>.<br>
+        Jede Hülle ist <strong>robust gegen Abrieb, UV, Chemikalien und geprüftes Brandverhalten</strong>.<br>
+        <strong>Frei gestaltbar in Farbe und Design Ihrer Marke</strong> – ein neues Level an Identität für humanoide Robotersysteme.<br>
         Prüfungen mit <strong>akkreditierten Partnerlaboren</strong> ebnen den Weg zu CE-zertifizierten Anwendungen im industriellen Umfeld.
       </p>
 
@@ -153,7 +159,43 @@
     </div>
   </section>
 
-  <!-- restliche Abschnitte bleiben unverändert -->
+  <!-- FORSCHUNG -->
+  <section id="forschung">
+    <h2>Forschungsschwerpunkte</h2>
+    <div class="grid">
+      <article class="tile"><h3>Mechanik &amp; Interfaces</h3><p class="muted">Clip-, Magnet- und Schraubaufnahmen, wechselbar ohne Eingriff in Sensorik/Kühlung. Fokus: Sicherheit, Toleranzen, Montagezeiten.</p></article>
+      <article class="tile"><h3>Werkstoffe &amp; Beschichtung</h3><p class="muted">TPU/PC/PA-Verbunde, ESD-Optionen, Anti-Soil-Topcoats. Laborprüfungen: Haftung, Abrieb, UV, Temperatur/Feuchte, Reinigungsmittel.</p></article>
+      <article class="tile"><h3>CE-Konformität</h3><p class="muted">Konformitätsmatrix, Risikoanalyse, Kennzeichnung. Ziel: klarer Pfad für Aftermarket-Kits – ohne Veränderung am Grundgerät.</p></article>
+    </div>
+  </section>
+
+  <!-- MATERIALIEN -->
+  <section id="materialien">
+    <h2>Materialpfad &amp; Validierung</h2>
+    <div class="grid">
+      <div class="tile"><h3>Laborpartnerschaften</h3><p class="muted">Zusammenarbeit mit einem akkreditierten Institut für belastbare Prüfberichte als Grundlage für Förderungen &amp; Piloten.</p></div>
+      <div class="tile"><h3>Design for Service</h3><p class="muted">Austauschbare Module, rückstandsarme Demontage, Kennzeichnung für Fleet-Management, QR/ID-Optionen.</p></div>
+      <div class="tile"><h3>Nachhaltigkeit</h3><p class="muted">Modularität reduziert Abfall; beschädigte Bereiche werden als Teilmodule ersetzt statt kompletter Panels.</p></div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="contact">
+    <div class="card">
+      <h2>Kontakt</h2>
+      <p class="muted">Projektanfragen, Forschungs-Kooperationen und Materialangebote sind willkommen. Diese Seite dient ausschließlich der Information (kein Verkauf).</p>
+      <div class="field"><label for="name">Name</label><input id="name" type="text" placeholder="Ihr Name" /></div>
+      <div class="field"><label for="email">E-Mail</label><input id="email" type="email" placeholder="ihre.adresse@example.com" /></div>
+      <div class="field"><label for="msg">Nachricht</label><textarea id="msg" placeholder="Kurze Nachricht…"></textarea></div>
+      <button class="btn" type="button" disabled>Formular offline – bitte per E-Mail an info@cybershell.tech</button>
+    </div>
+    <aside class="card">
+      <h3>Direkt</h3>
+      <p class="muted">E-Mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>Projektleitung: Mario Curvelo Carvalho</p>
+      <h3>Impressum (Light)</h3>
+      <p class="muted">Cybershell Technologies – Forschungsprojekt in Vorbereitung. Zweck: F&amp;E zu modularen Außenmodulen für Robotik. Keine Verkaufsangebote.</p>
+    </aside>
+  </section>
 </main>
 
 <footer>
