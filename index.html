@@ -3,11 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cybershell Technologies – Forschungsprojekt für adaptive Oberflächen- und Schutzsysteme in der humanoiden Robotik.">
+  <meta name="description" content="Cybershell Technologies – adaptive, modulare Außenmodule (Skins & Panels) für humanoide Robotik. Fokus: Schutz, Montage, CE-Pfad, Materialvalidierung." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b0d12" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Cybershell Technologies" />
+  <meta property="og:description" content="Adaptive Surfaces for Intelligent Robots – modulare, CE-fähige Außenmodule mit schneller Montage und Materialvalidierung." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mcurvelo-ship-it.github.io/" />
+
   <title>Cybershell Technologies</title>
 
-  <!-- Inline-Favicon als SVG (kein externes File nötig) -->
-  <link rel="icon" href='data:image/svg+xml,<?xml version="1.0" encoding="UTF-8"?> 
+  <!-- Favicon als Inline-SVG (keine Datei nötig) -->
+  <link rel="icon" href='data:image/svg+xml,<?xml version="1.0" encoding="UTF-8"?>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
     <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="%235AF2D6"/><stop offset="1" stop-color="%238AA8FF"/></linearGradient></defs>
@@ -33,15 +42,18 @@
       letter-spacing:.2px;
     }
     a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
-    header{position:sticky; top:0; backdrop-filter:saturate(140%) blur(6px);
+
+    /* Topbar */
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:saturate(140%) blur(6px);
       background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
-      border-bottom:1px solid var(--hair);}
+      border-bottom:1px solid var(--hair);
+    }
     .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:14px 20px}
     .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.6px}
-    .logo{width:34px; height:34px; border-radius:50%;
-      background:conic-gradient(from 220deg, var(--accent), var(--accent2), var(--accent));
-      box-shadow:0 0 0 2px #0b0d12 inset, 0 0 25px rgba(90,242,214,.35);}
     .brand small{display:block; color:var(--muted); font-weight:500; letter-spacing:.3px}
+    .logo-svg{width:34px; height:34px; display:block}
     nav{display:flex; gap:20px} nav a{color:var(--muted)}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
@@ -49,8 +61,10 @@
 
     /* Hero */
     .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
-    .hero .card{background:linear-gradient(180deg, rgba(18,21,32,.9), rgba(18,21,32,.7));
-      border:1px solid var(--hair); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow)}
+    .hero .card{
+      background:linear-gradient(180deg, rgba(18,21,32,.9), rgba(18,21,32,.7));
+      border:1px solid var(--hair); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow)
+    }
     h1{margin:0 0 10px; font-size:clamp(32px, 4vw, 52px); line-height:1.1; letter-spacing:.4px}
     .tag{display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
       border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.4px}
@@ -102,7 +116,17 @@
   <header>
     <div class="bar">
       <div class="brand" aria-label="Cybershell Logo & Marke">
-        <span class="logo" role="img" aria-label="Leuchtendes Kreislogo"></span>
+        <!-- Inline SVG Logo -->
+        <svg class="logo-svg" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="Cybershell Logo">
+          <defs>
+            <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5AF2D6"/><stop offset="1" stop-color="#8AA8FF"/>
+            </linearGradient>
+          </defs>
+          <rect width="128" height="128" rx="26" fill="#0b0d12"/>
+          <circle cx="64" cy="64" r="34" fill="none" stroke="url(#lg)" stroke-width="7"/>
+          <circle cx="64" cy="64" r="26" fill="none" stroke="#5AF2D6" stroke-width="5" opacity="0.9"/>
+        </svg>
         <div>Cybershell Technologies<small>Adaptive Surfaces for Intelligent Robots</small></div>
       </div>
       <nav aria-label="Hauptnavigation">
@@ -114,9 +138,10 @@
   </header>
 
   <main class="wrap">
+    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="card">
-        <span class="tag">Forschungsprojekt • 2025–2026 • AMS-konform</span>
+        <span class="tag">Forschungsprojekt • 2025–2026</span>
         <h1 id="hero-title">Die äußere Intelligenz von humanoiden Robotern.</h1>
         <p class="lede">Cybershell entwickelt <strong>modulare, CE-fähige Außenmodule</strong> für humanoide Systeme: schützende <em>Skins</em> und <em>Panels</em> mit schneller Montage (Clip/Magnet/Schraube), robust gegen Abrieb, UV und Chemikalien – geprüft mit einem akkreditierten Institut.</p>
         <div class="spec" role="list">
@@ -132,6 +157,7 @@
       </div>
     </section>
 
+    <!-- FORSCHUNG -->
     <section id="forschung" aria-labelledby="forschung-title">
       <h2 id="forschung-title">Forschungsschwerpunkte</h2>
       <div class="grid">
@@ -141,6 +167,7 @@
       </div>
     </section>
 
+    <!-- MATERIAL / VALIDIERUNG -->
     <section id="material" aria-labelledby="material-title">
       <h2 id="material-title">Materialpfad &amp; Validierung</h2>
       <div class="grid">
@@ -150,6 +177,7 @@
       </div>
     </section>
 
+    <!-- KONTAKT -->
     <section id="kontakt" class="contact" aria-labelledby="kontakt-title">
       <div class="card">
         <h2 id="kontakt-title">Kontakt</h2>
@@ -178,4 +206,5 @@
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
 
