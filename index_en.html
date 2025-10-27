@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cybershell Technologies – adaptive Außenmodule, Skins & Panels für humanoide Robotik. Schutz, Design und Markenidentität auf der Oberfläche der Zukunft." />
+  <meta name="description" content="Cybershell Technologies – adaptive exterior modules, skins & panels for humanoid robotics. Protection, design and brand identity at the surface of the future." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0d12" />
   <title>Cybershell Technologies</title>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Cybershell Technologies" />
-  <meta property="og:description" content="Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche. Adaptive Außenmodule, Skins & Panels für humanoide Roboter." />
+  <meta property="og:description" content="The next evolution of robotics begins at the surface. Adaptive exterior modules, skins & panels for humanoid robots." />
   <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.cybershell.tech/" />
+  <meta property="og:url" content="https://www.cybershell.tech/index_en.html" />
 
   <!-- hreflang -->
   <link rel="alternate" href="https://www.cybershell.tech/" hreflang="de" />
@@ -22,15 +22,6 @@
 
   <!-- Favicon -->
   <link rel="icon" href="cybershell_logo.png" type="image/png" />
-
-  <!-- Auto-Redirect EN -> index_en.html (nur wenn auf DE-Seite) -->
-  <script>
-    (function () {
-      const isDE = !location.pathname.includes('index_en.html');
-      const lang = (navigator.language || navigator.userLanguage || 'de').toLowerCase();
-      if (isDE && lang.startsWith('en')) location.href = 'index_en.html';
-    })();
-  </script>
 
   <style>
     :root{
@@ -127,7 +118,7 @@
     .tile h3{margin:0 0 8px; font-size:18px}
     .muted{color:var(--muted)}
 
-    /* Kontakt */
+    /* Contact */
     .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
     .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
     .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
@@ -154,22 +145,22 @@
   <!-- Header -->
   <header>
     <div class="bar">
-      <div class="brand" aria-label="Cybershell Logo und Wortmarke">
+      <div class="brand" aria-label="Cybershell logo and wordmark">
         <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies Logo" />
         <div class="wordmark">
           <span class="title">Cybershell Technologies</span>
           <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
         </div>
       </div>
-      <nav aria-label="Hauptnavigation">
-        <a href="#forschung">Forschung</a>
-        <a href="#materialien">Materialien</a>
-        <a href="#kontakt">Kontakt</a>
-        <span class="lang" aria-label="Sprachen">
-          <a href="index.html" aria-current="page">
+      <nav aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#materials">Materials</a>
+        <a href="#contact">Contact</a>
+        <span class="lang" aria-label="Languages">
+          <a href="index.html">
             <span class="flag" style="background:linear-gradient(#000 0 33%,#dd0000 0 66%,#ffce00 0)"></span> DE
           </a>
-          <a href="index_en.html">
+          <a href="index_en.html" aria-current="page">
             <span class="flag" style="background:
               linear-gradient(90deg,#00247d 0 40%, transparent 0),
               linear-gradient(#cf142b 0 40%, transparent 0),
@@ -186,109 +177,108 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="card">
         <span class="sweep" aria-hidden="true"></span>
-        <span class="tag">Forschungsprojekt • 2025–2026</span>
-        <h1 id="hero-title">Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
-        <p class="subtitle">Adaptive Außenmodule für humanoide Roboter.</p>
+        <span class="tag">Research Project • 2025–2026</span>
+        <h1 id="hero-title">The next evolution of robotics begins at the surface.</h1>
+        <p class="subtitle">Adaptive exterior modules for humanoid robots.</p>
 
         <p class="lede">
-          Die Zukunft der Robotik beginnt nicht im Inneren – sondern an ihrer Oberfläche.<br>
-          Cybershell entwickelt <strong>adaptive Außenmodule</strong>, die <strong>Design, Funktion und Intelligenz verbinden</strong>.<br>
-          Jede Hülle ist <strong>robust gegen Abrieb, UV, Chemikalien und geprüftes Brandverhalten</strong>.<br>
-          <strong>Frei gestaltbar in Farbe und Design Ihrer Marke</strong> – ein neues Level an Identität für humanoide Robotersysteme.<br>
-          Prüfungen mit <strong>akkreditierten Partnerlaboren</strong> ebnen den Weg zu CE-zertifizierten Anwendungen im industriellen Umfeld.
+          The future of robotics doesn’t begin inside—it begins at its surface.<br>
+          Cybershell develops <strong>adaptive exterior modules</strong> that combine <strong>design, function and intelligence</strong>.<br>
+          Every shell is <strong>robust against abrasion, UV, chemicals and features verified fire behavior</strong>.<br>
+          <strong>Fully customizable in your brand colors and surface finishes</strong>—a new level of identity for humanoid robotic systems.<br>
+          Testing with <strong>accredited partner labs</strong> paves the way for CE-certified applications in industrial environments.
         </p>
 
         <div class="spec" role="list">
-          <div class="chip" role="listitem">Montage &lt; 20 min</div>
-          <div class="chip" role="listitem">UV / Abrieb / Chemie-Resistenz</div>
-          <div class="chip" role="listitem">CE-Konformitätspfad</div>
+          <div class="chip" role="listitem">Install in &lt; 20 min</div>
+          <div class="chip" role="listitem">UV / Abrasion / Chemical resistance</div>
+          <div class="chip" role="listitem">Path to CE compliance</div>
         </div>
       </div>
 
       <div class="hero-vis" aria-hidden="false">
-        <img src="cybershell_explosion.png" alt="Explosionszeichnung modularer Cybershell-Panels">
-        <div class="caption">Explosionsdarstellung • Cybershell Panelstruktur</div>
+        <img src="cybershell_explosion.png" alt="Exploded view of modular Cybershell panels">
+        <div class="caption">Exploded view • Cybershell panel structure</div>
       </div>
     </section>
 
-    <!-- FORSCHUNG -->
-    <section id="forschung" aria-labelledby="forschung-title">
-      <h2 id="forschung-title">Forschungsschwerpunkte</h2>
+    <!-- RESEARCH -->
+    <section id="research" aria-labelledby="research-title">
+      <h2 id="research-title">Research Focus</h2>
       <div class="grid">
         <article class="tile">
-          <h3>Mechanik &amp; Interfaces</h3>
-          <p class="muted">Clip-, Magnet- und Schraubaufnahmen, wechselbar ohne Eingriff in Sensorik/Kühlung. Fokus: Sicherheit, Toleranzen, Montagezeiten.</p>
+          <h3>Mechanics & Interfaces</h3>
+          <p class="muted">Clip, magnet and screw mounts; swappable without interfering with sensors or cooling. Focus: safety, tolerances, service time.</p>
         </article>
         <article class="tile">
-          <h3>Werkstoffe &amp; Beschichtung</h3>
-          <p class="muted">TPU/PC/PA-Verbunde, ESD-Optionen, Anti-Soil-Topcoats. Laborprüfungen: Haftung, Abrieb, UV, Temperatur/Feuchte, Reinigungsmittel.</p>
+          <h3>Materials & Coatings</h3>
+          <p class="muted">TPU/PC/PA compounds, ESD options, anti-soil topcoats. Lab tests for adhesion, abrasion, UV, temperature/humidity, cleaning agents.</p>
         </article>
         <article class="tile">
-          <h3>CE-Konformität</h3>
-          <p class="muted">Konformitätsmatrix, Risikoanalyse, Kennzeichnung. Pfad für Aftermarket-Kits – ohne Veränderung am Grundgerät.</p>
+          <h3>CE Pathway</h3>
+          <p class="muted">Conformity matrix, risk analysis, labeling. Clear pathway for aftermarket kits—without altering the base machine.</p>
         </article>
       </div>
     </section>
 
-    <!-- MATERIALIEN -->
-    <section id="materialien" aria-labelledby="material-title">
-      <h2 id="material-title">Materialpfad &amp; Validierung</h2>
+    <!-- MATERIALS -->
+    <section id="materials" aria-labelledby="materials-title">
+      <h2 id="materials-title">Materials Path & Validation</h2>
       <div class="grid">
         <div class="tile">
-          <h3>Laborpartnerschaften</h3>
-          <p class="muted">Zusammenarbeit mit einem akkreditierten Institut für belastbare Prüfberichte als Grundlage für Förderungen &amp; Piloten.</p>
+          <h3>Lab Partnerships</h3>
+          <p class="muted">Collaboration with an accredited institute for rigorous test reports as a basis for grants and pilots.</p>
         </div>
         <div class="tile">
           <h3>Design for Service</h3>
-          <p class="muted">Austauschbare Module, rückstandsarme Demontage, Kennzeichnung für Fleet-Management, QR/ID-Optionen.</p>
+          <p class="muted">Replaceable modules, low-residue removal, fleet ID/QR options for asset management.</p>
         </div>
         <div class="tile">
-          <h3>Nachhaltigkeit</h3>
-          <p class="muted">Modularität reduziert Abfall – beschädigte Bereiche werden als Teilmodule ersetzt statt kompletter Panels.</p>
+          <h3>Sustainability</h3>
+          <p class="muted">Modularity reduces waste: replace damaged sub-modules instead of entire panels.</p>
         </div>
       </div>
     </section>
 
-    <!-- KONTAKT -->
-    <section id="kontakt" class="contact" aria-labelledby="kontakt-title">
+    <!-- CONTACT -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
       <div class="card">
-        <h2 id="kontakt-title">Kontakt</h2>
-        <p class="muted">Projektanfragen, Forschungs-Kooperationen und Materialangebote sind willkommen. Diese Seite dient ausschließlich der Information (kein Verkauf).</p>
+        <h2 id="contact-title">Contact</h2>
+        <p class="muted">Project inquiries, research collaborations and material partnerships are welcome. This page is for information only (no sales).</p>
         <div class="field">
           <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Ihr Name" />
+          <input id="name" type="text" placeholder="Your name" />
         </div>
         <div class="field">
-          <label for="email">E-Mail</label>
-          <input id="email" type="email" placeholder="ihre.adresse@example.com" />
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="your.email@example.com" />
         </div>
         <div class="field">
-          <label for="msg">Nachricht</label>
-          <textarea id="msg" placeholder="Kurze Nachricht…"></textarea>
+          <label for="msg">Message</label>
+          <textarea id="msg" placeholder="Short message…"></textarea>
         </div>
         <button class="btn" type="button" disabled aria-disabled="true">
-          Formular offline – bitte per E-Mail an info@cybershell.tech
+          Form offline — please email info@cybershell.tech
         </button>
       </div>
-      <aside class="card" aria-label="Direktkontakt">
-        <h3>Direkt</h3>
-        <p class="muted">E-Mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>
-        Projektleitung: Mario Curvelo Carvalho</p>
-        <h3>Impressum (Light)</h3>
-        <p class="muted">Cybershell Technologies – Forschungsprojekt in Vorbereitung. Zweck: F&amp;E zu modularen Außenmodulen für Robotik. Keine Verkaufsangebote.</p>
+      <aside class="card" aria-label="Direct contact">
+        <h3>Direct</h3>
+        <p class="muted">Email: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>
+        Project Lead: Mario Curvelo Carvalho</p>
+        <h3>Imprint (Light)</h3>
+        <p class="muted">Cybershell Technologies — research project in preparation. Purpose: R&amp;D on modular exterior modules for robotics. No commercial offers on this site.</p>
       </aside>
     </section>
   </main>
 
   <footer>
     <div class="foot">
-      <div class="legal">© <span id="y"></span> Cybershell Technologies • Forschungsprojekt • Alle Rechte vorbehalten</div>
-      <div class="legal">Barrierefreiheit: kontrastreich, tastaturbedienbar, keine Cookies oder Tracker.</div>
+      <div class="legal">© <span id="y"></span> Cybershell Technologies • Research Project • All rights reserved</div>
+      <div class="legal">Accessibility: high contrast, keyboard-friendly, no cookies or trackers.</div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
