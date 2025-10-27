@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cybershell Technologies – adaptive outer modules, skins & panels for humanoid robotics. Protection, design, and brand identity on the surface of the future." />
+  <meta name="description" content="Cybershell Technologies – adaptive outer shells, skins & panels for humanoid robotics. Protection, design and brand identity at the surface of the future." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0d12" />
   <title>Cybershell Technologies</title>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Cybershell Technologies" />
-  <meta property="og:description" content="The next evolution of robotics begins at the surface. Adaptive outer modules, skins & panels for humanoid robots." />
+  <meta property="og:description" content="The next evolution in robotics begins at the surface. Adaptive outer shells and panels for humanoid robots." />
   <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.cybershell.tech/index_en.html" />
@@ -22,6 +22,15 @@
 
   <!-- Favicon -->
   <link rel="icon" href="cybershell_logo.png" type="image/png" />
+
+  <!-- Auto-Redirect DE -> index.html (nur wenn auf EN-Seite) -->
+  <script>
+    (function () {
+      const isEN = location.pathname.includes('index_en.html');
+      const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      if (isEN && lang.startsWith('de')) location.href = 'index.html';
+    })();
+  </script>
 
   <style>
     :root{
@@ -76,13 +85,20 @@
     main{padding:40px 0 80px}
 
     /* Hero */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
-    .hero .card{
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:stretch;
+    }
+    .panel, .card{
       position:relative; overflow:hidden;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
-      border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
+      border:1px solid var(--hair); border-radius:var(--radius);
+      padding:34px; box-shadow:var(--shadow);
+      display:flex; flex-direction:column;
     }
-    .hero .card::before{
+    .card::before{
       content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
       background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%);
       pointer-events:none; z-index:0;
@@ -103,14 +119,18 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    .hero-vis img{
-      width:100%; height:auto; border-radius:18px; border:1px solid var(--hair);
-      box-shadow:var(--shadow); object-fit:cover; animation:float 8s ease-in-out infinite;
+    .panel .imgwrap{
+      flex:1; display:flex; min-height:320px;
+      border-radius:12px; overflow:hidden;
+      border:1px solid var(--hair);
     }
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .panel img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+    }
     .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
 
-    /* Sections */
     section{margin-top:56px}
     h2{font-size:clamp(22px,3vw,28px); margin:0 0 18px; color:var(--accent)}
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
@@ -118,7 +138,6 @@
     .tile h3{margin:0 0 8px; font-size:18px}
     .muted{color:var(--muted)}
 
-    /* Contact */
     .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
     .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
     .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
@@ -128,7 +147,6 @@
     .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
     .btn:disabled{opacity:.6; cursor:not-allowed}
 
-    /* Footer */
     footer{border-top:1px solid var(--hair); color:var(--muted)}
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
@@ -138,28 +156,28 @@
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .brand img.logo{height:76px}
+      .panel .imgwrap{min-height:240px}
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="bar">
-      <div class="brand" aria-label="Cybershell logo and word mark">
+      <div class="brand" aria-label="Cybershell Logo and Wordmark">
         <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies Logo" />
         <div class="wordmark">
           <span class="title">Cybershell Technologies</span>
           <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
         </div>
       </div>
-      <nav aria-label="Primary navigation">
+      <nav aria-label="Main navigation">
         <a href="#research">Research</a>
         <a href="#materials">Materials</a>
         <a href="#contact">Contact</a>
         <span class="lang" aria-label="Languages">
           <a href="index.html">
-            <!-- DE flag: monochrome with white separators & white outline -->
-            <svg class="flag" viewBox="0 0 18 12" aria-label="German flag" xmlns="http://www.w3.org/2000/svg">
+            <!-- 🇩🇪 Monochrome with white stripes -->
+            <svg class="flag" viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.5" y="0.5" width="17" height="11" rx="2"
                     fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
               <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
@@ -171,8 +189,8 @@
             DE
           </a>
           <a href="index_en.html" aria-current="page">
-            <!-- EN flag: white cross & white outline -->
-            <svg class="flag" viewBox="0 0 18 12" aria-label="English flag" xmlns="http://www.w3.org/2000/svg">
+            <!-- 🇬🇧 -->
+            <svg class="flag" viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.5" y="0.5" width="17" height="11" rx="2"
                     fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
               <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
@@ -186,115 +204,76 @@
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="card">
         <span class="sweep" aria-hidden="true"></span>
         <span class="tag">Research Project • 2025–2026</span>
-        <h1 id="hero-title">The next evolution of robotics begins at the surface.</h1>
-        <p class="subtitle">Adaptive outer modules for humanoid robots.</p>
+        <h1 id="hero-title">The next evolution in robotics begins at the surface.</h1>
+        <p class="subtitle">Adaptive exterior modules for humanoid robots.</p>
 
         <p class="lede">
-          The future of robotics does not start inside — it starts at the surface.<br>
-          Cybershell develops <strong>adaptive outer modules</strong> that <strong>combine design, function and intelligence</strong>.<br>
-          Each shell is <strong>resistant to abrasion, UV and chemicals, and verified for fire behavior</strong>.<br>
-          <strong>Customizable in your brand’s colors and textures</strong> — a new level of identity for humanoid robot systems.<br>
-          Testing with <strong>accredited partner laboratories</strong> paves the way toward CE-certified applications in industrial environments.
+          The future of robotics doesn’t begin inside – it begins on the surface.<br>
+          Cybershell develops <strong>adaptive outer modules</strong> that unite <strong>design, function, and intelligence</strong>.<br>
+          Each shell is <strong>resistant to abrasion, UV, and chemicals, and certified for fire behavior</strong>.<br>
+          <strong>Fully customizable in color and branding</strong> – bringing identity to humanoid robotics.<br>
+          Testing with <strong>accredited partner laboratories</strong> paves the way for CE-certified industrial applications.
         </p>
 
         <div class="spec" role="list">
-          <div class="chip" role="listitem">Assembly &lt; 20 min</div>
-          <div class="chip" role="listitem">UV / Abrasion / Chemical Resistance</div>
+          <div class="chip" role="listitem">Mounting &lt; 20 min</div>
+          <div class="chip" role="listitem">UV / Abrasion / Chemical resistance</div>
           <div class="chip" role="listitem">CE Compliance Path</div>
         </div>
       </div>
 
-      <div class="hero-vis" aria-hidden="false">
-        <img src="cybershell_explosion.png" alt="Exploded view of modular Cybershell panels">
-        <div class="caption">Exploded visualization • Cybershell panel structure</div>
+      <div class="panel">
+        <div class="imgwrap">
+          <img
+            src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png"
+            alt="Exploded view of the Cybershell robot modules on dark background"
+          />
+        </div>
+        <div class="caption">Exploded View • Cybershell Panel Structure</div>
       </div>
     </section>
 
-    <!-- RESEARCH -->
     <section id="research" aria-labelledby="research-title">
       <h2 id="research-title">Research Focus</h2>
       <div class="grid">
         <article class="tile">
           <h3>Mechanics & Interfaces</h3>
-          <p class="muted">Clip, magnet and screw mounts; swap without touching sensors/cooling. Focus: safety, tolerances, assembly time.</p>
+          <p class="muted">Clip, magnetic, and screw interfaces. Replaceable without interfering with sensors or cooling. Focus: safety, tolerances, and assembly time.</p>
         </article>
         <article class="tile">
-          <h3>Materials & Coatings</h3>
-          <p class="muted">TPU/PC/PA composites, ESD options, anti-soil topcoats. Lab tests: adhesion, abrasion, UV, temperature/humidity, cleaning agents.</p>
+          <h3>Materials & Coating</h3>
+          <p class="muted">TPU/PC/PA compounds, ESD options, anti-soil coatings. Laboratory tests: adhesion, abrasion, UV, temperature/humidity, and cleaning agents.</p>
         </article>
         <article class="tile">
           <h3>CE Compliance</h3>
-          <p class="muted">Compliance matrix, risk analysis, labeling. Aftermarket kit pathway — no changes to the base unit.</p>
+          <p class="muted">Compliance matrix, risk analysis, labeling. Certified aftermarket kits without modification of the base device.</p>
         </article>
       </div>
     </section>
 
-    <!-- MATERIALS -->
     <section id="materials" aria-labelledby="materials-title">
       <h2 id="materials-title">Material Path & Validation</h2>
       <div class="grid">
         <div class="tile">
-          <h3>Laboratory Partnerships</h3>
-          <p class="muted">Collaboration with an accredited institute for robust test reports supporting grants & pilot deployments.</p>
+          <h3>Lab Partnerships</h3>
+          <p class="muted">Collaboration with accredited institutes for robust test reports as a foundation for funding and pilot projects.</p>
         </div>
         <div class="tile">
           <h3>Design for Service</h3>
-          <p class="muted">Replaceable modules, low-residue removal, labeling for fleet management, optional QR/ID features.</p>
+          <p class="muted">Replaceable modules, low-residue disassembly, ID labeling for fleet management, QR/ID options.</p>
         </div>
         <div class="tile">
           <h3>Sustainability</h3>
-          <p class="muted">Modularity reduces waste — damaged zones are replaced as sub-modules instead of entire panels.</p>
+          <p class="muted">Modularity reduces waste – only damaged parts are replaced instead of complete panels.</p>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="contact" aria-labelledby="contact-title">
       <div class="card">
         <h2 id="contact-title">Contact</h2>
-        <p class="muted">Project inquiries, research collaborations and material proposals are welcome. This site is for information only (no sales).</p>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name" />
-        </div>
-        <div class="field">
-          <label for="email">E-mail</label>
-          <input id="email" type="email" placeholder="your.address@example.com" />
-        </div>
-        <div class="field">
-          <label for="msg">Message</label>
-          <textarea id="msg" placeholder="Short message…"></textarea>
-        </div>
-        <button class="btn" type="button" disabled aria-disabled="true">
-          Form offline — please email info@cybershell.tech
-        </button>
-      </div>
-      <aside class="card" aria-label="Direct contact">
-        <h3>Direct</h3>
-        <p class="muted">E-mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>
-        Project Lead: Mario Curvelo Carvalho</p>
-        <h3>Imprint (Light)</h3>
-        <p class="muted">Cybershell Technologies — research project in preparation. Purpose: R&amp;D on modular exterior modules for robotics. No sales offers.</p>
-      </aside>
-    </section>
-  </main>
-
-  <footer>
-    <div class="foot">
-      <div class="legal">© <span id="y"></span> Cybershell Technologies • Research Project • All rights reserved</div>
-      <div class="legal">Accessibility: high contrast, keyboard friendly, no cookies or trackers.</div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
-
-
+        <p class="muted">Project inquiries, research collaborations, and material offers are welcome. This page
