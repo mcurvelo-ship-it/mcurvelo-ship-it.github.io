@@ -20,10 +20,9 @@
   <link rel="alternate" href="https://www.cybershell.tech/index_en.html" hreflang="en" />
   <link rel="alternate" href="https://www.cybershell.tech/" hreflang="x-default" />
 
-  <!-- Favicon (inline) -->
-  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%235AF2D6"/><stop offset="1" stop-color="%238AA8FF"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="%230b0d12"/><circle cx="32" cy="32" r="18" fill="none" stroke="url(%23g)" stroke-width="4"/><circle cx="32" cy="32" r="14" fill="none" stroke="%235AF2D6" stroke-width="3" opacity="0.9"/></svg>'>
+  <!-- Favicon -->
+  <link rel="icon" href="cybershell_logo.png" type="image/png" />
 
-  <!-- Auto-Redirect: EN -> index_en.html -->
   <script>
     (function () {
       const isDE = !location.pathname.includes('index_en.html');
@@ -58,8 +57,16 @@
       border-bottom:1px solid var(--hair);
     }
     .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:14px 20px}
-    .brand{display:flex; align-items:center; gap:14px}
-    .brand img.logo{height:54px; width:auto; display:block; filter:drop-shadow(0 6px 12px rgba(0,0,0,.35))}
+    .brand{display:flex; align-items:center; gap:16px}
+    .brand img.logo{
+      height:82px; width:auto;
+      display:block;
+      filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
+      transition: transform 0.4s ease-in-out;
+    }
+    .brand img.logo:hover{
+      transform: scale(1.05);
+    }
     .brand .wordmark{display:flex; flex-direction:column; line-height:1.1}
     .brand .title{font-weight:800; letter-spacing:.6px}
     .brand .sub{color:var(--muted); font-weight:500; letter-spacing:.3px; font-size:12.5px}
@@ -116,57 +123,35 @@
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
     .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
 
-    /* Sections */
-    section{margin-top:56px}
-    h2{font-size:clamp(22px,3vw,28px); margin:0 0 18px; color:var(--accent)}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    .tile{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .tile h3{margin:0 0 8px; font-size:18px}
-    .muted{color:var(--muted)}
-
-    /* Kontakt */
-    .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
-    .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
-    label{font-size:13px; color:var(--muted)}
-    input,textarea{background:#0e1119; color:var(--ink); border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
-    textarea{min-height:120px}
-    .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
-    .btn:disabled{opacity:.6; cursor:not-allowed}
-
+    /* Kontakt + Footer */
     footer{border-top:1px solid var(--hair); color:var(--muted)}
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
     @media (max-width:900px){
       .hero{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .brand img.logo{height:46px}
+      .brand img.logo{height:72px}
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="bar">
-      <div class="brand" aria-label="Cybershell Logo und Wortmarke">
-        <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies Logo" />
+      <div class="brand">
+        <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies Logo">
         <div class="wordmark">
           <span class="title">Cybershell Technologies</span>
           <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
         </div>
       </div>
-      <nav aria-label="Hauptnavigation">
+      <nav>
         <a href="#forschung">Forschung</a>
         <a href="#materialien">Materialien</a>
         <a href="#kontakt">Kontakt</a>
-        <span class="lang" aria-label="Sprachen">
-          <!-- DE aktiv -->
+        <span class="lang">
           <a href="index.html" aria-current="page">
             <span class="flag" style="background:linear-gradient(#000 0 33%,#dd0000 0 66%,#ffce00 0)"></span> DE
           </a>
-          <!-- EN -->
           <a href="index_en.html">
             <span class="flag" style="background:
               linear-gradient(90deg,#00247d 0 40%, transparent 0),
@@ -180,14 +165,12 @@
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero">
       <div class="card">
-        <span class="sweep" aria-hidden="true"></span>
+        <span class="sweep"></span>
         <span class="tag">Forschungsprojekt • 2025–2026</span>
-        <h1 id="hero-title">Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
+        <h1>Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
         <p class="subtitle">Adaptive Außenmodule für humanoide Roboter.</p>
-
         <p class="lede">
           Die Zukunft der Robotik beginnt nicht im Inneren – sondern an ihrer Oberfläche.<br>
           Cybershell entwickelt <strong>adaptive Außenmodule</strong>, die <strong>Design, Funktion und Intelligenz verbinden</strong>.<br>
@@ -195,98 +178,22 @@
           <strong>Frei gestaltbar in Farbe und Design Ihrer Marke</strong> – ein neues Level an Identität für humanoide Robotersysteme.<br>
           Prüfungen mit <strong>akkreditierten Partnerlaboren</strong> ebnen den Weg zu CE-zertifizierten Anwendungen im industriellen Umfeld.
         </p>
-
-        <div class="spec" role="list">
-          <div class="chip" role="listitem">Montage &lt; 20 min</div>
-          <div class="chip" role="listitem">UV / Abrieb / Chemie-Resistenz</div>
-          <div class="chip" role="listitem">CE-Konformitätspfad</div>
-        </div>
       </div>
 
-      <div class="hero-vis" aria-hidden="false">
+      <div class="hero-vis">
         <img src="cybershell_explosion.png" alt="Explosionszeichnung modularer Cybershell-Panels">
         <div class="caption">Explosionsdarstellung • Cybershell Panelstruktur</div>
       </div>
-    </section>
-
-    <!-- FORSCHUNG -->
-    <section id="forschung" aria-labelledby="forschung-title">
-      <h2 id="forschung-title">Forschungsschwerpunkte</h2>
-      <div class="grid">
-        <article class="tile">
-          <h3>Mechanik &amp; Interfaces</h3>
-          <p class="muted">Clip-, Magnet- und Schraubaufnahmen, wechselbar ohne Eingriff in Sensorik/Kühlung. Fokus: Sicherheit, Toleranzen, Montagezeiten.</p>
-        </article>
-        <article class="tile">
-          <h3>Werkstoffe &amp; Beschichtung</h3>
-          <p class="muted">TPU/PC/PA-Verbunde, ESD-Optionen, Anti-Soil-Topcoats. Laborprüfungen: Haftung, Abrieb, UV, Temperatur/Feuchte, Reinigungsmittel.</p>
-        </article>
-        <article class="tile">
-          <h3>CE-Konformität</h3>
-          <p class="muted">Konformitätsmatrix, Risikoanalyse, Kennzeichnung. Ziel: klarer Pfad für Aftermarket-Kits – ohne Veränderung am Grundgerät.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- MATERIALIEN -->
-    <section id="materialien" aria-labelledby="material-title">
-      <h2 id="material-title">Materialpfad &amp; Validierung</h2>
-      <div class="grid">
-        <div class="tile">
-          <h3>Laborpartnerschaften</h3>
-          <p class="muted">Zusammenarbeit mit einem akkreditierten Institut für belastbare Prüfberichte als Grundlage für Förderungen &amp; Piloten.</p>
-        </div>
-        <div class="tile">
-          <h3>Design for Service</h3>
-          <p class="muted">Austauschbare Module, rückstandsarme Demontage, Kennzeichnung für Fleet-Management, QR/ID-Optionen.</p>
-        </div>
-        <div class="tile">
-          <h3>Nachhaltigkeit</h3>
-          <p class="muted">Modularität reduziert Abfall; beschädigte Bereiche werden als Teilmodule ersetzt statt kompletter Panels.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section id="kontakt" class="contact" aria-labelledby="kontakt-title">
-      <div class="card">
-        <h2 id="kontakt-title">Kontakt</h2>
-        <p class="muted">Projektanfragen, Forschungs-Kooperationen und Materialangebote sind willkommen. Diese Seite dient ausschließlich der Information (kein Verkauf).</p>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Ihr Name" />
-        </div>
-        <div class="field">
-          <label for="email">E-Mail</label>
-          <input id="email" type="email" placeholder="ihre.adresse@example.com" />
-        </div>
-        <div class="field">
-          <label for="msg">Nachricht</label>
-          <textarea id="msg" placeholder="Kurze Nachricht…"></textarea>
-        </div>
-        <button class="btn" type="button" disabled aria-disabled="true">
-          Formular offline – bitte per E-Mail an info@cybershell.tech
-        </button>
-      </div>
-      <aside class="card" aria-label="Direktkontakt">
-        <h3>Direkt</h3>
-        <p class="muted">E-Mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>
-        Projektleitung: Mario Curvelo Carvalho</p>
-        <h3>Impressum (Light)</h3>
-        <p class="muted">Cybershell Technologies – Forschungsprojekt in Vorbereitung. Zweck: F&amp;E zu modularen Außenmodulen für Robotik. Keine Verkaufsangebote.</p>
-      </aside>
     </section>
   </main>
 
   <footer>
     <div class="foot">
       <div class="legal">© <span id="y"></span> Cybershell Technologies • Forschungsprojekt • Alle Rechte vorbehalten</div>
-      <div class="legal">Barrierefreiheit: kontrastreich, tastaturbedienbar, keine Cookies oder Tracker.</div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
