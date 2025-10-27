@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cybershell Technologies</title>
   <style>
     :root {
@@ -49,13 +49,14 @@
       text-decoration: none;
       color: var(--muted);
       font-weight: 500;
-      transition: color .2s ease;
+      transition: color 0.2s ease;
     }
-    nav a:hover, nav a[aria-current="page"] {
+
+    nav a:hover,
+    nav a[aria-current="page"] {
       color: var(--accent);
     }
 
-    /* Sprachen */
     .lang {
       display: flex;
       align-items: center;
@@ -67,7 +68,7 @@
       height: 16px;
       border-radius: 3px;
       overflow: hidden;
-      box-shadow: 0 0 4px rgba(0,0,0,0.5);
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
       vertical-align: middle;
     }
 
@@ -81,7 +82,7 @@
     h1 {
       font-size: 2.6rem;
       color: var(--accent);
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
 
     h2 {
@@ -98,7 +99,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       align-items: center;
-      box-shadow: 0 0 40px rgba(90,242,214,0.06);
+      box-shadow: 0 0 40px rgba(90, 242, 214, 0.06);
       margin-bottom: 4rem;
     }
 
@@ -135,31 +136,96 @@
 
 <body>
   <header>
-    <!-- Logo -->
-    <img src="A_digital_graphic_design_image_displays_the_logo_o.png" alt="Cybershell Logo" class="logo">
+    <img
+      src="A_digital_graphic_design_image_displays_the_logo_o.png"
+      alt="Cybershell Logo"
+      class="logo"
+    />
 
-    <!-- Navigation -->
     <nav>
       <a href="#forschung">Forschung</a>
       <a href="#materialien">Materialien</a>
       <a href="#kontakt">Kontakt</a>
 
-      <!-- Sprachauswahl -->
       <div class="lang">
         <!-- 🇩🇪 Deutsch -->
         <a href="index.html" aria-current="page" title="Deutsch">
-          <svg class="flag" viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg">
-            <rect width="18" height="4" y="0" fill="#1a1f2c"/>
-            <rect width="18" height="4" y="4" fill="#2a3144"/>
-            <rect width="18" height="4" y="8" fill="#5AF2D6"/>
+          <svg
+            class="flag"
+            viewBox="0 0 18 12"
+            aria-label="German flag"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="0.5"
+              y="0.5"
+              width="17"
+              height="11"
+              rx="2"
+              fill="#1a1f2c"
+              stroke="rgba(255,255,255,.65)"
+              stroke-width=".8"
+            />
+            <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130" />
+            <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f" />
+            <rect x="0.5" y="7.82" width="17" height="3.68" fill="#2e384e" />
+            <line
+              x1="1"
+              y1="4.0"
+              x2="17"
+              y2="4.0"
+              stroke="#ffffff"
+              stroke-width=".6"
+              opacity=".95"
+            />
+            <line
+              x1="1"
+              y1="7.7"
+              x2="17"
+              y2="7.7"
+              stroke="#ffffff"
+              stroke-width=".6"
+              opacity=".95"
+            />
           </svg>
         </a>
 
         <!-- 🇬🇧 Englisch -->
         <a href="index_en.html" title="English">
-          <svg class="flag" viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg">
-            <rect width="18" height="12" fill="#1a1f2c"/>
-            <path d="M0,5h18v2H0z M8,0v12h2V0z" fill="#5AF2D6"/>
+          <svg
+            class="flag"
+            viewBox="0 0 18 12"
+            aria-label="English flag"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="0.5"
+              y="0.5"
+              width="17"
+              height="11"
+              rx="2"
+              fill="#1a1f2c"
+              stroke="rgba(255,255,255,.65)"
+              stroke-width=".8"
+            />
+            <rect
+              x="7.6"
+              y="1.4"
+              width="2.8"
+              height="9.2"
+              rx="1"
+              fill="#ffffff"
+              opacity=".98"
+            />
+            <rect
+              x="1.4"
+              y="4.6"
+              width="15.2"
+              height="2.8"
+              rx="1"
+              fill="#ffffff"
+              opacity=".98"
+            />
           </svg>
         </a>
       </div>
@@ -167,57 +233,65 @@
   </header>
 
   <main>
-    <!-- Intro -->
     <h1>Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche</h1>
     <h2>Modulare Schutz- und Designelemente für humanoide Roboter</h2>
 
-    <!-- Forschung -->
     <section id="forschung">
       <div>
         <h2>Forschung & Entwicklung</h2>
         <p>
           Die Zukunft der Robotik beginnt nicht im Inneren – sondern an ihrer Oberfläche.
-          <br><br>
+          <br /><br />
           <strong>Cybershell</strong> entwickelt adaptive Außenmodule, die Design und Intelligenz verbinden.
           Jede Hülle ist robust gegen Abrieb, UV, Chemikalien und geprüftes Brandverhalten.
-          Frei gestaltbar in Farbe und Design Ihrer Marke – ein neues Level an Identität für humanoide Robotersysteme.
-          <br><br>
-          Prüfungen mit akkreditierten Partnerlaboren ebnen den Weg zu CE-zertifizierten Anwendungen im industriellen Umfeld.
+          Frei gestaltbar in Farbe und Design Ihrer Marke – ein neues Level an Identität
+          für humanoide Robotersysteme.
+          <br /><br />
+          Prüfungen mit akkreditierten Partnerlaboren ebnen den Weg zu CE-zertifizierten Anwendungen
+          im industriellen Umfeld.
         </p>
       </div>
       <div>
-        <img src="cybershell_explosion.png" alt="Explosionszeichnung Cybershell Panels">
+        <img src="cybershell_explosion.png" alt="Explosionszeichnung Cybershell Panels" />
       </div>
     </section>
 
-    <!-- Materialien -->
     <section id="materialien">
       <div>
         <h2>Materialien & Funktion</h2>
         <p>
           Unsere Module kombinieren hochfeste, leichte Verbundstoffe mit adaptiven Schichten.
           Sie bieten exzellenten Schutz, sind leicht zu reinigen und in nahezu jeder Struktur oder Farbe realisierbar.
-          <br><br>
+          <br /><br />
           Optional sind Spezialbeschichtungen verfügbar: antistatisch, hydrophob, selbstheilend oder hitzebeständig.
         </p>
       </div>
       <div>
-        <img src="A_detailed,_digital,_exploded_view_illustration_of.png" alt="Materialübersicht Cybershell">
+        <img
+          src="A_detailed,_digital,_exploded_view_illustration_of.png"
+          alt="Materialübersicht Cybershell"
+        />
       </div>
     </section>
 
-    <!-- Kontakt -->
     <section id="kontakt">
       <div>
         <h2>Kontakt</h2>
         <p>
-          Haben Sie Interesse an Kooperation, Prototypenentwicklung oder Forschungspartnerschaften?<br><br>
-          📧 <a href="mailto:info@cybershell.tech" style="color:var(--accent)">info@cybershell.tech</a><br>
+          Haben Sie Interesse an Kooperation, Prototypenentwicklung oder Forschungspartnerschaften?<br /><br />
+          📧
+          <a href="mailto:info@cybershell.tech" style="color: var(--accent)">
+            info@cybershell.tech
+          </a>
+          <br />
           🌐 www.cybershell.tech
         </p>
       </div>
       <div>
-        <img src="A_digital_vector_illustration_features_a_rectangul.png" alt="Cybershell Flag Design" />
+        <img
+          src="A_digital_vector_illustration_features_a_rectangul.png"
+          alt="Cybershell Flag Design"
+        />
       </div>
     </section>
   </main>
@@ -227,4 +301,5 @@
   </footer>
 </body>
 </html>
+
 
