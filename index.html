@@ -85,13 +85,20 @@
     main{padding:40px 0 80px}
 
     /* Hero */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
-    .hero .card{
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;   /* gleiche Spaltenbreite */
+      gap:40px;
+      align-items:stretch;             /* gleiche Höhe */
+    }
+    .panel, .card{
       position:relative; overflow:hidden;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
-      border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
+      border:1px solid var(--hair); border-radius:var(--radius);
+      padding:34px; box-shadow:var(--shadow);
+      display:flex; flex-direction:column;
     }
-    .hero .card::before{
+    .card::before{
       content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
       background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%);
       pointer-events:none; z-index:0;
@@ -112,11 +119,17 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    .hero-vis img{
-      width:100%; height:auto; border-radius:18px; border:1px solid var(--hair);
-      box-shadow:var(--shadow); object-fit:cover; animation:float 8s ease-in-out infinite;
+    /* Bild-Panel im Hero */
+    .panel .imgwrap{
+      flex:1; display:flex; min-height:320px;
+      border-radius:12px; overflow:hidden;
+      border:1px solid var(--hair);
     }
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .panel img{
+      width:100%; height:100%;
+      object-fit:cover;                 /* füllt Panelhöhe */
+      display:block;
+    }
     .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
 
     /* Sections */
@@ -147,6 +160,7 @@
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .brand img.logo{height:76px}
+      .panel .imgwrap{min-height:240px}
     }
   </style>
 </head>
@@ -197,6 +211,7 @@
   <main class="wrap">
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
+      <!-- Textblock -->
       <div class="card">
         <span class="sweep" aria-hidden="true"></span>
         <span class="tag">Forschungsprojekt • 2025–2026</span>
@@ -218,8 +233,14 @@
         </div>
       </div>
 
-      <div class="hero-vis" aria-hidden="false">
-        <img src="cybershell_explosion.png" alt="Explosionszeichnung modularer Cybershell-Panels">
+      <!-- Bildblock (gleich groß) -->
+      <div class="panel">
+        <div class="imgwrap">
+          <img
+            src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png"
+            alt="Explosionszeichnung der Cybershell-Panels auf dunklem Hintergrund"
+          />
+        </div>
         <div class="caption">Explosionsdarstellung • Cybershell Panelstruktur</div>
       </div>
     </section>
@@ -305,6 +326,3 @@
   </script>
 </body>
 </html>
-
-
-
