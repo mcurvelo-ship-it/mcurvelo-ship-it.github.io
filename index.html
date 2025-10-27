@@ -10,8 +10,8 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Cybershell Technologies" />
-  <meta property="og:description" content="Die Zukunft der Robotik beginnt an ihrer Oberfläche. Adaptive Außenmodule, Skins & Panels für humanoide Roboter." />
-  <meta property="og:image" content="https://www.cybershell.tech/cybershell_explosion.png" />
+  <meta property="og:description" content="Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche. Adaptive Außenmodule, Skins & Panels für humanoide Roboter." />
+  <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.cybershell.tech/" />
 
@@ -58,9 +58,12 @@
       border-bottom:1px solid var(--hair);
     }
     .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:14px 20px}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.6px}
-    .brand small{display:block; color:var(--muted); font-weight:500; letter-spacing:.3px}
-    .logo-svg{width:34px; height:34px; display:block}
+    .brand{display:flex; align-items:center; gap:14px}
+    .brand img.logo{height:54px; width:auto; display:block; filter:drop-shadow(0 6px 12px rgba(0,0,0,.35))}
+    .brand .wordmark{display:flex; flex-direction:column; line-height:1.1}
+    .brand .title{font-weight:800; letter-spacing:.6px}
+    .brand .sub{color:var(--muted); font-weight:500; letter-spacing:.3px; font-size:12.5px}
+
     nav{display:flex; gap:20px; align-items:center}
     nav a{color:var(--muted); position:relative}
     nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s}
@@ -139,6 +142,7 @@
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
+      .brand img.logo{height:46px}
     }
   </style>
 </head>
@@ -146,14 +150,12 @@
   <!-- Header -->
   <header>
     <div class="bar">
-      <div class="brand" aria-label="Cybershell Logo & Marke">
-        <svg class="logo-svg" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="Cybershell Logo">
-          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5AF2D6"/><stop offset="1" stop-color="#8AA8FF"/></linearGradient></defs>
-          <rect width="128" height="128" rx="26" fill="#0b0d12"/>
-          <circle cx="64" cy="64" r="34" fill="none" stroke="url(#lg)" stroke-width="7"/>
-          <circle cx="64" cy="64" r="26" fill="none" stroke="#5AF2D6" stroke-width="5" opacity="0.9"/>
-        </svg>
-        <div>Cybershell Technologies<small>Adaptive Surfaces for Intelligent Robots</small></div>
+      <div class="brand" aria-label="Cybershell Logo und Wortmarke">
+        <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies Logo" />
+        <div class="wordmark">
+          <span class="title">Cybershell Technologies</span>
+          <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
+        </div>
       </div>
       <nav aria-label="Hauptnavigation">
         <a href="#forschung">Forschung</a>
