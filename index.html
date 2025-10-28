@@ -41,9 +41,9 @@
     }
     a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
 
-    /* Header / Navigation */
+    /* Header / Navigation (Desktop unverändert) */
     header{
-      position:sticky; top:0; z-index:20;
+      position:sticky; top:0; z-index:50;
       backdrop-filter:saturate(140%) blur(6px);
       background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
       border-bottom:1px solid var(--hair);
@@ -65,19 +65,43 @@
     nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s}
     nav a:hover::after{width:100%}
 
-    /* Language switcher */
     .lang{display:flex; gap:10px; align-items:center; margin-left:6px; padding-left:12px; border-left:1px solid var(--hair)}
     .lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
+    /* Burger-Button nur mobil */
+    .burger{
+      display:none;
+      width:42px; height:38px; border-radius:10px; border:1px solid var(--hair);
+      background:#0e1119; color:var(--ink); align-items:center; justify-content:center;
+    }
+    .burger span, .burger::before, .burger::after{
+      content:""; display:block; width:20px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;
+    }
+    .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
+    .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
+    .burger[aria-expanded="true"] span{opacity:0}
+
+    /* Mobile Menü-Panel */
+    .mobile-menu{
+      display:none;
+      position:fixed; inset:64px 10px auto 10px; z-index:60;
+      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.92));
+      border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow);
+      padding:14px;
+    }
+    .mobile-menu.open{display:block}
+    .mobile-row{display:flex; flex-direction:column; gap:10px}
+    .mobile-row a{padding:10px 12px; border:1px solid var(--hair); border-radius:12px; color:var(--ink)}
+    .mobile-lang{display:flex; gap:8px; margin-top:8px}
+    .mobile-lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
+
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:40px 0 80px}
 
-    /* Hero – jetzt absolut bündig (gleiche Höhe beider Spalten) */
-    .hero{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;
-    }
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
     .card{
       position:relative; overflow:hidden; height:100%;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
@@ -99,10 +123,11 @@
     .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
       border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px}
     .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
+
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bild randlos & exakt gleiche Höhe wie Textkarte */
+    /* Bild randlos / gleich hoch */
     .hero-vis{
       height:100%; padding:0; border:none; box-shadow:none;
       border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
@@ -114,7 +139,7 @@
     }
     .hero-vis img{
       width:100%; height:100%; display:block;
-      object-fit:cover; object-position:center center;  /* edge-to-edge */
+      object-fit:cover; object-position:center center;
       animation:float 8s ease-in-out infinite;
     }
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
@@ -148,19 +173,29 @@
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
-    /* Breite Explosionsgrafik – ohne Beschnitt (contain) */
+    /* Breite Explosionsgrafik (contain) */
     .media-wide{
       background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
       display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
     }
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
+    /* ===== Mobile: Burger & Menü ===== */
     @media (max-width:900px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .brand img.logo{height:76px}
-      .hero-vis .media{min-height:0}
+
+      /* Desktop-Nav ausblenden, Burger zeigen */
+      nav .nav-links, nav .lang{display:none}
+      .burger{display:flex}
+
+      /* Damit die Wortmarke bei wenig Platz nicht umbrecht */
+      .brand .wordmark .title{font-size:18px}
+      .brand .wordmark .sub{font-size:11.5px}
+
+      /* Bildhöhen etwas reduzieren */
       .media-wide{min-height:360px}
     }
   </style>
@@ -176,10 +211,14 @@
           <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
         </div>
       </div>
+
+      <!-- Desktop-Navigation -->
       <nav aria-label="Hauptnavigation">
-        <a href="#loesung">Lösung</a>
-        <a href="#features">Features</a>
-        <a href="#kontakt">Kontakt</a>
+        <div class="nav-links" style="display:flex;gap:22px;align-items:center">
+          <a href="#loesung">Lösung</a>
+          <a href="#features">Features</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
         <span class="lang" aria-label="Sprachen">
           <a href="index.html" aria-current="page">
             <!-- DE Flag -->
@@ -203,7 +242,38 @@
             EN
           </a>
         </span>
+
+        <!-- Burger (nur mobil sichtbar) -->
+        <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span>
+        </button>
       </nav>
+    </div>
+
+    <!-- Mobile Menü -->
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <div class="mobile-row" role="menu">
+        <a role="menuitem" href="#loesung">Lösung</a>
+        <a role="menuitem" href="#features">Features</a>
+        <a role="menuitem" href="#kontakt">Kontakt</a>
+      </div>
+      <div class="mobile-lang" aria-label="Sprachen">
+        <a href="index.html" aria-current="page">
+          <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="Deutsch" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+            <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
+            <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f"/>
+            <rect x="0.5" y="7.82" width="17" height="3.68" fill="#2e384e"/>
+          </svg> DE
+        </a>
+        <a href="index_en.html">
+          <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="English" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+            <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
+            <rect x="1.4" y="4.6" width="15.2" height="2.8" rx="1" fill="#ffffff" opacity=".98"/>
+          </svg> EN
+        </a>
+      </div>
     </div>
   </header>
 
@@ -233,7 +303,7 @@
 
       <div class="hero-vis" aria-hidden="false">
         <div class="media">
-          <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Cybershell Robotervisualisierung – randlos, ohne Beschnitt-Balken">
+          <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
         <div class="caption">Aktuelles Visual der Cybershell-Außenmodule</div>
       </div>
@@ -357,9 +427,37 @@
   </footer>
 
   <script>
+    // Jahr
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Formspree Submit ohne Seitenwechsel
+    // Burger / Mobile-Menü
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function setMenu(open){
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', ()=>{
+      const open = burger.getAttribute('aria-expanded') !== 'true';
+      setMenu(open);
+    });
+
+    // Schließen bei Linkklick / Escape / Resize > 900
+    mobileMenu.addEventListener('click', e=>{
+      if(e.target.tagName === 'A') setMenu(false);
+    });
+    window.addEventListener('keydown', e=>{
+      if(e.key === 'Escape') setMenu(false);
+    });
+    window.addEventListener('resize', ()=>{
+      if(window.innerWidth > 900) setMenu(false);
+    });
+
+    // Formspree AJAX
     const form = document.getElementById('contactForm');
     const statusEl = document.getElementById('formStatus');
     const btn = document.getElementById('submitBtn');
@@ -373,7 +471,6 @@
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       statusEl.style.display = 'none';
-
       if(!form.reportValidity()) return;
 
       btn.disabled = true; btn.textContent = 'Senden …';
@@ -402,6 +499,7 @@
   </script>
 </body>
 </html>
+
 
 
 
