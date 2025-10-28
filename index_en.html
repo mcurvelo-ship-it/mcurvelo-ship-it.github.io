@@ -2,26 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <!-- iPhone/Safari Safe-Area -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Cybershell Technologies – adaptive outer modules, skins & panels for humanoid robotics. Protection, design and brand identity at the surface of the future." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cybershell Technologies – adaptive outer modules, skins & panels for humanoid robotics. Protection, design and brand identity where robots touch the world." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0d12" />
   <title>Cybershell Technologies</title>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Cybershell Technologies" />
-  <meta property="og:description" content="The next evolution in robotics begins at the surface. Adaptive outer shells and panels for humanoid robots." />
-  <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.cybershell.tech/index_en.html" />
-
-  <!-- hreflang -->
-  <link rel="alternate" href="https://www.cybershell.tech/" hreflang="de" />
-  <link rel="alternate" href="https://www.cybershell.tech/index_en.html" hreflang="en" />
-  <link rel="alternate" href="https://www.cybershell.tech/" hreflang="x-default" />
-
-  <!-- Favicon -->
   <link rel="icon" href="cybershell_logo.png" type="image/png" />
 
   <style>
@@ -29,211 +14,109 @@
       --bg:#0b0d12; --panel:#121520; --ink:#e9eef6; --muted:#a7b0c0;
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
-      --safe-top: env(safe-area-inset-top, 0px);
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-
-    /* Base & iOS protection */
-    html { box-sizing: border-box; }
-    *, *::before, *::after { box-sizing: inherit; }
-    html, body { max-width:100%; overflow-x:hidden; background: var(--bg); }
+    *{box-sizing:border-box}
     body{
-      margin:0; color:var(--ink);
+      margin:0;color:var(--ink);
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       background:
         radial-gradient(1200px 600px at 70% -10%, rgba(90,242,214,.08), transparent 60%),
         radial-gradient(900px 500px at 10% 10%, rgba(138,168,255,.07), transparent 55%),
         var(--bg);
       letter-spacing:.2px;
-      padding-top: var(--safe-top);
     }
-    a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
+    a{color:var(--accent);text-decoration:none} a:hover{opacity:.9}
 
-    /* Header / Navigation */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(140%) blur(6px);
-      background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
-      border-bottom:1px solid var(--hair);
-    }
-    .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:12px 20px}
-    .brand{display:flex; align-items:center; gap:12px; min-width:0}
-    .brand img.logo{
-      height:72px; width:auto; display:block;
-      filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
-      transition: transform .35s ease;
-    }
-    .brand img.logo:hover{ transform: scale(1.05); }
-    .brand .wordmark{display:flex; flex-direction:column; line-height:1.1; min-width:0}
-    .brand .title{font-weight:800; letter-spacing:.6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-    .brand .sub{color:var(--muted); font-weight:500; letter-spacing:.3px; font-size:12.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-
-    /* Desktop nav */
-    nav{display:flex; gap:22px; align-items:center}
-    nav a{color:var(--muted); position:relative; padding:4px 0}
-    nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(6px);background:rgba(11,13,18,.9);border-bottom:1px solid var(--hair)}
+    .bar{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:16px}
+    .brand img.logo{height:88px;width:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35))}
+    .brand .wordmark{display:flex;flex-direction:column;line-height:1.1}
+    .brand .title{font-weight:800;letter-spacing:.6px}
+    .brand .sub{color:var(--muted);font-weight:500;font-size:12.5px}
+    nav{display:flex;gap:22px;align-items:center}
+    nav a{color:var(--muted);position:relative;padding:4px 0}
+    nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:.3s}
     nav a:hover::after{width:100%}
+    .lang{display:flex;gap:10px;align-items:center;margin-left:6px;padding-left:12px;border-left:1px solid var(--hair)}
+    .lang a{display:flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--hair);border-radius:999px;color:var(--muted);font-size:13px}
+    .lang a[aria-current="page"]{background:rgba(90,242,214,.12);border-color:var(--accent);color:var(--ink)}
 
-    /* Language switcher */
-    .lang{display:flex; gap:10px; align-items:center; margin-left:6px; padding-left:12px; border-left:1px solid var(--hair)}
-    .lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
-    .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
-    .lang a:hover{border-color:var(--accent); color:var(--ink); background:rgba(90,242,214,.12)}
-    .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px}
+    main{padding:40px 0 80px}
 
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
-    main{padding:32px 0 80px}
-
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:stretch;
-    }
-    .panel, .card{
-      position:relative; overflow:hidden;
+    .panel{
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair); border-radius:var(--radius);
-      padding:28px; box-shadow:var(--shadow);
-      display:flex; flex-direction:column;
+      box-shadow:var(--shadow); overflow:hidden; height:100%;
     }
-    .card::before{
-      content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
-      background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%);
-      pointer-events:none; z-index:0;
-    }
-    .sweep{
-      position:absolute; top:0; left:-40%; width:40%; height:100%;
-      background:linear-gradient(75deg, transparent, rgba(255,255,255,.08), transparent);
-      filter:blur(6px); animation:sweep 4.5s ease-in-out infinite;
-    }
-    @keyframes sweep{0%{left:-40%}50%{left:120%}100%{left:120%}}
 
-    h1{position:relative; z-index:1; margin:0 0 12px; font-size:clamp(28px,6.5vw,48px); line-height:1.12; letter-spacing:.3px}
-    .subtitle{position:relative; z-index:1; color:#cfe9e5; font-size:clamp(15px,3.8vw,18px); margin:4px 0 14px}
-    .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
-      border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.4px}
-    .lede{position:relative; z-index:1; color:var(--muted); font-size:clamp(15px,3.6vw,18px)}
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;}
+    .hero .text{ padding:34px; position:relative; }
+    .tag{display:inline-block;background:rgba(90,242,214,.12);color:var(--accent);
+      border:1px solid rgba(90,242,214,.35);padding:6px 10px;border-radius:999px;font-size:12px}
+    h1{margin:12px 0 12px;font-size:clamp(32px,4vw,52px);line-height:1.1}
+    .subtitle{color:#cfe9e5;font-size:18px;margin:4px 0 14px}
+    .lede{color:var(--muted);font-size:18px}
+    .spec{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .chip{background:#0e1119;border:1px solid var(--hair);padding:10px 12px;border-radius:999px;color:var(--muted);font-size:13px}
 
-    .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
-    .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
+    .hero .media{display:flex;flex-direction:column}
+    .media-img{flex:1;display:flex}
+    .media-img img{width:100%;height:100%;object-fit:cover;display:block;animation:float 8s ease-in-out infinite;}
+    .media-img img.contain{object-fit:contain;background:linear-gradient(180deg, rgba(18,21,32,1), rgba(18,21,32,.85));padding:10px}
+    .caption{padding:10px 14px 16px;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-    /* Hero image */
-    .panel .imgwrap{
-      flex:1; display:flex; min-height:320px;
-      border-radius:12px; overflow:hidden;
-      border:1px solid var(--hair);
-    }
-    .panel img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
-
-    /* Sections */
     section{margin-top:56px}
-    h2{font-size:clamp(22px,3vw,28px); margin:0 0 18px; color:var(--accent)}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    .tile{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .tile h3{margin:0 0 8px; font-size:18px}
+    h2{font-size:clamp(22px,3vw,28px);margin:0 0 18px;color:var(--accent)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .tile{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .tile h3{margin:0 0 8px;font-size:18px}
     .muted{color:var(--muted)}
 
-    /* Contact */
-    .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
-    .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
-    label{font-size:13px; color:var(--muted)}
-    input,textarea{background:#0e1119; color:var(--ink); border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+    .contact .card{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .field{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+    label{font-size:13px;color:var(--muted)}
+    input,textarea{background:#0e1119;color:var(--ink);border:1px solid var(--hair);border-radius:12px;padding:10px 12px;font:inherit}
     textarea{min-height:120px}
-    .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
-    .btn:disabled{opacity:.6; cursor:not-allowed}
+    .btn{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#091018;border:none;padding:11px 14px;border-radius:12px;font-weight:700;cursor:pointer}
+    .consent{display:flex;gap:10px;align-items:flex-start;margin-top:2px}
+    .note{font-size:12px;color:var(--muted)}
+    .status{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;background:#0e1b15;color:#c9f2df}
+    .status.error{background:#190e11;color:#ffd7dc}
 
-    /* Footer */
-    footer{border-top:1px solid var(--hair); color:var(--muted)}
-    .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
+    footer{border-top:1px solid var(--hair);color:var(--muted)}
+    .foot{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:18px 20px}
     .legal{font-size:12px}
+    .project-note{font-size:12px;color:var(--muted);opacity:.75}
 
-    /* Burger button (mobile) */
-    .burger{
-      display:none;
-      width:40px; height:40px; border-radius:8px;
-      background:#0f1320; border:1px solid var(--hair);
-      align-items:center; justify-content:center; color:var(--ink);
-      cursor:pointer;
-    }
-    .burger span{
-      width:20px; height:2px; background:var(--ink); position:relative; display:block;
-    }
-    .burger span::before, .burger span::after{
-      content:""; position:absolute; left:0; width:20px; height:2px; background:var(--ink);
-    }
-    .burger span::before{ top:-6px }
-    .burger span::after{ top:6px }
-
-    /* Responsive rules */
     @media (max-width:900px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
-      .brand img.logo{height:60px}
-      .panel .imgwrap{min-height:240px}
-    }
-    @media (max-width:640px){
-      .bar{gap:12px; padding:10px 16px}
-      .brand .title{max-width:58vw}
-      .brand .sub{display:none}
-      nav{display:none}
-      nav.is-open{
-        display:flex; flex-direction:column; align-items:flex-start; gap:12px;
-        position:relative; padding:12px 4px 8px;
-      }
-      .lang{margin-left:0; padding-left:0; border-left:none}
-      .burger{display:inline-flex}
+      .brand img.logo{height:76px}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="bar">
-      <div class="brand" aria-label="Cybershell logo and wordmark">
+      <div class="brand" aria-label="Cybershell logo and word mark">
         <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies Logo" />
         <div class="wordmark">
           <span class="title">Cybershell Technologies</span>
           <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
         </div>
       </div>
-
-      <!-- Burger (mobile only) -->
-      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
-        <span></span>
-      </button>
-
-      <nav id="mainNav" aria-label="Main navigation">
-        <a href="#research">Research</a>
-        <a href="#materials">Materials</a>
+      <nav aria-label="Primary navigation">
+        <a href="#solution">Solution</a>
+        <a href="#features">Features</a>
         <a href="#contact">Contact</a>
         <span class="lang" aria-label="Languages">
-          <a href="index.html">
-            <!-- DE flag (monochrome + white lines) -->
-            <svg class="flag" viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg" aria-label="German">
-              <rect x="0.5" y="0.5" width="17" height="11" rx="2"
-                    fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
-              <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
-              <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f"/>
-              <rect x="0.5" y="7.82" width="17" height="3.68" fill="#2e384e"/>
-              <line x1="1" y1="4.0" x2="17" y2="4.0" stroke="#ffffff" stroke-width=".6" opacity=".95"/>
-              <line x1="1" y1="7.7" x2="17" y2="7.7" stroke="#ffffff" stroke-width=".6" opacity=".95"/>
-            </svg>
-            DE
-          </a>
-          <a href="index_en.html" aria-current="page">
-            <!-- EN flag (white cross + outline) -->
-            <svg class="flag" viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg" aria-label="English">
-              <rect x="0.5" y="0.5" width="17" height="11" rx="2"
-                    fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
-              <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
-              <rect x="1.4" y="4.6" width="15.2" height="2.8" rx="1" fill="#ffffff" opacity=".98"/>
-            </svg>
-            EN
-          </a>
+          <a href="index.html">🇩🇪 DE</a>
+          <a href="index_en.html" aria-current="page">🇬🇧 EN</a>
         </span>
       </nav>
     </div>
@@ -242,70 +125,67 @@
   <main class="wrap">
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="card">
-        <span class="sweep" aria-hidden="true"></span>
-        <span class="tag">Research Project • 2025–2026</span>
-        <h1 id="hero-title">The next evolution in robotics begins at the surface.</h1>
-        <p class="subtitle">Adaptive exterior modules for humanoid robots.</p>
-
+      <div class="panel text">
+        <span class="tag">EU Design • CI-compliant Roboskins</span>
+        <h1 id="hero-title">The next evolution of robotics starts at the surface.</h1>
+        <p class="subtitle">Adaptive outer modules for humanoid robots.</p>
         <p class="lede">
-          The future of robotics doesn’t begin inside — it begins on its surface.<br>
-          Cybershell develops <strong>adaptive outer modules</strong> that combine <strong>design, function and intelligence</strong>.<br>
-          Each shell is <strong>resistant to abrasion, UV and chemicals, with verified fire behavior</strong>.<br>
-          <strong>Customizable in brand colors and finishes</strong> — a new level of identity for humanoid robotic systems.<br>
-          Testing with <strong>accredited partner laboratories</strong> paves the way to CE-certified applications in industrial environments.
+          The future of robotics doesn’t start inside – it starts at the surface.<br>
+          Cybershell develops <strong>adaptive exterior modules</strong> that unite <strong>design, function, and identity</strong>.<br>
+          Every module is <strong>abrasion, UV and chemical resistant</strong> and compatible with CE pathways.<br>
+          <strong>Custom corporate design</strong> for logistics, construction, retail & service.
         </p>
-
         <div class="spec" role="list">
-          <div class="chip" role="listitem">Mounting &lt; 20 min</div>
-          <div class="chip" role="listitem">UV / Abrasion / Chemical resistance</div>
-          <div class="chip" role="listitem">CE Compliance Path</div>
+          <div class="chip" role="listitem">Install &lt; 20 min</div>
+          <div class="chip" role="listitem">UV / Abrasion / Chemical</div>
+          <div class="chip" role="listitem">CE-path ready</div>
         </div>
       </div>
 
-      <div class="panel">
-        <div class="imgwrap">
-          <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Exploded view of Cybershell panels" />
+      <!-- HERO image (new) -->
+      <div class="panel media" aria-hidden="false">
+        <div class="media-img">
+          <img
+            src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png"
+            alt="Cybershell Optimus — side view with modular outer shells"
+            width="896" height="512" loading="eager">
         </div>
-        <div class="caption">Exploded View • Cybershell Panel Structure</div>
-      </div>
-    </section>
-
-    <!-- RESEARCH -->
-    <section id="research" aria-labelledby="research-title">
-      <h2 id="research-title">Research Focus</h2>
-      <div class="grid">
-        <div class="tile">
-          <h3>Mechanics & Interfaces</h3>
-          <p class="muted">Clip, magnetic and screw mounts — replaceable without affecting sensors or cooling. Focus: safety, tolerances, assembly time.</p>
-        </div>
-        <div class="tile">
-          <h3>Materials & Coatings</h3>
-          <p class="muted">TPU/PC/PA compounds, ESD options, anti-soil coatings. Tests for adhesion, abrasion, UV, temperature/humidity and cleaning agents.</p>
-        </div>
-        <div class="tile">
-          <h3>CE Compliance</h3>
-          <p class="muted">Compliance matrix, risk analysis, labeling. Aftermarket kits that do not modify the base unit.</p>
-        </div>
+        <div class="caption">Cybershell robot rendering with modular outer structure</div>
       </div>
     </section>
 
-    <!-- MATERIALS -->
-    <section id="materials" aria-labelledby="materials-title">
-      <h2 id="materials-title">Material Path & Validation</h2>
+    <!-- WHY -->
+    <section id="solution">
+      <h2>Why Cybershell?</h2>
       <div class="grid">
-        <div class="tile">
-          <h3>Lab Partnerships</h3>
-          <p class="muted">Collaboration with an accredited institute for robust test reports as a basis for grants and pilots.</p>
+        <article class="tile"><h3>CI Branding</h3><p class="muted">Colors, logos & patterns exactly to your corporate design. Swappable per campaign or site.</p></article>
+        <article class="tile"><h3>Protection & Hygiene</h3><p class="muted">Durable, cleanable surfaces; optional scratch-resistant, anti-static or anti-bacterial.</p></article>
+        <article class="tile"><h3>Fast Service</h3><p class="muted">Swap modules instead of full replacements – less downtime, predictable costs.</p></article>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <h2>Technical Highlights</h2>
+      <div class="grid">
+        <div class="tile"><h3>Materials & Finish</h3><p class="muted">TPU/PC/PA composites, optional ESD; paint, textures, inlays (metal/light).</p></div>
+        <div class="tile"><h3>Mechanics & Interfaces</h3><p class="muted">Clip, magnetic and screw systems; swap without touching sensors/cooling.</p></div>
+        <div class="tile"><h3>Sustainability</h3><p class="muted">Repairable sub-modules, recycling routes, EU supply chain.</p></div>
+      </div>
+    </section>
+
+    <!-- EXPLOSION -->
+    <section id="explosion">
+      <h2>Exploded View</h2>
+      <div class="panel media">
+        <div class="media-img">
+          <img
+            class="contain"
+            src="robot_web_shell_big.png"
+            alt="Exploded view of Cybershell modules — head, chest, waist, back, arms, legs, feet"
+            width="1200" height="800" loading="lazy">
         </div>
-        <div class="tile">
-          <h3>Design for Service</h3>
-          <p class="muted">Replaceable modules, low-residue disassembly, ID labeling for fleet management, QR/ID options.</p>
-        </div>
-        <div class="tile">
-          <h3>Sustainability</h3>
-          <p class="muted">Modularity reduces waste — damaged areas are replaced as submodules instead of full panels.</p>
-        </div>
+        <div class="caption">Build-up of the modular outer structure</div>
       </div>
     </section>
 
@@ -313,63 +193,64 @@
     <section id="contact" class="contact" aria-labelledby="contact-title">
       <div class="card">
         <h2 id="contact-title">Contact</h2>
-        <p class="muted">Project inquiries, research collaborations and material offers are welcome. This page is for information only (no sales).</p>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name" />
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" placeholder="your.address@example.com" />
-        </div>
-        <div class="field">
-          <label for="msg">Message</label>
-          <textarea id="msg" placeholder="Short message…"></textarea>
-        </div>
-        <button class="btn" type="button" disabled aria-disabled="true">
-          Form offline — please email info@cybershell.tech
-        </button>
+        <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
+          <input type="hidden" name="_subject" value="New inquiry via cybershell.tech (EN)" />
+          <div class="field"><label for="name">Name*</label><input id="name" name="name" required placeholder="Your name"></div>
+          <div class="field"><label for="email">Email*</label><input id="email" type="email" name="email" required placeholder="name@company.com"></div>
+          <div class="field"><label for="msg">Message*</label><textarea id="msg" name="message" required placeholder="Your message…"></textarea></div>
+          <div class="consent"><input id="consent" type="checkbox" required><label for="consent" class="note">I agree to the processing as described in the <a href="/datenschutz.html">privacy policy</a>.</label></div>
+          <button class="btn" id="submitBtn" type="submit">Send</button>
+          <div id="formStatus" class="status"></div>
+        </form>
       </div>
       <aside class="card" aria-label="Direct contact">
         <h3>Direct</h3>
-        <p class="muted">Email: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>
-        Project Lead: Mario Curvelo Carvalho</p>
-        <h3>Imprint (Light)</h3>
-        <p class="muted">Cybershell Technologies — research project in preparation. Purpose: R&amp;D of modular outer modules for robotics. No sales offers.</p>
+        <p class="muted">Email: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a></p>
       </aside>
     </section>
   </main>
 
   <footer>
     <div class="foot">
-      <div class="legal">© <span id="y"></span> Cybershell Technologies • Research Project • All rights reserved</div>
-      <div class="legal">Accessibility: high contrast, keyboard-friendly, no cookies or trackers.</div>
+      <div class="legal">© <span id="y"></span> Cybershell Technologies • All rights reserved</div>
+      <div class="project-note">Note: This website is part of a research project on adaptive robot surfaces.</div>
+      <div class="legal">Accessible, no cookies, no tracking.</div>
     </div>
   </footer>
 
   <script>
-    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Burger toggle
-    const burger = document.querySelector('.burger');
-    const nav = document.getElementById('mainNav');
-    burger.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    const btn = document.getElementById('submitBtn');
 
-    // Close nav on in-page link tap (mobile)
-    nav.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', ()=> {
-        if (nav.classList.contains('is-open')) {
-          nav.classList.remove('is-open');
-          burger.setAttribute('aria-expanded','false');
-        }
-      });
+    function show(msg, ok=true){
+      status.textContent = msg;
+      status.className = 'status' + (ok ? '' : ' error');
+      status.style.display = 'block';
+    }
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault(); status.style.display='none';
+      if(!form.reportValidity()) return;
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try{
+        const data = Object.fromEntries(new FormData(form).entries());
+        const res = await fetch(form.action, {
+          method:'POST',
+          headers:{'Accept':'application/json','Content-Type':'application/json'},
+          body: JSON.stringify(data)
+        });
+        if(res.ok){ show('Thank you! Your message has been sent.'); form.reset(); }
+        else{ show('Submission failed. Please try again later.', false); }
+      }catch{ show('Network error — please try again.', false); }
+      finally{ btn.disabled=false; btn.textContent='Send'; }
     });
   </script>
 </body>
 </html>
+
 
 
