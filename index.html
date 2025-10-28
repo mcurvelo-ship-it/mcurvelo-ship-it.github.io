@@ -69,18 +69,20 @@
     .lang{display:flex; gap:10px; align-items:center; margin-left:6px; padding-left:12px; border-left:1px solid var(--hair)}
     .lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
-    .lang a:hover{border-color:var(--accent); color:var(--ink); background:rgba(90,242,214,.12)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:40px 0 80px}
 
-    /* Hero */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
+    /* Hero – jetzt absolut bündig (gleiche Höhe beider Spalten) */
+    .hero{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;
+    }
     .card{
-      position:relative; overflow:hidden;
+      position:relative; overflow:hidden; height:100%;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
+      display:flex; flex-direction:column;
     }
     .card::before{
       content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
@@ -97,39 +99,24 @@
     .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
       border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px}
     .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
-
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* --- Korrigiert: Bild randlos/ohne Rahmen bis zum Rand --- */
+    /* Bild randlos & exakt gleiche Höhe wie Textkarte */
     .hero-vis{
-      display:flex; flex-direction:column;
-      background:none;               /* kein dunkler Hintergrund */
-      border:none;                   /* kein Rahmen */
-      border-radius:var(--radius);
-      box-shadow:none;               /* kein Schatten */
-      padding:0;                     /* kein Innenabstand */
-      overflow:hidden;               /* Bild darf bis zum Rand laufen */
+      height:100%; padding:0; border:none; box-shadow:none;
+      border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
     }
     .hero-vis .media{
-      position:relative;
-      border:none;                   /* kein innerer Rahmen */
-      border-radius:var(--radius);
-      overflow:hidden;
-      background:none;
-      display:flex; align-items:center; justify-content:center;
-      height:auto; min-height:0;     /* keine fixe Mindesthöhe -> kein leerer Balken oben */
+      flex:1 1 auto; height:100%; width:100%;
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+      background:none; border:none; border-radius:var(--radius);
     }
     .hero-vis img{
-      display:block;
-      width:100%;
-      height:auto;                   /* natürliche Höhe, keine Letterbox */
-      object-fit:cover;              /* füllt die Breite; wirkt randlos */
-      object-position:center center;
+      width:100%; height:100%; display:block;
+      object-fit:cover; object-position:center center;  /* edge-to-edge */
       animation:float 8s ease-in-out infinite;
     }
-    /* -------------------------------------------------------- */
-
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
     .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
 
@@ -161,7 +148,7 @@
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
-    /* Breite Explosionsgrafik – ohne Beschnitt */
+    /* Breite Explosionsgrafik – ohne Beschnitt (contain) */
     .media-wide{
       background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
       display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
@@ -246,7 +233,7 @@
 
       <div class="hero-vis" aria-hidden="false">
         <div class="media">
-          <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
+          <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Cybershell Robotervisualisierung – randlos, ohne Beschnitt-Balken">
         </div>
         <div class="caption">Aktuelles Visual der Cybershell-Außenmodule</div>
       </div>
@@ -304,7 +291,7 @@
     <!-- KONTAKT -->
     <section id="kontakt" class="contact" aria-labelledby="contact-title">
       <div class="card">
-        <h2 id="contact-title">Kontakt & Vorbestellung</h2>
+        <h2 id="contact-title">Kontakt</h2>
         <p class="muted">Schreiben Sie uns zu Anwendungsfall, Stückzahl und Zeitplan. Wir melden uns kurzfristig.</p>
 
         <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
@@ -415,6 +402,7 @@
   </script>
 </body>
 </html>
+
 
 
 
