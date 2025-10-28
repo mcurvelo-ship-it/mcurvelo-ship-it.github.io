@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cybershell Technologies – adaptive outer modules, skins & panels for humanoid robotics. Protection, design, and brand identity on the surface of the future." />
+  <meta name="description" content="Cybershell Technologies – adaptive outer modules, skins & panels for humanoid robotics. Protection, design and brand identity where robots meet the world." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0d12" />
   <title>Cybershell Technologies</title>
@@ -20,6 +20,7 @@
   <link rel="alternate" href="https://www.cybershell.tech/index_en.html" hreflang="en" />
   <link rel="alternate" href="https://www.cybershell.tech/" hreflang="x-default" />
 
+  <!-- Favicon -->
   <link rel="icon" href="cybershell_logo.png" type="image/png" />
 
   <style>
@@ -40,25 +41,29 @@
     }
     a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
 
-    /* Header / Nav */
+    /* Header / Navigation */
     header{
-      position:sticky; top:0; z-index:30;
+      position:sticky; top:0; z-index:20;
       backdrop-filter:saturate(140%) blur(6px);
       background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
       border-bottom:1px solid var(--hair);
     }
     .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:14px 20px}
-    .brand{display:flex; align-items:center; gap:16px; min-width:0}
-    .brand img.logo{height:88px; width:auto; display:block; filter:drop-shadow(0 8px 14px rgba(0,0,0,.35))}
-    .brand .wordmark{display:flex; flex-direction:column; line-height:1.1; min-width:0}
-    .brand .title{font-weight:800; letter-spacing:.6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .brand{display:flex; align-items:center; gap:16px}
+    .brand img.logo{
+      height:88px; width:auto; display:block;
+      filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
+      transition: transform .35s ease;
+    }
+    .brand img.logo:hover{ transform: scale(1.05); }
+    .brand .wordmark{display:flex; flex-direction:column; line-height:1.1}
+    .brand .title{font-weight:800; letter-spacing:.6px}
     .brand .sub{color:var(--muted); font-weight:500; letter-spacing:.3px; font-size:12.5px}
 
-    .nav-right{display:flex; align-items:center; gap:22px}
-    .nav-links{display:flex; align-items:center; gap:22px}
-    .nav-links a{color:var(--muted); position:relative; padding:4px 0; white-space:nowrap}
-    .nav-links a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s}
-    .nav-links a:hover::after{width:100%}
+    nav{display:flex; gap:22px; align-items:center}
+    nav a{color:var(--muted); position:relative; padding:4px 0}
+    nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s}
+    nav a:hover::after{width:100%}
 
     /* Language switcher */
     .lang{display:flex; gap:10px; align-items:center; margin-left:6px; padding-left:12px; border-left:1px solid var(--hair)}
@@ -66,43 +71,18 @@
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
-    /* Hamburger */
-    .hamburger{
-      display:none; appearance:none; background:#0e1119; border:1px solid var(--hair);
-      color:var(--ink); padding:8px 10px; border-radius:10px; cursor:pointer;
-      align-items:center; gap:8px;
-    }
-    .hamburger .lines{width:22px; height:14px; position:relative; display:inline-block}
-    .hamburger .lines::before,
-    .hamburger .lines::after,
-    .hamburger .lines span{
-      content:""; position:absolute; left:0; right:0; height:2px; background:var(--ink); border-radius:2px; transition:.25s ease;
-    }
-    .hamburger .lines::before{top:0}
-    .hamburger .lines span{top:6px}
-    .hamburger .lines::after{bottom:0}
-
-    /* Mobile menu panel */
-    .mobile-panel{
-      display:none; position:absolute; inset:auto 0 0 0; top:64px;
-      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.96));
-      border-top:1px solid var(--hair);
-      box-shadow:0 10px 30px rgba(0,0,0,.45);
-    }
-    .mobile-panel.open{display:block}
-    .mobile-inner{max-width:var(--max); margin:0 auto; padding:14px 20px 22px; display:flex; flex-direction:column; gap:10px}
-    .mobile-links a{display:block; padding:10px 2px; color:var(--ink); border-bottom:1px solid rgba(255,255,255,.06)}
-    .mobile-lang{display:flex; gap:10px; padding-top:8px}
-
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:40px 0 80px}
 
-    /* Hero / Cards */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
+    /* Hero – perfectly flush heights (text & image) */
+    .hero{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;
+    }
     .card{
-      position:relative; overflow:hidden;
+      position:relative; overflow:hidden; height:100%;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
+      display:flex; flex-direction:column;
     }
     .card::before{
       content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
@@ -119,17 +99,28 @@
     .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
       border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px}
     .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
-
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    .hero-vis img{
-      width:100%; height:auto; border-radius:18px; border:1px solid var(--hair);
-      box-shadow:var(--shadow); object-fit:cover; animation:float 8s ease-in-out infinite;
+    /* Image column: edge-to-edge, same height as text card */
+    .hero-vis{
+      height:100%; padding:0; border:none; box-shadow:none;
+      border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
     }
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .hero-vis .media{
+      flex:1 1 auto; height:100%; width:100%;
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+      background:none; border:none; border-radius:var(--radius);
+    }
+    .hero-vis img{
+      width:100%; height:100%; display:block;
+      object-fit:cover; object-position:center center;
+      animation:float 8s ease-in-out infinite;
+    }
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
     .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
 
+    /* Sections */
     section{margin-top:56px}
     h2{font-size:clamp(22px,3vw,28px); margin:0 0 18px; color:var(--accent)}
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
@@ -137,43 +128,45 @@
     .tile h3{margin:0 0 8px; font-size:18px}
     .muted{color:var(--muted)}
 
+    /* Contact */
     .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
     .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
     .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
     label{font-size:13px; color:var(--muted)}
     input,textarea{background:#0e1119; color:var(--ink); border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
-    textarea{min-height:120px}
+    textarea{min-height:120px; resize:vertical}
     .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
     .btn:disabled{opacity:.6; cursor:not-allowed}
+    .consent{display:flex; gap:10px; align-items:flex-start; margin-top:2px}
+    .consent input{margin-top:2px}
+    .status{display:none; margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid #25402f; background:#0e1b15; color:#c9f2df}
+    .status.error{border-color:#4a1e25; background:#190e11; color:#ffd7dc}
+    .note{font-size:12px; color:var(--muted)}
 
+    /* Footer */
     footer{border-top:1px solid var(--hair); color:var(--muted)}
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
-    /* Responsive */
-    @media (max-width:900px){
-      .brand img.logo{height:76px}
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .nav-links,.lang{display:none}
-      .hamburger{display:flex}
-      .mobile-panel{top:calc(56px + 14px)}
+    /* Wide explosion image (contain) */
+    .media-wide{
+      background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
+      display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
     }
-    @media (max-width:600px){
-      .bar{padding:10px 14px}
-      .brand img.logo{height:56px}
-      .brand .sub{display:none}
-      .wrap{padding:18px 14px}
-      .tag{font-size:11px;padding:4px 8px}
-      h1{font-size:clamp(26px,9vw,34px)}
-      .subtitle,.lede{font-size:16px}
-      .spec{grid-template-columns:repeat(2,1fr)}
-      .hero-vis img{animation:none; object-fit:contain}
+    .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .brand img.logo{height:76px}
+      .hero-vis .media{min-height:0}
+      .media-wide{min-height:360px}
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="bar">
       <div class="brand" aria-label="Cybershell logo and word mark">
@@ -183,17 +176,14 @@
           <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
         </div>
       </div>
-
-      <!-- Desktop nav -->
-      <div class="nav-right">
-        <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#research">Research</a>
-          <a href="#materials">Materials</a>
-          <a href="#contact">Contact</a>
-        </nav>
+      <nav aria-label="Primary navigation">
+        <a href="#solution">Solution</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
         <span class="lang" aria-label="Languages">
           <a href="index.html">
-            <svg class="flag" viewBox="0 0 18 12" aria-label="German flag" xmlns="http://www.w3.org/2000/svg">
+            <!-- DE flag -->
+            <svg class="flag" viewBox="0 0 18 12" aria-label="German" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
               <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
               <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f"/>
@@ -204,7 +194,8 @@
             DE
           </a>
           <a href="index_en.html" aria-current="page">
-            <svg class="flag" viewBox="0 0 18 12" aria-label="English flag" xmlns="http://www.w3.org/2000/svg">
+            <!-- EN flag -->
+            <svg class="flag" viewBox="0 0 18 12" aria-label="English" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
               <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
               <rect x="1.4" y="4.6" width="15.2" height="2.8" rx="1" fill="#ffffff" opacity=".98"/>
@@ -212,47 +203,7 @@
             EN
           </a>
         </span>
-
-        <!-- Hamburger (mobile) -->
-        <button class="hamburger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-          <span class="lines"><span></span></span>
-          Menu
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile panel -->
-    <div class="mobile-panel" id="mobileMenu">
-      <div class="mobile-inner">
-        <nav class="mobile-links" aria-label="Mobile navigation">
-          <a href="#research">Research</a>
-          <a href="#materials">Materials</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="mobile-lang">
-          <a class="lang" href="index.html" style="border:none;padding:0">
-            <span style="display:inline-flex;gap:8px;align-items:center;">
-              <svg class="flag" viewBox="0 0 18 12" aria-label="German flag" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
-                <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
-                <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f"/>
-                <rect x="0.5" y="7.82" width="17" height="3.68" fill="#2e384e"/>
-                <line x1="1" y1="4.0" x2="17" y2="4.0" stroke="#ffffff" stroke-width=".6" opacity=".95"/>
-                <line x1="1" y1="7.7" x2="17" y2="7.7" stroke="#ffffff" stroke-width=".6" opacity=".95"/>
-              </svg> DE
-            </span>
-          </a>
-          <a class="lang" href="index_en.html" aria-current="page" style="border:none;padding:0">
-            <span style="display:inline-flex;gap:8px;align-items:center;">
-              <svg class="flag" viewBox="0 0 18 12" aria-label="English flag" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
-                <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
-                <rect x="1.4" y="4.6" width="15.2" height="2.8" rx="1" fill="#ffffff" opacity=".98"/>
-              </svg> EN
-            </span>
-          </a>
-        </div>
-      </div>
+      </nav>
     </div>
   </header>
 
@@ -261,150 +212,196 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="card">
         <span class="sweep" aria-hidden="true"></span>
-        <span class="tag">Research Project • 2025–2026</span>
+        <span class="tag">EU Design • CI-compliant Roboskins</span>
         <h1 id="hero-title">The next evolution of robotics begins at the surface.</h1>
         <p class="subtitle">Adaptive outer modules for humanoid robots.</p>
+
         <p class="lede">
           The future of robotics does not start inside — it starts at the surface.<br>
-          Cybershell develops <strong>adaptive outer modules</strong> that <strong>combine design, function and intelligence</strong>.<br>
-          Each shell is <strong>resistant to abrasion, UV and chemicals, and verified for fire behavior</strong>.<br>
-          <strong>Customizable in your brand’s colors and textures</strong> — a new level of identity for humanoid robot systems.<br>
-          Testing with <strong>accredited partner laboratories</strong> paves the way toward CE-certified applications in industrial environments.
+          Cybershell develops <strong>adaptive outer modules</strong> that <strong>combine design, function and identity</strong>.<br>
+          Each module is <strong>resistant to abrasion, UV and chemicals; fire behavior verified</strong>.<br>
+          <strong>Customizable in your corporate design</strong> — new visibility and protection for humanoid systems.<br>
+          Testing with <strong>accredited partner laboratories</strong> paves the way toward CE-ready applications.
         </p>
+
         <div class="spec" role="list">
           <div class="chip" role="listitem">Assembly &lt; 20 min</div>
-          <div class="chip" role="listitem">UV / Abrasion / Chemical Resistance</div>
-          <div class="chip" role="listitem">CE Compliance Path</div>
+          <div class="chip" role="listitem">UV / Abrasion / Chemical resistance</div>
+          <div class="chip" role="listitem">CE compliance path</div>
         </div>
       </div>
 
-      <!-- HERO visual (side view render) -->
       <div class="hero-vis" aria-hidden="false">
-        <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Cybershell Optimus — side view with modular shells">
-        <div class="caption">Exploded side view • Cybershell outer shell concept</div>
+        <div class="media">
+          <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Cybershell robot visualization — edge-to-edge image">
+        </div>
+        <div class="caption">Latest visual of Cybershell outer modules</div>
       </div>
     </section>
 
-    <!-- RESEARCH -->
-    <section id="research" aria-labelledby="research-title">
-      <h2 id="research-title">Research Focus</h2>
+    <!-- SOLUTION -->
+    <section id="solution" aria-labelledby="solution-title">
+      <h2 id="solution-title">Why Cybershell?</h2>
       <div class="grid">
         <article class="tile">
-          <h3>Mechanics & Interfaces</h3>
-          <p class="muted">Clip, magnet and screw mounts; swap without touching sensors/cooling. Focus: safety, tolerances, assembly time.</p>
+          <h3>CI Branding</h3>
+          <p class="muted">Colors, logos & patterns precisely to your corporate design. Swappable per campaign or site.</p>
         </article>
         <article class="tile">
-          <h3>Materials & Coatings</h3>
-          <p class="muted">TPU/PC/PA composites, ESD options, anti-soil topcoats. Lab tests: adhesion, abrasion, UV, temperature/humidity, cleaning agents.</p>
+          <h3>Protection & Hygiene</h3>
+          <p class="muted">Robust, easy-clean surfaces; optional scratch-resistant, anti-static or anti-bacterial finishes.</p>
         </article>
         <article class="tile">
-          <h3>CE Compliance</h3>
-          <p class="muted">Compliance matrix, risk analysis, labeling. Aftermarket kit pathway — no changes to the base unit.</p>
+          <h3>Faster Service</h3>
+          <p class="muted">Panels as modules: swap instead of downtime — shorter outages, predictable costs.</p>
         </article>
       </div>
     </section>
 
-    <!-- MATERIALS -->
-    <section id="materials" aria-labelledby="materials-title">
-      <h2 id="materials-title">Material Path & Validation</h2>
+    <!-- FEATURES -->
+    <section id="features" aria-labelledby="features-title">
+      <h2 id="features-title">Technical Highlights</h2>
       <div class="grid">
         <div class="tile">
-          <h3>Laboratory Partnerships</h3>
-          <p class="muted">Collaboration with an accredited institute for robust test reports supporting grants & pilot deployments.</p>
+          <h3>Materials & Finish</h3>
+          <p class="muted">TPU/PC/PA composites, optional ESD; paint, film, texture, inlays (metals, light graphics).</p>
         </div>
         <div class="tile">
-          <h3>Design for Service</h3>
-          <p class="muted">Replaceable modules, low-residue removal, labeling for fleet management, optional QR/ID features.</p>
+          <h3>Mechanics & Interfaces</h3>
+          <p class="muted">Clip/magnet/screw concepts; swap without touching sensors/cooling; low assembly time.</p>
         </div>
         <div class="tile">
           <h3>Sustainability</h3>
-          <p class="muted">Modularity reduces waste — damaged zones are replaced as sub-modules instead of entire panels.</p>
+          <p class="muted">Modular replacement of damaged zones; recycling routes; EU supply chain.</p>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT (REPLACED WITH YOUR VERSION) -->
+    <!-- EXPLOSION -->
+    <section id="exploded" aria-labelledby="exploded-title">
+      <h2 id="exploded-title">Exploded view of the outer modules</h2>
+      <div class="card" style="padding:14px">
+        <div class="media-wide">
+          <img src="robot_web_shell_big.png" alt="Exploded view of modular Cybershell panels — full view without crop">
+        </div>
+        <div class="caption">Panel structure & layers</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
     <section id="contact" class="contact" aria-labelledby="contact-title">
       <div class="card">
         <h2 id="contact-title">Contact</h2>
-        <p class="muted">Project inquiries, research collaborations and material proposals are welcome. This site is for information only (no sales).</p>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name" />
-        </div>
-        <div class="field">
-          <label for="email">E-mail</label>
-          <input id="email" type="email" placeholder="your.address@example.com" />
-        </div>
-        <div class="field">
-          <label for="msg">Message</label>
-          <textarea id="msg" placeholder="Short message…"></textarea>
-        </div>
-        <button class="btn" type="button" disabled aria-disabled="true">
-          Form offline — please email info@cybershell.tech
-        </button>
+        <p class="muted">Tell us about your use case, quantity and timeline. We’ll get back to you shortly.</p>
+
+        <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
+          <!-- Honeypot -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;height:0;width:0;opacity:0" aria-hidden="true">
+          <!-- Meta -->
+          <input type="hidden" name="_subject" value="New inquiry via cybershell.tech (EN)" />
+          <input type="hidden" name="source" value="website-en" />
+
+          <div class="field">
+            <label for="name">Name*</label>
+            <input id="name" name="name" type="text" required placeholder="Your name">
+          </div>
+
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" placeholder="Company / organization">
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail*</label>
+            <input id="email" name="email" type="email" required placeholder="your@company.com" inputmode="email" autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="+1 …">
+          </div>
+
+          <div class="field">
+            <label for="msg">Message*</label>
+            <textarea id="msg" name="message" required placeholder="Briefly describe use case (deployment, quantity, timeline)…"></textarea>
+          </div>
+
+          <div class="consent">
+            <input id="gdpr" name="gdpr" type="checkbox" required>
+            <label for="gdpr" class="note">I agree that my data will be stored and processed to answer my inquiry. Details in the <a href="/privacy.html">privacy policy</a>.</label>
+          </div>
+          <div class="note">* Required fields</div>
+
+          <button class="btn" id="submitBtn" type="submit">Send</button>
+          <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+        </form>
       </div>
+
       <aside class="card" aria-label="Direct contact">
         <h3>Direct</h3>
-        <p class="muted">E-mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>
-        Project Lead: Mario Curvelo Carvalho</p>
-        <h3>Imprint (Light)</h3>
-        <p class="muted">Cybershell Technologies — research project in preparation. Purpose: R&amp;D on modular exterior modules for robotics. No sales offers.</p>
+        <p class="muted">
+          E-mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>
+          Project Lead: Mario Curvelo Carvalho
+        </p>
+        <h3>Imprint (Short)</h3>
+        <p class="muted">Cybershell Technologies — research & development project for modular exterior modules. No sales offers.</p>
       </aside>
-    </section>
-
-    <!-- EXPLODED VIEW -->
-    <section id="exploded" aria-labelledby="exploded-title">
-      <h2 id="exploded-title">Exploded View</h2>
-      <div class="hero-vis" aria-hidden="false">
-        <img class="contain" src="robot_web_shell_big.png" alt="Exploded view of Cybershell modules — head, chest, waist, back, arms, legs, feet">
-        <div class="caption">Build-up of the modular outer structure</div>
-      </div>
     </section>
   </main>
 
   <footer>
     <div class="foot">
-      <div class="legal">© <span id="y"></span> Cybershell Technologies • Research Project • All rights reserved</div>
-      <div class="legal">Accessibility: high contrast, keyboard friendly, no cookies or trackers.</div>
+      <div class="legal">© <span id="y"></span> Cybershell Technologies • All rights reserved</div>
+      <div class="legal">Accessibility: high contrast, keyboard-friendly, no cookies/trackers.</div>
     </div>
   </footer>
 
   <script>
-    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Burger logic
-    const burger = document.getElementById('burger');
-    const panel  = document.getElementById('mobileMenu');
+    // Formspree AJAX submit
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+    const btn = document.getElementById('submitBtn');
 
-    function closeMenu(){
-      panel.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
+    function showStatus(msg, ok=true){
+      statusEl.textContent = msg;
+      statusEl.className = 'status' + (ok ? '' : ' error');
+      statusEl.style.display = 'block';
     }
-    function openMenu(){
-      panel.classList.add('open');
-      burger.setAttribute('aria-expanded','true');
-    }
-    burger.addEventListener('click', ()=>{
-      (panel.classList.contains('open') ? closeMenu() : openMenu());
-    });
 
-    // close on link click
-    panel.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      statusEl.style.display = 'none';
+      if(!form.reportValidity()) return;
 
-    // close if resizing to desktop
-    window.addEventListener('resize', ()=>{
-      if (window.innerWidth > 900) closeMenu();
-    });
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try{
+        const data = Object.fromEntries(new FormData(form).entries());
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept':'application/json', 'Content-Type':'application/json' },
+          body: JSON.stringify(data)
+        });
 
-    // close on Escape
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape') closeMenu();
+        if(res.ok){
+          showStatus('Thanks! Your message has been sent. We will get back to you shortly.', true);
+          form.reset();
+        }else{
+          const out = await res.json().catch(()=> ({}));
+          const detail = out && out.errors ? out.errors.map(e=>e.message).join(' · ') : 'Please try again later.';
+          showStatus('Submission failed: ' + detail, false);
+        }
+      }catch(err){
+        showStatus('Network error — please check your connection and try again.', false);
+      }finally{
+        btn.disabled = false; btn.textContent = 'Send';
+      }
     });
   </script>
 </body>
 </html>
+
 
 
 
