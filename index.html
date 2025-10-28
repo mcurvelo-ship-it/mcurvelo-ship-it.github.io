@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#0b0d12" />
   <title>Cybershell Technologies</title>
   <link rel="icon" href="cybershell_logo.png" type="image/png" />
-
   <style>
     :root{
       --bg:#0b0d12; --panel:#121520; --ink:#e9eef6; --muted:#a7b0c0;
@@ -26,7 +25,6 @@
       letter-spacing:.2px;
     }
     a{color:var(--accent);text-decoration:none} a:hover{opacity:.9}
-
     header{position:sticky;top:0;z-index:20;backdrop-filter:blur(6px);background:rgba(11,13,18,.9);border-bottom:1px solid var(--hair)}
     .bar{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:14px 20px}
     .brand{display:flex;align-items:center;gap:16px}
@@ -41,16 +39,13 @@
     .lang{display:flex;gap:10px;align-items:center;margin-left:6px;padding-left:12px;border-left:1px solid var(--hair)}
     .lang a{display:flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--hair);border-radius:999px;color:var(--muted);font-size:13px}
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12);border-color:var(--accent);color:var(--ink)}
-
     .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px}
     main{padding:40px 0 80px}
-
     .panel{
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair); border-radius:var(--radius);
       box-shadow:var(--shadow); overflow:hidden; height:100%;
     }
-
     .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;}
     .hero .text{ padding:34px; position:relative; }
     .tag{display:inline-block;background:rgba(90,242,214,.12);color:var(--accent);
@@ -60,21 +55,18 @@
     .lede{color:var(--muted);font-size:18px}
     .spec{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
     .chip{background:#0e1119;border:1px solid var(--hair);padding:10px 12px;border-radius:999px;color:var(--muted);font-size:13px}
-
     .hero .media{display:flex;flex-direction:column}
     .media-img{flex:1;display:flex}
     .media-img img{width:100%;height:100%;object-fit:cover;display:block;animation:float 8s ease-in-out infinite;}
     .media-img img.contain{object-fit:contain;background:linear-gradient(180deg, rgba(18,21,32,1), rgba(18,21,32,.85));padding:10px}
     .caption{padding:10px 14px 16px;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-
     section{margin-top:56px}
     h2{font-size:clamp(22px,3vw,28px);margin:0 0 18px;color:var(--accent)}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .tile{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
     .tile h3{margin:0 0 8px;font-size:18px}
     .muted{color:var(--muted)}
-
     .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
     .contact .card{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
     .field{display:flex;flex-direction:column;gap:6px;margin:8px 0}
@@ -86,12 +78,10 @@
     .note{font-size:12px;color:var(--muted)}
     .status{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;background:#0e1b15;color:#c9f2df}
     .status.error{background:#190e11;color:#ffd7dc}
-
     footer{border-top:1px solid var(--hair);color:var(--muted)}
     .foot{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:18px 20px}
     .legal{font-size:12px}
     .project-note{font-size:12px;color:var(--muted);opacity:.75}
-
     @media (max-width:900px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
@@ -103,18 +93,18 @@
 <body>
   <header>
     <div class="bar">
-      <div class="brand" aria-label="Cybershell logo and word mark">
-        <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies Logo" />
+      <div class="brand">
+        <img class="logo" src="cybershell_logo.png" alt="Cybershell Logo" />
         <div class="wordmark">
           <span class="title">Cybershell Technologies</span>
           <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
         </div>
       </div>
-      <nav aria-label="Primary navigation">
+      <nav>
         <a href="#loesung">Lösung</a>
         <a href="#features">Features</a>
         <a href="#kontakt">Kontakt</a>
-        <span class="lang" aria-label="Languages">
+        <span class="lang">
           <a href="index.html" aria-current="page">🇩🇪 DE</a>
           <a href="index_en.html">🇬🇧 EN</a>
         </span>
@@ -123,11 +113,10 @@
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero">
       <div class="panel text">
         <span class="tag">EU-Design • CI-konforme Roboskins</span>
-        <h1 id="hero-title">Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
+        <h1>Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
         <p class="subtitle">Adaptive Außenmodule für humanoide Roboter.</p>
         <p class="lede">
           Die Zukunft der Robotik startet nicht im Inneren – sie startet an der Oberfläche.<br>
@@ -135,79 +124,23 @@
           Jedes Modul ist <strong>abrieb-, UV- und chemikalienbeständig</strong> und CE-kompatibel geprüft.<br>
           <strong>Individuell im Corporate Design</strong> – für Logistik, Bau, Retail & Service.
         </p>
-        <div class="spec" role="list">
-          <div class="chip" role="listitem">Montage &lt; 20 min</div>
-          <div class="chip" role="listitem">UV / Abrieb / Chemie</div>
-          <div class="chip" role="listitem">CE-Pfad ready</div>
+        <div class="spec">
+          <div class="chip">Montage &lt; 20 min</div>
+          <div class="chip">UV / Abrieb / Chemie</div>
+          <div class="chip">CE-Pfad ready</div>
         </div>
       </div>
 
-      <!-- HERO-Bild: robot_web_shell_big.png -->
-      <div class="panel media" aria-hidden="false">
-        <div class="media-img">
-          <img
-            src="robot_web_shell_big.png"
-            alt="Cybershell Optimus – Seitenansicht mit modularen Außenmodulen"
-            width="896" height="512" loading="eager">
-        </div>
-        <div class="caption">Rendering des Cybershell-Roboters in modularer Explosionsansicht</div>
-      </div>
-    </section>
-
-    <!-- WARUM -->
-    <section id="loesung">
-      <h2>Warum Cybershell?</h2>
-      <div class="grid">
-        <article class="tile"><h3>CI-Branding</h3><p class="muted">Farben, Logos & Muster exakt nach Corporate Design. Austauschbar pro Kampagne oder Standort.</p></article>
-        <article class="tile"><h3>Schutz & Hygiene</h3><p class="muted">Robuste, reinigungsfähige Oberflächen; optional kratzfest, antistatisch oder antibakteriell.</p></article>
-        <article class="tile"><h3>Schneller Service</h3><p class="muted">Module statt Volltausch – kürzere Downtime, planbare Kosten.</p></article>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section id="features">
-      <h2>Technische Eckdaten</h2>
-      <div class="grid">
-        <div class="tile"><h3>Materialien & Finish</h3><p class="muted">TPU/PC/PA-Komposite, optional ESD; Lack, Struktur, Inlays (Metall/Light).</p></div>
-        <div class="tile"><h3>Mechanik & Interfaces</h3><p class="muted">Clip-, Magnet-, Schraubsysteme; Tausch ohne Eingriff in Sensorik/Kühlung.</p></div>
-        <div class="tile"><h3>Nachhaltigkeit</h3><p class="muted">Reparierbare Sub-Module, Recycling-Routen, EU-Zulieferkette.</p></div>
-      </div>
-    </section>
-
-    <!-- EXPLOSION -->
-    <section id="explosion">
-      <h2>Explosionszeichnung</h2>
+      <!-- NEUES HAUPTBILD -->
       <div class="panel media">
         <div class="media-img">
           <img
-            class="contain"
-            src="robot_web_shell_big.png"
-            alt="Explosionszeichnung der Cybershell-Module – Kopf, Brust, Taille, Rücken, Arme, Beine, Füße"
-            width="1200" height="800" loading="lazy">
+            src="A_3D-rendered_digital_image_on_a_dark_g.png"
+            alt="Cybershell Optimus – Seitenansicht mit modularen Außenmodulen"
+            width="896" height="512">
         </div>
-        <div class="caption">Aufbau der modularen Außenstruktur</div>
+        <div class="caption">Rendering des Cybershell-Roboters mit modularer Außenstruktur</div>
       </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section id="kontakt" class="contact" aria-labelledby="contact-title">
-      <div class="card">
-        <h2 id="contact-title">Kontakt</h2>
-        <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
-          <input type="hidden" name="_subject" value="Neue Anfrage über cybershell.tech (DE)" />
-          <div class="field"><label for="name">Name*</label><input id="name" name="name" required placeholder="Ihr Name"></div>
-          <div class="field"><label for="email">E-Mail*</label><input id="email" type="email" name="email" required placeholder="name@firma.com"></div>
-          <div class="field"><label for="msg">Nachricht*</label><textarea id="msg" name="message" required placeholder="Ihr Anliegen…"></textarea></div>
-          <div class="consent"><input id="consent" type="checkbox" required><label for="consent" class="note">Ich stimme der Verarbeitung gemäß <a href="/datenschutz.html">Datenschutzerklärung</a> zu.</label></div>
-          <button class="btn" id="submitBtn" type="submit">Senden</button>
-          <div id="formStatus" class="status"></div>
-        </form>
-      </div>
-      <aside class="card" aria-label="Direktkontakt">
-        <h3>Direkt</h3>
-        <p class="muted">E-Mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a></p>
-      </aside>
     </section>
   </main>
 
@@ -221,36 +154,10 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('formStatus');
-    const btn = document.getElementById('submitBtn');
-
-    function show(msg, ok=true){
-      status.textContent = msg;
-      status.className = 'status' + (ok ? '' : ' error');
-      status.style.display = 'block';
-    }
-
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault(); status.style.display='none';
-      if(!form.reportValidity()) return;
-      btn.disabled = true; btn.textContent = 'Senden…';
-      try{
-        const data = Object.fromEntries(new FormData(form).entries());
-        const res = await fetch(form.action, {
-          method:'POST',
-          headers:{'Accept':'application/json','Content-Type':'application/json'},
-          body: JSON.stringify(data)
-        });
-        if(res.ok){ show('Danke! Ihre Nachricht wurde übermittelt.'); form.reset(); }
-        else{ show('Übermittlung fehlgeschlagen. Bitte später erneut versuchen.', false); }
-      }catch{ show('Netzwerkfehler – bitte erneut senden.', false); }
-      finally{ btn.disabled=false; btn.textContent='Senden'; }
-    });
   </script>
 </body>
 </html>
+
 
 
 
