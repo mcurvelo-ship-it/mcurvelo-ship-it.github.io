@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cybershell Technologies – adaptive Außenmodule, Skins & Paneele für humanoide Robotik. Schutz, Design und Markenidentität – dort, wo Roboter die Welt berühren." />
+  <meta name="description" content="Cybershell Technologies – adaptive outer modules, skins & panels for humanoid robotics. Protection, design, and brand identity on the surface of the future." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0d12" />
   <title>Cybershell Technologies</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cybershell Technologies" />
+  <meta property="og:description" content="The next evolution of robotics begins at the surface. Adaptive outer modules, skins & panels for humanoid robots." />
+  <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.cybershell.tech/index_en.html" />
+
+  <!-- hreflang -->
+  <link rel="alternate" href="https://www.cybershell.tech/" hreflang="de" />
+  <link rel="alternate" href="https://www.cybershell.tech/index_en.html" hreflang="en" />
+  <link rel="alternate" href="https://www.cybershell.tech/" hreflang="x-default" />
+
+  <!-- Favicon -->
   <link rel="icon" href="cybershell_logo.png" type="image/png" />
 
   <style>
@@ -17,7 +31,7 @@
     }
     *{box-sizing:border-box}
     body{
-      margin:0;color:var(--ink);
+      margin:0; color:var(--ink);
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       background:
         radial-gradient(1200px 600px at 70% -10%, rgba(90,242,214,.08), transparent 60%),
@@ -25,120 +39,118 @@
         var(--bg);
       letter-spacing:.2px;
     }
-    a{color:var(--accent);text-decoration:none} a:hover{opacity:.9}
+    a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
 
-    /* Header */
-    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(6px);background:rgba(11,13,18,.9);border-bottom:1px solid var(--hair)}
-    .bar{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:14px 20px}
-    .brand{display:flex;align-items:center;gap:16px;min-width:0}
-    .brand img.logo{height:88px;width:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35))}
-    .brand .wordmark{display:flex;flex-direction:column;line-height:1.1;min-width:0}
-    .brand .title{font-weight:800;letter-spacing:.6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .brand .sub{color:var(--muted);font-weight:500;font-size:12.5px}
-    nav{display:flex;gap:22px;align-items:center;flex:0 0 auto}
-    nav a{color:var(--muted);position:relative;padding:4px 0;white-space:nowrap}
-    nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:.3s}
+    /* Header / Navigation */
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:saturate(140%) blur(6px);
+      background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
+      border-bottom:1px solid var(--hair);
+    }
+    .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:14px 20px}
+    .brand{display:flex; align-items:center; gap:16px}
+    .brand img.logo{
+      height:88px; width:auto; display:block;
+      filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
+      transition: transform .35s ease;
+    }
+    .brand img.logo:hover{ transform: scale(1.05); }
+    .brand .wordmark{display:flex; flex-direction:column; line-height:1.1}
+    .brand .title{font-weight:800; letter-spacing:.6px}
+    .brand .sub{color:var(--muted); font-weight:500; letter-spacing:.3px; font-size:12.5px}
+
+    nav{display:flex; gap:22px; align-items:center}
+    nav a{color:var(--muted); position:relative; padding:4px 0}
+    nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s}
     nav a:hover::after{width:100%}
-    .lang{display:flex;gap:10px;align-items:center;margin-left:6px;padding-left:12px;border-left:1px solid var(--hair)}
-    .lang a{display:flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--hair);border-radius:999px;color:var(--muted);font-size:13px}
-    .lang a[aria-current="page"]{background:rgba(90,242,214,.12);border-color:var(--accent);color:var(--ink)}
 
-    .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px}
+    /* Language switcher */
+    .lang{display:flex; gap:10px; align-items:center; margin-left:6px; padding-left:12px; border-left:1px solid var(--hair)}
+    .lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
+    .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
+    .lang a:hover{border-color:var(--accent); color:var(--ink); background:rgba(90,242,214,.12)}
+    .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:40px 0 80px}
 
-    /* Panels */
-    .panel{
-      background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
-      border:1px solid var(--hair); border-radius:var(--radius);
-      box-shadow:var(--shadow); overflow:hidden; height:100%;
-    }
-
     /* Hero */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;}
-    .hero .text{ padding:34px; position:relative; }
-    .tag{display:inline-block;background:rgba(90,242,214,.12);color:var(--accent);
-      border:1px solid rgba(90,242,214,.35);padding:6px 10px;border-radius:999px;font-size:12px}
-    h1{margin:12px 0 12px;font-size:clamp(32px,4vw,52px);line-height:1.1}
-    .subtitle{color:#cfe9e5;font-size:18px;margin:4px 0 14px}
-    .lede{color:var(--muted);font-size:18px}
-    .spec{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-    .chip{background:#0e1119;border:1px solid var(--hair);padding:10px 12px;border-radius:999px;color:var(--muted);font-size:13px}
-
-    .hero .media{display:flex;flex-direction:column}
-    .media-img{flex:1;display:flex;min-height:420px}
-    .media-img img{
-      width:100%;height:100%;object-fit:cover;display:block;
-      animation:float 8s ease-in-out infinite;
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
+    .hero .card{
+      position:relative; overflow:hidden;
+      background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
+      border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
     }
-    .media-img img.contain{object-fit:contain;background:linear-gradient(180deg, rgba(18,21,32,1), rgba(18,21,32,.85));padding:10px}
-    .caption{padding:10px 14px 16px;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-    @media (prefers-reduced-motion:reduce){
-      .media-img img{animation:none}
+    .hero .card::before{
+      content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
+      background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%);
+      pointer-events:none; z-index:0;
     }
+    .sweep{
+      position:absolute; top:0; left:-40%; width:40%; height:100%;
+      background:linear-gradient(75deg, transparent, rgba(255,255,255,.08), transparent);
+      filter:blur(6px); animation:sweep 4.5s ease-in-out infinite;
+    }
+    @keyframes sweep{0%{left:-40%}50%{left:120%}100%{left:120%}}
 
-    /* Sektionen */
+    h1{position:relative; z-index:1; margin:0 0 12px; font-size:clamp(32px,4vw,52px); line-height:1.1; letter-spacing:.3px}
+    .subtitle{position:relative; z-index:1; color:#cfe9e5; font-size:18px; margin:4px 0 14px}
+    .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
+      border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.4px}
+    .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
+
+    .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
+    .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
+
+    .hero-vis img{
+      width:100%; height:auto; border-radius:18px; border:1px solid var(--hair);
+      box-shadow:var(--shadow); object-fit:cover; animation:float 8s ease-in-out infinite;
+    }
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
+
+    /* Sections */
     section{margin-top:56px}
-    h2{font-size:clamp(22px,3vw,28px);margin:0 0 18px;color:var(--accent)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .tile{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-    .tile h3{margin:0 0 8px;font-size:18px}
+    h2{font-size:clamp(22px,3vw,28px); margin:0 0 18px; color:var(--accent)}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .tile{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .tile h3{margin:0 0 8px; font-size:18px}
     .muted{color:var(--muted)}
 
-    /* Kontakt */
-    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
-    .contact .card{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-    .field{display:flex;flex-direction:column;gap:6px;margin:8px 0}
-    label{font-size:13px;color:var(--muted)}
-    input,textarea{background:#0e1119;color:var(--ink);border:1px solid var(--hair);border-radius:12px;padding:10px 12px;font:inherit}
+    /* Contact */
+    .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
+    .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
+    label{font-size:13px; color:var(--muted)}
+    input,textarea{background:#0e1119; color:var(--ink); border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
     textarea{min-height:120px}
-    .btn{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#091018;border:none;padding:11px 14px;border-radius:12px;font-weight:700;cursor:pointer}
-    .consent{display:flex;gap:10px;align-items:flex-start;margin-top:2px}
-    .note{font-size:12px;color:var(--muted)}
-    .status{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;background:#0e1b15;color:#c9f2df}
-    .status.error{background:#190e11;color:#ffd7dc}
+    .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
+    .btn:disabled{opacity:.6; cursor:not-allowed}
 
     /* Footer */
-    footer{border-top:1px solid var(--hair);color:var(--muted)}
-    .foot{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:18px 20px}
+    footer{border-top:1px solid var(--hair); color:var(--muted)}
+    .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
-    .project-note{font-size:12px;color:var(--muted);opacity:.75}
 
-    /* ===== Mobile Tweaks (≤ 600px) ===== */
+    /* Mobile / Tablet */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .brand img.logo{height:76px}
+    }
     @media (max-width:600px){
       .bar{padding:10px 14px}
       .brand img.logo{height:56px}
-      .brand .title{font-size:16px;letter-spacing:.4px}
       .brand .sub{display:none}
-      nav{gap:14px}
-      nav a{font-size:14px}
-      .lang{display:none} /* Platz sparen; Sprache bleibt über /index_en.html erreichbar */
-
       .wrap{padding:18px 14px}
-      .hero{grid-template-columns:1fr; gap:16px}
-      .panel{height:auto}                /* keine erzwungene Höhe */
-      .hero .text{padding:18px}
-      .media-img{min-height:360px}
-      .media-img img{object-fit:contain; animation:none} /* Bild immer sichtbar, ohne Beschnitt */
+      .tag{font-size:11px;padding:4px 8px}
       h1{font-size:clamp(26px,9vw,34px)}
       .subtitle,.lede{font-size:16px}
-      .tag{font-size:11px;padding:4px 8px}
       .spec{grid-template-columns:repeat(2,1fr)}
-      .caption{font-size:12px}
-      .contact{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-    }
-
-    /* ===== Tablet Tweaks (601–900px) ===== */
-    @media (min-width:601px) and (max-width:900px){
-      .brand img.logo{height:68px}
-      .hero{grid-template-columns:1fr; gap:24px}
-      .panel{height:auto}
-      .media-img{min-height:420px}
-      .media-img img{object-fit:contain}
-      h1{font-size:clamp(28px,6vw,40px)}
-      .spec{grid-template-columns:repeat(2,1fr)}
+      .lang{display:none}
+      .hero-vis img{animation:none; object-fit:contain}
     }
   </style>
 </head>
@@ -154,12 +166,33 @@
         </div>
       </div>
       <nav aria-label="Primary navigation">
-        <a href="#loesung">Lösung</a>
-        <a href="#features">Features</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="#research">Research</a>
+        <a href="#materials">Materials</a>
+        <a href="#contact">Contact</a>
         <span class="lang" aria-label="Languages">
-          <a href="index.html" aria-current="page">🇩🇪 DE</a>
-          <a href="index_en.html">🇬🇧 EN</a>
+          <a href="index.html">
+            <!-- DE flag -->
+            <svg class="flag" viewBox="0 0 18 12" aria-label="German flag" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="17" height="11" rx="2"
+                    fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+              <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
+              <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f"/>
+              <rect x="0.5" y="7.82" width="17" height="3.68" fill="#2e384e"/>
+              <line x1="1" y1="4.0" x2="17" y2="4.0" stroke="#ffffff" stroke-width=".6" opacity=".95"/>
+              <line x1="1" y1="7.7" x2="17" y2="7.7" stroke="#ffffff" stroke-width=".6" opacity=".95"/>
+            </svg>
+            DE
+          </a>
+          <a href="index_en.html" aria-current="page">
+            <!-- EN flag -->
+            <svg class="flag" viewBox="0 0 18 12" aria-label="English flag" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="17" height="11" rx="2"
+                    fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+              <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
+              <rect x="1.4" y="4.6" width="15.2" height="2.8" rx="1" fill="#ffffff" opacity=".98"/>
+            </svg>
+            EN
+          </a>
         </span>
       </nav>
     </div>
@@ -168,132 +201,124 @@
   <main class="wrap">
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="panel text">
-        <span class="tag">EU-Design • CI-konforme Roboskins</span>
-        <h1 id="hero-title">Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
-        <p class="subtitle">Adaptive Außenmodule für humanoide Roboter.</p>
-        <p class="lede">
-          Die Zukunft der Robotik startet nicht im Inneren – sie startet an der Oberfläche.<br>
-          Cybershell entwickelt <strong>adaptive Außenmodule</strong>, die <strong>Design, Funktion und Identität</strong> vereinen.<br>
-          Jedes Modul ist <strong>abrieb-, UV- und chemikalienbeständig</strong> und CE-kompatibel geprüft.<br>
-          <strong>Individuell im Corporate Design</strong> – für Logistik, Bau, Retail & Service.
-        </p>
-        <div class="spec" role="list">
-          <div class="chip" role="listitem">Montage &lt; 20 min</div>
-          <div class="chip" role="listitem">UV / Abrieb / Chemie</div>
-          <div class="chip" role="listitem">CE-Pfad ready</div>
-        </div>
-      </div>
-
-      <!-- HERO-Bild -->
-      <div class="panel media" aria-hidden="false">
-        <div class="media-img">
-          <img
-            src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png"
-            alt="Cybershell Optimus – Seitenansicht mit modularen Außenmodulen"
-            width="896" height="512" loading="eager">
-        </div>
-        <div class="caption">Rendering des Cybershell-Roboters in modularer Explosionsansicht</div>
-      </div>
-    </section>
-
-    <!-- WARUM -->
-    <section id="loesung">
-      <h2>Warum Cybershell?</h2>
-      <div class="grid">
-        <article class="tile"><h3>CI-Branding</h3><p class="muted">Farben, Logos & Muster exakt nach Corporate Design. Austauschbar pro Kampagne oder Standort.</p></article>
-        <article class="tile"><h3>Schutz & Hygiene</h3><p class="muted">Robuste, reinigungsfähige Oberflächen; optional kratzfest, antistatisch oder antibakteriell.</p></article>
-        <article class="tile"><h3>Schneller Service</h3><p class="muted">Module statt Volltausch – kürzere Downtime, planbare Kosten.</p></article>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section id="features">
-      <h2>Technische Eckdaten</h2>
-      <div class="grid">
-        <div class="tile"><h3>Materialien & Finish</h3><p class="muted">TPU/PC/PA-Komposite, optional ESD; Lack, Struktur, Inlays (Metall/Light).</p></div>
-        <div class="tile"><h3>Mechanik & Interfaces</h3><p class="muted">Clip-, Magnet-, Schraubsysteme; Tausch ohne Eingriff in Sensorik/Kühlung.</p></div>
-        <div class="tile"><h3>Nachhaltigkeit</h3><p class="muted">Reparierbare Sub-Module, Recycling-Routen, EU-Zulieferkette.</p></div>
-      </div>
-    </section>
-
-    <!-- EXPLOSION -->
-    <section id="explosion">
-      <h2>Explosionszeichnung</h2>
-      <div class="panel media">
-        <div class="media-img">
-          <img
-            class="contain"
-            src="robot_web_shell_big.png"
-            alt="Explosionszeichnung der Cybershell-Module – Kopf, Brust, Taille, Rücken, Arme, Beine, Füße"
-            width="1200" height="800" loading="lazy">
-        </div>
-        <div class="caption">Aufbau der modularen Außenstruktur</div>
-      </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section id="kontakt" class="contact" aria-labelledby="contact-title">
       <div class="card">
-        <h2 id="contact-title">Kontakt</h2>
-        <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
-          <input type="hidden" name="_subject" value="Neue Anfrage über cybershell.tech (DE)" />
-          <div class="field"><label for="name">Name*</label><input id="name" name="name" required placeholder="Ihr Name"></div>
-          <div class="field"><label for="email">E-Mail*</label><input id="email" type="email" name="email" required placeholder="name@firma.com"></div>
-          <div class="field"><label for="msg">Nachricht*</label><textarea id="msg" name="message" required placeholder="Ihr Anliegen…"></textarea></div>
-          <div class="consent"><input id="consent" type="checkbox" required><label for="consent" class="note">Ich stimme der Verarbeitung gemäß <a href="/datenschutz.html">Datenschutzerklärung</a> zu.</label></div>
-          <button class="btn" id="submitBtn" type="submit">Senden</button>
-          <div id="formStatus" class="status"></div>
-        </form>
+        <span class="sweep" aria-hidden="true"></span>
+        <span class="tag">Research Project • 2025–2026</span>
+        <h1 id="hero-title">The next evolution of robotics begins at the surface.</h1>
+        <p class="subtitle">Adaptive outer modules for humanoid robots.</p>
+
+        <p class="lede">
+          The future of robotics does not start inside — it starts at the surface.<br>
+          Cybershell develops <strong>adaptive outer modules</strong> that <strong>combine design, function and intelligence</strong>.<br>
+          Each shell is <strong>resistant to abrasion, UV and chemicals, and verified for fire behavior</strong>.<br>
+          <strong>Customizable in your brand’s colors and textures</strong> — a new level of identity for humanoid robot systems.<br>
+          Testing with <strong>accredited partner laboratories</strong> paves the way toward CE-certified applications in industrial environments.
+        </p>
+
+        <div class="spec" role="list">
+          <div class="chip" role="listitem">Assembly &lt; 20 min</div>
+          <div class="chip" role="listitem">UV / Abrasion / Chemical Resistance</div>
+          <div class="chip" role="listitem">CE Compliance Path</div>
+        </div>
       </div>
-      <aside class="card" aria-label="Direktkontakt">
-        <h3>Direkt</h3>
-        <p class="muted">E-Mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a></p>
+
+      <!-- HERO visual: use the new side-view render -->
+      <div class="hero-vis" aria-hidden="false">
+        <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Cybershell Optimus — side view with modular shells">
+        <div class="caption">Exploded side view • Cybershell outer shell concept</div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" aria-labelledby="research-title">
+      <h2 id="research-title">Research Focus</h2>
+      <div class="grid">
+        <article class="tile">
+          <h3>Mechanics & Interfaces</h3>
+          <p class="muted">Clip, magnet and screw mounts; swap without touching sensors/cooling. Focus: safety, tolerances, assembly time.</p>
+        </article>
+        <article class="tile">
+          <h3>Materials & Coatings</h3>
+          <p class="muted">TPU/PC/PA composites, ESD options, anti-soil topcoats. Lab tests: adhesion, abrasion, UV, temperature/humidity, cleaning agents.</p>
+        </article>
+        <article class="tile">
+          <h3>CE Compliance</h3>
+          <p class="muted">Compliance matrix, risk analysis, labeling. Aftermarket kit pathway — no changes to the base unit.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- MATERIALS -->
+    <section id="materials" aria-labelledby="materials-title">
+      <h2 id="materials-title">Material Path & Validation</h2>
+      <div class="grid">
+        <div class="tile">
+          <h3>Laboratory Partnerships</h3>
+          <p class="muted">Collaboration with an accredited institute for robust test reports supporting grants & pilot deployments.</p>
+        </div>
+        <div class="tile">
+          <h3>Design for Service</h3>
+          <p class="muted">Replaceable modules, low-residue removal, labeling for fleet management, optional QR/ID features.</p>
+        </div>
+        <div class="tile">
+          <h3>Sustainability</h3>
+          <p class="muted">Modularity reduces waste — damaged zones are replaced as sub-modules instead of entire panels.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="card">
+        <h2 id="contact-title">Contact</h2>
+        <p class="muted">Project inquiries, research collaborations and material proposals are welcome. This site is for information only (no sales).</p>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" placeholder="your.address@example.com" />
+        </div>
+        <div class="field">
+          <label for="msg">Message</label>
+          <textarea id="msg" placeholder="Short message…"></textarea>
+        </div>
+        <button class="btn" type="button" disabled aria-disabled="true">
+          Form offline — please email info@cybershell.tech
+        </button>
+      </div>
+      <aside class="card" aria-label="Direct contact">
+        <h3>Direct</h3>
+        <p class="muted">E-mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a></p>
+        <h3>Imprint (Light)</h3>
+        <p class="muted">Cybershell Technologies — research project in preparation. Purpose: R&amp;D on modular exterior modules for robotics. No sales offers.</p>
       </aside>
+    </section>
+
+    <!-- EXPLODED VIEW (separate large visual) -->
+    <section id="exploded" aria-labelledby="exploded-title">
+      <h2 id="exploded-title">Exploded View</h2>
+      <div class="hero-vis" aria-hidden="false">
+        <img class="contain" src="robot_web_shell_big.png" alt="Exploded view of Cybershell modules — head, chest, waist, back, arms, legs, feet">
+        <div class="caption">Build-up of the modular outer structure</div>
+      </div>
     </section>
   </main>
 
   <footer>
     <div class="foot">
-      <div class="legal">© <span id="y"></span> Cybershell Technologies • Alle Rechte vorbehalten</div>
-      <div class="project-note">Hinweis: Diese Website ist Teil eines Forschungsprojekts zu adaptiven Roboteroberflächen.</div>
-      <div class="legal">Barrierefrei, keine Cookies, kein Tracking.</div>
+      <div class="legal">© <span id="y"></span> Cybershell Technologies • Research Project • All rights reserved</div>
+      <div class="legal">Accessibility: high contrast, keyboard friendly, no cookies or trackers.</div>
     </div>
   </footer>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('formStatus');
-    const btn = document.getElementById('submitBtn');
-
-    function show(msg, ok=true){
-      status.textContent = msg;
-      status.className = 'status' + (ok ? '' : ' error');
-      status.style.display = 'block';
-    }
-
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault(); status.style.display='none';
-      if(!form.reportValidity()) return;
-      btn.disabled = true; btn.textContent = 'Senden…';
-      try{
-        const data = Object.fromEntries(new FormData(form).entries());
-        const res = await fetch(form.action, {
-          method:'POST',
-          headers:{'Accept':'application/json','Content-Type':'application/json'},
-          body: JSON.stringify(data)
-        });
-        if(res.ok){ show('Danke! Ihre Nachricht wurde übermittelt.'); form.reset(); }
-        else{ show('Übermittlung fehlgeschlagen. Bitte später erneut versuchen.', false); }
-      }catch{ show('Netzwerkfehler – bitte erneut senden.', false); }
-      finally{ btn.disabled=false; btn.textContent='Senden'; }
-    });
   </script>
 </body>
 </html>
+
 
 
 
