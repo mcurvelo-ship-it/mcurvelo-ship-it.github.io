@@ -28,6 +28,7 @@
       --bg:#0b0d12; --panel:#121520; --ink:#e9eef6; --muted:#a7b0c0;
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
+      --safe-top: env(safe-area-inset-top);
     }
     *{box-sizing:border-box}
     body{
@@ -43,12 +44,12 @@
 
     /* Header / Navigation (Desktop unverändert) */
     header{
-      position:sticky; top:0; z-index:50;
+      position:sticky; top:0; z-index:70;
       backdrop-filter:saturate(140%) blur(6px);
       background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
       border-bottom:1px solid var(--hair);
     }
-    .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:14px 20px}
+    .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:calc(10px + var(--safe-top)) 20px 14px}
     .brand{display:flex; align-items:center; gap:16px}
     .brand img.logo{
       height:88px; width:auto; display:block;
@@ -70,14 +71,14 @@
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
-    /* Burger-Button nur mobil */
+    /* Burger-Button */
     .burger{
       display:none;
-      width:42px; height:38px; border-radius:10px; border:1px solid var(--hair);
+      width:44px; height:40px; border-radius:12px; border:1px solid var(--hair);
       background:#0e1119; color:var(--ink); align-items:center; justify-content:center;
     }
     .burger span, .burger::before, .burger::after{
-      content:""; display:block; width:20px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;
+      content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;
     }
     .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
     .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
@@ -86,19 +87,20 @@
     /* Mobile Menü-Panel */
     .mobile-menu{
       display:none;
-      position:fixed; inset:64px 10px auto 10px; z-index:60;
-      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.92));
+      position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80;
+      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94));
       border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow);
       padding:14px;
     }
-    .mobile-menu.open{display:block}
+    .mobile-menu.open{display:block; animation:fadeIn .18s ease-out}
+    @keyframes fadeIn{from{opacity:.001; transform:translateY(-6px)} to{opacity:1; transform:none}}
     .mobile-row{display:flex; flex-direction:column; gap:10px}
-    .mobile-row a{padding:10px 12px; border:1px solid var(--hair); border-radius:12px; color:var(--ink)}
-    .mobile-lang{display:flex; gap:8px; margin-top:8px}
-    .mobile-lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
+    .mobile-row a{padding:12px 14px; border:1px solid var(--hair); border-radius:12px; color:var(--ink); background:#0e1119}
+    .mobile-lang{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
+    .mobile-lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px; background:#0e1119}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
-    main{padding:40px 0 80px}
+    main{padding:20px 0 80px}
 
     /* Hero */
     .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
@@ -180,22 +182,21 @@
     }
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
-    /* ===== Mobile: Burger & Menü ===== */
-    @media (max-width:900px){
+    /* ===== Mobile: Burger & Menü =====
+       Range erhöht auf 1024px, damit es sicher greift */
+    @media (max-width:1024px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .brand img.logo{height:76px}
 
       /* Desktop-Nav ausblenden, Burger zeigen */
-      nav .nav-links, nav .lang{display:none}
+      nav .nav-links, nav .lang{display:none !important}
       .burger{display:flex}
 
-      /* Damit die Wortmarke bei wenig Platz nicht umbrecht */
       .brand .wordmark .title{font-size:18px}
       .brand .wordmark .sub{font-size:11.5px}
 
-      /* Bildhöhen etwas reduzieren */
       .media-wide{min-height:360px}
     }
   </style>
@@ -243,7 +244,7 @@
           </a>
         </span>
 
-        <!-- Burger (nur mobil sichtbar) -->
+        <!-- Burger (mobil) -->
         <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
           <span></span>
         </button>
@@ -446,7 +447,7 @@
       setMenu(open);
     });
 
-    // Schließen bei Linkklick / Escape / Resize > 900
+    // Schließen bei Linkklick / Escape / Resize > 1024
     mobileMenu.addEventListener('click', e=>{
       if(e.target.tagName === 'A') setMenu(false);
     });
@@ -454,7 +455,7 @@
       if(e.key === 'Escape') setMenu(false);
     });
     window.addEventListener('resize', ()=>{
-      if(window.innerWidth > 900) setMenu(false);
+      if(window.innerWidth > 1024) setMenu(false);
     });
 
     // Formspree AJAX
@@ -499,6 +500,7 @@
   </script>
 </body>
 </html>
+
 
 
 
