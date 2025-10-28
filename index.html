@@ -101,20 +101,35 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bild-Container: KEIN Beschnitt */
+    /* --- Korrigiert: Bild randlos/ohne Rahmen bis zum Rand --- */
     .hero-vis{
-      display:flex; flex-direction:column; background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
-      border:1px solid var(--hair); border-radius:var(--radius); box-shadow:var(--shadow); padding:10px;
+      display:flex; flex-direction:column;
+      background:none;               /* kein dunkler Hintergrund */
+      border:none;                   /* kein Rahmen */
+      border-radius:var(--radius);
+      box-shadow:none;               /* kein Schatten */
+      padding:0;                     /* kein Innenabstand */
+      overflow:hidden;               /* Bild darf bis zum Rand laufen */
     }
     .hero-vis .media{
-      position:relative; border-radius:12px; overflow:hidden; border:1px solid var(--hair);
-      background:#0e1119; display:flex; align-items:center; justify-content:center;
-      height:100%; min-height:560px; /* gleiche visuelle Höhe wie Textkarte */
+      position:relative;
+      border:none;                   /* kein innerer Rahmen */
+      border-radius:var(--radius);
+      overflow:hidden;
+      background:none;
+      display:flex; align-items:center; justify-content:center;
+      height:auto; min-height:0;     /* keine fixe Mindesthöhe -> kein leerer Balken oben */
     }
     .hero-vis img{
-      width:100%; height:100%; object-fit:contain; object-position:center center; display:block;
+      display:block;
+      width:100%;
+      height:auto;                   /* natürliche Höhe, keine Letterbox */
+      object-fit:cover;              /* füllt die Breite; wirkt randlos */
+      object-position:center center;
       animation:float 8s ease-in-out infinite;
     }
+    /* -------------------------------------------------------- */
+
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
     .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
 
@@ -158,7 +173,7 @@
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .brand img.logo{height:76px}
-      .hero-vis .media{min-height:420px}
+      .hero-vis .media{min-height:0}
       .media-wide{min-height:360px}
     }
   </style>
@@ -289,7 +304,7 @@
     <!-- KONTAKT -->
     <section id="kontakt" class="contact" aria-labelledby="contact-title">
       <div class="card">
-        <h2 id="contact-title">Kontakt</h2>
+        <h2 id="contact-title">Kontakt & Vorbestellung</h2>
         <p class="muted">Schreiben Sie uns zu Anwendungsfall, Stückzahl und Zeitplan. Wir melden uns kurzfristig.</p>
 
         <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
@@ -400,6 +415,7 @@
   </script>
 </body>
 </html>
+
 
 
 
