@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cybershell Technologies – adaptive outer modules, skins & panels for humanoid robotics. Protection, design and brand identity where robots meet the world." />
+  <meta name="description" content="Cybershell Technologies – adaptive outer modules, skins & panels for humanoid robotics. Protection, design and brand identity – where robots touch the world." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0d12" />
   <title>Cybershell Technologies</title>
@@ -28,6 +28,7 @@
       --bg:#0b0d12; --panel:#121520; --ink:#e9eef6; --muted:#a7b0c0;
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
+      --safe-top: env(safe-area-inset-top);
     }
     *{box-sizing:border-box}
     body{
@@ -41,14 +42,14 @@
     }
     a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
 
-    /* Header / Navigation */
+    /* Header / Navigation (desktop stays as before) */
     header{
-      position:sticky; top:0; z-index:20;
+      position:sticky; top:0; z-index:70;
       backdrop-filter:saturate(140%) blur(6px);
       background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
       border-bottom:1px solid var(--hair);
     }
-    .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:14px 20px}
+    .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:calc(10px + var(--safe-top)) 20px 14px}
     .brand{display:flex; align-items:center; gap:16px}
     .brand img.logo{
       height:88px; width:auto; display:block;
@@ -65,19 +66,44 @@
     nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s}
     nav a:hover::after{width:100%}
 
-    /* Language switcher */
     .lang{display:flex; gap:10px; align-items:center; margin-left:6px; padding-left:12px; border-left:1px solid var(--hair)}
     .lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
-    main{padding:40px 0 80px}
-
-    /* Hero – perfectly flush heights (text & image) */
-    .hero{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;
+    /* Burger button */
+    .burger{
+      display:none;
+      width:44px; height:40px; border-radius:12px; border:1px solid var(--hair);
+      background:#0e1119; color:var(--ink); align-items:center; justify-content:center;
     }
+    .burger span, .burger::before, .burger::after{
+      content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;
+    }
+    .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
+    .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
+    .burger[aria-expanded="true"] span{opacity:0}
+
+    /* Mobile menu panel */
+    .mobile-menu{
+      display:none;
+      position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80;
+      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94));
+      border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow);
+      padding:14px;
+    }
+    .mobile-menu.open{display:block; animation:fadeIn .18s ease-out}
+    @keyframes fadeIn{from{opacity:.001; transform:translateY(-6px)} to{opacity:1; transform:none}}
+    .mobile-row{display:flex; flex-direction:column; gap:10px}
+    .mobile-row a{padding:12px 14px; border:1px solid var(--hair); border-radius:12px; color:var(--ink); background:#0e1119}
+    .mobile-lang{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
+    .mobile-lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px; background:#0e1119}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
+    main{padding:20px 0 80px}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
     .card{
       position:relative; overflow:hidden; height:100%;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
@@ -99,10 +125,11 @@
     .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
       border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px}
     .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
+
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Image column: edge-to-edge, same height as text card */
+    /* Image full-bleed / matched height */
     .hero-vis{
       height:100%; padding:0; border:none; box-shadow:none;
       border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
@@ -148,19 +175,26 @@
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
-    /* Wide explosion image (contain) */
+    /* Wide media (contain) */
     .media-wide{
       background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
       display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
     }
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
-    @media (max-width:900px){
+    /* ===== Mobile breakpoint (burger + menu) ===== */
+    @media (max-width:1024px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .brand img.logo{height:76px}
-      .hero-vis .media{min-height:0}
+
+      nav .nav-links, nav .lang{display:none !important}
+      .burger{display:flex}
+
+      .brand .wordmark .title{font-size:18px}
+      .brand .wordmark .sub{font-size:11.5px}
+
       .media-wide{min-height:360px}
     }
   </style>
@@ -176,14 +210,18 @@
           <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
         </div>
       </div>
+
+      <!-- Desktop navigation -->
       <nav aria-label="Primary navigation">
-        <a href="#solution">Solution</a>
-        <a href="#features">Features</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-links" style="display:flex;gap:22px;align-items:center">
+          <a href="#solution">Solution</a>
+          <a href="#features">Features</a>
+          <a href="#contact">Contact</a>
+        </div>
         <span class="lang" aria-label="Languages">
           <a href="index.html">
-            <!-- DE flag -->
-            <svg class="flag" viewBox="0 0 18 12" aria-label="German" xmlns="http://www.w3.org/2000/svg">
+            <!-- DE Flag -->
+            <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="German" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
               <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
               <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f"/>
@@ -194,8 +232,8 @@
             DE
           </a>
           <a href="index_en.html" aria-current="page">
-            <!-- EN flag -->
-            <svg class="flag" viewBox="0 0 18 12" aria-label="English" xmlns="http://www.w3.org/2000/svg">
+            <!-- EN Flag -->
+            <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="English" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
               <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
               <rect x="1.4" y="4.6" width="15.2" height="2.8" rx="1" fill="#ffffff" opacity=".98"/>
@@ -203,7 +241,38 @@
             EN
           </a>
         </span>
+
+        <!-- Burger (mobile) -->
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span>
+        </button>
       </nav>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <div class="mobile-row" role="menu">
+        <a role="menuitem" href="#solution">Solution</a>
+        <a role="menuitem" href="#features">Features</a>
+        <a role="menuitem" href="#contact">Contact</a>
+      </div>
+      <div class="mobile-lang" aria-label="Languages">
+        <a href="index.html">
+          <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="German" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+            <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
+            <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f"/>
+            <rect x="0.5" y="7.82" width="17" height="3.68" fill="#2e384e"/>
+          </svg> DE
+        </a>
+        <a href="index_en.html" aria-current="page">
+          <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="English" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+            <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
+            <rect x="1.4" y="4.6" width="15.2" height="2.8" rx="1" fill="#ffffff" opacity=".98"/>
+          </svg> EN
+        </a>
+      </div>
     </div>
   </header>
 
@@ -217,11 +286,11 @@
         <p class="subtitle">Adaptive outer modules for humanoid robots.</p>
 
         <p class="lede">
-          The future of robotics does not start inside — it starts at the surface.<br>
+          The future of robotics doesn’t start inside — it starts at the surface.<br>
           Cybershell develops <strong>adaptive outer modules</strong> that <strong>combine design, function and identity</strong>.<br>
           Each module is <strong>resistant to abrasion, UV and chemicals; fire behavior verified</strong>.<br>
           <strong>Customizable in your corporate design</strong> — new visibility and protection for humanoid systems.<br>
-          Testing with <strong>accredited partner laboratories</strong> paves the way toward CE-ready applications.
+          Testing with <strong>accredited partner laboratories</strong> paves the path toward CE-ready applications.
         </p>
 
         <div class="spec" role="list">
@@ -233,9 +302,9 @@
 
       <div class="hero-vis" aria-hidden="false">
         <div class="media">
-          <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Cybershell robot visualization — edge-to-edge image">
+          <img src="A_3D-rendered_digital_image_on_a_dark_gradient_bac.png" alt="Cybershell robot visualization – full view, no crop">
         </div>
-        <div class="caption">Latest visual of Cybershell outer modules</div>
+        <div class="caption">Current visual of Cybershell outer modules</div>
       </div>
     </section>
 
@@ -245,15 +314,15 @@
       <div class="grid">
         <article class="tile">
           <h3>CI Branding</h3>
-          <p class="muted">Colors, logos & patterns precisely to your corporate design. Swappable per campaign or site.</p>
+          <p class="muted">Colors, logos & patterns per brand guidelines. Swappable per campaign or site.</p>
         </article>
         <article class="tile">
           <h3>Protection & Hygiene</h3>
-          <p class="muted">Robust, easy-clean surfaces; optional scratch-resistant, anti-static or anti-bacterial finishes.</p>
+          <p class="muted">Durable, easy-to-clean surfaces; optional scratch-resistant, anti-static or anti-bacterial finishes.</p>
         </article>
         <article class="tile">
-          <h3>Faster Service</h3>
-          <p class="muted">Panels as modules: swap instead of downtime — shorter outages, predictable costs.</p>
+          <h3>Fast Service</h3>
+          <p class="muted">Panels are modules: replace instead of downtime — shorter maintenance, predictable costs.</p>
         </article>
       </div>
     </section>
@@ -277,14 +346,14 @@
       </div>
     </section>
 
-    <!-- EXPLOSION -->
+    <!-- EXPLODED VIEW -->
     <section id="exploded" aria-labelledby="exploded-title">
-      <h2 id="exploded-title">Exploded view of the outer modules</h2>
+      <h2 id="exploded-title">Exploded View of the Outer Modules</h2>
       <div class="card" style="padding:14px">
         <div class="media-wide">
-          <img src="robot_web_shell_big.png" alt="Exploded view of modular Cybershell panels — full view without crop">
+          <img src="robot_web_shell_big.png" alt="Exploded visualization of modular Cybershell panels – full view, no crop">
         </div>
-        <div class="caption">Panel structure & layers</div>
+        <div class="caption">Panel layers & structure</div>
       </div>
     </section>
 
@@ -292,7 +361,7 @@
     <section id="contact" class="contact" aria-labelledby="contact-title">
       <div class="card">
         <h2 id="contact-title">Contact</h2>
-        <p class="muted">Tell us about your use case, quantity and timeline. We’ll get back to you shortly.</p>
+        <p class="muted">Tell us about your use case, quantities and timeline. We’ll get back shortly.</p>
 
         <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
           <!-- Honeypot -->
@@ -303,32 +372,32 @@
 
           <div class="field">
             <label for="name">Name*</label>
-            <input id="name" name="name" type="text" required placeholder="Your name">
+            <input id="name" name="name" type="text" required placeholder="Jane Doe">
           </div>
 
           <div class="field">
             <label for="company">Company</label>
-            <input id="company" name="company" type="text" placeholder="Company / organization">
+            <input id="company" name="company" type="text" placeholder="Company / Organization">
           </div>
 
           <div class="field">
             <label for="email">E-mail*</label>
-            <input id="email" name="email" type="email" required placeholder="your@company.com" inputmode="email" autocomplete="email">
+            <input id="email" name="email" type="email" required placeholder="name@company.com" inputmode="email" autocomplete="email">
           </div>
 
           <div class="field">
             <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="+1 …">
+            <input id="phone" name="phone" type="tel" placeholder="+43 …">
           </div>
 
           <div class="field">
             <label for="msg">Message*</label>
-            <textarea id="msg" name="message" required placeholder="Briefly describe use case (deployment, quantity, timeline)…"></textarea>
+            <textarea id="msg" name="message" required placeholder="Briefly describe your application (use, quantity, timeline)…"></textarea>
           </div>
 
           <div class="consent">
             <input id="gdpr" name="gdpr" type="checkbox" required>
-            <label for="gdpr" class="note">I agree that my data will be stored and processed to answer my inquiry. Details in the <a href="/privacy.html">privacy policy</a>.</label>
+            <label for="gdpr" class="note">I agree that my details will be stored and processed to answer my inquiry. See our <a href="/privacy.html">Privacy Policy</a> for details.</label>
           </div>
           <div class="note">* Required fields</div>
 
@@ -344,7 +413,7 @@
           Project Lead: Mario Curvelo Carvalho
         </p>
         <h3>Imprint (Short)</h3>
-        <p class="muted">Cybershell Technologies — research & development project for modular exterior modules. No sales offers.</p>
+        <p class="muted">Cybershell Technologies — R&amp;D project for modular outer modules. No sales offers.</p>
       </aside>
     </section>
   </main>
@@ -352,14 +421,41 @@
   <footer>
     <div class="foot">
       <div class="legal">© <span id="y"></span> Cybershell Technologies • All rights reserved</div>
-      <div class="legal">Accessibility: high contrast, keyboard-friendly, no cookies/trackers.</div>
+      <div class="legal">Accessibility: high contrast, keyboard friendly, no cookies/trackers.</div>
     </div>
   </footer>
 
   <script>
+    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Formspree AJAX submit
+    // Burger / mobile menu
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function setMenu(open){
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', ()=>{
+      const open = burger.getAttribute('aria-expanded') !== 'true';
+      setMenu(open);
+    });
+
+    mobileMenu.addEventListener('click', e=>{
+      if(e.target.tagName === 'A') setMenu(false);
+    });
+    window.addEventListener('keydown', e=>{
+      if(e.key === 'Escape') setMenu(false);
+    });
+    window.addEventListener('resize', ()=>{
+      if(window.innerWidth > 1024) setMenu(false);
+    });
+
+    // Formspree AJAX
     const form = document.getElementById('contactForm');
     const statusEl = document.getElementById('formStatus');
     const btn = document.getElementById('submitBtn');
@@ -375,7 +471,7 @@
       statusEl.style.display = 'none';
       if(!form.reportValidity()) return;
 
-      btn.disabled = true; btn.textContent = 'Sending…';
+      btn.disabled = true; btn.textContent = 'Sending …';
       try{
         const data = Object.fromEntries(new FormData(form).entries());
         const res = await fetch(form.action, {
@@ -401,6 +497,7 @@
   </script>
 </body>
 </html>
+
 
 
 
