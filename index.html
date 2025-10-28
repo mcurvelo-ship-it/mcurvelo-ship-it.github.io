@@ -27,15 +27,16 @@
     }
     a{color:var(--accent);text-decoration:none} a:hover{opacity:.9}
 
+    /* Header */
     header{position:sticky;top:0;z-index:20;backdrop-filter:blur(6px);background:rgba(11,13,18,.9);border-bottom:1px solid var(--hair)}
     .bar{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:14px 20px}
-    .brand{display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:16px;min-width:0}
     .brand img.logo{height:88px;width:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35))}
-    .brand .wordmark{display:flex;flex-direction:column;line-height:1.1}
-    .brand .title{font-weight:800;letter-spacing:.6px}
+    .brand .wordmark{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+    .brand .title{font-weight:800;letter-spacing:.6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .brand .sub{color:var(--muted);font-weight:500;font-size:12.5px}
-    nav{display:flex;gap:22px;align-items:center}
-    nav a{color:var(--muted);position:relative;padding:4px 0}
+    nav{display:flex;gap:22px;align-items:center;flex:0 0 auto}
+    nav a{color:var(--muted);position:relative;padding:4px 0;white-space:nowrap}
     nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:.3s}
     nav a:hover::after{width:100%}
     .lang{display:flex;gap:10px;align-items:center;margin-left:6px;padding-left:12px;border-left:1px solid var(--hair)}
@@ -45,12 +46,14 @@
     .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px}
     main{padding:40px 0 80px}
 
+    /* Panels */
     .panel{
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair); border-radius:var(--radius);
       box-shadow:var(--shadow); overflow:hidden; height:100%;
     }
 
+    /* Hero */
     .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;}
     .hero .text{ padding:34px; position:relative; }
     .tag{display:inline-block;background:rgba(90,242,214,.12);color:var(--accent);
@@ -62,12 +65,20 @@
     .chip{background:#0e1119;border:1px solid var(--hair);padding:10px 12px;border-radius:999px;color:var(--muted);font-size:13px}
 
     .hero .media{display:flex;flex-direction:column}
-    .media-img{flex:1;display:flex}
-    .media-img img{width:100%;height:100%;object-fit:cover;display:block;animation:float 8s ease-in-out infinite;}
+    .media-img{flex:1;display:flex;min-height:420px}
+    .media-img img{
+      width:100%;height:100%;object-fit:cover;display:block;
+      animation:float 8s ease-in-out infinite;
+    }
     .media-img img.contain{object-fit:contain;background:linear-gradient(180deg, rgba(18,21,32,1), rgba(18,21,32,.85));padding:10px}
     .caption{padding:10px 14px 16px;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @media (prefers-reduced-motion:reduce){
+      .media-img img{animation:none}
+    }
+
+    /* Sektionen */
     section{margin-top:56px}
     h2{font-size:clamp(22px,3vw,28px);margin:0 0 18px;color:var(--accent)}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -75,6 +86,7 @@
     .tile h3{margin:0 0 8px;font-size:18px}
     .muted{color:var(--muted)}
 
+    /* Kontakt */
     .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
     .contact .card{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
     .field{display:flex;flex-direction:column;gap:6px;margin:8px 0}
@@ -87,20 +99,51 @@
     .status{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;background:#0e1b15;color:#c9f2df}
     .status.error{background:#190e11;color:#ffd7dc}
 
+    /* Footer */
     footer{border-top:1px solid var(--hair);color:var(--muted)}
     .foot{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:18px 20px}
     .legal{font-size:12px}
     .project-note{font-size:12px;color:var(--muted);opacity:.75}
 
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
+    /* ===== Mobile Tweaks (≤ 600px) ===== */
+    @media (max-width:600px){
+      .bar{padding:10px 14px}
+      .brand img.logo{height:56px}
+      .brand .title{font-size:16px;letter-spacing:.4px}
+      .brand .sub{display:none}
+      nav{gap:14px}
+      nav a{font-size:14px}
+      .lang{display:none} /* Platz sparen; Sprache bleibt über /index_en.html erreichbar */
+
+      .wrap{padding:18px 14px}
+      .hero{grid-template-columns:1fr; gap:16px}
+      .panel{height:auto}                /* keine erzwungene Höhe */
+      .hero .text{padding:18px}
+      .media-img{min-height:360px}
+      .media-img img{object-fit:contain; animation:none} /* Bild immer sichtbar, ohne Beschnitt */
+      h1{font-size:clamp(26px,9vw,34px)}
+      .subtitle,.lede{font-size:16px}
+      .tag{font-size:11px;padding:4px 8px}
+      .spec{grid-template-columns:repeat(2,1fr)}
+      .caption{font-size:12px}
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
-      .brand img.logo{height:76px}
+    }
+
+    /* ===== Tablet Tweaks (601–900px) ===== */
+    @media (min-width:601px) and (max-width:900px){
+      .brand img.logo{height:68px}
+      .hero{grid-template-columns:1fr; gap:24px}
+      .panel{height:auto}
+      .media-img{min-height:420px}
+      .media-img img{object-fit:contain}
+      h1{font-size:clamp(28px,6vw,40px)}
+      .spec{grid-template-columns:repeat(2,1fr)}
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="bar">
       <div class="brand" aria-label="Cybershell logo and word mark">
@@ -142,7 +185,7 @@
         </div>
       </div>
 
-      <!-- HERO-Bild: NEU = A_3D-rendered_digital_image_on_a_dark_gradient_bac.png -->
+      <!-- HERO-Bild -->
       <div class="panel media" aria-hidden="false">
         <div class="media-img">
           <img
@@ -251,6 +294,7 @@
   </script>
 </body>
 </html>
+
 
 
 
