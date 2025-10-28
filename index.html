@@ -27,7 +27,6 @@
     }
     a{color:var(--accent);text-decoration:none} a:hover{opacity:.9}
 
-    /* Header */
     header{position:sticky;top:0;z-index:20;backdrop-filter:blur(6px);background:rgba(11,13,18,.9);border-bottom:1px solid var(--hair)}
     .bar{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:14px 20px}
     .brand{display:flex;align-items:center;gap:16px}
@@ -46,17 +45,13 @@
     .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px}
     main{padding:40px 0 80px}
 
-    /* Panels */
     .panel{
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair); border-radius:var(--radius);
       box-shadow:var(--shadow); overflow:hidden; height:100%;
     }
 
-    /* Hero */
-    .hero{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;
-    }
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;}
     .hero .text{ padding:34px; position:relative; }
     .tag{display:inline-block;background:rgba(90,242,214,.12);color:var(--accent);
       border:1px solid rgba(90,242,214,.35);padding:6px 10px;border-radius:999px;font-size:12px}
@@ -68,15 +63,11 @@
 
     .hero .media{display:flex;flex-direction:column}
     .media-img{flex:1;display:flex}
-    .media-img img{
-      width:100%;height:100%;object-fit:cover;display:block;
-      animation:float 8s ease-in-out infinite;
-    }
+    .media-img img{width:100%;height:100%;object-fit:cover;display:block;animation:float 8s ease-in-out infinite;}
     .media-img img.contain{object-fit:contain;background:linear-gradient(180deg, rgba(18,21,32,1), rgba(18,21,32,.85));padding:10px}
     .caption{padding:10px 14px 16px;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-    /* Sektionen */
     section{margin-top:56px}
     h2{font-size:clamp(22px,3vw,28px);margin:0 0 18px;color:var(--accent)}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -84,7 +75,6 @@
     .tile h3{margin:0 0 8px;font-size:18px}
     .muted{color:var(--muted)}
 
-    /* Kontakt */
     .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
     .contact .card{background:var(--panel);border:1px solid var(--hair);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
     .field{display:flex;flex-direction:column;gap:6px;margin:8px 0}
@@ -97,7 +87,6 @@
     .status{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;background:#0e1b15;color:#c9f2df}
     .status.error{background:#190e11;color:#ffd7dc}
 
-    /* Footer */
     footer{border-top:1px solid var(--hair);color:var(--muted)}
     .foot{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:18px 20px}
     .legal{font-size:12px}
@@ -112,7 +101,6 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="bar">
       <div class="brand" aria-label="Cybershell logo and word mark">
@@ -154,7 +142,7 @@
         </div>
       </div>
 
-      <!-- Bild der VORIGEN Version -->
+      <!-- Bild der vorherigen Version (Datei MUSS neben index.html liegen) -->
       <div class="panel media" aria-hidden="false">
         <div class="media-img">
           <img
@@ -234,7 +222,6 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Formspree Ajax submit
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
     const btn = document.getElementById('submitBtn');
@@ -264,4 +251,5 @@
   </script>
 </body>
 </html>
+
 
