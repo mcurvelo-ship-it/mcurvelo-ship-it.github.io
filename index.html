@@ -101,6 +101,7 @@
     footer{border-top:1px solid var(--hair);color:var(--muted)}
     .foot{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:18px 20px}
     .legal{font-size:12px}
+    .project-note{font-size:12px;color:var(--muted);text-align:right;width:100%;margin-top:4px;opacity:.7;}
 
     @media (max-width:900px){
       .hero{grid-template-columns:1fr}
@@ -155,10 +156,7 @@
 
       <div class="panel media" aria-hidden="false">
         <div class="media-img">
-          <img
-            src="robot_web_shell_big.png"
-            alt="Cybershell Optimus – Seitenansicht mit modularen Außenmodulen"
-            width="896" height="512" loading="eager">
+          <img src="A_highly_detailed_3D-rendered_digital_illustration.png" alt="Cybershell Optimus – Seitenansicht mit modularen Außenmodulen" width="896" height="512" loading="eager">
         </div>
         <div class="caption">Rendering des Cybershell-Roboters in modularer Explosionsansicht</div>
       </div>
@@ -189,11 +187,7 @@
       <h2>Explosionszeichnung</h2>
       <div class="panel media">
         <div class="media-img">
-          <img
-            class="contain"
-            src="robot_web_shell_big.png"
-            alt="Explosionszeichnung der Cybershell-Module – Kopf, Brust, Taille, Rücken, Arme, Beine, Füße"
-            width="1200" height="800" loading="lazy">
+          <img class="contain" src="A_highly_detailed_3D-rendered_digital_illustration.png" alt="Explosionszeichnung der Cybershell-Module – Kopf, Brust, Taille, Rücken, Arme, Beine, Füße" width="1200" height="800" loading="lazy">
         </div>
         <div class="caption">Aufbau der modularen Außenstruktur</div>
       </div>
@@ -202,11 +196,11 @@
     <!-- KONTAKT -->
     <section id="kontakt" class="contact" aria-labelledby="contact-title">
       <div class="card">
-        <h2 id="contact-title">Kontakt & Vorbestellung</h2>
+        <h2 id="contact-title">Kontakt</h2>
         <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
           <input type="hidden" name="_subject" value="Neue Anfrage über cybershell.tech (DE)" />
-          <div class="field"><label for="name">Name*</label><input id="name" name="name" required placeholder="Max Mustermann"></div>
+          <div class="field"><label for="name">Name*</label><input id="name" name="name" required placeholder="Ihr Name"></div>
           <div class="field"><label for="email">E-Mail*</label><input id="email" type="email" name="email" required placeholder="name@firma.com"></div>
           <div class="field"><label for="msg">Nachricht*</label><textarea id="msg" name="message" required placeholder="Ihr Anliegen…"></textarea></div>
           <div class="consent"><input id="consent" type="checkbox" required><label for="consent" class="note">Ich stimme der Verarbeitung gemäß <a href="/datenschutz.html">Datenschutzerklärung</a> zu.</label></div>
@@ -214,16 +208,13 @@
           <div id="formStatus" class="status"></div>
         </form>
       </div>
-      <aside class="card" aria-label="Direktkontakt">
-        <h3>Direkt</h3>
-        <p class="muted">E-Mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>Projektleitung: Mario Curvelo Carvalho</p>
-      </aside>
     </section>
   </main>
 
   <footer>
     <div class="foot">
       <div class="legal">© <span id="y"></span> Cybershell Technologies • Alle Rechte vorbehalten</div>
+      <div class="project-note">Forschungsprojekt im Bereich adaptive Robotik-Oberflächen</div>
       <div class="legal">Barrierefrei, keine Cookies, kein Tracking.</div>
     </div>
   </footer>
@@ -261,4 +252,3 @@
   </script>
 </body>
 </html>
-
