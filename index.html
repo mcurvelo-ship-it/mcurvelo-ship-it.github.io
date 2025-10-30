@@ -29,8 +29,8 @@
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
       --safe-top: env(safe-area-inset-top);
-      --frame-pad: 12px;          /* EINHEITLICHER RANDABSTAND FÜR BEIDE BILDER */
-      --frame-brd: 1px;           /* EINHEITLICHE RAHMENSTÄRKE */
+      --frame-pad:12px; --frame-brd:1px;
+      --gap:14px;
     }
     *{box-sizing:border-box}
     body{
@@ -53,8 +53,8 @@
     }
     .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:calc(10px + var(--safe-top)) 20px 14px}
     .brand{display:flex; align-items:center; gap:16px}
-    .brand img.logo{height:88px; width:auto; display:block; filter:drop-shadow(0 8px 14px rgba(0,0,0,.35)); transition: transform .35s ease;}
-    .brand img.logo:hover{ transform: scale(1.05); }
+    .brand img.logo{height:88px; width:auto; display:block; filter:drop-shadow(0 8px 14px rgba(0,0,0,.35)); transition:transform .35s ease;}
+    .brand img.logo:hover{transform:scale(1.05)}
     .brand .wordmark{display:flex; flex-direction:column; line-height:1.1}
     .brand .title{font-weight:800; letter-spacing:.6px}
     .brand .sub{color:var(--muted); font-weight:500; letter-spacing:.3px; font-size:12.5px}
@@ -87,8 +87,9 @@
     main{padding:20px 0 80px}
 
     /* Hero */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
-
+    .hero{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;
+    }
     .card{
       position:relative; overflow:hidden; height:100%;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
@@ -113,33 +114,29 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Rechter Bildbereich – EINHEITLICHER RAHMEN für beide Bilder */
+    /* Rechter Bildbereich – zwei Rahmen, bündig mit linker Kartenhöhe */
     .hero-vis{
-      display:flex; flex-direction:column; gap:14px; /* Abstand zwischen den Rahmen */
+      height:100%;
+      display:flex; flex-direction:column; gap:var(--gap);
+      justify-content:space-between; /* Unterer Rahmen bündig mit Unterkante der linken Karte */
     }
     .frame{
-      background:#0e1119;
-      border:var(--frame-brd) solid var(--hair);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:var(--frame-pad);
-      overflow:hidden;
-      width:100%;
+      background:#0e1119; border:var(--frame-brd) solid var(--hair);
+      border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:var(--frame-pad); overflow:hidden; width:100%;
+      display:flex; align-items:center; justify-content:center;
     }
-    /* Oberes Bild: Proportionen unverändert, nach oben ausgerichtet, keine schwarzen Ränder oben/unten sichtbar */
+    /* Oberes Bild: Proportionen unverändert, nach oben ausgerichtet, keine „sichtbaren“ Ränder oben/unten */
+    .frame.top{flex:1 1 auto; align-items:flex-start;}
     .frame.top img{
       width:100%; height:auto; display:block;
-      object-fit:contain;           /* keinerlei Beschnitt */
-      object-position:center top;   /* nach oben rücken */
+      object-fit:contain; object-position:center top;
     }
-    /* Unteres Bild: exakt gleich breiter Rahmen, zentriert im Rahmen */
-    .frame.bottom{
-      margin-top:auto;              /* bündig mit Unterkante des linken Kartenrahmens */
-    }
+    /* Unteres Bild: gleicher Rahmen, mittig im Rahmen; fester Flex-Anteil sorgt für bündigen Abschluss */
+    .frame.bottom{flex:0 0 40%;}
     .frame.bottom img{
       width:100%; height:auto; display:block;
-      object-fit:contain;
-      object-position:center center;/* mittig platzieren */
+      object-fit:contain; object-position:center center;
     }
 
     /* Sections */
@@ -185,6 +182,7 @@
       .brand .wordmark .title{font-size:18px}
       .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
+      .frame.bottom{flex:0 0 auto}
     }
   </style>
 </head>
@@ -291,12 +289,12 @@
       </div>
 
       <div class="hero-vis" aria-hidden="false">
-        <!-- Oberes Bild: gleicher Rahmen wie unten, bündige Außenkanten -->
+        <!-- Oberes Bild: gleicher Rahmen, nach oben ausgerichtet -->
         <figure class="frame top">
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </figure>
 
-        <!-- Unteres Bild: gleicher Rahmen & mittig im Rahmen platziert -->
+        <!-- Unteres Bild: gleicher Rahmen, mittig platziert; bündiger Abschluss mit der linken Karte -->
         <figure class="frame bottom">
           <img src="cybershellrobot5.png" alt="Cybershell – Schichtaufbau (3D)">
         </figure>
@@ -508,6 +506,7 @@
   </script>
 </body>
 </html>
+
 
 
 
