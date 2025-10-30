@@ -29,8 +29,7 @@
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
       --safe-top: env(safe-area-inset-top);
-      /* wird per JS gesetzt, um Logo-Höhe an linken Textrahmen zu koppeln */
-      --left-card-h: 560px;
+      --left-card-h: 560px; /* wird per JS gemessen */
     }
 
     *{box-sizing:border-box}
@@ -76,13 +75,8 @@
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
     /* Burger-Button */
-    .burger{
-      display:none; width:44px; height:40px; border-radius:12px; border:1px solid var(--hair);
-      background:#0e1119; color:var(--ink); align-items:center; justify-content:center;
-    }
-    .burger span, .burger::before, .burger::after{
-      content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;
-    }
+    .burger{display:none; width:44px; height:40px; border-radius:12px; border:1px solid var(--hair); background:#0e1119; color:var(--ink); align-items:center; justify-content:center;}
+    .burger span, .burger::before, .burger::after{content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;}
     .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
     .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
     .burger[aria-expanded="true"] span{opacity:0}
@@ -104,11 +98,10 @@
     main{padding:20px 0 80px}
 
     /* Hero */
-    .hero{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start;
-    }
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start; position:relative;}
     .card{
-      position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
+      position:relative; overflow:hidden;
+      background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow); display:flex; flex-direction:column;
     }
     .card::before{
@@ -127,34 +120,24 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bild-Container rechts: kein Beschnitt, keine schwarzen Ränder oben/unten */
-    .hero-vis{
-      display:flex; flex-direction:column; gap:12px;
-      /* kein eigener Rand/Hintergrund, damit keine "Balken" entstehen */
-    }
-    .hero-vis .media{
-      display:block; overflow:visible; /* wichtig: kein erzwungener Zuschnitt */
-      /* Hintergründe/Ränder entfernt, damit keine Ränder erscheinen */
-      padding:0; background:transparent; border:none; border-radius:0;
-    }
+    /* Rechte Bildspalte – kein Beschnitt, oben bündig */
+    .hero-vis{position:relative; display:flex; flex-direction:column; gap:0;}
+    .hero-vis .media{display:block; overflow:visible; padding:0; background:transparent; border:none; border-radius:0;}
     .hero-vis .media img{
-      width:100%; height:auto; display:block; /* natürliche Proportionen */
-      object-fit:contain; object-position:top center; /* oben bündig */
+      width:100%; height:auto; display:block;
+      object-fit:contain; object-position:top center; /* Bild oben ausrichten */
       animation:float 8s ease-in-out infinite;
     }
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-    .caption{color:var(--muted); font-size:13px; text-align:center}
-
-    /* Logo unter dem Bild, zentriert – Größe an linken Textrahmen gekoppelt */
-    .cs-logo-wrap{display:flex; justify-content:center; align-items:flex-end}
+    /* Logo – wird per JS absolut platziert (Mitte zwischen Bildunterkante und Unterkante linkes Textfeld) */
     .cs-logo{
-      display:block;
+      position:absolute; left:50%; transform:translateX(-50%);
+      display:block; width:auto; height:auto;
       max-width:min(42vw, 360px);
-      /* Höhe richtet sich dynamisch nach linker Kartenhöhe (ca. 12% davon) */
       max-height: calc(var(--left-card-h) * 0.12);
-      width:auto; height:auto;
       filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));
+      pointer-events:none; /* rein dekorativ */
     }
 
     /* Sections */
@@ -306,16 +289,13 @@
       </div>
 
       <!-- Rechte Bildspalte -->
-      <div class="hero-vis" aria-hidden="false">
+      <div class="hero-vis" id="heroVis" aria-hidden="false">
         <div class="media">
-          <!-- Vollständige Ansicht des Bildes, oben bündig, keine Balken -->
-          <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
+          <!-- Bild vollständig, oben bündig, ohne Beschnitt -->
+          <img id="robotImg" src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
-        <div class="cs-logo-wrap">
-          <!-- Logo unten mittig, Größe passt sich linker Kartenhöhe an -->
-          <img class="cs-logo" src="cybershell_logo.png" alt="Cybershell Logo">
-        </div>
-        <div class="caption">Aktuelles Visual der Cybershell-Außenmodule</div>
+        <!-- Logo: per JS exakt mittig zwischen Bildunterkante und Unterkante des linken Textfelds -->
+        <img class="cs-logo" id="csLogo" src="cybershell_logo.png" alt="Cybershell Logo">
       </div>
     </section>
 
@@ -382,7 +362,6 @@
         <div class="media-wide">
           <img src="cybershellrobot3.png" alt="Cybershell Designstudie auf Basis des Tesla Optimus – Visual der modularen Außenstruktur">
         </div>
-        <div class="caption">Aufbau & Layer der Paneele</div>
       </div>
     </section>
 
@@ -501,21 +480,76 @@
       }
     });
 
-    // === Logo-Größe an linken Textrahmen koppeln ===
+    // === Dynamische Größenmessung & Logo-Positionierung ===
     const leftCard = document.getElementById('leftCard');
-    function updateLogoSize(){
+    const heroVis  = document.getElementById('heroVis');
+    const robotImg = document.getElementById('robotImg');
+    const csLogo   = document.getElementById('csLogo');
+
+    function updateLeftCardVar(){
       if(!leftCard) return;
       const h = leftCard.getBoundingClientRect().height;
       document.documentElement.style.setProperty('--left-card-h', `${h}px`);
     }
-    // initial & bei Resize/Font-Load
-    window.addEventListener('load', updateLogoSize);
-    window.addEventListener('resize', updateLogoSize);
-    // Fallback: nach kurzem Delay erneut messen (Schrift/Wraps)
-    setTimeout(updateLogoSize, 300);
+
+    function positionLogo(){
+      if(!leftCard || !robotImg || !csLogo || !heroVis) return;
+
+      // Messwerte relativ zum Viewport
+      const leftRect  = leftCard.getBoundingClientRect();
+      const imgRect   = robotImg.getBoundingClientRect();
+      const visRect   = heroVis.getBoundingClientRect();
+
+      // Unterkanten
+      const leftBottom = leftRect.bottom;
+      const imgBottom  = imgRect.bottom;
+
+      // Abstand zwischen Bildunterkante und Unterkante des linken Textfelds
+      let gap = leftBottom - imgBottom;
+
+      // Logo-Größe ggf. zunächst zurücksetzen, dann Höhe messen
+      csLogo.style.top = 'auto'; // wird gleich gesetzt
+
+      // Falls die linke Karte höher ist als das Bild -> reguläre Mitte
+      if(gap > 0){
+        // Ziel-Mitte (Viewport-Koordinate): Bildunterkante + gap/2
+        const midY = imgBottom + gap / 2;
+
+        // Logo-Höhe ermitteln (nach evtl. Max-Height-Begrenzung)
+        const logoRect = csLogo.getBoundingClientRect();
+        const logoHalf = logoRect.height / 2 || 0;
+
+        // In Container-Koordinaten umrechnen und setzen
+        const topInVis = midY - visRect.top - logoHalf;
+        csLogo.style.top = `${Math.max(0, topInVis)}px`;
+      } else {
+        // Falls das Bild höher ist (gap <= 0): Logo knapp unter das Bild setzen
+        const offset = 12; // kleiner Abstand unter dem Bild
+        const topInVis = (imgBottom - visRect.top) + offset;
+        csLogo.style.top = `${Math.max(0, topInVis)}px`;
+      }
+    }
+
+    function recalc(){
+      updateLeftCardVar();
+      // warten bis Bild gerendert ist
+      if(robotImg.complete){
+        positionLogo();
+      }else{
+        robotImg.addEventListener('load', positionLogo, { once:true });
+      }
+    }
+
+    // Initial + bei Resize/Scroll/Fonts
+    window.addEventListener('load', recalc);
+    window.addEventListener('resize', recalc);
+    // Fallbacks für nachträgliche Umbrüche
+    setTimeout(recalc, 200);
+    setTimeout(recalc, 600);
   </script>
 </body>
 </html>
+
 
 
 
