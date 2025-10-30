@@ -42,6 +42,7 @@
     }
     a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
 
+    /* Header / Navigation (Desktop unverändert) */
     header{
       position:sticky; top:0; z-index:70;
       backdrop-filter:saturate(140%) blur(6px);
@@ -50,7 +51,11 @@
     }
     .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:calc(10px + var(--safe-top)) 20px 14px}
     .brand{display:flex; align-items:center; gap:16px}
-    .brand img.logo{height:88px; filter:drop-shadow(0 8px 14px rgba(0,0,0,.35)); transition: transform .35s ease;}
+    .brand img.logo{
+      height:88px; width:auto; display:block;
+      filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
+      transition: transform .35s ease;
+    }
     .brand img.logo:hover{ transform: scale(1.05); }
     .brand .wordmark{display:flex; flex-direction:column; line-height:1.1}
     .brand .title{font-weight:800; letter-spacing:.6px}
@@ -64,29 +69,135 @@
     .lang{display:flex; gap:10px; align-items:center; margin-left:6px; padding-left:12px; border-left:1px solid var(--hair)}
     .lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
+    .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
+
+    /* Burger-Button */
+    .burger{
+      display:none;
+      width:44px; height:40px; border-radius:12px; border:1px solid var(--hair);
+      background:#0e1119; color:var(--ink); align-items:center; justify-content:center;
+    }
+    .burger span, .burger::before, .burger::after{
+      content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;
+    }
+    .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
+    .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
+    .burger[aria-expanded="true"] span{opacity:0}
+
+    /* Mobile Menü-Panel */
+    .mobile-menu{
+      display:none;
+      position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80;
+      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94));
+      border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow);
+      padding:14px;
+    }
+    .mobile-menu.open{display:block; animation:fadeIn .18s ease-out}
+    @keyframes fadeIn{from{opacity:.001; transform:translateY(-6px)} to{opacity:1; transform:none}}
+    .mobile-row{display:flex; flex-direction:column; gap:10px}
+    .mobile-row a{padding:12px 14px; border:1px solid var(--hair); border-radius:12px; color:var(--ink); background:#0e1119}
+    .mobile-lang{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
+    .mobile-lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px; background:#0e1119}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:20px 0 80px}
 
+    /* Hero */
     .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
-    .card{position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78)); border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow); display:flex; flex-direction:column;}
-    .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent); border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px}
+    .card{
+      position:relative; overflow:hidden; height:100%;
+      background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
+      border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
+      display:flex; flex-direction:column;
+    }
+    .card::before{
+      content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
+      background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%);
+      pointer-events:none; z-index:0;
+    }
+    .sweep{position:absolute; top:0; left:-40%; width:40%; height:100%;
+      background:linear-gradient(75deg, transparent, rgba(255,255,255,.08), transparent);
+      filter:blur(6px); animation:sweep 4.5s ease-in-out infinite;}
+    @keyframes sweep{0%{left:-40%}50%{left:120%}100%{left:120%}}
+
+    h1{position:relative; z-index:1; margin:0 0 12px; font-size:clamp(32px,4vw,52px); line-height:1.1}
     .subtitle{position:relative; z-index:1; color:#cfe9e5; font-size:18px; margin:4px 0 14px}
+    .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
+      border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px}
     .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
 
-    .hero-vis{height:100%; border:none; border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;}
-    .hero-vis img{width:100%; height:100%; object-fit:cover; object-position:center center; animation:float 8s ease-in-out infinite;}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-    .caption{text-align:center; color:var(--muted); font-size:13px; margin-top:10px}
+    .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
+    .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
+    /* Bild randlos / gleich hoch */
+    .hero-vis{
+      height:100%; padding:0; border:none; box-shadow:none;
+      border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
+    }
+    .hero-vis .media{
+      flex:1 1 auto; height:100%; width:100%;
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+      background:none; border:none; border-radius:var(--radius);
+    }
+    .hero-vis img{
+      width:100%; height:100%; display:block;
+      object-fit:cover; object-position:center center;
+      animation:float 8s ease-in-out infinite;
+    }
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
+
+    /* Sections */
+    section{margin-top:56px}
+    h2{font-size:clamp(22px,3vw,28px); margin:0 0 18px; color:var(--accent)}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .tile{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .tile h3{margin:0 0 8px; font-size:18px}
+    .muted{color:var(--muted)}
+
+    /* Kontakt */
+    .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
+    .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
+    label{font-size:13px; color:var(--muted)}
+    input,textarea{background:#0e1119; color:var(--ink); border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
+    textarea{min-height:120px; resize:vertical}
+    .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
+    .btn:disabled{opacity:.6; cursor:not-allowed}
+    .consent{display:flex; gap:10px; align-items:flex-start; margin-top:2px}
+    .consent input{margin-top:2px}
+    .status{display:none; margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid #25402f; background:#0e1b15; color:#c9f2df}
+    .status.error{border-color:#4a1e25; background:#190e11; color:#ffd7dc}
+    .note{font-size:12px; color:var(--muted)}
+
+    /* Footer */
+    footer{border-top:1px solid var(--hair); color:var(--muted)}
+    .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
+    .legal{font-size:12px}
+
+    /* Breite Explosionsgrafik (contain) */
     .media-wide{
       background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
-      display:flex; align-items:center; justify-content:center; min-height:460px;
+      display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
     }
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
+
+    /* ===== Mobile: Burger & Menü ===== */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .brand img.logo{height:76px}
+      nav .nav-links, nav .lang{display:none !important}
+      .burger{display:flex}
+      .brand .wordmark .title{font-size:18px}
+      .brand .wordmark .sub{font-size:11.5px}
+      .media-wide{min-height:360px}
+    }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="bar">
       <div class="brand" aria-label="Cybershell logo und Wortmarke">
@@ -96,13 +207,69 @@
           <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
         </div>
       </div>
-      <nav>
+
+      <!-- Desktop-Navigation -->
+      <nav aria-label="Hauptnavigation">
         <div class="nav-links" style="display:flex;gap:22px;align-items:center">
           <a href="#loesung">Lösung</a>
           <a href="#features">Features</a>
           <a href="#kontakt">Kontakt</a>
         </div>
+        <span class="lang" aria-label="Sprachen">
+          <a href="index.html" aria-current="page">
+            <!-- DE Flag -->
+            <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="Deutsch" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+              <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
+              <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f"/>
+              <rect x="0.5" y="7.82" width="17" height="3.68" fill="#2e384e"/>
+              <line x1="1" y1="4.0" x2="17" y2="4.0" stroke="#ffffff" stroke-width=".6" opacity=".95"/>
+              <line x1="1" y1="7.7" x2="17" y2="7.7" stroke="#ffffff" stroke-width=".6" opacity=".95"/>
+            </svg>
+            DE
+          </a>
+          <a href="index_en.html">
+            <!-- EN Flag -->
+            <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="English" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+              <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
+              <rect x="1.4" y="4.6" width="15.2" height="2.8" rx="1" fill="#ffffff" opacity=".98"/>
+            </svg>
+            EN
+          </a>
+        </span>
+
+        <!-- Burger (mobil) -->
+        <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span>
+        </button>
       </nav>
+    </div>
+
+    <!-- Mobile Menü -->
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <div class="mobile-row" role="menu">
+        <a role="menuitem" href="#loesung">Lösung</a>
+        <a role="menuitem" href="#features">Features</a>
+        <a role="menuitem" href="#kontakt">Kontakt</a>
+      </div>
+      <div class="mobile-lang" aria-label="Sprachen">
+        <a href="index.html" aria-current="page">
+          <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="Deutsch" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+            <rect x="0.5" y="0.5" width="17" height="3.66" fill="#1b2130"/>
+            <rect x="0.5" y="4.16" width="17" height="3.66" fill="#242c3f"/>
+            <rect x="0.5" y="7.82" width="17" height="3.68" fill="#2e384e"/>
+          </svg> DE
+        </a>
+        <a href="index_en.html">
+          <svg class="flag" viewBox="0 0 18 12" role="img" aria-label="English" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="17" height="11" rx="2" fill="#1a1f2c" stroke="rgba(255,255,255,.65)" stroke-width=".8"/>
+            <rect x="7.6" y="1.4" width="2.8" height="9.2" rx="1" fill="#ffffff" opacity=".98"/>
+            <rect x="1.4" y="4.6" width="15.2" height="2.8" rx="1" fill="#ffffff" opacity=".98"/>
+          </svg> EN
+        </a>
+      </div>
     </div>
   </header>
 
@@ -110,9 +277,11 @@
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="card">
+        <span class="sweep" aria-hidden="true"></span>
         <span class="tag">EU-Design • CI-konforme Roboskins</span>
         <h1 id="hero-title">Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
         <p class="subtitle">Adaptive Außenmodule für humanoide Roboter.</p>
+
         <p class="lede">
           Die Zukunft der Robotik startet nicht im Inneren – sie startet an der Oberfläche.<br>
           Cybershell entwickelt <strong>adaptive Außenmodule</strong>, die <strong>Design, Funktion und Identität</strong> vereinen.<br>
@@ -120,23 +289,129 @@
           <strong>Individuell im Corporate Design</strong> – neue Sichtbarkeit und Schutz für humanoide Systeme.<br>
           Tests mit <strong>akkreditierten Partnerlaboren</strong> ebnen den Weg zu CE-tauglichen Anwendungen.
         </p>
+
+        <div class="spec" role="list">
+          <div class="chip" role="listitem">Montage &lt; 20 min</div>
+          <div class="chip" role="listitem">UV / Abrieb / Chemikalien-Resistenz</div>
+          <div class="chip" role="listitem">CE-Compliance-Pfad</div>
+        </div>
       </div>
 
-      <div class="hero-vis">
-        <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
+      <div class="hero-vis" aria-hidden="false">
+        <div class="media">
+          <!-- Bild getauscht (Hero) -->
+          <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
+        </div>
         <div class="caption">Aktuelles Visual der Cybershell-Außenmodule</div>
       </div>
     </section>
 
-    <!-- BILDSEKTION -->
-    <section id="exploded">
-      <h2>Cybershell Designstudie auf Basis des Tesla Optimus</h2>
+    <!-- LÖSUNG -->
+    <section id="loesung" aria-labelledby="loesung-title">
+      <h2 id="loesung-title">Warum Cybershell?</h2>
+      <div class="grid">
+        <article class="tile">
+          <h3>CI-Branding</h3>
+          <p class="muted">Farben, Logos & Muster exakt nach Corporate Design. Austauschbar pro Kampagne oder Standort.</p>
+        </article>
+        <article class="tile">
+          <h3>Schutz & Hygiene</h3>
+          <p class="muted">Robuste, leicht zu reinigende Oberflächen; optional kratzfest, antistatisch oder antibakteriell.</p>
+        </article>
+        <article class="tile">
+          <h3>Schneller Service</h3>
+          <p class="muted">Paneele als Module: Tauschen statt Stillstand – kürzere Downtime, planbare Kosten.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" aria-labelledby="features-title">
+      <h2 id="features-title">Technische Eckdaten</h2>
+      <div class="grid">
+        <div class="tile">
+          <h3>Materialien & Finish</h3>
+          <p class="muted">TPU/PC/PA-Komposite, optional ESD; Lack, Folie, Struktur, Inlays (Metalle, Leuchtgrafik).</p>
+        </div>
+        <div class="tile">
+          <h3>Mechanik & Schnittstellen</h3>
+          <p class="muted">Clip/Magnet/Schraub-Konzepte; Austausch ohne Eingriff in Sensorik/Kühlung; niedrige Montagezeit.</p>
+        </div>
+        <div class="tile">
+          <h3>Nachhaltigkeit</h3>
+          <p class="muted">Modularer Austausch beschädigter Zonen; Recycling-Routen; EU-Lieferkette.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILDSEKTION (Bild getauscht) -->
+    <section id="exploded" aria-labelledby="exploded-title">
+      <h2 id="exploded-title">Cybershell Designstudie auf Basis des Tesla Optimus</h2>
       <div class="card" style="padding:14px">
         <div class="media-wide">
+          <!-- HIER: altes Bild 'cybershellrobot1.png' -> neues Bild 'cybershellrobot3.png' -->
           <img src="cybershellrobot3.png" alt="Cybershell Designstudie auf Basis des Tesla Optimus – Visual der modularen Außenstruktur">
         </div>
         <div class="caption">Aufbau & Layer der Paneele</div>
       </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="contact" aria-labelledby="contact-title">
+      <div class="card">
+        <h2 id="contact-title">Kontakt</h2>
+        <p class="muted">Schreiben Sie uns zu Anwendungsfall, Stückzahl und Zeitplan. Wir melden uns kurzfristig.</p>
+
+        <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;height:0;width:0;opacity:0" aria-hidden="true">
+          <input type="hidden" name="_subject" value="Neue Anfrage über cybershell.tech (DE)" />
+          <input type="hidden" name="source" value="website-de" />
+
+          <div class="field">
+            <label for="name">Name*</label>
+            <input id="name" name="name" type="text" required placeholder="Max Mustermann">
+          </div>
+
+          <div class="field">
+            <label for="company">Firma</label>
+            <input id="company" name="company" type="text" placeholder="Firma / Organisation">
+          </div>
+
+          <div class="field">
+            <label for="email">E-Mail*</label>
+            <input id="email" name="email" type="email" required placeholder="name@firma.com" inputmode="email" autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="phone">Telefon</label>
+            <input id="phone" name="phone" type="tel" placeholder="+43 …">
+          </div>
+
+          <div class="field">
+            <label for="msg">Nachricht*</label>
+            <textarea id="msg" name="message" required placeholder="Kurz Bedarf beschreiben (Einsatz, Stückzahl, Zeitplan)…"></textarea>
+          </div>
+
+          <div class="consent">
+            <input id="gdpr" name="gdpr" type="checkbox" required>
+            <label for="gdpr" class="note">Ich stimme zu, dass meine Angaben zur Beantwortung meiner Anfrage gespeichert und verarbeitet werden. Details in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</label>
+          </div>
+          <div class="note">* Pflichtfelder</div>
+
+          <button class="btn" id="submitBtn" type="submit">Senden</button>
+          <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <aside class="card" aria-label="Direktkontakt">
+        <h3>Direkt</h3>
+        <p class="muted">
+          E-Mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>
+          Projektleitung: Mario Curvelo Carvalho
+        </p>
+        <h3>Impressum (Kurz)</h3>
+        <p class="muted">Cybershell Technologies — Forschungs- & Entwicklungsprojekt für modulare Außenmodule. Keine Verkaufsangebote.</p>
+      </aside>
     </section>
   </main>
 
@@ -148,10 +423,79 @@
   </footer>
 
   <script>
+    // Jahr
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Burger / Mobile-Menü
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function setMenu(open){
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', ()=>{
+      const open = burger.getAttribute('aria-expanded') !== 'true';
+      setMenu(open);
+    });
+
+    // Schließen bei Linkklick / Escape / Resize > 1024
+    mobileMenu.addEventListener('click', e=>{
+      if(e.target.tagName === 'A') setMenu(false);
+    });
+    window.addEventListener('keydown', e=>{
+      if(e.key === 'Escape') setMenu(false);
+    });
+    window.addEventListener('resize', ()=>{
+      if(window.innerWidth > 1024) setMenu(false);
+    });
+
+    // Formspree AJAX
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+    const btn = document.getElementById('submitBtn');
+
+    function showStatus(msg, ok=true){
+      statusEl.textContent = msg;
+      statusEl.className = 'status' + (ok ? '' : ' error');
+      statusEl.style.display = 'block';
+    }
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      statusEl.style.display = 'none';
+      if(!form.reportValidity()) return;
+
+      btn.disabled = true; btn.textContent = 'Senden …';
+      try{
+        const data = Object.fromEntries(new FormData(form).entries());
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept':'application/json', 'Content-Type':'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if(res.ok){
+          showStatus('Danke! Ihre Nachricht wurde übermittelt. Wir melden uns in Kürze.', true);
+          form.reset();
+        }else{
+          const out = await res.json().catch(()=> ({}));
+          const detail = out && out.errors ? out.errors.map(e=>e.message).join(' · ') : 'Bitte später erneut versuchen.';
+          showStatus('Übermittlung fehlgeschlagen: ' + detail, false);
+        }
+      }catch(err){
+        showStatus('Netzwerkfehler – bitte Verbindung prüfen und erneut senden.', false);
+      }finally{
+        btn.disabled = false; btn.textContent = 'Senden';
+      }
+    });
   </script>
 </body>
 </html>
+
 
 
 
