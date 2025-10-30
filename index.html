@@ -87,10 +87,7 @@
     main{padding:20px 0 80px}
 
     /* Hero */
-    .hero{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;
-      /* sorgt dafür, dass rechts exakt bis zum Kartenboden reicht */
-    }
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
     .card{
       position:relative; overflow:hidden; height:100%;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
@@ -111,45 +108,48 @@
 
     /* Rechter Bildbereich – exakt gleiche Breite oben/unten */
     .hero-vis{
-      display:flex; flex-direction:column; gap:12px; height:100%;
+      height:100%;
       border-radius:var(--radius);
+      display:flex;
+      flex-direction:column;
+      gap:12px;                 /* sichtbarer Trennraum wie im Screenshot */
     }
 
-    /* Rahmen/Gestaltung identisch */
     .hero-vis .media,
     .hero-vis .inset{
       background:#0e1119;
       border:1px solid var(--hair);
       border-radius:var(--radius);
-      padding:0;
+      padding:0;                /* keine Innenabstände */
       box-shadow:var(--shadow);
       overflow:hidden;
+      align-self:stretch;       /* gleiche Außenbreite */
       width:100%;
-      align-self:stretch;
     }
 
-    /* Verhältnis der Paneelhöhen wie im Screenshot: oben höher, unten niedriger.
-       Flex-Basis steuert die Zielhöhe, beide strecken bis zur Kartenunterkante. */
-    .hero-vis .media{ flex:1 1 58% }
-    .hero-vis .inset{ flex:1 1 42%; margin-top:auto }
+    /* Verhältnis der Höhen wie im Screenshot (oben höher, unten niedriger) */
+    .hero-vis .media{ flex:1 1 60% }
+    .hero-vis .inset{ flex:1 1 40%; margin-top:auto } /* bündig mit Kartenboden links */
 
-    /* Bilder-Einpassung */
+    /* Bilder sauber einpassen – ohne Beschnitt */
     .hero-vis .media img{
-      width:100%; height:100%;
+      width:100%;
+      height:100%;
       display:block;
-      object-fit:contain;          /* kein Beschnitt */
-      object-position:center top;  /* oben ausgerichtet – keine sichtbaren schwarzen Ränder oben */
+      object-fit:contain;
+      object-position:center top; /* oben ausgerichtet */
       transform:translateZ(0);
     }
     .hero-vis .inset img{
-      width:100%; height:100%;
+      width:100%;
+      height:100%;
       display:block;
-      object-fit:contain;          /* vollständig sichtbar */
+      object-fit:contain;
       object-position:center center; /* exakt mittig im Rahmen */
       transform:translateZ(0);
     }
 
-    /* figure Standardabstände entfernen, damit Rahmen exakt fluchten */
+    /* figure-Standardabstand entfernen – Rahmen fluchten exakt */
     figure{margin:0}
 
     /* Sections */
@@ -309,7 +309,7 @@
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
 
-        <!-- Unteres Bild: exakt gleiche Breite, mittig im Rahmen, bündig mit Kartenboden -->
+        <!-- Unteres Bild: exakt gleiche Außenbreite, mittig im Rahmen, bündig mit Kartenboden -->
         <figure class="inset">
           <img src="cybershellrobot5.png" alt="Cybershell – Schichtaufbau (3D) unterhalb des Hauptbildes">
         </figure>
@@ -522,6 +522,7 @@
   </script>
 </body>
 </html>
+
 
 
 
