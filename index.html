@@ -29,7 +29,6 @@
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
       --safe-top: env(safe-area-inset-top);
-      --gap:12px;
     }
     *{box-sizing:border-box}
     body{
@@ -43,7 +42,7 @@
     }
     a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
 
-    /* Header */
+    /* Header / Navigation (Desktop unverändert) */
     header{
       position:sticky; top:0; z-index:70;
       backdrop-filter:saturate(140%) blur(6px);
@@ -71,6 +70,34 @@
     .lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
+
+    /* Burger-Button */
+    .burger{
+      display:none;
+      width:44px; height:40px; border-radius:12px; border:1px solid var(--hair);
+      background:#0e1119; color:var(--ink); align-items:center; justify-content:center;
+    }
+    .burger span, .burger::before, .burger::after{
+      content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;
+    }
+    .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
+    .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
+    .burger[aria-expanded="true"] span{opacity:0}
+
+    /* Mobile Menü-Panel */
+    .mobile-menu{
+      display:none;
+      position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80;
+      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94));
+      border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow);
+      padding:14px;
+    }
+    .mobile-menu.open{display:block; animation:fadeIn .18s ease-out}
+    @keyframes fadeIn{from{opacity:.001; transform:translateY(-6px)} to{opacity:1; transform:none}}
+    .mobile-row{display:flex; flex-direction:column; gap:10px}
+    .mobile-row a{padding:12px 14px; border:1px solid var(--hair); border-radius:12px; color:var(--ink); background:#0e1119}
+    .mobile-lang{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
+    .mobile-lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px; background:#0e1119}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:20px 0 80px}
@@ -102,31 +129,27 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bildcontainer (rechter Hero-Teil) */
+    /* Bild randlos / NICHT BESCHNITTEN (contain) */
     .hero-vis{
-      height:100%; border-radius:var(--radius);
-      display:flex; flex-direction:column; gap:var(--gap);
+      height:100%; padding:0; border:none; box-shadow:none;
+      border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
     }
     .hero-vis .media{
-      background:#0e1119;
-      border:1px solid var(--hair);
-      border-radius:var(--radius);
-      overflow:hidden;
-      display:flex; align-items:center; justify-content:center;
-      /* Kein Innenabstand, damit die Bilder direkt am Rahmen sitzen */
-      padding:0;
-      min-height:180px;
+      flex:1 1 auto; height:100%; width:100%;
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+      background:#0e1119; /* neutraler Hintergrund für Freiflächen */
+      border:1px solid var(--hair); border-radius:var(--radius);
+      padding:14px; /* Abstand, damit nichts anstößt */
     }
-    /* Verteilung: oberes Bild größer, unteres kleiner – gemeinsame Höhe = linke Card */
-    .hero-vis .media.primary{flex:1 1 62%;}
-    .hero-vis .media.secondary{flex:1 1 38%;}
-
-    /* Bilder mittig beschnitten – keine Balken oben/unten */
     .hero-vis img{
       width:100%; height:100%; display:block;
-      object-fit:cover;              /* Beschnitt, damit keine Ränder */
-      object-position:center center; /* mittig ausgerichtet */
+      object-fit:contain; /* <— KEIN BESCHNITT */
+      object-position:center center;
+      /* Animation optional lassen, schadet contain nicht */
+      animation:float 8s ease-in-out infinite;
     }
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
 
     /* Sections */
     section{margin-top:56px}
@@ -135,13 +158,6 @@
     .tile{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
     .tile h3{margin:0 0 8px; font-size:18px}
     .muted{color:var(--muted)}
-
-    /* Breite Explosionsgrafik (contain) – unverändert */
-    .media-wide{
-      background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
-      display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
-    }
-    .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
     /* Kontakt */
     .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
@@ -152,21 +168,34 @@
     textarea{min-height:120px; resize:vertical}
     .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
     .btn:disabled{opacity:.6; cursor:not-allowed}
+    .consent{display:flex; gap:10px; align-items:flex-start; margin-top:2px}
+    .consent input{margin-top:2px}
+    .status{display:none; margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid #25402f; background:#0e1b15; color:#c9f2df}
+    .status.error{border-color:#4a1e25; background:#190e11; color:#ffd7dc}
     .note{font-size:12px; color:var(--muted)}
 
+    /* Footer */
     footer{border-top:1px solid var(--hair); color:var(--muted)}
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
-    /* Mobile */
+    /* Breite Explosionsgrafik (contain) */
+    .media-wide{
+      background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
+      display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
+    }
+    .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
+
+    /* ===== Mobile: Burger & Menü ===== */
     @media (max-width:1024px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .brand img.logo{height:76px}
       nav .nav-links, nav .lang{display:none !important}
-      .hero-vis .media.primary{flex-basis:58%}
-      .hero-vis .media.secondary{flex-basis:42%}
+      .burger{display:flex}
+      .brand .wordmark .title{font-size:18px}
+      .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
     }
   </style>
@@ -274,14 +303,11 @@
       </div>
 
       <div class="hero-vis" aria-hidden="false">
-        <!-- Oberes Bild (beschnitten, mittig) -->
-        <div class="media primary">
-          <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – beschnitten ohne Ränder">
+        <div class="media">
+          <!-- Bild NICHT BESCHNITTEN -->
+          <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
-        <!-- Unteres Bild (beschnitten, mittig) -->
-        <div class="media secondary">
-          <img src="cybershellrobot4.png" alt="Zweites Cybershell Robotervisual – beschnitten ohne Ränder">
-        </div>
+        <div class="caption">Aktuelles Visual der Cybershell-Außenmodule</div>
       </div>
     </section>
 
@@ -402,7 +428,95 @@
       <aside class="card" aria-label="Direktkontakt">
         <h3>Direkt</h3>
         <p class="muted">
-          E-Mail: <a href="mailto:info@cybershell.tech">info@cybers
+          E-Mail: <a href="mailto:info@cybershell.tech">info@cybershell.tech</a><br>
+          Projektleitung: Mario Curvelo Carvalho
+        </p>
+        <h3>Impressum (Kurz)</h3>
+        <p class="muted">Cybershell Technologies — Forschungs- & Entwicklungsprojekt für modulare Außenmodule. Keine Verkaufsangebote.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div class="legal">© <span id="y"></span> Cybershell Technologies • Alle Rechte vorbehalten</div>
+      <div class="legal">Barrierefreiheit: hoher Kontrast, tastaturfreundlich, keine Cookies/Tracker.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Jahr
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Burger / Mobile-Menü
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function setMenu(open){
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', ()=>{
+      const open = burger.getAttribute('aria-expanded') !== 'true';
+      setMenu(open);
+    });
+
+    // Schließen bei Linkklick / Escape / Resize > 1024
+    mobileMenu.addEventListener('click', e=>{
+      if(e.target.tagName === 'A') setMenu(false);
+    });
+    window.addEventListener('keydown', e=>{
+      if(e.key === 'Escape') setMenu(false);
+    });
+    window.addEventListener('resize', ()=>{
+      if(window.innerWidth > 1024) setMenu(false);
+    });
+
+    // Formspree AJAX
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+    const btn = document.getElementById('submitBtn');
+
+    function showStatus(msg, ok=true){
+      statusEl.textContent = msg;
+      statusEl.className = 'status' + (ok ? '' : ' error');
+      statusEl.style.display = 'block';
+    }
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      statusEl.style.display = 'none';
+      if(!form.reportValidity()) return;
+
+      btn.disabled = true; btn.textContent = 'Senden …';
+      try{
+        const data = Object.fromEntries(new FormData(form).entries());
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept':'application/json', 'Content-Type':'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if(res.ok){
+          showStatus('Danke! Ihre Nachricht wurde übermittelt. Wir melden uns in Kürze.', true);
+          form.reset();
+        }else{
+          const out = await res.json().catch(()=> ({}));
+          const detail = out && out.errors ? out.errors.map(e=>e.message).join(' · ') : 'Bitte später erneut versuchen.';
+          showStatus('Übermittlung fehlgeschlagen: ' + detail, false);
+        }
+      }catch(err){
+        showStatus('Netzwerkfehler – bitte Verbindung prüfen und erneut senden.', false);
+      }finally{
+        btn.disabled = false; btn.textContent = 'Senden';
+      }
+    });
+  </script>
+</body>
+</html>
 
 
 
