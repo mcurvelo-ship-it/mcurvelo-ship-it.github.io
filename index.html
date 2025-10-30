@@ -132,14 +132,14 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bildbereich rechts */
+    /* Rechter Bildbereich – bündig in Breite & Höhe */
     .hero-vis{
       height:100%;
-      display:flex;                /* füllt volle Spaltenhöhe */
+      display:flex;
       flex-direction:column;
       gap:12px;
     }
-    /* Oberes Bild – keine Innenabstände, identischer Rahmen wie unten */
+    /* Oberes Bild (Rahmen ohne Padding) */
     .hero-vis .media,
     .hero-vis .inset{
       background:#0e1119;
@@ -147,25 +147,27 @@
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       overflow:hidden;
+      padding:0;                /* identischer Rahmen, keine Innenabstände */
+      align-self:stretch;       /* exakt gleiche Außenbreite */
+      width:100%;
     }
-    .hero-vis .media{ padding:0; }
     .hero-vis .media img{
       width:100%;
-      height:auto;                 /* Proportionen unverändert */
+      height:auto;              /* Proportionen unverändert */
       display:block;
-      object-fit:contain;          /* kein Beschnitt */
-      object-position:center top;  /* nach oben gerückt */
+      object-fit:contain;       /* kein Beschnitt */
+      object-position:center top; /* nach oben gerückt */
       transform:translateZ(0);
     }
-
-    /* Unteres Bild – bündiger Abschluss zur linken Karte */
-    .hero-vis .inset{
-      margin-top:auto;             /* drückt das Element nach unten */
-      align-self:stretch;          /* gleiche Breite wie oben */
-      padding:0;                   /* Rahmen bündig wie oben */
-    }
+    /* Unteres Bild: proportional, gleich breit; sitzt unten bündig */
+    .hero-vis .inset{ margin-top:auto; }
     .hero-vis .inset img{
-      width:100%; height:auto; display:block; object-fit:contain;
+      width:100%;
+      height:auto;              /* proportional skalieren */
+      display:block;
+      object-fit:contain;
+      object-position:center center;
+      transform:translateZ(0);
     }
 
     /* Sections */
@@ -175,6 +177,7 @@
     .tile{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
     .tile h3{margin:0 0 8px; font-size:18px}
     .muted{color:var(--muted)}
+    .caption{margin:6px 2px 0; color:var(--muted); font-size:13px; text-align:center}
 
     /* Kontakt */
     .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
@@ -323,14 +326,14 @@
       </div>
 
       <div class="hero-vis" aria-hidden="false">
-        <!-- Oberes Bild -->
+        <!-- Oberes Bild: unveränderte Proportion, nach oben gerückt -->
         <div class="media">
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
 
-        <!-- Unteres Bild (gleich breit, bündig zum linken Textfeld unten) -->
+        <!-- Unteres Bild: exakt gleiche Breite, proportional; Abschluss unten bündig -->
         <figure class="inset">
-          <img src="cybershellrobot5.png" alt="Cybershell – zweites Visual unterhalb des Hauptbildes">
+          <img src="cybershellrobot5.png" alt="Cybershell – Schichtaufbau/Visual unterhalb des Hauptbildes">
         </figure>
       </div>
     </section>
@@ -541,6 +544,7 @@
   </script>
 </body>
 </html>
+
 
 
 
