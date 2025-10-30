@@ -42,7 +42,7 @@
     }
     a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
 
-    /* Header / Navigation (Desktop unverändert) */
+    /* Header */
     header{
       position:sticky; top:0; z-index:70;
       backdrop-filter:saturate(140%) blur(6px);
@@ -71,34 +71,7 @@
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
-    /* Burger-Button */
-    .burger{
-      display:none;
-      width:44px; height:40px; border-radius:12px; border:1px solid var(--hair);
-      background:#0e1119; color:var(--ink); align-items:center; justify-content:center;
-    }
-    .burger span, .burger::before, .burger::after{
-      content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;
-    }
-    .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
-    .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
-    .burger[aria-expanded="true"] span{opacity:0}
-
-    /* Mobile Menü-Panel */
-    .mobile-menu{
-      display:none;
-      position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80;
-      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94));
-      border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow);
-      padding:14px;
-    }
-    .mobile-menu.open{display:block; animation:fadeIn .18s ease-out}
-    @keyframes fadeIn{from{opacity:.001; transform:translateY(-6px)} to{opacity:1; transform:none}}
-    .mobile-row{display:flex; flex-direction:column; gap:10px}
-    .mobile-row a{padding:12px 14px; border:1px solid var(--hair); border-radius:12px; color:var(--ink); background:#0e1119}
-    .mobile-lang{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
-    .mobile-lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px; background:#0e1119}
-
+    /* Layout */
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:20px 0 80px}
 
@@ -129,27 +102,34 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bild randlos / NICHT BESCHNITTEN (contain) */
+    /* Bild: nicht beschnitten, Rahmen wie linke Karte, Logo unten */
     .hero-vis{
       height:100%; padding:0; border:none; box-shadow:none;
       border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
     }
     .hero-vis .media{
+      position:relative;
       flex:1 1 auto; height:100%; width:100%;
       display:flex; align-items:center; justify-content:center; overflow:hidden;
-      background:#0e1119; /* neutraler Hintergrund für Freiflächen */
+      background:#0e1119;
       border:1px solid var(--hair); border-radius:var(--radius);
-      padding:14px; /* Abstand, damit nichts anstößt */
+      box-shadow:var(--shadow);
+      padding:14px;
     }
-    .hero-vis img{
+    .hero-vis img.visual{
       width:100%; height:100%; display:block;
-      object-fit:contain; /* <— KEIN BESCHNITT */
+      object-fit:contain;
       object-position:center center;
-      /* Animation optional lassen, schadet contain nicht */
       animation:float 8s ease-in-out infinite;
     }
+    .hero-vis img.logo-badge{
+      position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
+      height:28px; width:auto;
+      padding:6px 10px; border:1px solid var(--hair); border-radius:10px;
+      background:rgba(18,21,32,.85);
+      filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));
+    }
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-    .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
 
     /* Sections */
     section{margin-top:56px}
@@ -183,10 +163,11 @@
     .media-wide{
       background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
       display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
+      box-shadow:var(--shadow);
     }
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
-    /* ===== Mobile: Burger & Menü ===== */
+    /* Mobile */
     @media (max-width:1024px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
@@ -304,10 +285,10 @@
 
       <div class="hero-vis" aria-hidden="false">
         <div class="media">
-          <!-- Bild NICHT BESCHNITTEN -->
-          <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
+          <!-- Bild nicht beschnitten + Logo unten mittig -->
+          <img class="visual" src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
+          <img class="logo-badge" src="cybershell_logo.png" alt="Cybershell Logo">
         </div>
-        <div class="caption">Aktuelles Visual der Cybershell-Außenmodule</div>
       </div>
     </section>
 
@@ -374,7 +355,7 @@
         <div class="media-wide">
           <img src="cybershellrobot3.png" alt="Cybershell Designstudie auf Basis des Tesla Optimus – Visual der modularen Außenstruktur">
         </div>
-        <div class="caption">Aufbau & Layer der Paneele</div>
+        <div class="caption" style="text-align:center;color:var(--muted);font-size:13px;margin-top:10px">Aufbau & Layer der Paneele</div>
       </div>
     </section>
 
@@ -517,6 +498,7 @@
   </script>
 </body>
 </html>
+
 
 
 
