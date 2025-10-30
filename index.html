@@ -116,28 +116,33 @@
     h1{position:relative; z-index:1; margin:0 0 12px; font-size:clamp(32px,4vw,52px); line-height:1.1}
     .subtitle{position:relative; z-index:1; color:#cfe9e5; font-size:18px; margin:4px 0 14px}
     .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent); border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px}
-    .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
+    .lede{position:relative; z-index:1; color:var(--muted); font-size:18px; white-space:pre-line}
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Rechte Bildspalte – kein Beschnitt, oben bündig */
-    .hero-vis{position:relative; display:flex; flex-direction:column; gap:0;}
+    /* Rechte Spalte als Panel mit gleichem Rahmen wie links */
+    .hero-vis{
+      position:relative; display:flex; flex-direction:column; gap:0;
+      background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
+      border:1px solid var(--hair); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:0; overflow:visible;
+    }
     .hero-vis .media{display:block; overflow:visible; padding:0; background:transparent; border:none; border-radius:0;}
     .hero-vis .media img{
       width:100%; height:auto; display:block;
-      object-fit:contain; object-position:top center; /* Bild oben ausrichten */
+      object-fit:contain; object-position:top center; /* Bild oben bündig, keine schwarzen Ränder oben/unten */
       animation:float 8s ease-in-out infinite;
     }
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-    /* Logo – wird per JS absolut platziert (Mitte zwischen Bildunterkante und Unterkante linkes Textfeld) */
+    /* Logo – absolut positioniert, Mitte zwischen Bildunterkante und Unterkante linke Karte */
     .cs-logo{
       position:absolute; left:50%; transform:translateX(-50%);
       display:block; width:auto; height:auto;
       max-width:min(42vw, 360px);
       max-height: calc(var(--left-card-h) * 0.12);
       filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));
-      pointer-events:none; /* rein dekorativ */
+      pointer-events:none;
     }
 
     /* Sections */
@@ -273,14 +278,14 @@
         <span class="tag">EU-Design • CI-konforme Roboskins</span>
         <h1 id="hero-title">Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
         <p class="subtitle">Adaptive Außenmodule für humanoide Roboter.</p>
-        <p class="lede">
-          <strong>Die Zukunft der Robotik beginnt nicht im Kern – sie beginnt an der Oberfläche.</strong><br>
-          Cybershell Technologies entwickelt <strong>adaptive Außenmodule</strong> für humanoide Roboter, die <strong>Design, Funktion und Markenidentität</strong> vereinen.<br>
-          Gefertigt aus <strong>TPU/PC/PA-Kompositen</strong> mit optionalen <strong>Carbon- und Kevlar-Verstärkungen</strong>, bieten die Module <strong>hohe Schlagzähigkeit</strong>, <strong>UV- und Chemikalienbeständigkeit</strong> sowie ein <strong>geprüftes Brandverhalten nach EU-Norm</strong>.<br>
-          Jede Oberfläche wird <strong>präzise im Corporate Design</strong> ausgeführt – Farben, Logos und Strukturen werden zu einem aktiven Teil der Markenkommunikation.<br>
-          <strong>Modulare Bauweise</strong> ermöglicht den Austausch einzelner Zonen in Minuten – <strong>Reparatur statt Stillstand</strong>, planbare Wartung und <strong>nachhaltige Materialkreisläufe</strong>.<br>
-          In Zusammenarbeit mit <strong>akkreditierten Prüflaboren</strong> entsteht der Weg zu <strong>CE-zertifizierbaren Anwendungen</strong>, entwickelt und produziert innerhalb der <strong>EU-Lieferkette</strong>.
-        </p>
+
+        <p class="lede">ie Zukunft der Robotik beginnt nicht im Kern – sie beginnt an der Oberfläche.
+Cybershell Technologies entwickelt adaptive Außenmodule für humanoide Roboter, die Design, Funktion und Markenidentität vereinen.
+Gefertigt aus TPU/PC/PA-Kompositen mit optionalen Carbon- und Kevlar-Verstärkungen, bieten die Module hohe Schlagzähigkeit, UV- und Chemikalienbeständigkeit sowie ein geprüftes Brandverhalten nach EU-Norm.
+Jede Oberfläche wird präzise im Corporate Design ausgeführt – Farben, Logos und Strukturen werden zu einem aktiven Teil der Markenkommunikation.
+Modulare Bauweise ermöglicht den Austausch einzelner Zonen.
+Geprüft, entwickelt und produziert innerhalb der Europäischen Union.</p>
+
         <div class="spec" role="list">
           <div class="chip" role="listitem">Montage &lt; 20 min</div>
           <div class="chip" role="listitem">UV / Abrieb / Chemikalien-Resistenz</div>
@@ -288,13 +293,13 @@
         </div>
       </div>
 
-      <!-- Rechte Bildspalte -->
+      <!-- Rechte Bildspalte als Panel mit identischem Rahmen -->
       <div class="hero-vis" id="heroVis" aria-hidden="false">
         <div class="media">
           <!-- Bild vollständig, oben bündig, ohne Beschnitt -->
           <img id="robotImg" src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
-        <!-- Logo: per JS exakt mittig zwischen Bildunterkante und Unterkante des linken Textfelds -->
+        <!-- Logo mittig zwischen Bildunterkante und Unterkante der linken Karte -->
         <img class="cs-logo" id="csLogo" src="cybershell_logo.png" alt="Cybershell Logo">
       </div>
     </section>
@@ -507,24 +512,16 @@
       // Abstand zwischen Bildunterkante und Unterkante des linken Textfelds
       let gap = leftBottom - imgBottom;
 
-      // Logo-Größe ggf. zunächst zurücksetzen, dann Höhe messen
-      csLogo.style.top = 'auto'; // wird gleich gesetzt
-
-      // Falls die linke Karte höher ist als das Bild -> reguläre Mitte
+      // Falls die linke Karte höher ist (gap > 0): Logo in die Mitte setzen
       if(gap > 0){
-        // Ziel-Mitte (Viewport-Koordinate): Bildunterkante + gap/2
         const midY = imgBottom + gap / 2;
-
-        // Logo-Höhe ermitteln (nach evtl. Max-Height-Begrenzung)
         const logoRect = csLogo.getBoundingClientRect();
         const logoHalf = logoRect.height / 2 || 0;
-
-        // In Container-Koordinaten umrechnen und setzen
         const topInVis = midY - visRect.top - logoHalf;
         csLogo.style.top = `${Math.max(0, topInVis)}px`;
       } else {
-        // Falls das Bild höher ist (gap <= 0): Logo knapp unter das Bild setzen
-        const offset = 12; // kleiner Abstand unter dem Bild
+        // Falls das Bild höher ist: Logo knapp unter dem Bild
+        const offset = 12;
         const topInVis = (imgBottom - visRect.top) + offset;
         csLogo.style.top = `${Math.max(0, topInVis)}px`;
       }
@@ -532,7 +529,6 @@
 
     function recalc(){
       updateLeftCardVar();
-      // warten bis Bild gerendert ist
       if(robotImg.complete){
         positionLogo();
       }else{
@@ -540,15 +536,14 @@
       }
     }
 
-    // Initial + bei Resize/Scroll/Fonts
     window.addEventListener('load', recalc);
     window.addEventListener('resize', recalc);
-    // Fallbacks für nachträgliche Umbrüche
     setTimeout(recalc, 200);
     setTimeout(recalc, 600);
   </script>
 </body>
 </html>
+
 
 
 
