@@ -75,8 +75,9 @@
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:20px 0 80px}
 
-    /* Hero */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
+    .hero{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch;
+    }
     .card{
       position:relative; overflow:hidden; height:100%;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
@@ -98,36 +99,30 @@
     .tag{position:relative; z-index:1; display:inline-block; background:rgba(90,242,214,.12); color:var(--accent);
       border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px}
     .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
-
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bild: nicht beschnitten, Rahmen wie linke Karte, Logo unten */
+    /* Hero-Bilder: nicht beschneiden, 2 Medienblöcke, bündiger Abschluss */
     .hero-vis{
-      height:100%; padding:0; border:none; box-shadow:none;
-      border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
+      height:100%;
+      border-radius:var(--radius);
+      display:flex; flex-direction:column; gap:12px;
     }
     .hero-vis .media{
-      position:relative;
-      flex:1 1 auto; height:100%; width:100%;
-      display:flex; align-items:center; justify-content:center; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
       background:#0e1119;
       border:1px solid var(--hair); border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:14px;
+      padding:14px; overflow:hidden; min-height:200px;
     }
-    .hero-vis img.visual{
+    /* oberes Bild nimmt den verbleibenden Raum ein */
+    .hero-vis .media.primary{ flex:1 1 auto; }
+    /* unteres Bild mit fixer Höhe, sitzt am unteren Rand */
+    .hero-vis .media.secondary{ flex:0 0 36%; min-height:180px; }
+
+    .hero-vis img{
       width:100%; height:100%; display:block;
-      object-fit:contain;
-      object-position:center center;
+      object-fit:contain; object-position:center center;
       animation:float 8s ease-in-out infinite;
-    }
-    .hero-vis img.logo-badge{
-      position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
-      height:28px; width:auto;
-      padding:6px 10px; border:1px solid var(--hair); border-radius:10px;
-      background:rgba(18,21,32,.85);
-      filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));
     }
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
@@ -159,11 +154,10 @@
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
-    /* Breite Explosionsgrafik (contain) */
+    /* Breite Explosionsgrafik */
     .media-wide{
       background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
       display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
-      box-shadow:var(--shadow);
     }
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
@@ -178,6 +172,8 @@
       .brand .wordmark .title{font-size:18px}
       .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
+      /* Unteres Bild am Handy etwas kleiner halten */
+      .hero-vis .media.secondary{ flex-basis:32%; min-height:160px; }
     }
   </style>
 </head>
@@ -284,10 +280,11 @@
       </div>
 
       <div class="hero-vis" aria-hidden="false">
-        <div class="media">
-          <!-- Bild nicht beschnitten + Logo unten mittig -->
-          <img class="visual" src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
-          <img class="logo-badge" src="cybershell_logo.png" alt="Cybershell Logo">
+        <div class="media primary">
+          <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
+        </div>
+        <div class="media secondary">
+          <img src="cybershellrobot4.png" alt="Zweites Roboter-Visual im Cybershell Design">
         </div>
       </div>
     </section>
@@ -355,7 +352,7 @@
         <div class="media-wide">
           <img src="cybershellrobot3.png" alt="Cybershell Designstudie auf Basis des Tesla Optimus – Visual der modularen Außenstruktur">
         </div>
-        <div class="caption" style="text-align:center;color:var(--muted);font-size:13px;margin-top:10px">Aufbau & Layer der Paneele</div>
+        <div class="caption">Aufbau & Layer der Paneele</div>
       </div>
     </section>
 
@@ -498,6 +495,7 @@
   </script>
 </body>
 </html>
+
 
 
 
