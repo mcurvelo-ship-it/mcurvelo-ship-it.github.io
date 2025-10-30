@@ -29,8 +29,9 @@
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
       --safe-top: env(safe-area-inset-top);
-      /* dynamisch: Höhe der linken Karte & Pixel-Offset zur Zentrierung */
+      /* wird per JS gesetzt, um Logo-Höhe an linken Textrahmen zu koppeln */
       --left-card-h: 560px;
+      /* horizontale Justierung des Logo-Rahmens zur Mittelachse der linken Karte */
       --logo-offset: 0px;
     }
 
@@ -128,13 +129,14 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bild-Container rechts */
+    /* Bild-Container rechts: kein Beschnitt, keine schwarzen Ränder oben/unten */
     .hero-vis{
       position:relative;
       display:flex; flex-direction:column; gap:12px;
     }
     .hero-vis .media{
-      display:block; overflow:visible; padding:0; background:transparent; border:none; border-radius:0;
+      display:block; overflow:visible;
+      padding:0; background:transparent; border:none; border-radius:0;
     }
     .hero-vis .media img{
       width:100%; height:auto; display:block;
@@ -145,29 +147,27 @@
 
     .caption{color:var(--muted); font-size:13px; text-align:center}
 
-    /* Logo unten: zarter Rahmen wie Textkarte + 20% größer + Zentrierung zur linken Karte */
+    /* Logo unter dem Bild – im zarten Rahmen wie linke Textkarte, zentriert zur linken Karte und zum Bild, 20% größer */
     .cs-logo-wrap{
       position:relative;
       height:auto;
-      /* Wir justieren die horizontale Position mit --logo-offset (JS setzt den Wert) */
     }
     .cs-logo-card{
       position:relative;
-      left: var(--logo-offset);
-      margin: 0 auto; /* Fallback für sehr schmale Layouts */
+      left: var(--logo-offset);         /* JS setzt die horizontale Ausrichtung */
+      margin: 0 auto;                   /* Fallback-Zentrierung */
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair);
       border-radius:16px;
+      padding:10px 14px;                /* zarter als große Card */
       box-shadow:var(--shadow);
-      padding:10px 14px; /* schlanker Rahmen als beim großen Text-Card */
       display:inline-flex; align-items:center; justify-content:center;
-      backdrop-filter:saturate(120%);
       transition:left .25s ease;
     }
     .cs-logo{
       display:block;
-      max-width:min(50vw, 432px);           /* 20% größer (vorher 360px) */
-      max-height: calc(var(--left-card-h) * 0.144); /* 20% größer (vorher 0.12) */
+      max-width:min(50vw, 432px);             /* 20% größer: vorher 360px */
+      max-height: calc(var(--left-card-h) * 0.144); /* 20% größer: vorher 0.12 */
       width:auto; height:auto;
       filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));
     }
@@ -218,8 +218,8 @@
       .brand .wordmark .title{font-size:18px}
       .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
-      /* Mobile: einfach mittig, Offset zurücksetzen */
-      .cs-logo-card{left:0 !important; margin: 0 auto;}
+      /* auf Mobilgeräten mittig, Offset zurücksetzen */
+      .cs-logo-card{left:0 !important; margin:0 auto;}
     }
   </style>
 </head>
@@ -325,10 +325,11 @@
       <!-- Rechte Bildspalte -->
       <div class="hero-vis" aria-hidden="false">
         <div class="media">
+          <!-- Vollständige Ansicht des Bildes, oben bündig, keine Balken -->
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
 
-        <!-- Logo in zarter Rahmenkarte, zentriert zur linken Textkarte -->
+        <!-- Logo im zarten Rahmen, mittig und zur linken Karte zentriert, 20% größer -->
         <div class="cs-logo-wrap">
           <div class="cs-logo-card" id="logoCard">
             <img class="cs-logo" src="cybershell_logo.png" alt="Cybershell Logo">
@@ -521,7 +522,7 @@
       }
     });
 
-    // === Größenkopplung: Logo-Höhe an linke Textrahmen-Höhe ===
+    // === Logo-Größe an linken Textrahmen koppeln ===
     const leftCard = document.getElementById('leftCard');
     function updateLogoSize(){
       if(!leftCard) return;
@@ -529,23 +530,22 @@
       document.documentElement.style.setProperty('--left-card-h', `${h}px`);
     }
 
-    // === Zentrierung: Logo zur Mittelachse der linken Karte ausrichten ===
+    // === Zentrierung: Logo-Rahmen zur Mittelachse der linken Karte ausrichten ===
     const logoCard = document.getElementById('logoCard');
     function alignLogoToLeftCard(){
-      const hero = document.querySelector('.hero');
       const heroVis = document.querySelector('.hero-vis');
-      if(!leftCard || !logoCard || !hero || !heroVis) return;
+      if(!leftCard || !logoCard || !heroVis) return;
 
       const leftRect = leftCard.getBoundingClientRect();
       const visRect  = heroVis.getBoundingClientRect();
       const logoRect = logoCard.getBoundingClientRect();
 
-      // Ziel: Mittelpunkt der linken Karte (leftRect.x + width/2)
-      // Logo links so verschieben, dass dessen Mittelpunkt auf diesem x liegt.
-      const leftCenterX = leftRect.left + leftRect.width/2;
-      const desiredLeft = leftCenterX - visRect.left - (logoRect.width/2);
+      // Ziel: Mittelpunkt der linken Karte
+      const leftCenterX = leftRect.left + leftRect.width / 2;
+      // notwendige linke Position des Logo-Rahmens innerhalb des hero-vis Containers
+      const desiredLeft = leftCenterX - visRect.left - (logoRect.width / 2);
 
-      // Begrenzen, damit es bei extremen Layouts nicht aus dem Container ragt
+      // Begrenzen, damit nichts aus dem Container ragt
       const minLeft = 0;
       const maxLeft = Math.max(0, visRect.width - logoRect.width);
       const clamped = Math.min(Math.max(desiredLeft, minLeft), maxLeft);
@@ -553,26 +553,27 @@
       document.documentElement.style.setProperty('--logo-offset', `${clamped}px`);
     }
 
-    // initial & bei Resize/Font-Load/Bild-Load
     function refreshLayout(){
       updateLogoSize();
       alignLogoToLeftCard();
     }
+
+    // initial & bei Resize/Wrap/Loads
     window.addEventListener('load', refreshLayout);
     window.addEventListener('resize', refreshLayout);
     setTimeout(refreshLayout, 300);
 
-    // Neu berechnen, wenn das Roboterbild geladen ist
+    // nach Bild-Load erneut messen
     const heroImg = document.querySelector('.hero-vis .media img');
     if(heroImg && !heroImg.complete){
       heroImg.addEventListener('load', refreshLayout);
     }
-
-    // Auch nach Webfont-Reflow etwas später nochmal messen
+    // späterer Reflow (Webfonts etc.)
     setTimeout(refreshLayout, 800);
   </script>
 </body>
 </html>
+
 
 
 
