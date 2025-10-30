@@ -129,45 +129,47 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bild randlos / NICHT BESCHNITTEN (contain) */
+    /* Bildbereich rechts – ohne schwarze Ränder & zweites Bild unten */
     .hero-vis{
-      height:100%; padding:0; border:none; box-shadow:none;
-      border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
+      height:100%;
+      border-radius:var(--radius);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      gap:8px;
     }
+    /* Oberes Bild-Panel: keine Zwangshöhe, kein Padding, so bleibt die Bildproportion 1:1 erhalten */
     .hero-vis .media{
-      flex:1 1 auto; height:100%; width:100%;
-      display:flex; align-items:center; justify-content:center; overflow:hidden;
-      background:#0e1119; /* neutraler Hintergrund für Freiflächen */
-      border:1px solid var(--hair); border-radius:var(--radius);
-      padding:14px; /* Abstand, damit nichts anstößt */
+      flex:0 0 auto;
+      background:#0e1119;
+      border:1px solid var(--hair);
+      border-radius:var(--radius);
+      padding:0;              /* <- kein Innenabstand, damit keine "Ränder" entstehen */
+      overflow:hidden;
     }
-    .hero-vis img{
-      width:100%; height:100%; display:block;
-      object-fit:contain; /* <— KEIN BESCHNITT */
-      object-position:center center;
-      animation:float 8s ease-in-out infinite;
+    .hero-vis .media img{
+      width:100%;
+      height:auto;            /* <- Proportionen bleiben exakt */
+      display:block;
+      object-fit:contain;     /* <- keine Beschneidung */
+      object-position:center top; /* <- "nach oben rücken" */
+      transform:translateZ(0);    /* GPU friendly */
+      animation:none;              /* ruhiges Keyvisual */
     }
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-    .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
+    .caption{margin:4px 2px 0; color:var(--muted); font-size:13px; text-align:center}
 
-    /* Zusätzliches mittiges Bild (unter dem großen Hero-Bild) */
-    .inset-figure{
-      grid-column:1 / -1;      /* zwischen Text links und Bild rechts spannen */
-      display:flex; 
-      justify-content:center;
-      margin-top:14px;
-    }
-    .inset-figure .frame{
+    /* Zweites Bild unterhalb – zentriert und am unteren Rand der rechten Spalte ausgerichtet */
+    .inset{
+      margin-top:auto;            /* <- drückt das Element nach unten, Abschluss bündig zum linken Textblock */
+      align-self:center;
       background:#0e1119;
       border:1px solid var(--hair);
       border-radius:var(--radius);
       padding:12px;
       box-shadow:var(--shadow);
-      width:min(680px, 80%);
+      width:min(88%, 560px);
     }
-    .inset-figure img{
-      width:100%; height:auto; display:block; object-fit:contain;
-    }
+    .inset img{width:100%; height:auto; display:block; object-fit:contain}
 
     /* Sections */
     section{margin-top:56px}
@@ -215,6 +217,7 @@
       .brand .wordmark .title{font-size:18px}
       .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
+      .inset{width:94%}
     }
   </style>
 </head>
@@ -321,17 +324,15 @@
       </div>
 
       <div class="hero-vis" aria-hidden="false">
+        <!-- Oberes Bild: unveränderte Proportion, nach oben gerückt, keine schwarzen Ränder -->
         <div class="media">
-          <!-- Bild NICHT BESCHNITTEN -->
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
         <div class="caption">Aktuelles Visual der Cybershell-Außenmodule</div>
-      </div>
 
-      <!-- ZUSÄTZLICHES BILD: zentriert zwischen Textfeld links und Bild oben -->
-      <div class="inset-figure" aria-hidden="false">
-        <figure class="frame">
-          <img src="cybershellrobot5.png" alt="Schichtaufbau der Cybershell-Materialien – 3D-Explosionsansicht">
+        <!-- Neues Bild darunter: zentriert und bündig mit Unterkante des linken Textfelds -->
+        <figure class="inset">
+          <img src="cybershellrobot5.png" alt="Cybershell – Schichtaufbau (3D) unterhalb des Hauptbildes">
         </figure>
       </div>
     </section>
@@ -542,5 +543,6 @@
   </script>
 </body>
 </html>
+
 
 
