@@ -29,6 +29,8 @@
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
       --safe-top: env(safe-area-inset-top);
+      /* EINHEITLICHER SPALTEN- UND RAHMENABSTAND */
+      --gHero:40px;
     }
     *{box-sizing:border-box}
     body{
@@ -87,7 +89,7 @@
     main{padding:20px 0 80px}
 
     /* Hero */
-    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:var(--gHero); align-items:stretch}
     .card{
       position:relative; overflow:hidden; height:100%;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
@@ -106,50 +108,43 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Rechter Bildbereich – exakt gleiche Breite oben/unten */
+    /* Rechter Bildbereich – gleiche Außenbreite, exakt definierter Abstand */
     .hero-vis{
       height:100%;
       border-radius:var(--radius);
       display:flex;
       flex-direction:column;
-      gap:12px;                 /* sichtbarer Trennraum wie im Screenshot */
+      gap:var(--gHero);         /* GLEICH wie Spaltenabstand links/rechts */
     }
-
     .hero-vis .media,
     .hero-vis .inset{
-      background:#0e1119;
       border:1px solid var(--hair);
       border-radius:var(--radius);
-      padding:0;                /* keine Innenabstände */
+      padding:0;
       box-shadow:var(--shadow);
       overflow:hidden;
-      align-self:stretch;       /* gleiche Außenbreite */
+      align-self:stretch;
       width:100%;
     }
+    .hero-vis .media{ background:#0e1119; flex:1 1 60% }
+    .hero-vis .inset{ background:#000;   flex:1 1 40% } /* SCHWARZER Hintergrund unten */
 
-    /* Verhältnis der Höhen wie im Screenshot (oben höher, unten niedriger) */
-    .hero-vis .media{ flex:1 1 60% }
-    .hero-vis .inset{ flex:1 1 40%; margin-top:auto } /* bündig mit Kartenboden links */
-
-    /* Bilder sauber einpassen – ohne Beschnitt */
     .hero-vis .media img{
-      width:100%;
-      height:100%;
+      width:100%; height:100%;
       display:block;
       object-fit:contain;
       object-position:center top; /* oben ausgerichtet */
       transform:translateZ(0);
     }
     .hero-vis .inset img{
-      width:100%;
-      height:100%;
+      width:100%; height:100%;
       display:block;
       object-fit:contain;
-      object-position:center center; /* exakt mittig im Rahmen */
+      object-position:center center; /* mittig im schwarzen Rahmen */
       transform:translateZ(0);
     }
 
-    /* figure-Standardabstand entfernen – Rahmen fluchten exakt */
+    /* figure-Defaultabstand entfernen – Rahmen fluchten exakt */
     figure{margin:0}
 
     /* Sections */
@@ -195,9 +190,7 @@
       .brand .wordmark .title{font-size:18px}
       .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
-      .hero-vis{gap:10px}
-      .hero-vis .media{flex:0 0 auto}
-      .hero-vis .inset{margin-top:0; flex:0 0 auto}
+      .hero-vis{gap:20px} /* auf Mobile etwas kompakter */
     }
   </style>
 </head>
@@ -309,7 +302,7 @@
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
 
-        <!-- Unteres Bild: exakt gleiche Außenbreite, mittig im Rahmen, bündig mit Kartenboden -->
+        <!-- Unteres Bild: schwarzer Hintergrund, identische Außenbreite, Abstand = --gHero -->
         <figure class="inset">
           <img src="cybershellrobot5.png" alt="Cybershell – Schichtaufbau (3D) unterhalb des Hauptbildes">
         </figure>
@@ -522,6 +515,7 @@
   </script>
 </body>
 </html>
+
 
 
 
