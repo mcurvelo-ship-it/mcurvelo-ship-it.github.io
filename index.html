@@ -29,6 +29,10 @@
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
       --safe-top: env(safe-area-inset-top);
+
+      /* Feinjustierung: neg. Prozentwert schiebt das Bild weiter nach oben */
+      --img-shift: -8%; /* anpassen falls noch schwarze Balken sichtbar sind */
+      --logo-height: 78px; /* Höhe des unteren Logos; anpassen falls nötig */
     }
     *{box-sizing:border-box}
     body{
@@ -71,33 +75,14 @@
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
-    /* Burger-Button */
-    .burger{
-      display:none;
-      width:44px; height:40px; border-radius:12px; border:1px solid var(--hair);
-      background:#0e1119; color:var(--ink); align-items:center; justify-content:center;
-    }
-    .burger span, .burger::before, .burger::after{
-      content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s;
-    }
-    .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
-    .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
-    .burger[aria-expanded="true"] span{opacity:0}
+    .burger{ display:none; width:44px; height:40px; border-radius:12px; border:1px solid var(--hair);
+      background:#0e1119; color:var(--ink); align-items:center; justify-content:center;}
+    .burger span, .burger::before, .burger::after{ content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s; }
 
-    /* Mobile Menü-Panel */
-    .mobile-menu{
-      display:none;
-      position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80;
-      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94));
-      border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow);
-      padding:14px;
-    }
+    .mobile-menu{ display:none; position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80;
+      background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94)); border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow); padding:14px; }
     .mobile-menu.open{display:block; animation:fadeIn .18s ease-out}
     @keyframes fadeIn{from{opacity:.001; transform:translateY(-6px)} to{opacity:1; transform:none}}
-    .mobile-row{display:flex; flex-direction:column; gap:10px}
-    .mobile-row a{padding:12px 14px; border:1px solid var(--hair); border-radius:12px; color:var(--ink); background:#0e1119}
-    .mobile-lang{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
-    .mobile-lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px; background:#0e1119}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:20px 0 80px}
@@ -105,15 +90,10 @@
     /* Hero */
     .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:stretch}
     .card{
-      position:relative; overflow:hidden; height:100%;
+      position:relative; overflow:hidden; min-height:420px;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
       display:flex; flex-direction:column;
-    }
-    .card::before{
-      content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
-      background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%);
-      pointer-events:none; z-index:0;
     }
     .sweep{position:absolute; top:0; left:-40%; width:40%; height:100%;
       background:linear-gradient(75deg, transparent, rgba(255,255,255,.08), transparent);
@@ -129,37 +109,60 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* VISUELLE SPALTE RECHTS */
+    /* RECHTE SPALTE - Visual */
     .hero-vis{
       height:100%; padding:0; border:none; box-shadow:none;
       border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
-      border:1px solid var(--hair); /* äußerer dünner Rahmen */
+      border:1px solid var(--hair); background:#0e1119;
+      min-height:420px;
+    }
+
+    .hero-vis .media {
+      position:relative;
+      flex:1 1 auto; width:100%; height:100%;
+      overflow:hidden; display:flex; align-items:flex-start; justify-content:center;
+      /* neutral background similar to page */
       background:#0e1119;
     }
 
-    /* Bildbereich: kein Rand oben/unten, nach oben geschoben */
-    .hero-vis .media{
-      flex:1 1 auto; height:100%; width:100%;
-      display:flex; align-items:center; justify-content:center; overflow:hidden;
-    }
+    /*
+      Wichtig:
+      - wir verändern die Bilddarstellung NICHT in der Datei (keine programmgesteuerte Skalierung),
+      - die Darstellung wird im Browser nur verschoben (transform), damit obere schwarze Ränder aus dem sichtbaren Container verschwinden.
+      - Bei Bedarf passt du --img-shift an (negativ -> weiter nach oben).
+    */
     .hero-vis .media img{
-      width:100%; height:100%; display:block;
-      object-fit:cover;              /* füllt den Rahmen, keine Balken */
-      object-position:top center;    /* Fokus: oben – schiebt Motiv nach oben */
+      display:block;
+      /* native size beibehalten, keine erzwungene Neuberechnung */
+      width:auto;
+      height:auto;
+      max-width:none;
+      max-height:none;
+
+      /* damit das Bild mindestens den Container füllt in Breite oder Höhe,
+         und gleichzeitig in originaler Größenordnung bleibt, setzen wir fallback min-werte */
+      min-width:100%;
+      min-height:100%;
+
+      /* Verschiebung nach oben (kein "resize") */
+      transform: translateY(var(--img-shift));
+      -webkit-transform: translateY(var(--img-shift));
+      object-fit: none;
+      object-position: top center;
+      will-change: transform;
     }
 
-    /* Logo unten mittig */
+    /* Logo unten mittig — so groß dass es optisch mit dem linken Textrahmen abschliesst */
     .hero-vis .logo-zone{
       display:flex; align-items:center; justify-content:center;
-      padding:18px 0;
-      border-top:1px solid var(--hair);
+      padding:16px 12px; border-top:1px solid var(--hair);
       background:linear-gradient(180deg,#0f121a 0%,#0b0d12 100%);
     }
     .hero-vis .logo-zone img{
-      height:72px;                  /* harmoniert mit Höhe der linken Karte */
-      width:auto; display:block;
-      filter:drop-shadow(0 0 12px rgba(90,242,214,.25));
-      opacity:.95;
+      height:var(--logo-height);
+      width:auto;
+      display:block;
+      filter:drop-shadow(0 6px 16px rgba(0,0,0,.45));
     }
 
     .caption{margin-top:10px; color:var(--muted); font-size:13px; text-align:center}
@@ -182,7 +185,6 @@
     .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
     .btn:disabled{opacity:.6; cursor:not-allowed}
     .consent{display:flex; gap:10px; align-items:flex-start; margin-top:2px}
-    .consent input{margin-top:2px}
     .status{display:none; margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid #25402f; background:#0e1b15; color:#c9f2df}
     .status.error{border-color:#4a1e25; background:#190e11; color:#ffd7dc}
     .note{font-size:12px; color:var(--muted)}
@@ -192,14 +194,9 @@
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
-    /* Breite Explosionsgrafik (contain) */
-    .media-wide{
-      background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden;
-      display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;
-    }
+    .media-wide{ background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; height:100%; min-height:460px;}
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
-    /* ===== Mobile: Burger & Menü ===== */
     @media (max-width:1024px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
@@ -209,8 +206,9 @@
       .burger{display:flex}
       .brand .wordmark .title{font-size:18px}
       .brand .wordmark .sub{font-size:11.5px}
-      .media-wide{min-height:360px}
       .hero-vis .logo-zone img{height:60px}
+      /* Mobil: geringere Bildverschiebung */
+      :root { --img-shift: -6%; }
     }
   </style>
 </head>
@@ -306,7 +304,7 @@
           Gefertigt aus <strong>TPU/PC/PA-Kompositen</strong> mit optionalen <strong>Carbon- und Kevlar-Verstärkungen</strong>, bieten die Module <strong>hohe Schlagzähigkeit</strong>, <strong>UV- und Chemikalienbeständigkeit</strong> sowie ein <strong>geprüftes Brandverhalten nach EU-Norm</strong>.<br>
           Jede Oberfläche wird <strong>präzise im Corporate Design</strong> ausgeführt – Farben, Logos und Strukturen werden zu einem aktiven Teil der Markenkommunikation.<br>
           <strong>Modulare Bauweise</strong> ermöglicht den Austausch einzelner Zonen in Minuten – <strong>Reparatur statt Stillstand</strong>, planbare Wartung und <strong>nachhaltige Materialkreisläufe</strong>.<br>
-          In Zusammenarbeit mit <strong>akkreditierten Prüflaboren</strong> entsteht der Weg zu <strong>CE-zertifizierbaren Anwendungen</strong>, entwickelt und produziert innerhalb der <strong>EU-Lieferkette</strong>.
+          In Zusammenarbeit mit <strong>akkreditierten Prüflaboren</strong> entsteht der Weg zu <strong>CE-zertifizierbaren Anwendungen</strong>.
         </p>
 
         <div class="spec" role="list">
@@ -317,13 +315,14 @@
       </div>
 
       <div class="hero-vis" aria-hidden="false">
-        <div class="media">
-          <!-- Bild OHNE schwarze Ränder -->
-          <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – ohne schwarze Ränder (oben fokussiert)">
+        <div class="media" aria-hidden="false">
+          <!-- IMPORTANT: Bilddatei selbst nicht verändert; nur im Container nach oben verschoben -->
+          <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – nach oben verschoben">
         </div>
-        <!-- Logo-Zone unten mittig -->
+
+        <!-- Logo unten mittig -->
         <div class="logo-zone" aria-hidden="false">
-          <img src="cybershell_logo.png" alt="Cybershell Logo unten mittig">
+          <img src="cybershell_logo.png" alt="Cybershell Logo">
         </div>
       </div>
     </section>
@@ -364,21 +363,19 @@
           <h3>Materialien & Finish</h3>
           <p class="muted">
             TPU/PC/PA-Komposite mit optionalen Carbon- und Kevlar-Verstärkungen; ESD auf Wunsch.
-            Industrielacke, Funktionsfolien, Mikrostrukturen sowie Inlays (Metall, Leuchtgrafik) – matt, seidenmatt, hochglanz oder texturiert.
+            Industrielacke, Funktionsfolien, Mikrostrukturen sowie Inlays (Metall, Leuchtgrafik).
           </p>
         </div>
         <div class="tile">
           <h3>Mechanik & Schnittstellen</h3>
           <p class="muted">
-            Clip-/Magnet-/Schraub-Konzepte; Tausch ohne Eingriff in Sensorik oder Kühlung.
-            Niedrige Montagezeit, definierte Lastpfade und Schutzkanten – abgestimmt auf die höhere Steifigkeit von Carbon/Kevlar-Paneelen.
+            Clip-/Magnet-/Schraub-Konzepte; Tausch ohne Eingriff in Sensorik oder Kühlung. Definierte Lastpfade.
           </p>
         </div>
         <div class="tile">
           <h3>Nachhaltigkeit</h3>
           <p class="muted">
-            Modularer Austausch beschädigter Zonen, Reparatur statt Komplettwechsel.
-            Sortenreine Trennung von TPU/PC/PA sowie CF/Aramid-Laminaten, Rücknahme- & Recyclingrouten, EU-Lieferkette – Oberflächen bei Bedarf nachbeschichtbar.
+            Reparatur statt Komplettwechsel, sortenreine Trennung und Recyclingrouten innerhalb EU-Lieferkette.
           </p>
         </div>
       </div>
@@ -389,7 +386,7 @@
       <h2 id="exploded-title">Cybershell Designstudie auf Basis des Tesla Optimus</h2>
       <div class="card" style="padding:14px">
         <div class="media-wide">
-          <img src="cybershellrobot3.png" alt="Cybershell Designstudie auf Basis des Tesla Optimus – Visual der modularen Außenstruktur">
+          <img src="cybershellrobot3.png" alt="Cybershell Designstudie – Visual der modularen Außenstruktur">
         </div>
         <div class="caption">Aufbau & Layer der Paneele</div>
       </div>
@@ -476,15 +473,19 @@
       document.body.style.overflow = open ? 'hidden' : '';
     }
 
-    burger.addEventListener('click', ()=>{
-      const open = burger.getAttribute('aria-expanded') !== 'true';
-      setMenu(open);
-    });
+    if (burger) {
+      burger.addEventListener('click', ()=>{
+        const open = burger.getAttribute('aria-expanded') !== 'true';
+        setMenu(open);
+      });
+    }
 
     // Schließen bei Linkklick / Escape / Resize > 1024
-    mobileMenu.addEventListener('click', e=>{
-      if(e.target.tagName === 'A') setMenu(false);
-    });
+    if (mobileMenu) {
+      mobileMenu.addEventListener('click', e=>{
+        if(e.target.tagName === 'A') setMenu(false);
+      });
+    }
     window.addEventListener('keydown', e=>{
       if(e.key === 'Escape') setMenu(false);
     });
@@ -503,37 +504,40 @@
       statusEl.style.display = 'block';
     }
 
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      statusEl.style.display = 'none';
-      if(!form.reportValidity()) return;
+    if (form) {
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        statusEl.style.display = 'none';
+        if(!form.reportValidity()) return;
 
-      btn.disabled = true; btn.textContent = 'Senden …';
-      try{
-        const data = Object.fromEntries(new FormData(form).entries());
-        const res = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept':'application/json', 'Content-Type':'application/json' },
-          body: JSON.stringify(data)
-        });
+        btn.disabled = true; btn.textContent = 'Senden …';
+        try{
+          const data = Object.fromEntries(new FormData(form).entries());
+          const res = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept':'application/json', 'Content-Type':'application/json' },
+            body: JSON.stringify(data)
+          });
 
-        if(res.ok){
-          showStatus('Danke! Ihre Nachricht wurde übermittelt. Wir melden uns in Kürze.', true);
-          form.reset();
-        }else{
-          const out = await res.json().catch(()=> ({}));
-          const detail = out && out.errors ? out.errors.map(e=>e.message).join(' · ') : 'Bitte später erneut versuchen.';
-          showStatus('Übermittlung fehlgeschlagen: ' + detail, false);
+          if(res.ok){
+            showStatus('Danke! Ihre Nachricht wurde übermittelt. Wir melden uns in Kürze.', true);
+            form.reset();
+          }else{
+            const out = await res.json().catch(()=> ({}));
+            const detail = out && out.errors ? out.errors.map(e=>e.message).join(' · ') : 'Bitte später erneut versuchen.';
+            showStatus('Übermittlung fehlgeschlagen: ' + detail, false);
+          }
+        }catch(err){
+          showStatus('Netzwerkfehler – bitte Verbindung prüfen und erneut senden.', false);
+        }finally{
+          btn.disabled = false; btn.textContent = 'Senden';
         }
-      }catch(err){
-        showStatus('Netzwerkfehler – bitte Verbindung prüfen und erneut senden.', false);
-      }finally{
-        btn.disabled = false; btn.textContent = 'Senden';
-      }
-    });
+      });
+    }
   </script>
 </body>
 </html>
+
 
 
 
