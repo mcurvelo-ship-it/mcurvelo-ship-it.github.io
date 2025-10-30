@@ -129,7 +129,7 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bild randlos / gleich hoch */
+    /* Bild randlos / NICHT BESCHNITTEN (contain) */
     .hero-vis{
       height:100%; padding:0; border:none; box-shadow:none;
       border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
@@ -137,11 +137,15 @@
     .hero-vis .media{
       flex:1 1 auto; height:100%; width:100%;
       display:flex; align-items:center; justify-content:center; overflow:hidden;
-      background:none; border:none; border-radius:var(--radius);
+      background:#0e1119; /* neutraler Hintergrund für Freiflächen */
+      border:1px solid var(--hair); border-radius:var(--radius);
+      padding:14px; /* Abstand, damit nichts anstößt */
     }
     .hero-vis img{
       width:100%; height:100%; display:block;
-      object-fit:cover; object-position:center center;
+      object-fit:contain; /* <— KEIN BESCHNITT */
+      object-position:center center;
+      /* Animation optional lassen, schadet contain nicht */
       animation:float 8s ease-in-out infinite;
     }
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
@@ -300,7 +304,7 @@
 
       <div class="hero-vis" aria-hidden="false">
         <div class="media">
-          <!-- Bild getauscht (Hero) -->
+          <!-- Bild NICHT BESCHNITTEN -->
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
         <div class="caption">Aktuelles Visual der Cybershell-Außenmodule</div>
@@ -363,7 +367,7 @@
       </div>
     </section>
 
-    <!-- BILDSEKTION (Bild getauscht) -->
+    <!-- BILDSEKTION -->
     <section id="exploded" aria-labelledby="exploded-title">
       <h2 id="exploded-title">Cybershell Designstudie auf Basis des Tesla Optimus</h2>
       <div class="card" style="padding:14px">
@@ -513,6 +517,7 @@
   </script>
 </body>
 </html>
+
 
 
 
