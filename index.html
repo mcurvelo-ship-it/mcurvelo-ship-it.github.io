@@ -29,9 +29,9 @@
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
       --safe-top: env(safe-area-inset-top);
-      /* wird per JS gesetzt, um Logo-Höhe an linken Textrahmen zu koppeln */
+      /* via JS gesetzt, koppelt Logo-Höhe an linken Textrahmen */
       --left-card-h: 560px;
-      /* horizontale Justierung des Logo-Rahmens zur Mittelachse der linken Karte */
+      /* horizontale Justierung des Logo-Feldes zur Mittelachse der linken Karte */
       --logo-offset: 0px;
     }
 
@@ -129,7 +129,7 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Bild-Container rechts: kein Beschnitt, keine schwarzen Ränder oben/unten */
+    /* Bild-Container rechts */
     .hero-vis{
       position:relative;
       display:flex; flex-direction:column; gap:12px;
@@ -147,27 +147,25 @@
 
     .caption{color:var(--muted); font-size:13px; text-align:center}
 
-    /* Logo unter dem Bild – im zarten Rahmen wie linke Textkarte, zentriert zur linken Karte und zum Bild, 20% größer */
-    .cs-logo-wrap{
-      position:relative;
-      height:auto;
-    }
+    /* === Logo in eigenem Feld (zarter Rahmen wie beim linken Textblock) === */
+    .cs-logo-wrap{position:relative; height:auto}
     .cs-logo-card{
       position:relative;
-      left: var(--logo-offset);         /* JS setzt die horizontale Ausrichtung */
-      margin: 0 auto;                   /* Fallback-Zentrierung */
+      left: var(--logo-offset);           /* JS richtet die horizontale Zentrierung aus */
+      margin: 0 auto;                     /* Fallback-Zentrierung */
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
       border:1px solid var(--hair);
       border-radius:16px;
-      padding:10px 14px;                /* zarter als große Card */
+      padding:12px 16px;
       box-shadow:var(--shadow);
       display:inline-flex; align-items:center; justify-content:center;
       transition:left .25s ease;
     }
     .cs-logo{
       display:block;
-      max-width:min(50vw, 432px);             /* 20% größer: vorher 360px */
-      max-height: calc(var(--left-card-h) * 0.144); /* 20% größer: vorher 0.12 */
+      /* 20% größer als vorher (360px -> 432px; 0.12 -> 0.144) */
+      max-width:min(50vw, 432px);
+      max-height: calc(var(--left-card-h) * 0.144);
       width:auto; height:auto;
       filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));
     }
@@ -218,7 +216,7 @@
       .brand .wordmark .title{font-size:18px}
       .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
-      /* auf Mobilgeräten mittig, Offset zurücksetzen */
+      /* Mobile: Logo-Feld einfach mittig */
       .cs-logo-card{left:0 !important; margin:0 auto;}
     }
   </style>
@@ -329,7 +327,7 @@
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
 
-        <!-- Logo im zarten Rahmen, mittig und zur linken Karte zentriert, 20% größer -->
+        <!-- Logo in eigenem Feld, zarter Rahmen; zur linken Karte & Bild zentriert; 20% größer -->
         <div class="cs-logo-wrap">
           <div class="cs-logo-card" id="logoCard">
             <img class="cs-logo" src="cybershell_logo.png" alt="Cybershell Logo">
@@ -530,7 +528,7 @@
       document.documentElement.style.setProperty('--left-card-h', `${h}px`);
     }
 
-    // === Zentrierung: Logo-Rahmen zur Mittelachse der linken Karte ausrichten ===
+    // === Zentrierung: Logo-Feld zur Mittelachse der linken Karte ausrichten ===
     const logoCard = document.getElementById('logoCard');
     function alignLogoToLeftCard(){
       const heroVis = document.querySelector('.hero-vis');
@@ -540,12 +538,12 @@
       const visRect  = heroVis.getBoundingClientRect();
       const logoRect = logoCard.getBoundingClientRect();
 
-      // Ziel: Mittelpunkt der linken Karte
+      // Mittelpunkt der linken Karte
       const leftCenterX = leftRect.left + leftRect.width / 2;
-      // notwendige linke Position des Logo-Rahmens innerhalb des hero-vis Containers
+      // Gewünschte linke Position des Logo-Feldes innerhalb der rechten Spalte
       const desiredLeft = leftCenterX - visRect.left - (logoRect.width / 2);
 
-      // Begrenzen, damit nichts aus dem Container ragt
+      // Begrenzen, damit das Feld nicht aus dem Container ragt
       const minLeft = 0;
       const maxLeft = Math.max(0, visRect.width - logoRect.width);
       const clamped = Math.min(Math.max(desiredLeft, minLeft), maxLeft);
@@ -573,6 +571,7 @@
   </script>
 </body>
 </html>
+
 
 
 
