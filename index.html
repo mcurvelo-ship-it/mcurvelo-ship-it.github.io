@@ -4,23 +4,22 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Cybershell Technologies – Adaptive Außenmodule („Roboskins“) für humanoide Roboter</title>
   <meta name="description" content="CI-konforme Außenmodule für humanoide Roboter: Schutz, Design und Markenidentität in einem. TPU/PC/PA-Komposite, optional Carbon/Kevlar. EU-Entwicklung und Fertigung, CE-Pfad mit akkreditierten Prüflaboren. B2B-Pilotprogramm & Pre-Orders 2026." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0d12" />
   <link rel="canonical" href="https://www.cybershell.tech/" />
 
-  <!-- Performance -->
+  <!-- Performance hints -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://www.cybershell.tech" crossorigin>
   <link rel="dns-prefetch" href="https://www.cybershell.tech">
 
-  <!-- Fonts -->
+  <!-- Fonts: Body=Inter, Headlines=Wortmarke=Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- OG / Twitter -->
+  <!-- Open Graph -->
   <meta property="og:site_name" content="Cybershell Technologies" />
   <meta property="og:title" content="Cybershell Technologies – Adaptive Außenmodule („Roboskins“) für humanoide Roboter" />
   <meta property="og:description" content="CI-konforme Außenmodule für humanoide Roboter: Schutz, Design und Markenidentität in einem. TPU/PC/PA-Komposite, optional Carbon/Kevlar. EU-Entwicklung und Fertigung, CE-Pfad mit akkreditierten Prüflaboren. B2B-Pilotprogramm & Pre-Orders 2026." />
@@ -29,6 +28,8 @@
   <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@cybershelltech" />
   <meta name="twitter:title" content="Cybershell Technologies – Adaptive Außenmodule („Roboskins“) für humanoide Roboter" />
@@ -67,105 +68,89 @@
       --bg:#0b0d12; --panel:#121520; --ink:#e9eef6; --muted:#a8b1c1;
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
-      --safe-top: env(safe-area-inset-top);
-      --gHero:40px;
-
-      --f-base:16px; --lh-base:1.6;
-      --f-h1:clamp(30px,3.6vw,48px); --f-h2:clamp(22px,3vw,28px); --f-h3:18px;
-      --trk-tight:-0.01em; --trk-wide:0.06em;
+      --safe-top: env(safe-area-inset-top); --gHero:40px;
+      /* Typografie-Scale */
+      --f-base:16px; --lh-base:1.6; --f-h1:clamp(30px,3.6vw,48px);
+      --f-h2:clamp(22px,3vw,28px); --f-h3:18px; --trk-tight:-0.01em; --trk-wide:0.06em;
     }
-
     *{box-sizing:border-box}
     html{font-size:var(--f-base)}
     body{
       margin:0; color:var(--ink);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight:450; line-height:var(--lh-base);
+      font-weight: 450; line-height: var(--lh-base);
       background:
         radial-gradient(1200px 600px at 70% -10%, rgba(90,242,214,.08), transparent 60%),
         radial-gradient(900px 500px at 10% 10%, rgba(138,168,255,.07), transparent 55%),
         var(--bg);
-      letter-spacing:.2px;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      letter-spacing:.2px; text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     }
-
     /* Headlines: Poppins */
     h1,h2,h3{
       font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight:700; letter-spacing:var(--trk-tight);
-      margin:0 0 10px; line-height:1.15;
+      font-weight:700; letter-spacing:var(--trk-tight); margin:0 0 10px; line-height:1.15;
     }
     h1{font-size:var(--f-h1)}
     h2{font-size:var(--f-h2); color:var(--accent)}
     h3{font-size:var(--f-h3); font-weight:700}
-
-    .subtitle{color:#cfe9e5; font-size:18px; margin:6px 0 10px; letter-spacing:.005em; font-weight:600}
+    .subtitle{ color:#cfe9e5; font-size:18px; margin:6px 0 10px; letter-spacing:.005em; font-weight:600 }
     .lede{color:var(--muted); font-size:18px; letter-spacing:.005em}
-    a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{opacity:.9}
 
-    /* Header / Navigation – wie im Screenshot */
+    /* Header / Navigation */
     header{
       position:sticky; top:0; z-index:70;
       backdrop-filter:saturate(140%) blur(6px);
-      background:linear-gradient(to bottom, rgba(11,13,18,.96), rgba(11,13,18,.80));
+      background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
       border-bottom:1px solid var(--hair);
     }
     .bar{
       display:flex; align-items:center; justify-content:space-between;
       max-width:var(--max); margin:0 auto;
-      padding:calc(10px + var(--safe-top)) 20px 14px;
-      gap:18px;
+      padding:calc(8px + var(--safe-top)) 20px 12px;
     }
-
-    /* Nur Logo links (ohne Wortmarke) */
-    .brand{display:flex; align-items:center}
+    /* Brand cluster: Logo + Wortmarke harmonisiert */
+    .brand{display:flex; align-items:center; gap:14px; min-height:72px}
     .brand img.logo{
-      height:70px; width:auto; display:block;
-      border-radius:12px; filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
+      height:72px; width:auto; display:block;
+      filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
+      transition: transform .25s ease; border-radius:12px;
+    }
+    .brand img.logo:hover{ transform: translateY(-1px) }
+    .brand .wordmark{ display:flex; flex-direction:column; justify-content:center; line-height:1.0; transform:translateY(1px); }
+    .brand .title{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:800; letter-spacing:.005em; font-size:26px; text-rendering:optimizeLegibility;
+    }
+    .brand .sub{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--muted); font-weight:600; font-size:12.5px; letter-spacing:var(--trk-wide);
+      text-transform:uppercase; margin-top:6px;
     }
 
-    /* Navigation zentriert-ruhig */
-    nav{display:flex; gap:22px; align-items:center; margin-left:auto}
-    .nav-links{display:flex; gap:24px; align-items:center}
-    .nav-links a{
-      color:var(--muted); position:relative; padding:4px 0;
-      font-weight:600; letter-spacing:.02em;
-    }
-    .nav-links a::after{
-      content:""; position:absolute; left:0; bottom:-6px; width:0; height:2px;
-      background:var(--accent); transition:.25s ease;
-    }
-    .nav-links a:hover::after{width:100%}
-
-    /* Sprach-Pills rechts (DE aktiv, EN inaktiv) */
-    .lang{display:flex; gap:10px; align-items:center; margin-left:14px}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px; border-radius:999px;
-      border:1px solid var(--hair); color:var(--muted); font-weight:700;
-      background:rgba(14,17,25,.9); box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
-      transition:border-color .2s ease, box-shadow .2s ease, color .2s ease, background .2s ease;
-      font-size:13px; letter-spacing:.02em;
-    }
-    .pill svg{width:16px; height:16px; opacity:.9}
-    .pill.active{
-      color:var(--ink);
-      border-color:var(--accent);
-      box-shadow:
-        inset 0 0 0 1px rgba(90,242,214,.22),
-        0 0 0 2px rgba(90,242,214,.10);
-      background:linear-gradient(180deg, rgba(90,242,214,.10), rgba(14,17,25,.85));
-    }
-    .flag{display:none} /* alte Flags ausgeblendet */
-
-    /* Mobile burger (unverändert) */
-    .burger{display:none; width:44px; height:40px; border-radius:12px; border:1px solid var(--hair); background:#0e1119; color:var(--ink); align-items:center; justify-content:center}
+    nav{display:flex; gap:22px; align-items:center}
+    nav a{color:var(--muted); position:relative; padding:4px 0; font-weight:600; letter-spacing:.02em}
+    nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s}
+    nav a:hover::after{width:100%}
+    .lang{display:flex; gap:10px; align-items:center; margin-left:6px; padding-left:12px; border-left:1px solid var(--hair)}
+    .lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px}
+    .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
+    .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
+    .burger{display:none; width:44px; height:40px; border-radius:12px; border:1px solid var(--hair); background:#0e1119; color:#0e1119; align-items:center; justify-content:center} /* color hidden */
     .burger span, .burger::before, .burger::after{content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s}
     .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
     .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
     .burger[aria-expanded="true"] span{opacity:0}
+    .mobile-menu{display:none; position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80; background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94)); border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow); padding:14px}
+    .mobile-menu.open{display:block; animation:fadeIn .18s ease-out}
+    @keyframes fadeIn{from{opacity:.001; transform:translateY(-6px)} to{opacity:1; transform:none}}
+    .mobile-row{display:flex; flex-direction:column; gap:10px}
+    .mobile-row a{padding:12px 14px; border:1px solid var(--hair); border-radius:12px; color:var(--ink); background:#0e1119}
+    .mobile-lang{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
+    .mobile-lang a{display:flex; gap:6px; align-items:center; padding:6px 10px; border:1px solid var(--hair); border-radius:999px; color:var(--muted); font-size:13px; background:#0e1119}
 
-    /* Layout */
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:20px 0 80px}
 
@@ -176,30 +161,40 @@
       border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
       display:flex; flex-direction:column;
     }
-    .card::before{content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px); background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%); pointer-events:none; z-index:0}
+    .card::before{
+      content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
+      background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%);
+      pointer-events:none; z-index:0
+    }
     .sweep{position:absolute; top:0; left:-40%; width:40%; height:100%; background:linear-gradient(75deg, transparent, rgba(255,255,255,.08), transparent); filter:blur(6px); animation:sweep 4.5s ease-in-out infinite}
     @keyframes sweep{0%{left:-40%}50%{left:120%}100%{left:120%}}
 
+    /* Headline */
+    h1{margin:0 0 10px}
+    /* Unterzeile & Lede */
     .subtitle + .lede{margin-top:2px}
     .lede + .lede{margin-top:2px}
-    .cta-row{position:relative; z-index:1; display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
 
+    /* CTA unter dem Text */
+    .cta-row{position:relative; z-index:1; display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    /* Chips entfernt */
+    .spec,.chip{display:none}
     .btn{
       display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2));
-      color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:800; letter-spacing:.02em;
-      cursor:pointer; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
+      color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:800; letter-spacing:.02em; cursor:pointer; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
     }
     .btn.ghost{background:transparent; border:1px solid var(--accent); color:var(--ink); font-weight:700}
     .btn:disabled{opacity:.6; cursor:not-allowed}
 
-    .hero-vis{height:100%; border-radius:var(--radius); display:flex; flex-direction:column; gap:var(--gHero)}
+    .hero-vis{ height:100%; border-radius:var(--radius); display:flex; flex-direction:column; gap:var(--gHero); }
     .hero-vis .media, .hero-vis .inset{
-      border:1px solid var(--hair); border-radius:var(--radius);
-      padding:0; box-shadow:var(--shadow); overflow:hidden; align-self:stretch; width:100%;
+      border:1px solid var(--hair); border-radius:var(--radius); padding:0; box-shadow:var(--shadow); overflow:hidden; align-self:stretch; width:100%;
     }
     .hero-vis .media{ background:#0e1119; flex:1 1 60% }
-    .hero-vis .inset{ background:#000;   flex:1 1 40% }
-    .hero-vis .media img, .hero-vis .inset img{width:100%; height:100%; display:block; object-fit:contain; transform:translateZ(0)}
+    .hero-vis .inset{ background:#000; flex:1 1 40% }
+    .hero-vis .media img, .hero-vis .inset img{
+      width:100%; height:100%; display:block; object-fit:contain; transform:translateZ(0);
+    }
     .hero-vis .media img{object-position:center top}
     .hero-vis .inset img{object-position:center center}
 
@@ -212,10 +207,12 @@
 
     .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
     .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+
     .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
     label{font-size:13px; color:var(--muted); font-weight:600; letter-spacing:.02em}
     input,textarea{background:#0e1119; color:var(--ink); border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
     textarea{min-height:120px; resize:vertical}
+
     .status{display:none; margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid #25402f; background:#0e1b15; color:#c9f2df}
     .status.error{border-color:#4a1e25; background:#190e11; color:#ffd7dc}
     .note{font-size:12px; color:var(--muted)}
@@ -227,18 +224,17 @@
     .media-wide{background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; height:100%; min-height:460px}
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
-    @media (max-width:1180px){
-      .nav-links{gap:18px}
-    }
     @media (max-width:1024px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
+      .brand img.logo{height:64px}
+      .brand .title{font-size:22px}
+      .brand .sub{font-size:11.5px}
       nav .nav-links, nav .lang{display:none !important}
       .burger{display:flex}
       .media-wide{min-height:360px}
       .hero-vis{gap:20px}
-      .brand img.logo{height:62px}
     }
   </style>
 </head>
@@ -246,44 +242,22 @@
   <!-- Header -->
   <header>
     <div class="bar">
-      <!-- Nur Logo -->
-      <div class="brand" aria-label="Cybershell Logo">
+      <div class="brand" aria-label="Cybershell logo und Wortmarke">
         <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies Logo" />
+        <div class="wordmark">
+          <span class="title">Cybershell Technologies</span>
+          <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
+        </div>
       </div>
 
-      <!-- Navigation + Language Pills -->
+      <!-- Desktop-Navigation (geleert) -->
       <nav aria-label="Hauptnavigation">
-        <div class="nav-links">
-          <a href="#value">Vorteile</a>
-          <a href="#features">Features</a>
-          <a href="#compliance">Compliance</a>
-          <a href="#usecases">Einsatz</a>
-          <a href="#roadmap">Roadmap</a>
-          <a href="#faq">FAQ</a>
-          <a href="#kontakt">Kontakt</a>
+        <div class="nav-links" style="display:flex;gap:22px;align-items:center">
+          <!-- Leer: Schriftzug entfernt -->
         </div>
         <span class="lang" aria-label="Sprachen">
-          <a class="pill active" href="index.html" aria-current="page">
-            <!-- Icon: drei Linien im Capsule -->
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="1.5" y="1.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" opacity=".35"/>
-              <line x1="6" y1="7" x2="14" y2="7" stroke="currentColor" stroke-width="1.6"/>
-              <line x1="6" y1="10" x2="14" y2="10" stroke="currentColor" stroke-width="1.6" opacity=".9"/>
-              <line x1="6" y1="13" x2="14" y2="13" stroke="currentColor" stroke-width="1.6" opacity=".75"/>
-            </svg>
-            DE
-          </a>
-          <a class="pill" href="index_en.html">
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="1.5" y="1.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" opacity=".35"/>
-              <line x1="6" y1="7" x2="14" y2="7" stroke="currentColor" stroke-width="1.6"/>
-              <line x1="6" y1="10" x2="14" y2="10" stroke="currentColor" stroke-width="1.6" opacity=".9"/>
-              <line x1="6" y1="13" x2="14" y2="13" stroke="currentColor" stroke-width="1.6" opacity=".75"/>
-            </svg>
-            EN
-          </a>
+          <!-- Leer: DE/EN entfernt -->
         </span>
-
         <!-- Burger (mobil) -->
         <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
           <span></span>
@@ -291,20 +265,13 @@
       </nav>
     </div>
 
-    <!-- Mobile Menü -->
+    <!-- Mobile Menü (geleert) -->
     <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
       <div class="mobile-row" role="menu">
-        <a role="menuitem" href="#value">Vorteile</a>
-        <a role="menuitem" href="#features">Features</a>
-        <a role="menuitem" href="#compliance">Compliance</a>
-        <a role="menuitem" href="#usecases">Einsatz</a>
-        <a role="menuitem" href="#roadmap">Roadmap</a>
-        <a role="menuitem" href="#faq">FAQ</a>
-        <a role="menuitem" href="#kontakt">Kontakt</a>
+        <!-- Leer -->
       </div>
       <div class="mobile-lang" aria-label="Sprachen">
-        <a href="index.html" aria-current="page">DE</a>
-        <a href="index_en.html">EN</a>
+        <!-- Leer -->
       </div>
     </div>
   </header>
@@ -316,14 +283,13 @@
         <span class="sweep" aria-hidden="true"></span>
         <span class="tag" style="font:600 12px/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;color:#cfe9e5">EU-Design • CI-konforme Roboskins</span>
         <h1 id="hero-title">Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
-
         <p class="subtitle">Cybershell Technologies entwickelt adaptive Außenmodule („Roboskins“) für humanoide Roboter, die Design, Funktion und Markenidentität zu einer Einheit verbinden.</p>
         <p class="lede">Gefertigt aus High-Performance-TPU/PC/PA-Kompositen mit optionalen Carbon- oder Kevlar-Lagen bieten die Module hohe Schlagzähigkeit, UV- und Chemikalienbeständigkeit sowie ein geprüftes Brandverhalten nach EU-Norm – entscheidend für CE-Konformität und Serienzulassung.</p>
         <p class="lede">Jede Oberfläche wird im Corporate Design des Betreibers umgesetzt: Farben, Logos und Texturen werden zu funktionalen Elementen der Außenhülle.</p>
         <p class="lede">Die modulare Architektur erlaubt zonenweisen Tausch, planbare Wartung und nachhaltige Materialkreisläufe innerhalb europäischer Fertigung.</p>
         <p class="lede">Entwickelt in Kooperation mit akkreditierten Prüflaboren und produziert in der EU – für B2B-Pilotpartner und Pre-Order-Programme ab 2026.</p>
         <p class="lede" style="margin-top:10px">Aftermarket-kompatibel ohne Eingriff ins Basissystem: dokumentierte Montagepfade, CI-konforme Oberflächen und ein klarer CE-Prüfweg mit akkreditierten Laboren – bereit für robuste, markensichtbare Einsätze im Feld.</p>
-
+        <!-- CTA unter Text -->
         <div class="cta-row">
           <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
           <a class="btn ghost" href="#roadmap">Pilotprogramm anfragen</a>
@@ -340,7 +306,7 @@
       </div>
     </section>
 
-    <!-- VALUE -->
+    <!-- VALUE PROPOSITION -->
     <section id="value" aria-labelledby="value-title">
       <h2 id="value-title">Wertversprechen</h2>
       <div class="grid">
@@ -363,16 +329,34 @@
     <section id="features" aria-labelledby="features-title">
       <h2 id="features-title">Features</h2>
       <div class="grid">
-        <div class="tile"><h3>Passgenaue Außenmodule</h3><p class="muted">Präzise definierte Montagezonen für humanoide Roboter der neuen Generation.</p></div>
-        <div class="tile"><h3>Materialtechnologie</h3><p class="muted">High-Performance-TPU/PC/PA-Komposite; optional Carbon/Kevlar-Lagen für Stoß- und Abriebschutz.</p></div>
-        <div class="tile"><h3>Oberflächenoptionen</h3><p class="muted">Matt/satin, Mikrotexturen, partielle Grip-Zonen; bedruckt oder eingefärbt nach CI.</p></div>
-        <div class="tile"><h3>Servicefähigkeit</h3><p class="muted">Schraub- und Clip-Konzepte, Schnellwechsel für stark beanspruchte Bereiche.</p></div>
-        <div class="tile"><h3>Traceability</h3><p class="muted">Serienkennzeichnung, Ersatzteil-Mapping, Dokumentation.</p></div>
-        <div class="tile"><h3>Kreislauf & Nachhaltigkeit</h3><p class="muted">Sortenreine Demontage, Rücknahme- & Regranulat-Optionen; Materialtracking pro Zone.</p></div>
+        <div class="tile">
+          <h3>Passgenaue Außenmodule</h3>
+          <p class="muted">Präzise definierte Montagezonen für humanoide Roboter der neuen Generation.</p>
+        </div>
+        <div class="tile">
+          <h3>Materialtechnologie</h3>
+          <p class="muted">High-Performance-TPU/PC/PA-Komposite; optional Carbon/Kevlar-Lagen für Stoß- und Abriebschutz.</p>
+        </div>
+        <div class="tile">
+          <h3>Oberflächenoptionen</h3>
+          <p class="muted">Matt/satin, Mikrotexturen, partielle Grip-Zonen; bedruckt oder eingefärbt nach CI.</p>
+        </div>
+        <div class="tile">
+          <h3>Servicefähigkeit</h3>
+          <p class="muted">Schraub- und Clip-Konzepte, Schnellwechsel für stark beanspruchte Bereiche.</p>
+        </div>
+        <div class="tile">
+          <h3>Traceability</h3>
+          <p class="muted">Serienkennzeichnung, Ersatzteil-Mapping, Dokumentation.</p>
+        </div>
+        <div class="tile">
+          <h3>Kreislauf & Nachhaltigkeit</h3>
+          <p class="muted">Sortenreine Demontage, Rücknahme- & Regranulat-Optionen; Materialtracking pro Zone.</p>
+        </div>
       </div>
     </section>
 
-    <!-- COMPLIANCE -->
+    <!-- COMPLIANCE & PRODUKTION -->
     <section id="compliance" aria-labelledby="compliance-title">
       <h2 id="compliance-title">Compliance & Produktion</h2>
       <div class="card" style="gap:8px">
@@ -381,7 +365,7 @@
       </div>
     </section>
 
-    <!-- USE CASES -->
+    <!-- EINSATZSZENARIEN -->
     <section id="usecases" aria-labelledby="usecases-title">
       <h2 id="usecases-title">Einsatzszenarien</h2>
       <div class="grid">
@@ -478,8 +462,8 @@
             <input id="gdpr" name="gdpr" type="checkbox" required>
             <label for="gdpr" class="note">Ich stimme zu, dass meine Angaben zur Beantwortung meiner Anfrage gespeichert und verarbeitet werden. Details in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</label>
           </div>
-          <div class="note">* Pflichtfelder</div>
 
+          <div class="note">* Pflichtfelder</div>
           <button class="btn" id="submitBtn" type="submit">Senden</button>
           <div id="formStatus" class="status" role="status" aria-live="polite"></div>
         </form>
@@ -508,23 +492,19 @@
     // Jahr
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Burger / Mobile-Menü
+    // Burger / Mobile-Menü (bleibt funktionsfähig, Menü ist nur leer)
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobileMenu');
-
     function setMenu(open){
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       mobileMenu.classList.toggle('open', open);
       mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
       document.body.style.overflow = open ? 'hidden' : '';
     }
-
     burger.addEventListener('click', ()=>{
       const open = burger.getAttribute('aria-expanded') !== 'true';
       setMenu(open);
     });
-
-    // Schließen bei Linkklick / Escape / Resize > 1024
     mobileMenu.addEventListener('click', e=>{
       if(e.target.tagName === 'A') setMenu(false);
     });
@@ -539,19 +519,17 @@
     const form = document.getElementById('contactForm');
     const statusEl = document.getElementById('formStatus');
     const btn = document.getElementById('submitBtn');
-
     function showStatus(msg, ok=true){
       statusEl.textContent = msg;
       statusEl.className = 'status' + (ok ? '' : ' error');
       statusEl.style.display = 'block';
     }
-
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       statusEl.style.display = 'none';
       if(!form.reportValidity()) return;
-
-      btn.disabled = true; btn.textContent = 'Senden …';
+      btn.disabled = true;
+      btn.textContent = 'Senden …';
       try{
         const data = Object.fromEntries(new FormData(form).entries());
         const res = await fetch(form.action, {
@@ -559,7 +537,6 @@
           headers: { 'Accept':'application/json', 'Content-Type':'application/json' },
           body: JSON.stringify(data)
         });
-
         if(res.ok){
           showStatus('Danke! Ihre Nachricht wurde übermittelt. Wir melden uns in Kürze.', true);
           form.reset();
@@ -571,12 +548,14 @@
       }catch(err){
         showStatus('Netzwerkfehler – bitte Verbindung prüfen und erneut senden.', false);
       }finally{
-        btn.disabled = false; btn.textContent = 'Senden';
+        btn.disabled = false;
+        btn.textContent = 'Senden';
       }
     });
   </script>
 </body>
 </html>
+
 
 
 
