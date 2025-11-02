@@ -151,8 +151,8 @@
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
-    .burger{display:none; width:44px; height:40px; border-radius:12px; border:1px solid var(--hair); background:#0e1119; color:var(--ink); align-items:center; justify-content:center}
-    .burger span, .burger::before, .burger::after{content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s}
+    .burger{display:none; width:44px; height:40px; border-radius:12px; border:1px solid var(--hair); background:#0e1119; color:#0e1119; align-items:center; justify-content:center}
+    .burger span, .burger::before, .burger::after{content:""; display:block; width:22px; height:2px; background:#e9eef6; margin:3px 0; transition:.3s}
     .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
     .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
     .burger[aria-expanded="true"] span{opacity:0}
@@ -389,12 +389,12 @@
     <section id="features" aria-labelledby="features-title">
       <h2 id="features-title">Features</h2>
       <div class="grid">
-        <!-- ****** Austausch gemäß Anforderung ****** -->
+        <!-- ****** Geänderter Titel ****** -->
         <div class="tile">
-          <h3>Hochpräzise, passgenaue Außenmodule</h3>
+          <h3>Hochpräzise & passgenau</h3>
           <p class="muted">Engineering-Grade Präzision: enge Toleranzen, klar definierte Montagezonen und reproduzierbare Passung über alle Serien hinweg.</p>
         </div>
-        <!-- ***************************************** -->
+        <!-- ***************************** -->
 
         <div class="tile">
           <h3>Materialtechnologie</h3>
@@ -627,6 +627,7 @@
   </script>
 </body>
 </html>
+
 
 
 
