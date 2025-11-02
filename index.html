@@ -16,7 +16,7 @@
   <link rel="dns-prefetch" href="https://www.cybershell.tech">
   <link rel="preload" as="image" href="https://www.cybershell.tech/cybershell_logo.png" imagesrcset="https://www.cybershell.tech/cybershell_logo.png">
 
-  <!-- Open Graph (Facebook/LinkedIn/etc.) -->
+  <!-- Open Graph -->
   <meta property="og:site_name" content="Cybershell Technologies" />
   <meta property="og:title" content="Cybershell Technologies – Adaptive Außenmodule („Roboskins“) für humanoide Roboter" />
   <meta property="og:description" content="CI-konforme Außenmodule für humanoide Roboter: Schutz, Design und Markenidentität in einem. TPU/PC/PA-Komposite, optional Carbon/Kevlar. EU-Entwicklung und Fertigung, CE-Pfad mit akkreditierten Prüflaboren. B2B-Pilotprogramm & Pre-Orders 2026." />
@@ -26,7 +26,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter Cards (X) -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@cybershelltech" />
   <meta name="twitter:title" content="Cybershell Technologies – Adaptive Außenmodule („Roboskins“) für humanoide Roboter" />
@@ -135,14 +135,14 @@
     }
     .card::before{content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px); background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%); pointer-events:none; z-index:0}
     .sweep{position:absolute; top:0; left:-40%; width:40%; height:100%; background:linear-gradient(75deg, transparent, rgba(255,255,255,.08), transparent); filter:blur(6px); animation:sweep 4.5s ease-in-out infinite}
-    @keyframes sweep{0%{left:-40%}50%{left:120%}100%{left:120%}}
+    @keyframes sweep{0%{left:-40%}50%{left:120%}100%{left:-40%}}
 
     h1{position:relative; z-index:1; margin:0 0 12px; font-size:clamp(32px,4vw,52px); line-height:1.1}
     .subtitle{position:relative; z-index:1; color:#cfe9e5; font-size:18px; margin:4px 0 14px}
     .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
-    .cta-row{position:relative; z-index:1; display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .cta-row{position:relative; z-index:1; display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
 
-    /* (Chips entfernt) – .spec bleibt ungenutzt, falls später wieder gebraucht */
+    /* Chips entfernt */
     .spec{display:none}
     .chip{display:none}
 
@@ -323,27 +323,24 @@
         <p class="lede">Jede Oberfläche wird im Corporate Design des Betreibers umgesetzt: Farben, Logos und Texturen werden zu funktionalen Elementen der Außenhülle.</p>
         <p class="lede">Die modulare Architektur erlaubt zonenweisen Tausch, planbare Wartung und nachhaltige Materialkreisläufe innerhalb europäischer Fertigung.</p>
         <p class="lede">Entwickelt in Kooperation mit akkreditierten Prüflaboren und produziert in der EU – für B2B-Pilotpartner und Pre-Order-Programme ab 2026.</p>
+        <!-- Neuer Text (ersetzt die früheren Chips) -->
+        <p class="lede" style="margin-top:10px">
+          Aftermarket-kompatibel ohne Eingriff ins Basissystem: dokumentierte Montagepfade, CI-konforme Oberflächen und ein klarer CE-Prüfweg mit akkreditierten Laboren – bereit für robuste, markensichtbare Einsätze im Feld.
+        </p>
 
+        <!-- CTA jetzt UNTER dem Text -->
         <div class="cta-row">
           <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
           <a class="btn ghost" href="#roadmap">Pilotprogramm anfragen</a>
         </div>
-
-        <!-- NEUER Text statt der entfernten drei Punkte -->
-        <p class="lede" style="margin-top:10px">
-          Aftermarket-kompatibel ohne Eingriff ins Basissystem: dokumentierte Montagepfade, CI-konforme Oberflächen und ein klarer CE-Prüfweg mit akkreditierten Laboren – bereit für robuste, markensichtbare Einsätze im Feld.
-        </p>
       </div>
 
       <div class="hero-vis" aria-hidden="false">
-        <!-- Oberes Bild -->
         <div class="media">
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
-
-        <!-- Unteres Bild -->
         <figure class="inset">
-          <img src="cybershellrobot5.png" alt="Cybershell – Schichtaufbau (3D) unterhalb des Hauptbildes">
+          <img src="cybershellrobot5.png" alt="Cybershell – Schichtaufbau (3D) unterhalb des Hauptbildes)">
         </figure>
       </div>
     </section>
@@ -354,21 +351,15 @@
       <div class="grid">
         <article class="tile">
           <h3>Markenidentität in 3D</h3>
-          <p class="muted">
-            Farben, Logos und Oberflächenstrukturen werden funktionaler Teil der Hülle – CI-konform, reproduzierbar und skalierbar.
-          </p>
+          <p class="muted">Farben, Logos und Oberflächenstrukturen werden funktionaler Teil der Hülle – CI-konform, reproduzierbar und skalierbar.</p>
         </article>
         <article class="tile">
           <h3>Schutz & Langlebigkeit</h3>
-          <p class="muted">
-            Schlagzäh, UV- und chemikalienbeständig; optional Carbon/Kevlar-Verstärkung für exponierte Zonen.
-          </p>
+          <p class="muted">Schlagzäh, UV- und chemikalienbeständig; optional Carbon/Kevlar-Verstärkung für exponierte Zonen.</p>
         </article>
         <article class="tile">
           <h3>Modular & wartungsfreundlich</h3>
-          <p class="muted">
-            Zonenweise austauschbar – planbare Instandhaltung, geringere Standzeiten.
-          </p>
+          <p class="muted">Zonenweise austauschbar – planbare Instandhaltung, geringere Standzeiten.</p>
         </article>
       </div>
     </section>
@@ -379,33 +370,23 @@
       <div class="grid">
         <div class="tile">
           <h3>Passgenaue Außenmodule</h3>
-          <p class="muted">
-            Präzise definierte Montagezonen für humanoide Roboter der neuen Generation.
-          </p>
+          <p class="muted">Präzise definierte Montagezonen für humanoide Roboter der neuen Generation.</p>
         </div>
         <div class="tile">
           <h3>Materialtechnologie</h3>
-          <p class="muted">
-            High-Performance-TPU/PC/PA-Komposite; optional Carbon/Kevlar-Lagen für Stoß- und Abriebschutz.
-          </p>
+          <p class="muted">High-Performance-TPU/PC/PA-Komposite; optional Carbon/Kevlar-Lagen für Stoß- und Abriebschutz.</p>
         </div>
         <div class="tile">
           <h3>Oberflächenoptionen</h3>
-          <p class="muted">
-            Matt/satin, Mikrotexturen, partielle Grip-Zonen; bedruckt oder eingefärbt nach CI.
-          </p>
+          <p class="muted">Matt/satin, Mikrotexturen, partielle Grip-Zonen; bedruckt oder eingefärbt nach CI.</p>
         </div>
         <div class="tile">
           <h3>Servicefähigkeit</h3>
-          <p class="muted">
-            Schraub- und Clip-Konzepte, Schnellwechsel für stark beanspruchte Bereiche.
-          </p>
+          <p class="muted">Schraub- und Clip-Konzepte, Schnellwechsel für stark beanspruchte Bereiche.</p>
         </div>
         <div class="tile">
           <h3>Traceability</h3>
-          <p class="muted">
-            Serienkennzeichnung, Ersatzteil-Mapping, Dokumentation.
-          </p>
+          <p class="muted">Serienkennzeichnung, Ersatzteil-Mapping, Dokumentation.</p>
         </div>
       </div>
     </section>
@@ -452,7 +433,7 @@
       </div>
     </section>
 
-    <!-- ROADMAP & ZUSAMMENARBEIT -->
+    <!-- ROADMAP -->
     <section id="roadmap" aria-labelledby="roadmap-title">
       <h2 id="roadmap-title">Roadmap & Zusammenarbeit</h2>
       <div class="card">
@@ -467,7 +448,7 @@
       </div>
     </section>
 
-    <!-- EXPLODED / VISUAL -->
+    <!-- VISUAL -->
     <section id="exploded" aria-labelledby="exploded-title">
       <h2 id="exploded-title">Cybershell Designstudie</h2>
       <div class="card" style="padding:14px">
@@ -483,21 +464,15 @@
       <div class="grid">
         <article class="tile">
           <h3>Wie wird die Herstellergarantie berücksichtigt?</h3>
-          <p class="muted">
-            Unsere Module sind äußerliche Anbauteile. Montage ohne Eingriff in sicherheitsrelevante Systeme ist vorgesehen. Prüfen Sie stets die Bedingungen Ihres Herstellers; wir unterstützen mit Dokumentation und Montagehinweisen.
-          </p>
+          <p class="muted">Unsere Module sind äußerliche Anbauteile. Montage ohne Eingriff in sicherheitsrelevante Systeme ist vorgesehen. Prüfen Sie stets die Bedingungen Ihres Herstellers; wir unterstützen mit Dokumentation und Montagehinweisen.</p>
         </article>
         <article class="tile">
           <h3>Welche Zertifizierungen sind geplant?</h3>
-          <p class="muted">
-            Material-, Brand- und Umweltprüfungen im Rahmen des CE-Pfads. Ergebnisse und Normbezüge stellen wir Pilotkunden bereit.
-          </p>
+          <p class="muted">Material-, Brand- und Umweltprüfungen im Rahmen des CE-Pfads. Ergebnisse und Normbezüge stellen wir Pilotkunden bereit.</p>
         </article>
         <article class="tile">
           <h3>Welche Mindestmengen?</h3>
-          <p class="muted">
-            Ab Serien-Losgröße <strong>50+ Einheiten</strong> je Variante; Pilotlos kleinvolumig nach Absprache.
-          </p>
+          <p class="muted">Ab Serien-Losgröße <strong>50+ Einheiten</strong> je Variante; Pilotlos kleinvolumig nach Absprache.</p>
         </article>
       </div>
     </section>
@@ -641,6 +616,7 @@
   </script>
 </body>
 </html>
+
 
 
 
