@@ -2,45 +2,120 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Adaptive outer modules for humanoid robots: CI-compliant design, protection & modular maintenance. TPU/PC/PA with optional carbon/Kevlar; CE compliance path with accredited labs." />
+
+  <title>Cybershell Technologies – Adaptive Outer Modules (“Roboskins”) for Humanoid Robots</title>
+  <meta name="description" content="CI-conform outer modules for humanoid robots: protection, design, and brand identity in one. TPU/PC/PA composites, optional carbon/Kevlar reinforcements. EU development & manufacturing, CE pathway with accredited test labs. B2B pilot program & pre-orders 2026." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0d12" />
-  <title>Cybershell Technologies</title>
+  <link rel="canonical" href="https://www.cybershell.tech/index_en.html" />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://www.cybershell.tech" crossorigin>
+  <link rel="dns-prefetch" href="https://www.cybershell.tech">
+
+  <!-- Fonts: Body=Inter, Headlines=Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Cybershell Technologies" />
-  <meta property="og:description" content="Adaptive outer modules for humanoid robots: CI-compliant design, protection & modular maintenance. TPU/PC/PA with optional carbon/Kevlar; CE compliance path." />
-  <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
+  <meta property="og:site_name" content="Cybershell Technologies" />
+  <meta property="og:title" content="Cybershell Technologies – Adaptive Outer Modules (“Roboskins”) for Humanoid Robots" />
+  <meta property="og:description" content="CI-conform outer modules for humanoid robots: protection, design, and brand identity in one. TPU/PC/PA composites, optional carbon/Kevlar reinforcements. EU development & manufacturing, CE pathway with accredited test labs. B2B pilot program & pre-orders 2026." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.cybershell.tech/index_en.html" />
+  <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@cybershelltech" />
+  <meta name="twitter:title" content="Cybershell Technologies – Adaptive Outer Modules (“Roboskins”) for Humanoid Robots" />
+  <meta name="twitter:description" content="CI-conform outer modules for humanoid robots: protection, design, and brand identity in one. TPU/PC/PA composites, optional carbon/Kevlar. EU development & manufacturing, CE pathway with accredited labs. B2B pilot program & pre-orders 2026." />
+  <meta name="twitter:image" content="https://www.cybershell.tech/cybershell_logo.png" />
 
   <!-- hreflang -->
   <link rel="alternate" href="https://www.cybershell.tech/" hreflang="de" />
   <link rel="alternate" href="https://www.cybershell.tech/index_en.html" hreflang="en" />
-  <link rel="alternate" href="https://www.cybershell.tech/index_en.html" hreflang="x-default" />
+  <link rel="alternate" href="https://www.cybershell.tech/" hreflang="x-default" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="cybershell_logo.png" type="image/png" />
+  <!-- Favicons -->
+  <link rel="icon" href="https://www.cybershell.tech/cybershell_logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://www.cybershell.tech/cybershell_logo.png" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cybershell Technologies",
+    "url": "https://www.cybershell.tech/",
+    "logo": "https://www.cybershell.tech/cybershell_logo.png",
+    "description": "CI-conform outer modules for humanoid robots: protection, design, and brand identity in one. TPU/PC/PA composites, optional carbon/Kevlar. EU development & manufacturing. CE pathway with accredited labs. B2B pilot program & pre-orders 2026.",
+    "address": { "@type": "PostalAddress", "addressCountry": "AT", "addressLocality": "Vienna" },
+    "email": "info@cybershell.tech",
+    "sameAs": [
+      "https://www.linkedin.com/company/cybershell-technologies/",
+      "https://x.com/cybershelltech"
+    ]
+  }
+  </script>
 
   <style>
     :root{
-      --bg:#0b0d12; --panel:#121520; --ink:#e9eef6; --muted:#a7b0c0;
+      --bg:#0b0d12; --panel:#121520; --ink:#e9eef6; --muted:#a8b1c1;
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
       --safe-top: env(safe-area-inset-top);
-      --gHero:40px; /* unified gap: left/right columns and between right images */
+      --gHero:40px;
+
+      /* Type scale */
+      --f-base:16px;
+      --lh-base:1.6;
+      --f-h1:clamp(30px,3.6vw,48px);
+      --f-h2:clamp(22px,3vw,28px);
+      --f-h3:18px;
+      --trk-tight:-0.01em;
+      --trk-wide:0.06em;
     }
+
     *{box-sizing:border-box}
+    html{font-size:var(--f-base)}
     body{
       margin:0; color:var(--ink);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 450;
+      line-height: var(--lh-base);
       background:
         radial-gradient(1200px 600px at 70% -10%, rgba(90,242,214,.08), transparent 60%),
         radial-gradient(900px 500px at 10% 10%, rgba(138,168,255,.07), transparent 55%),
         var(--bg);
       letter-spacing:.2px;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+
+    /* Headlines: Poppins */
+    h1,h2,h3{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      letter-spacing:var(--trk-tight);
+      margin:0 0 10px;
+      line-height:1.15;
+    }
+    h1{font-size:var(--f-h1)}
+    h2{font-size:var(--f-h2); color:var(--accent)}
+    h3{font-size:var(--f-h3); font-weight:700}
+
+    .subtitle{
+      color:#cfe9e5; font-size:18px; margin:6px 0 10px; letter-spacing:.005em; font-weight:600
+    }
+    .lede{color:var(--muted); font-size:18px; letter-spacing:.005em}
+
     a{color:var(--accent); text-decoration:none} a:hover{opacity:.9}
 
     /* Header / Navigation */
@@ -50,16 +125,24 @@
       background:linear-gradient(to bottom, rgba(11,13,18,.92), rgba(11,13,18,.75));
       border-bottom:1px solid var(--hair);
     }
-    .bar{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:calc(10px + var(--safe-top)) 20px 14px}
-    .brand{display:flex; align-items:center; gap:16px}
-    .brand img.logo{height:88px; width:auto; display:block; filter:drop-shadow(0 8px 14px rgba(0,0,0,.35)); transition: transform .35s ease}
-    .brand img.logo:hover{ transform: scale(1.05) }
-    .brand .wordmark{display:flex; flex-direction:column; line-height:1.1}
-    .brand .title{font-weight:800; letter-spacing:.6px}
-    .brand .sub{color:var(--muted); font-weight:500; letter-spacing:.3px; font-size:12.5px}
+    .bar{
+      display:flex; align-items:center; justify-content:space-between;
+      max-width:var(--max); margin:0 auto;
+      padding:calc(8px + var(--safe-top)) 20px 12px;
+    }
+
+    /* Brand cluster: Logo only (no wordmark) */
+    .brand{display:flex; align-items:center; gap:14px; min-height:72px}
+    .brand img.logo{
+      height:84px; width:auto; display:block;
+      filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));
+      transition: transform .25s ease;
+      border-radius:12px;
+    }
+    .brand img.logo:hover{ transform: translateY(-1px) }
 
     nav{display:flex; gap:22px; align-items:center}
-    nav a{color:var(--muted); position:relative; padding:4px 0}
+    nav a{color:var(--muted); position:relative; padding:4px 0; font-weight:600; letter-spacing:.02em}
     nav a::after{content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:.3s}
     nav a:hover::after{width:100%}
 
@@ -68,14 +151,12 @@
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
-    /* Burger-Button */
     .burger{display:none; width:44px; height:40px; border-radius:12px; border:1px solid var(--hair); background:#0e1119; color:var(--ink); align-items:center; justify-content:center}
     .burger span, .burger::before, .burger::after{content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s}
     .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
     .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
     .burger[aria-expanded="true"] span{opacity:0}
 
-    /* Mobile Menu Panel */
     .mobile-menu{display:none; position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80; background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94)); border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow); padding:14px}
     .mobile-menu.open{display:block; animation:fadeIn .18s ease-out}
     @keyframes fadeIn{from{opacity:.001; transform:translateY(-6px)} to{opacity:1; transform:none}}
@@ -87,63 +168,43 @@
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:20px 0 80px}
 
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:var(--gHero);
-      align-items:stretch;
-    }
-
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:var(--gHero); align-items:stretch}
     .card{
-      position:relative;
-      overflow:hidden;
-      height:100%;
+      position:relative; overflow:hidden; height:100%;
       background:linear-gradient(180deg, rgba(18,21,32,.92), rgba(18,21,32,.78));
-      border:1px solid var(--hair);
-      border-radius:var(--radius);
-      padding:34px;
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;   /* let inner content stretch */
+      border:1px solid var(--hair); border-radius:var(--radius); padding:34px; box-shadow:var(--shadow);
+      display:flex; flex-direction:column;
     }
     .card::before{content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px); background: radial-gradient(600px 160px at 10% 0%, rgba(90,242,214,.14), transparent 55%); pointer-events:none; z-index:0}
     .sweep{position:absolute; top:0; left:-40%; width:40%; height:100%; background:linear-gradient(75deg, transparent, rgba(255,255,255,.08), transparent); filter:blur(6px); animation:sweep 4.5s ease-in-out infinite}
     @keyframes sweep{0%{left:-40%}50%{left:120%}100%{left:120%}}
 
-    /* TYPO BLOCK SHOULD FILL THE CARD */
-    .copy{
-      position:relative; z-index:1;
-      display:flex; flex-direction:column;
-      gap:12px;
-      flex:1 1 auto;        /* take all available height */
-      min-height:0;         /* allow flex children to shrink */
-    }
-    h1{margin:0; font-size:clamp(32px,4vw,52px); line-height:1.1}
-    .subtitle{color:#cfe9e5; font-size:18px; margin:4px 0 8px}
-    .tag{display:inline-block; background:rgba(90,242,214,.12); color:var(--accent); border:1px solid rgba(90,242,214,.35); padding:6px 10px; border-radius:999px; font-size:12px}
-    .lede{color:var(--muted); font-size:18px; margin:6px 0 0; overflow:auto}
-    /* push the spec row to the absolute bottom edge inside the card */
-    .spec{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:auto}
-    .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
+    /* Headline */
+    h1{margin:0 0 10px}
 
-    /* Right image column */
+    /* Subtitle & lede */
+    .subtitle + .lede{margin-top:2px}
+    .lede + .lede{margin-top:2px}
+
+    /* CTA */
+    .cta-row{position:relative; z-index:1; display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+
+    .btn{
+      display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2));
+      color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:800; letter-spacing:.02em;
+      cursor:pointer; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
+    }
+    .btn.ghost{background:transparent; border:1px solid var(--accent); color:var(--ink); font-weight:700}
+    .btn:disabled{opacity:.6; cursor:not-allowed}
+
     .hero-vis{
-      height:100%;
-      border-radius:var(--radius);
-      display:flex;
-      flex-direction:column;
-      gap:var(--gHero);
+      height:100%; border-radius:var(--radius);
+      display:flex; flex-direction:column; gap:var(--gHero);
     }
     .hero-vis .media,
     .hero-vis .inset{
-      border:1px solid var(--hair);
-      border-radius:var(--radius);
-      padding:0;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      align-self:stretch;
-      width:100%;
+      border:1px solid var(--hair); border-radius:var(--radius);
+      padding:0; box-shadow:var(--shadow); overflow:hidden; align-self:stretch; width:100%;
     }
     .hero-vis .media{ background:#0e1119; flex:1 1 60% }
     .hero-vis .inset{ background:#000;   flex:1 1 40% }
@@ -157,51 +218,38 @@
 
     figure{margin:0}
 
-    /* Sections */
     section{margin-top:56px}
-    h2{font-size:clamp(22px,3vw,28px); margin:0 0 18px; color:var(--accent)}
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
     .tile{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .tile h3{margin:0 0 8px; font-size:18px}
+    .tile h3{margin:0 0 8px}
     .muted{color:var(--muted)}
 
-    /* Contact */
     .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
     .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
     .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
-    label{font-size:13px; color:var(--muted)}
-    input,textarea{background:#0e1119; color:var(--ink); border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
+    label{font-size:13px; color:var(--muted); font-weight:600; letter-spacing:.02em}
+    input,textarea{background:#0e1119; color:#e9eef6; border:1px solid var(--hair); border-radius:12px; padding:10px 12px; font:inherit}
     textarea{min-height:120px; resize:vertical}
-    .btn{display:inline-block; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#091018; border:none; padding:11px 14px; border-radius:12px; font-weight:700; cursor:pointer}
-    .btn:disabled{opacity:.6; cursor:not-allowed}
-    .consent{display:flex; gap:10px; align-items:flex-start; margin-top:2px}
-    .consent input{margin-top:2px}
     .status{display:none; margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid #25402f; background:#0e1b15; color:#c9f2df}
     .status.error{border-color:#4a1e25; background:#190e11; color:#ffd7dc}
     .note{font-size:12px; color:var(--muted)}
 
-    /* Footer */
     footer{border-top:1px solid var(--hair); color:var(--muted)}
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
-    /* Wide media */
     .media-wide{background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; height:100%; min-height:460px}
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
-    /* ===== Mobile ===== */
     @media (max-width:1024px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
-      .brand img.logo{height:76px}
+      .brand img.logo{height:72px}
       nav .nav-links, nav .lang{display:none !important}
       .burger{display:flex}
-      .brand .wordmark .title{font-size:18px}
-      .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
       .hero-vis{gap:20px}
-      .copy{gap:10px}
     }
   </style>
 </head>
@@ -209,19 +257,20 @@
   <!-- Header -->
   <header>
     <div class="bar">
-      <div class="brand" aria-label="Cybershell logo and wordmark">
-        <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies Logo" />
-        <div class="wordmark">
-          <span class="title">Cybershell Technologies</span>
-          <span class="sub">Adaptive Surfaces for Intelligent Robots</span>
-        </div>
+      <div class="brand" aria-label="Cybershell logo">
+        <img class="logo" src="cybershell_logo.png" alt="Cybershell Technologies logo" />
+        <!-- wordmark removed -->
       </div>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop navigation -->
       <nav aria-label="Main navigation">
         <div class="nav-links" style="display:flex;gap:22px;align-items:center">
-          <a href="#solution">Solution</a>
+          <a href="#value">Value</a>
           <a href="#features">Features</a>
+          <a href="#compliance">Compliance</a>
+          <a href="#usecases">Use cases</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </div>
         <span class="lang" aria-label="Languages">
@@ -258,8 +307,12 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
       <div class="mobile-row" role="menu">
-        <a role="menuitem" href="#solution">Solution</a>
+        <a role="menuitem" href="#value">Value</a>
         <a role="menuitem" href="#features">Features</a>
+        <a role="menuitem" href="#compliance">Compliance</a>
+        <a role="menuitem" href="#usecases">Use cases</a>
+        <a role="menuitem" href="#roadmap">Roadmap</a>
+        <a role="menuitem" href="#faq">FAQ</a>
         <a role="menuitem" href="#contact">Contact</a>
       </div>
       <div class="mobile-lang" aria-label="Languages">
@@ -285,108 +338,151 @@
   <main class="wrap">
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <!-- LEFT: TYPOGRAPHY CARD THAT FILLS THE FRAME -->
       <div class="card">
         <span class="sweep" aria-hidden="true"></span>
-        <div class="copy">
-          <span class="tag">EU design • CI-compliant roboskins</span>
-          <h1 id="hero-title">The next evolution of robotics starts at the surface.</h1>
-          <p class="subtitle">Adaptive outer modules for humanoid robots.</p>
+        <span class="tag" style="font:600 12px/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;color:#cfe9e5">EU design • CI-conform roboskins</span>
+        <h1 id="hero-title">The next evolution of robotics begins at the surface.</h1>
 
-          <p class="lede">
-            Robotics doesn’t begin at the core — it begins at the surface where perception, protection and brand meet.<br>
-            Cybershell Technologies develops adaptive outer modules for humanoid robots that unite industrial design, functional protection and CI-grade branding for reliable, customer-facing operation.<br>
-            Engineered TPU/PC/PA composites — optionally reinforced with carbon and Kevlar — deliver high impact strength, abrasion and chemical resistance, color stability under UV and verified fire behavior in line with relevant EU standards.<br>
-            Surfaces are produced to corporate design with tight tolerances: calibrated colors, durable logos and micro-textures that improve grip, cleanability and visual clarity — consistent from pilot to large-scale fleets.<br>
-            A modular zone concept with tool-light clip/magnet interfaces enables rapid on-site replacement, short service cycles and predictable costs while keeping sensors, cooling and core systems untouched.<br>
-            Circularity by design: repair and refinish options extend service life; clean material separation supports take-back, recycling and documented sustainability goals.<br>
-            Development is lab-backed from concept through validation with accredited test partners. Designed, produced and manufactured in the EU for dependable rollout and long-term maintainability.
-          </p>
+        <p class="subtitle">Cybershell Technologies develops adaptive outer modules (“roboskins”) for humanoid robots, uniting design, function, and brand identity.</p>
+        <p class="lede">Manufactured from high-performance TPU/PC/PA composites with optional carbon or Kevlar layers, the modules provide high impact strength, UV and chemical resistance, and verified fire behavior per EU standards — critical for CE compliance and series approval.</p>
+        <p class="lede">Each surface is executed in the operator’s corporate design: colors, logos and textures become functional parts of the outer shell.</p>
+        <p class="lede">The modular architecture enables zone-based replacement, planned maintenance, and sustainable material cycles within European manufacturing.</p>
+        <p class="lede">Developed with accredited test laboratories and produced in the EU — for B2B pilot partners and pre-order programs starting 2026.</p>
+        <p class="lede" style="margin-top:10px">Aftermarket-compatible without interfering with the base system: documented mounting paths, CI-conform surfaces, and a clear CE test route with accredited labs — ready for robust, brand-visible field deployment.</p>
 
-          <!-- chips pinned to the bottom via margin-top:auto on .spec -->
-          <div class="spec" role="list">
-            <div class="chip" role="listitem">Mounting &lt; 20 min</div>
-            <div class="chip" role="listitem">UV / abrasion / chemical resistance</div>
-            <div class="chip" role="listitem">CE compliance path</div>
-          </div>
+        <!-- CTAs -->
+        <div class="cta-row">
+          <a class="btn" href="#contact">Get in touch</a>
+          <a class="btn ghost" href="#roadmap">Request pilot program</a>
         </div>
       </div>
 
-      <!-- RIGHT: IMAGES -->
       <div class="hero-vis" aria-hidden="false">
         <div class="media">
-          <img src="cybershellrobot2.png" alt="Cybershell robot visual — full view, no crop">
+          <img src="cybershellrobot2.png" alt="Cybershell robot visualization – full view without cropping">
         </div>
         <figure class="inset">
-          <img src="cybershellrobot5.png" alt="Cybershell — 3D layer stack graphic below the main image">
+          <img src="cybershellrobot5.png" alt="Cybershell – layered structure (3D) below the main image">
         </figure>
       </div>
     </section>
 
-    <!-- SOLUTION -->
-    <section id="solution" aria-labelledby="solution-title">
-      <h2 id="solution-title">Why Cybershell?</h2>
+    <!-- VALUE -->
+    <section id="value" aria-labelledby="value-title">
+      <h2 id="value-title">Value proposition</h2>
       <div class="grid">
         <article class="tile">
-          <h3>CI Branding</h3>
-          <p class="muted">
-            <strong>Precise brand integration:</strong> colors, logos and textures exactly to your corporate design.<br>
-            Swappable skins for maintenance, campaigns or partner branding — CI-compliant down to the details.
-          </p>
+          <h3>3D brand identity</h3>
+          <p class="muted">Colors, logos and surface structures become functional parts of the shell — CI-conform, reproducible and scalable.</p>
         </article>
         <article class="tile">
-          <h3>Protection & Hygiene</h3>
-          <p class="muted">
-            Robust, easy-to-clean panels with dirt-repellent micro-textures.<br>
-            Resistant to cleaners, abrasion and UV — optional antistatic or antibacterial finishes.
-          </p>
+          <h3>Protection & longevity</h3>
+          <p class="muted">Impact-resistant, UV- and chemical-resistant; optional carbon/Kevlar reinforcement for exposed zones.</p>
         </article>
         <article class="tile">
-          <h3>Fast Service</h3>
-          <p class="muted">
-            Modular panels instead of downtime: damaged zones can be replaced within minutes.<br>
-            Reduced outages, predictable costs, maximum availability.
-          </p>
+          <h3>Modular & service-friendly</h3>
+          <p class="muted">Zone-wise replacement — planned servicing, reduced downtime.</p>
         </article>
       </div>
     </section>
 
     <!-- FEATURES -->
     <section id="features" aria-labelledby="features-title">
-      <h2 id="features-title">Technical Highlights</h2>
+      <h2 id="features-title">Features</h2>
       <div class="grid">
         <div class="tile">
-          <h3>Materials & Finish</h3>
+          <h3>Precision-fit outer modules</h3>
+          <p class="muted">Precisely defined mounting zones for the new generation of humanoid robots.</p>
+        </div>
+        <div class="tile">
+          <h3>Material technology</h3>
+          <p class="muted">High-performance TPU/PC/PA composites; optional carbon/Kevlar layers for impact and abrasion protection.</p>
+        </div>
+        <div class="tile">
+          <h3>Surface options</h3>
           <p class="muted">
-            TPU/PC/PA composites with optional carbon and Kevlar reinforcement; ESD on request.
-            Industrial coatings, functional films, micro-textures and inlays (metal, illuminated graphics) — matte, satin, high-gloss or textured.
+            High-gloss (piano black / high-gloss finish), satin/matte, <strong>carbon finish</strong>, micro-textures, partial grip zones;
+            printed or CI color-matched.
           </p>
         </div>
         <div class="tile">
-          <h3>Mechanics & Interfaces</h3>
-          <p class="muted">
-            Clip / magnetic / screw concepts; replacement without touching sensors or cooling.
-            Low installation time, defined load paths and protection edges — tuned for the higher stiffness of carbon/Kevlar panels.
-          </p>
+          <h3>Serviceability</h3>
+          <p class="muted">Screw and clip concepts, quick-swap for high-wear areas.</p>
         </div>
         <div class="tile">
-          <h3>Sustainability</h3>
-          <p class="muted">
-            Modular replacement of damaged zones, repair over full swap.
-            Clean separation of TPU/PC/PA and CF/aramid laminates, take-back & recycling routes, EU supply chain — surfaces can be refinished when needed.
-          </p>
+          <h3>Traceability</h3>
+          <p class="muted">Serial identification, spare-parts mapping, documentation.</p>
+        </div>
+        <div class="tile">
+          <h3>Circularity & sustainability</h3>
+          <p class="muted">Mono-material disassembly, take-back & re-granulate options; material tracking per zone.</p>
         </div>
       </div>
     </section>
 
-    <!-- IMAGE SECTION -->
+    <!-- COMPLIANCE & PRODUCTION -->
+    <section id="compliance" aria-labelledby="compliance-title">
+      <h2 id="compliance-title">Compliance & production</h2>
+      <div class="card" style="gap:8px">
+        <p class="muted">EU development and manufacturing. Testing according to relevant EU standards in cooperation with accredited labs (CE pathway in preparation). Material, fire and aging tests are implemented step-by-step. Supply chain and production are designed for B2B series.</p>
+        <p class="muted"><strong>Note:</strong> Cybershell is an independent aftermarket provider. Compatibility and mounting are carried out within legal frameworks; the robot manufacturer’s warranty is not affected as long as no unauthorised interventions are made on the base system. (Details in the datasheet/FAQ.)</p>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section id="usecases" aria-labelledby="usecases-title">
+      <h2 id="usecases-title">Use cases</h2>
+      <div class="grid">
+        <div class="tile"><h3>Logistics & delivery</h3><p class="muted">Visible CI, edge protection, grip zones for handling.</p></div>
+        <div class="tile"><h3>Construction & industry</h3><p class="muted">Abrasion/impact protection, high-vis markings, modular zone swaps.</p></div>
+        <div class="tile"><h3>Retail & hospitality</h3><p class="muted">Branded appearance, scratch-resistant surfaces, easy cleaning.</p></div>
+        <div class="tile"><h3>Manufacturing & labs</h3><p class="muted">Chemical and UV resistance, anti-static, anti-bacterial, color-coded safety zones.</p></div>
+        <div class="tile"><h3>Security & responders</h3><p class="muted">Heat-resistant, tough modules; reflective zones; quick-swap panels.</p></div>
+        <div class="tile"><h3>Research & education</h3><p class="muted">Prototype mounts, material variants, open interfaces.</p></div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" aria-labelledby="roadmap-title">
+      <h2 id="roadmap-title">Roadmap & collaboration</h2>
+      <div class="card">
+        <ul class="muted" style="margin:0 0 14px 18px">
+          <li><strong>2025:</strong> Design freeze of the first module sets, verification of materials/process.</li>
+          <li><strong>2026:</strong> Pilot program with selected partners; pre-orders for first series.</li>
+          <li><strong>&gt;2026:</strong> Scaling, portfolio variants, OEM collaborations.</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn" href="#contact">Become a pilot partner → Schedule a call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL -->
     <section id="exploded" aria-labelledby="exploded-title">
-      <h2 id="exploded-title">Cybershell design study based on Tesla Optimus</h2>
+      <h2 id="exploded-title">Cybershell design study</h2>
       <div class="card" style="padding:14px">
         <div class="media-wide">
-          <img src="cybershellrobot3.png" alt="Cybershell design study — modular outer structure visual">
+          <img src="cybershellrobot3.png" alt="Cybershell design study – visualization of the modular outer structure">
         </div>
-        <div class="caption" style="text-align:center;color:var(--muted);font-size:13px;margin-top:6px">Panel layout & layers</div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">FAQ (excerpt)</h2>
+      <div class="grid">
+        <article class="tile">
+          <h3>How is the manufacturer’s warranty considered?</h3>
+          <p class="muted">Our modules are exterior add-on parts. Mounting is intended without intervention in safety-relevant systems. Always check your manufacturer’s warranty terms; we provide documentation and mounting guidance.</p>
+        </article>
+        <article class="tile">
+          <h3>Which certifications are planned?</h3>
+          <p class="muted">Material, fire and environmental tests as part of the CE pathway. Results and standard references are provided to pilot customers.</p>
+        </article>
+        <article class="tile">
+          <h3>Minimum quantities?</h3>
+          <p class="muted">From batch size <strong>50+ units</strong> per variant in series; small pilot batches on request.</p>
+        </article>
       </div>
     </section>
 
@@ -394,7 +490,7 @@
     <section id="contact" class="contact" aria-labelledby="contact-title">
       <div class="card">
         <h2 id="contact-title">Contact</h2>
-        <p class="muted">Tell us about your use case, quantities and timeline. We’ll get back to you shortly.</p>
+        <p class="muted">B2B inquiries &amp; pilot program — tell us about your use case, quantities and timeline. We’ll get back to you shortly.</p>
 
         <form id="contactForm" action="https://formspree.io/f/mvgvkjak" method="POST" novalidate>
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;height:0;width:0;opacity:0" aria-hidden="true">
@@ -403,12 +499,12 @@
 
           <div class="field">
             <label for="name">Name*</label>
-            <input id="name" name="name" type="text" required placeholder="Jane Doe">
+            <input id="name" name="name" type="text" required placeholder="Jane Smith">
           </div>
 
           <div class="field">
             <label for="company">Company</label>
-            <input id="company" name="company" type="text" placeholder="Company / Organization">
+            <input id="company" name="company" type="text" placeholder="Company / organization">
           </div>
 
           <div class="field">
@@ -418,17 +514,17 @@
 
           <div class="field">
             <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="+1 …">
+            <input id="phone" name="phone" type="tel" placeholder="+43 …">
           </div>
 
           <div class="field">
             <label for="msg">Message*</label>
-            <textarea id="msg" name="message" required placeholder="Briefly describe your needs (use case, quantity, timeline)…"></textarea>
+            <textarea id="msg" name="message" required placeholder="Briefly describe your need (use case, quantity, timeline)…"></textarea>
           </div>
 
           <div class="consent">
             <input id="gdpr" name="gdpr" type="checkbox" required>
-            <label for="gdpr" class="note">I agree that my details will be stored and processed to respond to my request. Details in the <a href="/privacy.html">Privacy Policy</a>.</label>
+            <label for="gdpr" class="note">I agree that my details will be stored and processed for the purpose of responding to my inquiry. Details in the <a href="/privacy.html">Privacy Policy</a>.</label>
           </div>
           <div class="note">* Required fields</div>
 
@@ -476,7 +572,7 @@
       setMenu(open);
     });
 
-    // Close on link click / Escape / resize > 1024
+    // Close on link click / Escape / Resize > 1024
     mobileMenu.addEventListener('click', e=>{
       if(e.target.tagName === 'A') setMenu(false);
     });
@@ -529,10 +625,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
