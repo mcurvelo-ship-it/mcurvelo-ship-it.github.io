@@ -2,26 +2,67 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Cybershell Technologies</title>
   <meta name="description" content="Adaptive Außenmodule für humanoide Roboter: CI-konformes Design, Schutz & modulare Wartung. TPU/PC/PA, optional Carbon/Kevlar; CE-Pfad mit akkreditierten Laboren." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0d12" />
-  <title>Cybershell Technologies</title>
+  <link rel="canonical" href="https://www.cybershell.tech/" />
 
-  <!-- Open Graph -->
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://www.cybershell.tech" crossorigin>
+  <link rel="dns-prefetch" href="https://www.cybershell.tech">
+  <link rel="preload" as="image" href="https://www.cybershell.tech/cybershell_logo.png" imagesrcset="https://www.cybershell.tech/cybershell_logo.png">
+
+  <!-- Open Graph (Facebook/LinkedIn/etc.) -->
+  <meta property="og:site_name" content="Cybershell Technologies" />
   <meta property="og:title" content="Cybershell Technologies" />
   <meta property="og:description" content="Adaptive Außenmodule für humanoide Roboter: CI-konformes Design, Schutz & modulare Wartung. TPU/PC/PA, optional Carbon/Kevlar; CE-Pfad mit akkreditierten Laboren." />
-  <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.cybershell.tech/" />
+  <meta property="og:image" content="https://www.cybershell.tech/cybershell_logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Cards (X) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@cybershelltech" />
+  <meta name="twitter:title" content="Cybershell Technologies" />
+  <meta name="twitter:description" content="Adaptive Außenmodule für humanoide Roboter – CI-konformes Design, Schutz & modulare Wartung." />
+  <meta name="twitter:image" content="https://www.cybershell.tech/cybershell_logo.png" />
 
   <!-- hreflang -->
   <link rel="alternate" href="https://www.cybershell.tech/" hreflang="de" />
   <link rel="alternate" href="https://www.cybershell.tech/index_en.html" hreflang="en" />
   <link rel="alternate" href="https://www.cybershell.tech/" hreflang="x-default" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="cybershell_logo.png" type="image/png" />
+  <!-- Favicons -->
+  <link rel="icon" href="https://www.cybershell.tech/cybershell_logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://www.cybershell.tech/cybershell_logo.png" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cybershell Technologies",
+    "url": "https://www.cybershell.tech/",
+    "logo": "https://www.cybershell.tech/cybershell_logo.png",
+    "description": "Adaptive Außenmodule für humanoide Roboter: CI-konformes Design, Schutz & modulare Wartung.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "AT",
+      "addressLocality": "Wien"
+    },
+    "email": "info@cybershell.tech",
+    "sameAs": [
+      "https://www.linkedin.com/company/cybershell-technologies/",
+      "https://x.com/cybershelltech"
+    ]
+  }
+  </script>
 
   <style>
     :root{
@@ -29,7 +70,6 @@
       --accent:#5AF2D6; --accent2:#8AA8FF; --hair:#222637;
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35); --max:1100px;
       --safe-top: env(safe-area-inset-top);
-      /* EINHEITLICHER SPALTEN- UND RAHMENABSTAND */
       --gHero:40px;
     }
     *{box-sizing:border-box}
@@ -69,14 +109,12 @@
     .lang a[aria-current="page"]{background:rgba(90,242,214,.12); border-color:var(--accent); color:var(--ink)}
     .flag{width:18px; height:12px; border-radius:2px; display:inline-block; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset}
 
-    /* Burger-Button */
     .burger{display:none; width:44px; height:40px; border-radius:12px; border:1px solid var(--hair); background:#0e1119; color:var(--ink); align-items:center; justify-content:center}
     .burger span, .burger::before, .burger::after{content:""; display:block; width:22px; height:2px; background:var(--ink); margin:3px 0; transition:.3s}
     .burger[aria-expanded="true"]::before{transform:translateY(5px) rotate(45deg)}
     .burger[aria-expanded="true"]::after{transform:translateY(-5px) rotate(-45deg)}
     .burger[aria-expanded="true"] span{opacity:0}
 
-    /* Mobile Menü-Panel */
     .mobile-menu{display:none; position:fixed; inset:calc(60px + var(--safe-top)) 10px auto 10px; z-index:80; background:linear-gradient(180deg, rgba(18,21,32,.98), rgba(18,21,32,.94)); border:1px solid var(--hair); border-radius:16px; box-shadow:var(--shadow); padding:14px}
     .mobile-menu.open{display:block; animation:fadeIn .18s ease-out}
     @keyframes fadeIn{from{opacity:.001; transform:translateY(-6px)} to{opacity:1; transform:none}}
@@ -88,7 +126,6 @@
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
     main{padding:20px 0 80px}
 
-    /* Hero */
     .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:var(--gHero); align-items:stretch}
     .card{
       position:relative; overflow:hidden; height:100%;
@@ -108,13 +145,11 @@
     .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
     .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
 
-    /* Rechter Bildbereich – gleiche Außenbreite, exakt definierter Abstand */
     .hero-vis{
       height:100%;
       border-radius:var(--radius);
-      display:flex;
-      flex-direction:column;
-      gap:var(--gHero);         /* GLEICH wie Spaltenabstand links/rechts */
+      display:flex; flex-direction:column;
+      gap:var(--gHero);
     }
     .hero-vis .media,
     .hero-vis .inset{
@@ -127,27 +162,24 @@
       width:100%;
     }
     .hero-vis .media{ background:#0e1119; flex:1 1 60% }
-    .hero-vis .inset{ background:#000;   flex:1 1 40% } /* SCHWARZER Hintergrund unten */
+    .hero-vis .inset{ background:#000;   flex:1 1 40% }
 
     .hero-vis .media img{
       width:100%; height:100%;
       display:block;
       object-fit:contain;
-      object-position:center top; /* oben ausgerichtet */
+      object-position:center top;
       transform:translateZ(0);
     }
     .hero-vis .inset img{
       width:100%; height:100%;
       display:block;
       object-fit:contain;
-      object-position:center center; /* mittig im schwarzen Rahmen */
+      object-position:center center;
       transform:translateZ(0);
     }
-
-    /* figure-Defaultabstand entfernen – Rahmen fluchten exakt */
     figure{margin:0}
 
-    /* Sections */
     section{margin-top:56px}
     h2{font-size:clamp(22px,3vw,28px); margin:0 0 18px; color:var(--accent)}
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
@@ -155,7 +187,6 @@
     .tile h3{margin:0 0 8px; font-size:18px}
     .muted{color:var(--muted)}
 
-    /* Kontakt */
     .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:16px}
     .contact .card{background:var(--panel); border:1px solid var(--hair); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
     .field{display:flex; flex-direction:column; gap:6px; margin:8px 0}
@@ -170,16 +201,13 @@
     .status.error{border-color:#4a1e25; background:#190e11; color:#ffd7dc}
     .note{font-size:12px; color:var(--muted)}
 
-    /* Footer */
     footer{border-top:1px solid var(--hair); color:var(--muted)}
     .foot{display:flex; flex-wrap:wrap; gap:10px 24px; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:18px 20px}
     .legal{font-size:12px}
 
-    /* Breite Explosionsgrafik (contain) */
     .media-wide{background:#0e1119; border:1px solid var(--hair); border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; height:100%; min-height:460px}
     .media-wide img{width:100%; height:100%; object-fit:contain; object-position:center center; display:block}
 
-    /* ===== Mobile ===== */
     @media (max-width:1024px){
       .hero{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
@@ -190,7 +218,7 @@
       .brand .wordmark .title{font-size:18px}
       .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
-      .hero-vis{gap:20px} /* auf Mobile etwas kompakter */
+      .hero-vis{gap:20px}
     }
   </style>
 </head>
@@ -302,7 +330,7 @@
           <img src="cybershellrobot2.png" alt="Cybershell Robotervisualisierung – vollständige Ansicht ohne Beschnitt">
         </div>
 
-        <!-- Unteres Bild: schwarzer Hintergrund, identische Außenbreite, Abstand = --gHero -->
+        <!-- Unteres Bild -->
         <figure class="inset">
           <img src="cybershellrobot5.png" alt="Cybershell – Schichtaufbau (3D) unterhalb des Hauptbildes">
         </figure>
@@ -515,6 +543,7 @@
   </script>
 </body>
 </html>
+
 
 
 
