@@ -142,8 +142,9 @@
     .lede{position:relative; z-index:1; color:var(--muted); font-size:18px}
     .cta-row{position:relative; z-index:1; display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
 
-    .spec{position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
-    .chip{background:#0e1119; border:1px solid var(--hair); padding:10px 12px; border-radius:999px; color:var(--muted); font-size:13px}
+    /* (Chips entfernt) – .spec bleibt ungenutzt, falls später wieder gebraucht */
+    .spec{display:none}
+    .chip{display:none}
 
     .hero-vis{
       height:100%;
@@ -220,7 +221,6 @@
       .brand .wordmark .sub{font-size:11.5px}
       .media-wide{min-height:360px}
       .hero-vis{gap:20px}
-      .spec{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -317,7 +317,7 @@
         <span class="tag">EU-Design • CI-konforme Roboskins</span>
         <h1 id="hero-title">Die nächste Evolutionsstufe der Robotik beginnt an der Oberfläche.</h1>
 
-        <!-- Aktualisierte Unterzeile + Lede -->
+        <!-- Unterzeile + Lede -->
         <p class="subtitle">Cybershell Technologies entwickelt adaptive Außenmodule („Roboskins“) für humanoide Roboter, die Design, Funktion und Markenidentität zu einer Einheit verbinden.</p>
         <p class="lede">Gefertigt aus High-Performance-TPU/PC/PA-Kompositen mit optionalen Carbon- oder Kevlar-Lagen bieten die Module hohe Schlagzähigkeit, UV- und Chemikalienbeständigkeit sowie ein geprüftes Brandverhalten nach EU-Norm – entscheidend für CE-Konformität und Serienzulassung.</p>
         <p class="lede">Jede Oberfläche wird im Corporate Design des Betreibers umgesetzt: Farben, Logos und Texturen werden zu funktionalen Elementen der Außenhülle.</p>
@@ -328,11 +328,11 @@
           <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
           <a class="btn ghost" href="#roadmap">Pilotprogramm anfragen</a>
         </div>
-        <div class="spec" role="list" aria-label="Kurzinfos">
-          <div class="chip" role="listitem">CI-konform</div>
-          <div class="chip" role="listitem">EU-Entwicklung & Fertigung</div>
-          <div class="chip" role="listitem">CE-Pfad (akkreditierte Labore)</div>
-        </div>
+
+        <!-- NEUER Text statt der entfernten drei Punkte -->
+        <p class="lede" style="margin-top:10px">
+          Aftermarket-kompatibel ohne Eingriff ins Basissystem: dokumentierte Montagepfade, CI-konforme Oberflächen und ein klarer CE-Prüfweg mit akkreditierten Laboren – bereit für robuste, markensichtbare Einsätze im Feld.
+        </p>
       </div>
 
       <div class="hero-vis" aria-hidden="false">
@@ -641,6 +641,7 @@
   </script>
 </body>
 </html>
+
 
 
 
