@@ -30,7 +30,6 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     a {
@@ -44,8 +43,6 @@
         radial-gradient(circle at top right, rgba(24,244,255,.12), transparent 35%),
         linear-gradient(180deg, #02080c 0%, #041018 100%);
     }
-
-    /* ---------------- HEADER ---------------- */
 
     header {
       position: absolute;
@@ -72,16 +69,7 @@
       width: 42px;
       height: 42px;
       border: 3px solid var(--cyan);
-      clip-path: polygon(
-        25% 0%,
-        75% 0%,
-        100% 25%,
-        100% 75%,
-        75% 100%,
-        25% 100%,
-        0% 75%,
-        0% 25%
-      );
+      clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
       display: grid;
       place-items: center;
       color: var(--cyan);
@@ -104,29 +92,12 @@
       font-weight: 800;
     }
 
-    /* ---------------- HERO ---------------- */
-
     .hero {
-      min-height: 720px;
+      min-height: 640px;
       padding: 170px 48px 90px;
-
       background:
-        linear-gradient(
-          90deg,
-          rgba(2,8,12,.98) 0%,
-          rgba(2,8,12,.90) 20%,
-          rgba(2,8,12,.72) 40%,
-          rgba(2,8,12,.30) 62%,
-          rgba(2,8,12,.05) 100%
-        ),
-        url("hero.png");
-
-      background-repeat: no-repeat;
-
-      /* HIER IST DIE ÄNDERUNG */
-      background-size: auto 100%;
-      background-position: right top;
-
+        linear-gradient(90deg, rgba(2,8,12,.96) 0%, rgba(2,8,12,.75) 38%, rgba(2,8,12,.20) 100%),
+        url("hero.png") center right / cover no-repeat;
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
@@ -144,11 +115,10 @@
     }
 
     h1 {
-      font-size: clamp(42px, 5vw, 72px);
-      line-height: 1.02;
+      font-size: clamp(42px, 5vw, 62px);
+      line-height: 1.08;
       letter-spacing: -2px;
       margin-bottom: 28px;
-      font-weight: 800;
     }
 
     .cyan {
@@ -192,8 +162,6 @@
       font-size: 13px;
     }
 
-    /* ---------------- CONTENT ---------------- */
-
     section {
       padding: 34px 48px;
       max-width: 1240px;
@@ -215,8 +183,6 @@
       color: var(--muted);
       font-size: 16px;
     }
-
-    /* ---------------- CARDS ---------------- */
 
     .cards {
       display: grid;
@@ -251,8 +217,6 @@
       color: var(--muted);
       font-size: 15px;
     }
-
-    /* ---------------- WHY ---------------- */
 
     .why {
       display: grid;
@@ -302,27 +266,14 @@
       color: var(--cyan);
     }
 
-    /* ---------------- ABOUT ---------------- */
-
     .about {
       max-width: none;
       margin-top: 30px;
       padding-top: 0;
       padding-bottom: 0;
-
       background:
-        linear-gradient(
-          90deg,
-          rgba(2,8,12,.96) 0%,
-          rgba(2,8,12,.78) 42%,
-          rgba(2,8,12,.2) 100%
-        ),
-        url("hero.png");
-
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-
+        linear-gradient(90deg, rgba(2,8,12,.96) 0%, rgba(2,8,12,.78) 42%, rgba(2,8,12,.2) 100%),
+        url("hero.png") center / cover no-repeat;
       border-top: 1px solid rgba(255,255,255,.06);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
@@ -348,8 +299,6 @@
       color: var(--muted);
       font-size: 16px;
     }
-
-    /* ---------------- CTA ---------------- */
 
     .cta {
       max-width: 1240px;
@@ -385,8 +334,6 @@
       color: var(--muted);
     }
 
-    /* ---------------- FOOTER ---------------- */
-
     footer {
       max-width: 1240px;
       margin: 0 auto;
@@ -405,10 +352,7 @@
       gap: 42px;
     }
 
-    /* ---------------- MOBILE ---------------- */
-
     @media (max-width: 900px) {
-
       header {
         position: relative;
         padding: 22px;
@@ -421,9 +365,6 @@
       .hero {
         padding: 90px 24px 70px;
         min-height: auto;
-
-        background-size: cover;
-        background-position: center;
       }
 
       section {
@@ -459,18 +400,13 @@
         flex-wrap: wrap;
       }
     }
-
   </style>
 </head>
 
 <body>
-
   <div class="page">
 
-    <!-- HEADER -->
-
     <header>
-
       <div class="logo">
         <div class="logo-mark">C</div>
         CYBERSHELL
@@ -484,209 +420,111 @@
         <a href="#">NEWS</a>
       </nav>
 
-      <a class="contact-btn" href="#">
-        CONTACT
-      </a>
-
+      <a class="contact-btn" href="mailto:m.curvelo@cybershell.tech">CONTACT</a>
     </header>
 
-    <!-- HERO -->
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div class="eyebrow">Physical AI. Industrial Reality.</div>
 
-    <section class="hero">
+          <h1>
+            Physical Safety &<br>
+            Deployment Infrastructure<br>
+            <span style="font-size: .7em; font-weight: 500;">for</span>
+            <span class="cyan">Industrial Humanoid Robotics</span>
+          </h1>
 
-      <div class="hero-content">
-
-        <div class="eyebrow">
-          PHYSICAL AI. INDUSTRIAL REALITY.
-        </div>
-
-        <h1>
-          Physical Safety &
-          Deployment Infrastructure
-          for
-          <span class="cyan">
-            Industrial Humanoid Robotics
-          </span>
-        </h1>
-
-        <div class="divider"></div>
-
-        <p>
-          Cybershell builds the external infrastructure layer
-          that makes humanoid robots safe, reliable and scalable
-          in real industrial environments.
-        </p>
-
-        <div class="buttons">
-
-          <a href="#" class="primary">
-            PARTNERSHIP & PILOT DISCUSSIONS →
-          </a>
-
-          <a href="#" class="secondary">
-            LEARN MORE ↓
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- FOCUS -->
-
-    <section id="focus">
-
-      <div class="center">
-
-        <div class="eyebrow">
-          OUR FOCUS
-        </div>
-
-        <h2>
-          Solving the Missing Layer.
-        </h2>
-
-        <p>
-          Humanoid robots are entering environments they were never physically designed for.<br>
-          Cybershell provides the infrastructure that closes this gap.
-        </p>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="card">
-          <div class="icon">♢</div>
-
-          <h3>Physical Safety</h3>
+          <div class="divider"></div>
 
           <p>
-            Reduce physical risk through impact absorption,
-            protection and damage localization.
+            Cybershell builds the external infrastructure layer that makes humanoid robots safe,
+            reliable and scalable in real industrial environments.
+          </p>
+
+          <div class="buttons">
+            <a class="primary" href="mailto:m.curvelo@cybershell.tech">PARTNERSHIP & PILOT DISCUSSIONS →</a>
+            <a class="secondary" href="#focus">LEARN MORE ↓</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="focus">
+        <div class="center">
+          <div class="eyebrow">Our Focus</div>
+          <h2>Solving the Missing Layer.</h2>
+          <p>
+            Humanoid robots are entering environments they were never physically designed for.<br>
+            Cybershell provides the infrastructure that closes this gap.
           </p>
         </div>
 
-        <div class="card">
-          <div class="icon">⬡</div>
-
-          <h3>Deployment Readiness</h3>
-
-          <p>
-            Enable scalable integration with modular systems
-            built for real industrial environments.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">⚙</div>
-
-          <h3>Industrial Reliability</h3>
-
-          <p>
-            Extend operational lifetime and minimize downtime
-            and service complexity.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- WHY -->
-
-      <div class="why">
-
-        <div class="radar"></div>
-
-        <div>
-
-          <h3>WHY NOW</h3>
-
-          <div class="statement">
-            The technology is moving faster
-            than the infrastructure around it.
+        <div class="cards">
+          <div class="card">
+            <div class="icon">♢</div>
+            <h3>Physical Safety</h3>
+            <p>Reduce physical risk through impact absorption, protection and damage localization.</p>
           </div>
 
+          <div class="card">
+            <div class="icon">⬡</div>
+            <h3>Deployment Readiness</h3>
+            <p>Enable scalable integration with modular systems built for real industrial environments.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">⚙</div>
+            <h3>Industrial Reliability</h3>
+            <p>Extend operational lifetime and minimize downtime and service complexity.</p>
+          </div>
         </div>
 
-        <div class="why-list">
+        <div class="why">
+          <div class="radar"></div>
 
           <div>
-            🚀 AI, sensing and humanoid capabilities are accelerating rapidly.
+            <h3>Why Now</h3>
+            <div class="statement">
+              The technology is moving faster<br>
+              than the infrastructure around it.
+            </div>
           </div>
 
+          <div class="why-list">
+            <div>🚀 AI, sensing and humanoid capabilities are accelerating rapidly.</div>
+            <div>⌛ Industrial deployment infrastructure is not.</div>
+            <div><strong>⬢ Cybershell closes this gap.</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="about-inner">
+          <div class="about-text">
+            <h3>About Cybershell</h3>
+            <p>
+              Cybershell develops modular, external infrastructure systems for industrial humanoid robotics.
+              Our mission is to create the physical foundation for safe, reliable and scalable deployment
+              in real world environments.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta">
+        <div class="cta-box">
           <div>
-            ⌛ Industrial deployment infrastructure is not.
+            <h3>Let’s build the future of industrial robotics</h3>
+            <h2>Interested in a pilot or partnership?</h2>
+            <p>We look forward to the conversation.</p>
           </div>
 
-          <div>
-            <strong>
-              ⬢ Cybershell closes this gap.
-            </strong>
-          </div>
-
+          <a class="primary" href="mailto:m.curvelo@cybershell.tech">GET IN TOUCH →</a>
         </div>
-
       </div>
-
-    </section>
-
-    <!-- ABOUT -->
-
-    <section class="about">
-
-      <div class="about-inner">
-
-        <div class="about-text">
-
-          <h3>ABOUT CYBERSHELL</h3>
-
-          <p>
-            Cybershell develops modular, external infrastructure systems
-            for industrial humanoid robotics. Our mission is to create
-            the physical foundation for safe, reliable and scalable
-            deployment in real-world environments.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- CTA -->
-
-    <div class="cta">
-
-      <div class="cta-box">
-
-        <div>
-
-          <h3>
-            LET’S BUILD THE FUTURE OF INDUSTRIAL ROBOTICS
-          </h3>
-
-          <h2>
-            Interested in a pilot or partnership?
-          </h2>
-
-          <p>
-            We look forward to the conversation.
-          </p>
-
-        </div>
-
-        <a href="#" class="primary">
-          GET IN TOUCH →
-        </a>
-
-      </div>
-
-    </div>
-
-    <!-- FOOTER -->
+    </main>
 
     <footer>
-
       <div class="logo">
         <div class="logo-mark">C</div>
         CYBERSHELL
@@ -702,10 +540,8 @@
         <a href="#">PRIVACY</a>
         <a href="#">TERMS</a>
       </div>
-
     </footer>
 
   </div>
-
 </body>
 </html>
