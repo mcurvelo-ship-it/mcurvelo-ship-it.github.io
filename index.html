@@ -298,11 +298,20 @@
     }
 
     .why-item img {
-      width: 126px;
-      height: 126px;
       object-fit: contain;
       flex-shrink: 0;
       margin-top: -3px;
+    }
+
+    .why-item:nth-child(1) img,
+    .why-item:nth-child(2) img {
+      width: 164px;
+      height: 164px;
+    }
+
+    .why-item:nth-child(3) img {
+      width: 101px;
+      height: 101px;
     }
 
     .why-item.active strong {
