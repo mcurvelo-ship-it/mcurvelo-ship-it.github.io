@@ -287,11 +287,25 @@
       padding-left: 34px;
       color: var(--muted);
       display: grid;
-      gap: 14px;
+      gap: 18px;
       font-size: 15px;
     }
 
-    .why-list strong {
+    .why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .why-item img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .why-item.active strong {
       color: var(--cyan);
     }
 
@@ -543,9 +557,26 @@
           </div>
 
           <div class="why-list">
-            <div>🚀 AI, sensing and humanoid capabilities are accelerating rapidly.</div>
-            <div>⌛ Industrial deployment infrastructure is not.</div>
-            <div><strong>⬢ Cybershell closes this gap.</strong></div>
+
+            <div class="why-item">
+              <img src="rocket.png" alt="Rocket">
+              <span>
+                AI, sensing and humanoid capabilities are accelerating rapidly.
+              </span>
+            </div>
+
+            <div class="why-item">
+              <img src="sanduhr.png" alt="Hourglass">
+              <span>
+                Industrial deployment infrastructure is not.
+              </span>
+            </div>
+
+            <div class="why-item active">
+              <img src="CStrans.png" alt="Cybershell">
+              <strong>Cybershell closes this gap.</strong>
+            </div>
+
           </div>
         </div>
       </section>
