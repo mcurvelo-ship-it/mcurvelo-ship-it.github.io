@@ -90,14 +90,9 @@
       transition: .25s ease;
     }
 
-    .contact-btn:hover {
-      background: rgba(24,244,255,.08);
-    }
-
     .hero {
       min-height: 640px;
       padding: 170px 48px 90px;
-
       background:
         linear-gradient(
           90deg,
@@ -106,11 +101,9 @@
           rgba(2,8,12,.18) 100%
         ),
         url("hero.png");
-
       background-repeat: no-repeat;
       background-position: right center;
       background-size: cover;
-
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
@@ -165,12 +158,6 @@
       border-radius: 12px;
       font-weight: 900;
       font-size: 13px;
-      transition: .25s ease;
-    }
-
-    .primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(24,244,255,.25);
     }
 
     .secondary {
@@ -179,11 +166,6 @@
       border-radius: 12px;
       font-weight: 800;
       font-size: 13px;
-      transition: .25s ease;
-    }
-
-    .secondary:hover {
-      background: rgba(255,255,255,.05);
     }
 
     section {
@@ -221,24 +203,11 @@
       border-radius: 14px;
       padding: 34px;
       min-height: 210px;
-
-      box-shadow:
-        inset 0 0 40px rgba(24,244,255,.03),
-        0 0 0 rgba(24,244,255,0);
-
+      box-shadow: inset 0 0 40px rgba(24,244,255,.03);
       display: grid;
       grid-template-columns: 72px 1fr;
       column-gap: 20px;
       align-items: start;
-
-      transition: .3s ease;
-    }
-
-    .card:hover {
-      border-color: rgba(24,244,255,.35);
-      box-shadow:
-        inset 0 0 40px rgba(24,244,255,.05),
-        0 0 24px rgba(24,244,255,.08);
     }
 
     .icon {
@@ -281,18 +250,15 @@
       grid-template-columns: 280px 1fr 390px;
       align-items: center;
       gap: 50px;
-
       border: 1px solid rgba(24,244,255,.18);
       border-radius: 14px;
       padding: 36px;
-
       background: var(--panel-2);
     }
 
     .radar {
       width: 260px;
       height: 260px;
-
       display: flex;
       align-items: center;
       justify-content: center;
@@ -321,12 +287,9 @@
     .why-list {
       border-left: 1px solid var(--line);
       padding-left: 34px;
-
       color: var(--muted);
-
       display: grid;
       gap: 18px;
-
       font-size: 15px;
     }
 
@@ -363,40 +326,32 @@
       color: var(--cyan);
     }
 
-    /* ABOUT */
-
     .about {
       max-width: none;
       margin-top: 30px;
-
       padding: 0;
-
       background:
         linear-gradient(
           90deg,
-          rgba(2,8,12,.96) 0%,
-          rgba(2,8,12,.88) 24%,
-          rgba(2,8,12,.52) 42%,
-          rgba(2,8,12,.14) 62%,
+          rgba(2,8,12,.98) 0%,
+          rgba(2,8,12,.92) 24%,
+          rgba(2,8,12,.62) 42%,
+          rgba(2,8,12,.18) 62%,
           rgba(2,8,12,.04) 100%
         ),
         url("Fabrik.png");
-
       background-position: right center;
       background-repeat: no-repeat;
       background-size: auto 100%;
-
       border-top: 1px solid rgba(255,255,255,.06);
       border-bottom: 1px solid rgba(255,255,255,.06);
-
       overflow: hidden;
     }
 
     .about-inner {
       max-width: 1240px;
       margin: 0 auto;
-
-      padding: 90px 48px;
+      padding: 64px 48px;
     }
 
     .about-text {
@@ -418,30 +373,23 @@
       line-height: 1.9;
     }
 
-    /* CTA */
-
     .cta {
       max-width: 1240px;
-      margin: -35px auto 0;
+      margin: -32px auto 0;
       padding: 0 48px;
-
       position: relative;
       z-index: 5;
     }
 
     .cta-box {
       background: rgba(8, 28, 39, .92);
-
       border: 1px solid rgba(24,244,255,.22);
       border-radius: 14px;
-
       padding: 32px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 28px;
-
       backdrop-filter: blur(12px);
     }
 
@@ -465,14 +413,11 @@
     footer {
       max-width: 1240px;
       margin: 0 auto;
-
       padding: 46px 48px 36px;
-
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       align-items: center;
       gap: 30px;
-
       color: rgba(255,255,255,.55);
       font-size: 13px;
     }
@@ -484,7 +429,6 @@
     }
 
     @media (max-width: 900px) {
-
       header {
         position: relative;
         padding: 22px;
@@ -518,6 +462,15 @@
         padding-left: 0;
       }
 
+      .about {
+        background-position: 72% center;
+        background-size: cover;
+      }
+
+      .about-inner {
+        padding: 60px 24px 120px;
+      }
+
       .cta {
         padding: 0 24px;
         margin-top: -20px;
@@ -537,15 +490,6 @@
         flex-wrap: wrap;
       }
 
-      .about {
-        background-position: 72% center;
-        background-size: cover;
-      }
-
-      .about-inner {
-        padding: 60px 24px 120px;
-      }
-
       .why {
         gap: 20px;
       }
@@ -560,21 +504,17 @@
         height: 150px;
       }
     }
-
   </style>
 </head>
 
 <body>
-
   <div class="page">
 
     <header>
-
       <div class="logo">
         <div class="logo-mark">
           <img src="CS_Logo_SW.png" alt="Cybershell Logo">
         </div>
-
         CYBERSHELL
       </div>
 
@@ -586,33 +526,19 @@
         <a href="#">NEWS</a>
       </nav>
 
-      <a class="contact-btn" href="mailto:m.curvelo@cybershell.tech">
-        CONTACT
-      </a>
-
+      <a class="contact-btn" href="mailto:m.curvelo@cybershell.tech">CONTACT</a>
     </header>
 
     <main>
-
       <section class="hero">
-
         <div class="hero-content">
-
-          <div class="eyebrow">
-            Physical AI. Industrial Reality.
-          </div>
+          <div class="eyebrow">Physical AI. Industrial Reality.</div>
 
           <h1>
             Physical Safety &<br>
             Deployment Infrastructure<br>
-
-            <span style="font-size: .7em; font-weight: 500;">
-              for
-            </span>
-
-            <span class="cyan">
-              Industrial Humanoid Robotics
-            </span>
+            <span style="font-size: .7em; font-weight: 500;">for</span>
+            <span class="cyan">Industrial Humanoid Robotics</span>
           </h1>
 
           <div class="divider"></div>
@@ -624,7 +550,6 @@
           </p>
 
           <div class="buttons">
-
             <a class="primary" href="mailto:m.curvelo@cybershell.tech">
               PARTNERSHIP & PILOT DISCUSSIONS →
             </a>
@@ -632,193 +557,133 @@
             <a class="secondary" href="#focus">
               LEARN MORE ↓
             </a>
-
           </div>
-
         </div>
-
       </section>
 
       <section id="focus">
-
         <div class="center">
+          <div class="eyebrow">Our Focus</div>
 
-          <div class="eyebrow">
-            Our Focus
-          </div>
-
-          <h2>
-            Solving the Missing Layer.
-          </h2>
+          <h2>Solving the Missing Layer.</h2>
 
           <p>
             Humanoid robots are entering environments
             they were never physically designed for.<br>
-
             Cybershell provides the infrastructure
             that closes this gap.
           </p>
-
         </div>
 
         <div class="cards">
-
           <div class="card">
-
             <div class="icon">
               <img src="schild.png" alt="Physical Safety">
             </div>
 
             <div>
-
-              <h3>
-                Physical Safety
-              </h3>
+              <h3>Physical Safety</h3>
 
               <p>
                 Reduce physical risk through impact absorption,
                 protection and damage localization.
               </p>
-
             </div>
-
           </div>
 
           <div class="card">
-
             <div class="icon">
               <img src="quader.png" alt="Deployment Readiness">
             </div>
 
             <div>
-
-              <h3>
-                Deployment Readiness
-              </h3>
+              <h3>Deployment Readiness</h3>
 
               <p>
                 Enable scalable integration with modular systems
                 built for real industrial environments.
               </p>
-
             </div>
-
           </div>
 
           <div class="card">
-
             <div class="icon">
               <img src="zahnrad.png" alt="Industrial Reliability">
             </div>
 
             <div>
-
-              <h3>
-                Industrial Reliability
-              </h3>
+              <h3>Industrial Reliability</h3>
 
               <p>
                 Extend operational lifetime and minimize downtime
                 and service complexity.
               </p>
-
             </div>
-
           </div>
-
         </div>
 
         <div class="why">
-
           <div class="radar">
             <img src="whynow.png" alt="Why Now">
           </div>
 
           <div>
-
-            <h3>
-              Why Now
-            </h3>
+            <h3>Why Now</h3>
 
             <div class="statement">
               The technology is moving faster
               than the infrastructure around it.
             </div>
-
           </div>
 
           <div class="why-list">
-
             <div class="why-item">
-
               <img src="rocket.png" alt="Rocket">
 
               <span>
                 AI, sensing and humanoid capabilities
                 are accelerating rapidly.
               </span>
-
             </div>
 
             <div class="why-item">
-
               <img src="sanduhr.png" alt="Hourglass">
 
               <span>
                 Industrial deployment infrastructure is not.
               </span>
-
             </div>
 
             <div class="why-item active">
-
               <img src="CStrans.png" alt="Cybershell">
 
               <strong>
                 Cybershell closes this gap.
               </strong>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       <section class="about">
-
         <div class="about-inner">
-
           <div class="about-text">
-
-            <h3>
-              ABOUT CYBERSHELL
-            </h3>
+            <h3>ABOUT CYBERSHELL</h3>
 
             <p>
               Cybershell develops modular, external infrastructure systems
-              for industrial humanoid robotics.
-
-              Our mission is to create the physical foundation for safe,
-              reliable and scalable deployment in real world environments.
+              for industrial humanoid robotics. Our mission is to create the
+              physical foundation for safe, reliable and scalable deployment
+              in real world environments.
             </p>
-
           </div>
-
         </div>
-
       </section>
 
       <div class="cta">
-
         <div class="cta-box">
-
           <div>
-
-            <h3>
-              LET’S BUILD THE FUTURE OF INDUSTRIAL ROBOTICS
-            </h3>
+            <h3>LET’S BUILD THE FUTURE OF INDUSTRIAL ROBOTICS</h3>
 
             <h2>
               Interested in a pilot or partnership?
@@ -827,29 +692,22 @@
             <p>
               We look forward to the conversation.
             </p>
-
           </div>
 
           <a class="primary" href="mailto:m.curvelo@cybershell.tech">
             GET IN TOUCH →
           </a>
-
         </div>
-
       </div>
-
     </main>
 
     <footer>
-
       <div class="logo">
-
         <div class="logo-mark">
           <img src="CS_Logo_SW.png" alt="Cybershell Logo">
         </div>
 
         CYBERSHELL
-
       </div>
 
       <div>
@@ -858,24 +716,12 @@
       </div>
 
       <div class="footer-links">
-
-        <a href="#">
-          IMPRESSUM
-        </a>
-
-        <a href="#">
-          PRIVACY
-        </a>
-
-        <a href="#">
-          TERMS
-        </a>
-
+        <a href="#">IMPRESSUM</a>
+        <a href="#">PRIVACY</a>
+        <a href="#">TERMS</a>
       </div>
-
     </footer>
 
   </div>
-
 </body>
 </html>
