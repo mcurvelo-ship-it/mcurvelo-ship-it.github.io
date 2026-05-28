@@ -326,12 +326,19 @@
     }
 
     .about {
+      min-height: 330px;
       max-width: none;
       margin-top: 30px;
       padding-top: 0;
       padding-bottom: 0;
       background:
-        linear-gradient(90deg, rgba(2,8,12,.96) 0%, rgba(2,8,12,.78) 34%, rgba(2,8,12,.30) 58%, rgba(2,8,12,.08) 100%),
+        linear-gradient(
+          90deg,
+          rgba(2,8,12,.96) 0%,
+          rgba(2,8,12,.78) 34%,
+          rgba(2,8,12,.30) 58%,
+          rgba(2,8,12,.08) 100%
+        ),
         url("Fabrik.png") center right / cover no-repeat;
       border-top: 1px solid rgba(255,255,255,.06);
       border-bottom: 1px solid rgba(255,255,255,.06);
@@ -340,7 +347,7 @@
     .about-inner {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 38px 48px 80px;
+      padding: 52px 48px 110px;
     }
 
     .about-text {
@@ -357,11 +364,12 @@
     .about-text p {
       color: var(--muted);
       font-size: 16px;
+      line-height: 1.8;
     }
 
     .cta {
       max-width: 1240px;
-      margin: -50px auto 0;
+      margin: -35px auto 0;
       padding: 0 48px;
       position: relative;
     }
@@ -375,6 +383,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 28px;
+      backdrop-filter: blur(10px);
     }
 
     .cta h3 {
@@ -387,6 +396,7 @@
     .cta h2 {
       font-size: 27px;
       line-height: 1.2;
+      margin-bottom: 6px;
     }
 
     .cta p {
@@ -447,6 +457,7 @@
 
       .cta {
         padding: 0 24px;
+        margin-top: -20px;
       }
 
       .cta-box {
@@ -467,6 +478,7 @@
 </head>
 
 <body>
+
   <div class="page">
 
     <header>
@@ -485,13 +497,19 @@
         <a href="#">NEWS</a>
       </nav>
 
-      <a class="contact-btn" href="mailto:m.curvelo@cybershell.tech">CONTACT</a>
+      <a class="contact-btn" href="mailto:m.curvelo@cybershell.tech">
+        CONTACT
+      </a>
     </header>
 
     <main>
+
       <section class="hero">
         <div class="hero-content">
-          <div class="eyebrow">Physical AI. Industrial Reality.</div>
+
+          <div class="eyebrow">
+            Physical AI. Industrial Reality.
+          </div>
 
           <h1>
             Physical Safety &<br>
@@ -508,16 +526,25 @@
           </p>
 
           <div class="buttons">
-            <a class="primary" href="mailto:m.curvelo@cybershell.tech">PARTNERSHIP & PILOT DISCUSSIONS →</a>
-            <a class="secondary" href="#focus">LEARN MORE ↓</a>
+            <a class="primary" href="mailto:m.curvelo@cybershell.tech">
+              PARTNERSHIP & PILOT DISCUSSIONS →
+            </a>
+
+            <a class="secondary" href="#focus">
+              LEARN MORE ↓
+            </a>
           </div>
+
         </div>
       </section>
 
       <section id="focus">
+
         <div class="center">
           <div class="eyebrow">Our Focus</div>
+
           <h2>Solving the Missing Layer.</h2>
+
           <p>
             Humanoid robots are entering environments they were never physically designed for.<br>
             Cybershell provides the infrastructure that closes this gap.
@@ -525,6 +552,7 @@
         </div>
 
         <div class="cards">
+
           <div class="card">
             <div class="icon">
               <img src="schild.png" alt="Physical Safety">
@@ -532,7 +560,11 @@
 
             <div>
               <h3>Physical Safety</h3>
-              <p>Reduce physical risk through impact absorption, protection and damage localization.</p>
+
+              <p>
+                Reduce physical risk through impact absorption,
+                protection and damage localization.
+              </p>
             </div>
           </div>
 
@@ -543,7 +575,11 @@
 
             <div>
               <h3>Deployment Readiness</h3>
-              <p>Enable scalable integration with modular systems built for real industrial environments.</p>
+
+              <p>
+                Enable scalable integration with modular systems
+                built for real industrial environments.
+              </p>
             </div>
           </div>
 
@@ -554,18 +590,25 @@
 
             <div>
               <h3>Industrial Reliability</h3>
-              <p>Extend operational lifetime and minimize downtime and service complexity.</p>
+
+              <p>
+                Extend operational lifetime and minimize downtime
+                and service complexity.
+              </p>
             </div>
           </div>
+
         </div>
 
         <div class="why">
+
           <div class="radar">
             <img src="whynow.png" alt="Why Now">
           </div>
 
           <div>
             <h3>Why Now</h3>
+
             <div class="statement">
               The technology is moving faster
               than the infrastructure around it.
@@ -576,13 +619,16 @@
 
             <div class="why-item">
               <img src="rocket.png" alt="Rocket">
+
               <span>
-                AI, sensing and humanoid capabilities are accelerating rapidly.
+                AI, sensing and humanoid capabilities
+                are accelerating rapidly.
               </span>
             </div>
 
             <div class="why-item">
               <img src="sanduhr.png" alt="Hourglass">
+
               <span>
                 Industrial deployment infrastructure is not.
               </span>
@@ -590,44 +636,72 @@
 
             <div class="why-item active">
               <img src="CStrans.png" alt="Cybershell">
-              <strong>Cybershell closes this gap.</strong>
+
+              <strong>
+                Cybershell closes this gap.
+              </strong>
             </div>
 
           </div>
+
         </div>
+
       </section>
 
       <section class="about">
+
         <div class="about-inner">
+
           <div class="about-text">
-            <h3>About Cybershell</h3>
+
+            <h3>ABOUT CYBERSHELL</h3>
+
             <p>
-              Cybershell develops modular, external infrastructure systems for industrial humanoid robotics.
-              Our mission is to create the physical foundation for safe, reliable and scalable deployment
+              Cybershell develops modular, external infrastructure systems
+              for industrial humanoid robotics. Our mission is to create the
+              physical foundation for safe, reliable and scalable deployment
               in real world environments.
             </p>
+
           </div>
+
         </div>
+
       </section>
 
       <div class="cta">
+
         <div class="cta-box">
+
           <div>
-            <h3>Let’s build the future of industrial robotics</h3>
-            <h2>Interested in a pilot or partnership?</h2>
-            <p>We look forward to the conversation.</p>
+            <h3>LET’S BUILD THE FUTURE OF INDUSTRIAL ROBOTICS</h3>
+
+            <h2>
+              Interested in a pilot or partnership?
+            </h2>
+
+            <p>
+              We look forward to the conversation.
+            </p>
           </div>
 
-          <a class="primary" href="mailto:m.curvelo@cybershell.tech">GET IN TOUCH →</a>
+          <a class="primary" href="mailto:m.curvelo@cybershell.tech">
+            GET IN TOUCH →
+          </a>
+
         </div>
+
       </div>
+
     </main>
 
     <footer>
+
       <div class="logo">
         <div class="logo-mark">
           <img src="CS_Logo_SW.png" alt="Cybershell Logo">
         </div>
+
         CYBERSHELL
       </div>
 
@@ -641,8 +715,10 @@
         <a href="#">PRIVACY</a>
         <a href="#">TERMS</a>
       </div>
+
     </footer>
 
   </div>
+
 </body>
 </html>
