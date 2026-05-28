@@ -92,12 +92,27 @@
       font-weight: 800;
     }
 
+    /* ---------------- HERO ---------------- */
+
     .hero {
       min-height: 640px;
       padding: 170px 48px 90px;
+
       background:
-        linear-gradient(90deg, rgba(2,8,12,.96) 0%, rgba(2,8,12,.75) 38%, rgba(2,8,12,.20) 100%),
-        url("hero.png") center right / cover no-repeat;
+        linear-gradient(
+          90deg,
+          rgba(2,8,12,.96) 0%,
+          rgba(2,8,12,.75) 38%,
+          rgba(2,8,12,.20) 100%
+        ),
+        url("hero.png");
+
+      background-repeat: no-repeat;
+
+      /* NUR DAS WURDE GEÄNDERT */
+      background-position: right 0 top 0;
+      background-size: auto 100%;
+
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
