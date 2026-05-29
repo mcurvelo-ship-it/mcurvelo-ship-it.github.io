@@ -28,12 +28,14 @@
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
     }
 
     a { color: inherit; text-decoration: none; }
 
     .page {
       min-height: 100vh;
+      overflow-x: hidden;
       background:
         radial-gradient(circle at top right, rgba(24,244,255,.12), transparent 35%),
         linear-gradient(180deg, #02080c 0%, #041018 100%);
@@ -119,9 +121,7 @@
       border-radius: 2px;
     }
 
-    .mobile-menu {
-      display: none;
-    }
+    .mobile-menu { display: none; }
 
     .hero {
       min-height: 640px;
@@ -821,17 +821,11 @@
         height: 82px;
       }
 
-      nav {
-        display: none;
-      }
+      nav { display: none; }
 
-      .contact-btn {
-        display: none;
-      }
+      .contact-btn { display: none; }
 
-      .mobile-menu-toggle {
-        display: flex;
-      }
+      .mobile-menu-toggle { display: flex; }
 
       .mobile-menu {
         display: none;
@@ -919,9 +913,44 @@
         justify-content: center;
       }
 
-      section { padding: 30px 24px; }
+      section {
+        padding: 30px 24px;
+        width: 100%;
+        max-width: 100%;
+      }
 
-      .cards,
+      .cards {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
+        justify-items: center;
+      }
+
+      .card {
+        width: 100%;
+        max-width: calc(100vw - 48px);
+        margin-left: auto;
+        margin-right: auto;
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+        padding: 42px 28px;
+      }
+
+      .icon {
+        grid-row: auto;
+        margin-bottom: 20px;
+      }
+
+      .card h3 {
+        white-space: normal;
+      }
+
+      .card h3::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       .why,
       .solutions-grid,
       .tech-cards,
@@ -1047,7 +1076,7 @@
       <div class="header-inner">
         <div class="logo">
           <div class="logo-mark">
-            <img src="CS_Logo_SW.png" alt="Cybershell Logo">
+            <img src="CStrans.png" alt="Cybershell Logo">
           </div>
           CYBERSHELL
         </div>
@@ -1502,7 +1531,7 @@
     <footer>
       <div class="logo">
         <div class="logo-mark">
-          <img src="CS_Logo_SW.png" alt="Cybershell Logo">
+          <img src="CStrans.png" alt="Cybershell Logo">
         </div>
         CYBERSHELL
       </div>
