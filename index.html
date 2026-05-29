@@ -19,11 +19,7 @@
       --line: rgba(24, 244, 255, 0.22);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Inter", sans-serif;
@@ -33,10 +29,7 @@
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .page {
       min-height: 100vh;
@@ -45,17 +38,13 @@
         linear-gradient(180deg, #02080c 0%, #041018 100%);
     }
 
-    /* HEADER */
-
     header {
       position: absolute;
       z-index: 10;
       top: 0;
       left: 0;
       width: 100%;
-
       padding: 28px 0;
-
       display: flex;
       align-items: center;
       justify-content: center;
@@ -64,13 +53,10 @@
     .header-inner {
       width: 100%;
       max-width: 1240px;
-
       margin: 0 auto;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       padding: 0 48px;
     }
 
@@ -107,29 +93,17 @@
       transition: .25s ease;
     }
 
-    .contact-btn:hover {
-      background: rgba(24,244,255,.08);
-    }
-
-    /* HERO */
+    .contact-btn:hover { background: rgba(24,244,255,.08); }
 
     .hero {
       min-height: 640px;
       padding: 170px 48px 90px;
-
       background:
-        linear-gradient(
-          90deg,
-          rgba(2,8,12,.96) 0%,
-          rgba(2,8,12,.76) 38%,
-          rgba(2,8,12,.18) 100%
-        ),
+        linear-gradient(90deg, rgba(2,8,12,.96) 0%, rgba(2,8,12,.76) 38%, rgba(2,8,12,.18) 100%),
         url("hero.png");
-
       background-repeat: no-repeat;
       background-position: right center;
       background-size: cover;
-
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
@@ -138,9 +112,7 @@
       margin: 0 auto;
     }
 
-    .hero-copy {
-      max-width: 590px;
-    }
+    .hero-copy { max-width: 590px; }
 
     .eyebrow {
       color: var(--cyan);
@@ -158,9 +130,7 @@
       margin-bottom: 28px;
     }
 
-    .cyan {
-      color: var(--cyan);
-    }
+    .cyan { color: var(--cyan); }
 
     .divider {
       width: 38px;
@@ -206,11 +176,7 @@
       transition: .25s ease;
     }
 
-    .secondary:hover {
-      background: rgba(255,255,255,.05);
-    }
-
-    /* GENERAL */
+    .secondary:hover { background: rgba(255,255,255,.05); }
 
     section {
       padding: 34px 48px;
@@ -234,8 +200,6 @@
       font-size: 16px;
     }
 
-    /* CARDS */
-
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -249,16 +213,13 @@
       border-radius: 14px;
       padding: 34px;
       min-height: 210px;
-
       display: grid;
       grid-template-columns: 72px 1fr;
       column-gap: 20px;
       align-items: start;
     }
 
-    .icon {
-      grid-row: 1 / span 2;
-    }
+    .icon { grid-row: 1 / span 2; }
 
     .icon img {
       width: 62px;
@@ -291,25 +252,20 @@
       line-height: 1.75;
     }
 
-    /* WHY */
-
     .why {
       display: grid;
       grid-template-columns: 280px 1fr 390px;
       align-items: center;
       gap: 50px;
-
       border: 1px solid rgba(24,244,255,.18);
       border-radius: 14px;
       padding: 36px;
-
       background: var(--panel-2);
     }
 
     .radar {
       width: 260px;
       height: 260px;
-
       display: flex;
       align-items: center;
       justify-content: center;
@@ -338,12 +294,9 @@
     .why-list {
       border-left: 1px solid var(--line);
       padding-left: 34px;
-
       color: var(--muted);
-
       display: grid;
       gap: 18px;
-
       font-size: 15px;
     }
 
@@ -361,23 +314,94 @@
       flex-shrink: 0;
     }
 
-    .why-item:nth-child(1) img {
-      width: 58px;
-      height: 58px;
+    .why-item:nth-child(1) img { width: 58px; height: 58px; }
+    .why-item:nth-child(2) img { width: 62px; height: 62px; }
+    .why-item:nth-child(3) img { width: 34px; height: 34px; }
+
+    .why-item.active strong { color: var(--cyan); }
+
+    /* SOLUTIONS */
+
+    .solutions {
+      max-width: 1240px;
+      margin: 40px auto 0;
+      padding-top: 34px;
     }
 
-    .why-item:nth-child(2) img {
-      width: 62px;
-      height: 62px;
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .why-item:nth-child(3) img {
-      width: 34px;
-      height: 34px;
+    .solution-card {
+      position: relative;
+      min-height: 420px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(24,244,255,.18);
+      background: #071118;
     }
 
-    .why-item.active strong {
+    .solution-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .solution-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .solution-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.28) 38%, rgba(0,0,0,.88) 100%);
+    }
+
+    .solution-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at top left, rgba(24,244,255,.18), transparent 36%),
+        linear-gradient(180deg, transparent 0%, rgba(2,8,12,.72) 100%);
+      pointer-events: none;
+    }
+
+    .solution-content {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      z-index: 2;
+    }
+
+    .solution-content img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .solution-content h3 {
       color: var(--cyan);
+      font-size: 18px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .solution-content p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
     }
 
     /* ABOUT */
@@ -386,23 +410,18 @@
       max-width: none;
       margin-top: 30px;
       padding: 0;
-
       border-top: 1px solid rgba(255,255,255,.06);
       border-bottom: 1px solid rgba(255,255,255,.06);
-
       overflow: hidden;
     }
 
     .about-inner {
       max-width: 1240px;
       margin: 0 auto;
-
       display: grid;
       grid-template-columns: 430px 1fr;
       align-items: center;
-
       gap: 120px;
-
       padding: 85px 48px;
     }
 
@@ -428,35 +447,27 @@
     .about-image img {
       width: auto;
       max-height: 190px;
-
       object-fit: contain;
       display: block;
     }
-
-    /* CTA */
 
     .cta {
       max-width: 1240px;
       margin: -18px auto 0;
       padding: 0 48px;
-
       position: relative;
       z-index: 5;
     }
 
     .cta-box {
       background: rgba(8, 28, 39, .92);
-
       border: 1px solid rgba(24,244,255,.22);
       border-radius: 14px;
-
       padding: 32px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 28px;
-
       backdrop-filter: blur(12px);
     }
 
@@ -473,23 +484,16 @@
       margin-bottom: 6px;
     }
 
-    .cta p {
-      color: var(--muted);
-    }
-
-    /* FOOTER */
+    .cta p { color: var(--muted); }
 
     footer {
       max-width: 1240px;
       margin: 0 auto;
-
       padding: 46px 48px 36px;
-
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       align-items: center;
       gap: 30px;
-
       color: rgba(255,255,255,.55);
       font-size: 13px;
     }
@@ -500,10 +504,7 @@
       gap: 42px;
     }
 
-    /* MOBILE */
-
     @media (max-width: 900px) {
-
       header {
         position: relative;
         padding: 22px 0;
@@ -513,9 +514,7 @@
         padding: 0 22px;
       }
 
-      nav {
-        display: none;
-      }
+      nav { display: none; }
 
       .hero {
         padding: 90px 24px 70px;
@@ -528,6 +527,7 @@
 
       .cards,
       .why,
+      .solutions-grid,
       footer,
       .about-inner {
         grid-template-columns: 1fr;
@@ -536,6 +536,10 @@
       .why-list {
         border-left: 0;
         padding-left: 0;
+      }
+
+      .solution-card {
+        min-height: 360px;
       }
 
       .about-inner {
@@ -571,28 +575,19 @@
         flex-wrap: wrap;
       }
     }
-
   </style>
 </head>
 
 <body>
-
   <div class="page">
 
-    <!-- HEADER -->
-
     <header>
-
       <div class="header-inner">
-
         <div class="logo">
-
           <div class="logo-mark">
             <img src="CS_Logo_SW.png" alt="Cybershell Logo">
           </div>
-
           CYBERSHELL
-
         </div>
 
         <nav>
@@ -606,19 +601,12 @@
         <a class="contact-btn" href="mailto:m.curvelo@cybershell.tech">
           CONTACT
         </a>
-
       </div>
-
     </header>
 
-    <!-- HERO -->
-
     <section class="hero">
-
       <div class="hero-content">
-
         <div class="hero-copy">
-
           <div class="eyebrow">
             Physical AI. Industrial Reality.
           </div>
@@ -626,14 +614,8 @@
           <h1>
             Physical Safety &<br>
             Deployment Infrastructure<br>
-
-            <span style="font-size:.7em;font-weight:500;">
-              for
-            </span>
-
-            <span class="cyan">
-              Industrial Humanoid Robotics
-            </span>
+            <span style="font-size:.7em;font-weight:500;">for</span>
+            <span class="cyan">Industrial Humanoid Robotics</span>
           </h1>
 
           <div class="divider"></div>
@@ -645,7 +627,6 @@
           </p>
 
           <div class="buttons">
-
             <a class="primary" href="mailto:m.curvelo@cybershell.tech">
               PARTNERSHIP & PILOT DISCUSSIONS →
             </a>
@@ -653,21 +634,13 @@
             <a class="secondary" href="#focus">
               LEARN MORE ↓
             </a>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
 
-    <!-- FOCUS -->
-
     <section id="focus">
-
       <div class="center">
-
         <div class="eyebrow">
           Our Focus
         </div>
@@ -679,146 +652,176 @@
         <p>
           Humanoid robots are entering environments
           they were never physically designed for.<br>
-
           Cybershell provides the infrastructure
           that closes this gap.
         </p>
-
       </div>
 
       <div class="cards">
-
         <div class="card">
-
           <div class="icon">
             <img src="schild.png" alt="Physical Safety">
           </div>
 
           <div>
-
-            <h3>
-              Physical Safety
-            </h3>
-
+            <h3>Physical Safety</h3>
             <p>
               Reduce physical risk through impact absorption,
               protection and damage localization.
             </p>
-
           </div>
-
         </div>
 
         <div class="card">
-
           <div class="icon">
             <img src="quader.png" alt="Deployment Readiness">
           </div>
 
           <div>
-
-            <h3>
-              Deployment Readiness
-            </h3>
-
+            <h3>Deployment Readiness</h3>
             <p>
               Enable scalable integration with modular systems
               built for real industrial environments.
             </p>
-
           </div>
-
         </div>
 
         <div class="card">
-
           <div class="icon">
             <img src="zahnrad.png" alt="Industrial Reliability">
           </div>
 
           <div>
-
-            <h3>
-              Industrial Reliability
-            </h3>
-
+            <h3>Industrial Reliability</h3>
             <p>
               Extend operational lifetime and minimize downtime
               and service complexity.
             </p>
-
           </div>
-
         </div>
-
       </div>
 
       <div class="why">
-
         <div class="radar">
           <img src="whynow.png" alt="Why Now">
         </div>
 
         <div>
-
-          <h3>
-            Why Now
-          </h3>
+          <h3>Why Now</h3>
 
           <div class="statement">
             The technology is moving faster
             than the infrastructure around it.
           </div>
-
         </div>
 
         <div class="why-list">
-
           <div class="why-item">
-
             <img src="rocket.png" alt="Rocket">
-
             <span>
               AI, sensing and humanoid capabilities
               are accelerating rapidly.
             </span>
-
           </div>
 
           <div class="why-item">
-
             <img src="sanduhr.png" alt="Hourglass">
-
             <span>
               Industrial deployment infrastructure is not.
             </span>
-
           </div>
 
           <div class="why-item active">
-
             <img src="CStrans.png" alt="Cybershell">
-
             <strong>
               Cybershell closes this gap.
             </strong>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="solutions">
+      <div class="center">
+        <div class="eyebrow">
+          Solutions
+        </div>
+
+        <h2>
+          Infrastructure for Real-World Deployment
+        </h2>
+
+        <p>
+          Cybershell provides the missing physical infrastructure layer
+          required for safe and scalable humanoid deployment.
+        </p>
+      </div>
+
+      <div class="solutions-grid">
+
+        <div class="solution-card">
+          <div class="solution-bg">
+            <img src="hero.png" alt="">
           </div>
 
+          <div class="solution-content">
+            <img src="schild1.png" alt="Protective Shell Systems">
+
+            <h3>
+              Protective Shell Systems
+            </h3>
+
+            <p>
+              Modular external protection modules designed for industrial impact,
+              abrasion and operational wear.
+            </p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-bg">
+            <img src="Fabrik.png" alt="">
+          </div>
+
+          <div class="solution-content">
+            <img src="achtung.png" alt="Deployment Safety Layer">
+
+            <h3>
+              Deployment Safety Layer
+            </h3>
+
+            <p>
+              Physical risk reduction for pilots, shared spaces and future fleet
+              deployments.
+            </p>
+          </div>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-bg">
+            <img src="schweissen.png" alt="">
+          </div>
+
+          <div class="solution-content">
+            <img src="zahnrad1.png" alt="Reliability Infrastructure">
+
+            <h3>
+              Reliability Infrastructure
+            </h3>
+
+            <p>
+              Reduced downtime, easier maintenance and improved operational
+              resilience.
+            </p>
+          </div>
         </div>
 
       </div>
-
     </section>
 
-    <!-- ABOUT -->
-
     <section class="about">
-
       <div class="about-inner">
-
         <div class="about-text">
-
           <h3>
             ABOUT CYBERSHELL
           </h3>
@@ -830,25 +833,17 @@
             Our mission is to create the physical foundation for safe,
             reliable and scalable deployment in real world environments.
           </p>
-
         </div>
 
         <div class="about-image">
           <img src="Fabrik.png" alt="Cybershell Factory">
         </div>
-
       </div>
-
     </section>
 
-    <!-- CTA -->
-
     <div class="cta">
-
       <div class="cta-box">
-
         <div>
-
           <h3>
             LET’S BUILD THE FUTURE OF INDUSTRIAL ROBOTICS
           </h3>
@@ -860,29 +855,20 @@
           <p>
             We look forward to the conversation.
           </p>
-
         </div>
 
         <a class="primary" href="mailto:m.curvelo@cybershell.tech">
           GET IN TOUCH →
         </a>
-
       </div>
-
     </div>
 
-    <!-- FOOTER -->
-
     <footer>
-
       <div class="logo">
-
         <div class="logo-mark">
           <img src="CS_Logo_SW.png" alt="Cybershell Logo">
         </div>
-
         CYBERSHELL
-
       </div>
 
       <div>
@@ -891,24 +877,12 @@
       </div>
 
       <div class="footer-links">
-
-        <a href="#">
-          IMPRESSUM
-        </a>
-
-        <a href="#">
-          PRIVACY
-        </a>
-
-        <a href="#">
-          TERMS
-        </a>
-
+        <a href="#">IMPRESSUM</a>
+        <a href="#">PRIVACY</a>
+        <a href="#">TERMS</a>
       </div>
-
     </footer>
 
   </div>
-
 </body>
 </html>
