@@ -380,25 +380,31 @@
       right: 28px;
       bottom: 28px;
       z-index: 2;
+
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      column-gap: 22px;
+      align-items: start;
     }
 
     .solution-content img {
-      width: 54px;
-      height: 54px;
+      width: 108px;
+      height: 108px;
       object-fit: contain;
       display: block;
-      margin-bottom: 18px;
+      flex-shrink: 0;
     }
 
-    .solution-content h3 {
+    .solution-text h3 {
       color: var(--cyan);
       font-size: 18px;
       line-height: 1.2;
+      margin-top: 0;
       margin-bottom: 12px;
       text-transform: uppercase;
     }
 
-    .solution-content p {
+    .solution-text p {
       color: var(--muted);
       font-size: 15px;
       line-height: 1.7;
@@ -540,6 +546,16 @@
 
       .solution-card {
         min-height: 360px;
+      }
+
+      .solution-content {
+        grid-template-columns: 86px 1fr;
+        column-gap: 18px;
+      }
+
+      .solution-content img {
+        width: 86px;
+        height: 86px;
       }
 
       .about-inner {
@@ -767,14 +783,16 @@
           <div class="solution-content">
             <img src="schild1.png" alt="Protective Shell Systems">
 
-            <h3>
-              Protective Shell Systems
-            </h3>
+            <div class="solution-text">
+              <h3>
+                Protective Shell Systems
+              </h3>
 
-            <p>
-              Modular external protection modules designed for industrial impact,
-              abrasion and operational wear.
-            </p>
+              <p>
+                Modular external protection modules designed for industrial impact,
+                abrasion and operational wear.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -786,14 +804,16 @@
           <div class="solution-content">
             <img src="achtung.png" alt="Deployment Safety Layer">
 
-            <h3>
-              Deployment Safety Layer
-            </h3>
+            <div class="solution-text">
+              <h3>
+                Deployment Safety Layer
+              </h3>
 
-            <p>
-              Physical risk reduction for pilots, shared spaces and future fleet
-              deployments.
-            </p>
+              <p>
+                Physical risk reduction for pilots, shared spaces and future fleet
+                deployments.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -805,14 +825,16 @@
           <div class="solution-content">
             <img src="zahnrad1.png" alt="Reliability Infrastructure">
 
-            <h3>
-              Reliability Infrastructure
-            </h3>
+            <div class="solution-text">
+              <h3>
+                Reliability Infrastructure
+              </h3>
 
-            <p>
-              Reduced downtime, easier maintenance and improved operational
-              resilience.
-            </p>
+              <p>
+                Reduced downtime, easier maintenance and improved operational
+                resilience.
+              </p>
+            </div>
           </div>
         </div>
 
