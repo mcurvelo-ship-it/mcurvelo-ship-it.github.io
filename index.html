@@ -319,8 +319,6 @@
 
     .why-item.active strong { color: var(--cyan); }
 
-    /* SOLUTIONS */
-
     .solutions {
       max-width: 1240px;
       margin: 40px auto 0;
@@ -535,6 +533,8 @@
       border-right: 1px solid rgba(255,255,255,.18);
       padding-right: 44px;
       min-height: 260px;
+      display: flex;
+      flex-direction: column;
     }
 
     .tech-stack-left h3,
@@ -562,6 +562,16 @@
       color: var(--muted);
       font-size: 15px;
       line-height: 1.65;
+    }
+
+    .stack-pictogram {
+      width: 118px;
+      height: 118px;
+      object-fit: contain;
+      display: block;
+      margin: 28px auto 0;
+      position: relative;
+      z-index: 3;
     }
 
     .wave-left,
@@ -665,8 +675,6 @@
       font-weight: 700;
       background: rgba(5,16,24,.72);
     }
-
-    /* ABOUT */
 
     .about {
       max-width: none;
@@ -835,6 +843,12 @@
 
       .tech-stack-box {
         padding: 32px 24px;
+      }
+
+      .stack-pictogram {
+        width: 104px;
+        height: 104px;
+        margin-top: 24px;
       }
 
       .tech-strip {
@@ -1210,6 +1224,8 @@
             Our infrastructure layer makes physical AI safe, reliable
             and scalable in industrial environments.
           </p>
+
+          <img class="stack-pictogram" src="stack.png" alt="Technology Stack">
         </div>
 
         <div class="tech-stack-center">
