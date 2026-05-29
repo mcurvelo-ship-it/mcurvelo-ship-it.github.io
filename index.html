@@ -13,7 +13,6 @@
       --panel: rgba(8, 22, 30, 0.72);
       --panel-2: rgba(9, 28, 38, 0.55);
       --cyan: #18f4ff;
-      --cyan-soft: rgba(24, 244, 255, 0.18);
       --text: #ffffff;
       --muted: #b7c3ca;
       --line: rgba(24, 244, 255, 0.22);
@@ -380,7 +379,6 @@
       right: 28px;
       top: 165px;
       z-index: 2;
-
       display: grid;
       grid-template-columns: 108px 1fr;
       column-gap: 24px;
@@ -395,15 +393,10 @@
       flex-shrink: 0;
     }
 
-    .solution-text {
-      padding-top: 0;
-    }
-
     .solution-text h3 {
       color: var(--cyan);
       font-size: 18px;
       line-height: 1.18;
-      margin-top: 0;
       margin-bottom: 18px;
       min-height: 44px;
       text-transform: uppercase;
@@ -413,6 +406,264 @@
       color: var(--muted);
       font-size: 15px;
       line-height: 1.7;
+    }
+
+    /* TECHNOLOGY */
+
+    .technology {
+      max-width: 1240px;
+      margin: 50px auto 0;
+      padding-top: 44px;
+    }
+
+    .technology .center .eyebrow {
+      margin-bottom: 10px;
+    }
+
+    .technology .center .eyebrow::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 3px;
+      background: var(--cyan);
+      margin: 12px auto 0;
+      box-shadow: 0 0 18px rgba(24,244,255,.65);
+    }
+
+    .technology .center h2 {
+      font-size: 52px;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+    }
+
+    .tech-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .tech-card {
+      min-height: 255px;
+      display: grid;
+      grid-template-columns: 45% 55%;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(4,15,22,.78);
+    }
+
+    .tech-card-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tech-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tech-card-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(2,8,12,.10), rgba(2,8,12,.58));
+    }
+
+    .tech-card-content {
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .tech-icon {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 22px;
+    }
+
+    .tech-card h3 {
+      color: var(--cyan);
+      font-size: 18px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 14px;
+    }
+
+    .tech-card h3::after {
+      content: "";
+      display: block;
+      width: 52px;
+      height: 2px;
+      background: var(--cyan);
+      margin-top: 10px;
+    }
+
+    .tech-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .tech-stack-box {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr 1.1fr;
+      gap: 42px;
+      padding: 40px 50px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(5,16,24,.72);
+      margin-bottom: 18px;
+    }
+
+    .tech-stack-left,
+    .tech-stack-center,
+    .tech-stack-right {
+      position: relative;
+      z-index: 2;
+    }
+
+    .tech-stack-left {
+      border-right: 1px solid rgba(255,255,255,.18);
+      padding-right: 44px;
+      min-height: 260px;
+    }
+
+    .tech-stack-left h3,
+    .tech-feature h3 {
+      color: var(--cyan);
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .tech-stack-left h3::after,
+    .tech-feature h3::after {
+      content: "";
+      display: block;
+      width: 54px;
+      height: 2px;
+      background: var(--cyan);
+      margin-top: 12px;
+    }
+
+    .tech-stack-left p,
+    .tech-feature p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .wave-left,
+    .wave-right {
+      position: absolute;
+      bottom: 0;
+      width: 33%;
+      opacity: .75;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .wave-left {
+      left: 0;
+    }
+
+    .wave-right {
+      right: 0;
+    }
+
+    .wave-left img,
+    .wave-right img {
+      width: 100%;
+      display: block;
+    }
+
+    .tech-stack-center {
+      border-right: 1px solid rgba(255,255,255,.18);
+      padding-right: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stack-flow {
+      width: 230px;
+      display: grid;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .stack-step {
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 7px;
+      padding: 9px 18px;
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .stack-step.active {
+      color: #ffffff;
+      border-color: var(--cyan);
+      background: rgba(24,244,255,.14);
+      box-shadow:
+        0 0 18px rgba(24,244,255,.45),
+        inset 0 0 22px rgba(24,244,255,.15);
+    }
+
+    .stack-arrow {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .tech-stack-right {
+      display: grid;
+      gap: 22px;
+    }
+
+    .tech-feature {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 20px;
+      align-items: start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .tech-feature:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .tech-feature img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .tech-strip {
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 8px;
+      padding: 18px 26px;
+      text-align: center;
+      color: var(--cyan);
+      letter-spacing: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      background: rgba(5,16,24,.72);
     }
 
     /* ABOUT */
@@ -539,14 +790,20 @@
       .cards,
       .why,
       .solutions-grid,
+      .tech-cards,
+      .tech-stack-box,
       footer,
       .about-inner {
         grid-template-columns: 1fr;
       }
 
-      .why-list {
+      .why-list,
+      .tech-stack-left,
+      .tech-stack-center {
         border-left: 0;
+        border-right: 0;
         padding-left: 0;
+        padding-right: 0;
       }
 
       .solution-card {
@@ -566,6 +823,23 @@
 
       .solution-text h3 {
         min-height: auto;
+      }
+
+      .tech-card {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-card-image {
+        height: 220px;
+      }
+
+      .tech-stack-box {
+        padding: 32px 24px;
+      }
+
+      .tech-strip {
+        letter-spacing: 3px;
+        font-size: 12px;
       }
 
       .about-inner {
@@ -617,9 +891,9 @@
         </div>
 
         <nav>
-          <a href="#">SOLUTIONS</a>
-          <a href="#">TECHNOLOGY</a>
-          <a href="#">ABOUT</a>
+          <a href="#solutions">SOLUTIONS</a>
+          <a href="#technology">TECHNOLOGY</a>
+          <a href="#about">ABOUT</a>
           <a href="#">PARTNERSHIPS</a>
           <a href="#">NEWS</a>
         </nav>
@@ -767,7 +1041,7 @@
       </div>
     </section>
 
-    <section class="solutions">
+    <section class="solutions" id="solutions">
       <div class="center">
         <div class="eyebrow">
           Solutions
@@ -784,7 +1058,6 @@
       </div>
 
       <div class="solutions-grid">
-
         <div class="solution-card">
           <div class="solution-bg">
             <img src="hero.png" alt="">
@@ -794,9 +1067,7 @@
             <img src="schild1.png" alt="Protective Shell Systems">
 
             <div class="solution-text">
-              <h3>
-                Protective Shell Systems
-              </h3>
+              <h3>Protective Shell Systems</h3>
 
               <p>
                 Modular external protection modules designed for industrial impact,
@@ -815,9 +1086,7 @@
             <img src="achtung.png" alt="Deployment Safety Layer">
 
             <div class="solution-text">
-              <h3>
-                Deployment Safety Layer
-              </h3>
+              <h3>Deployment Safety Layer</h3>
 
               <p>
                 Physical risk reduction for pilots, shared spaces and future fleet
@@ -836,9 +1105,7 @@
             <img src="zahnrad1.png" alt="Reliability Infrastructure">
 
             <div class="solution-text">
-              <h3>
-                Reliability Infrastructure
-              </h3>
+              <h3>Reliability Infrastructure</h3>
 
               <p>
                 Reduced downtime, easier maintenance and improved operational
@@ -847,11 +1114,169 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <section class="about">
+    <section class="technology" id="technology">
+      <div class="center">
+        <div class="eyebrow">
+          Technology
+        </div>
+
+        <h2>
+          Technology
+        </h2>
+
+        <p>
+          Engineered between the robot and the real world.
+        </p>
+      </div>
+
+      <div class="tech-cards">
+        <div class="tech-card">
+          <div class="tech-card-image">
+            <img src="schichten.png" alt="Multi-layer Architecture">
+          </div>
+
+          <div class="tech-card-content">
+            <img class="tech-icon" src="sandwich.png" alt="Multi-layer Architecture">
+
+            <h3>
+              Multi-Layer Architecture
+            </h3>
+
+            <p>
+              Impact absorption, wear resistance and environmental protection
+              through modular layered materials.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-image">
+            <img src="panzerung.png" alt="Deployment Interface">
+          </div>
+
+          <div class="tech-card-content">
+            <img class="tech-icon" src="puzzle.png" alt="Deployment Interface">
+
+            <h3>
+              Deployment Interface
+            </h3>
+
+            <p>
+              Rapid installation through modular attachment systems.
+              Designed for efficient integration and maintenance.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-image">
+            <img src="coolrobot.png" alt="Safety-Oriented Design">
+          </div>
+
+          <div class="tech-card-content">
+            <img class="tech-icon" src="schild3.png" alt="Safety-Oriented Design">
+
+            <h3>
+              Safety-Oriented Design
+            </h3>
+
+            <p>
+              Built to support future safety, liability and industrial
+              deployment requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-stack-box">
+        <div class="wave-left">
+          <img src="waves_links.png" alt="">
+        </div>
+
+        <div class="wave-right">
+          <img src="waves_rechts.png" alt="">
+        </div>
+
+        <div class="tech-stack-left">
+          <h3>
+            Technology Stack
+          </h3>
+
+          <p>
+            Cybershell sits between the robot and the real world.
+            Our infrastructure layer makes physical AI safe, reliable
+            and scalable in industrial environments.
+          </p>
+        </div>
+
+        <div class="tech-stack-center">
+          <div class="stack-flow">
+            <div class="stack-step">AI</div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-step">CONTROL</div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-step">ROBOT</div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-step active">CYBERSHELL</div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-step">REAL WORLD</div>
+          </div>
+        </div>
+
+        <div class="tech-stack-right">
+          <div class="tech-feature">
+            <img src="schild3.png" alt="Physical Protection">
+
+            <div>
+              <h3>
+                Physical Protection
+              </h3>
+
+              <p>
+                Reduces damage and downtime.
+              </p>
+            </div>
+          </div>
+
+          <div class="tech-feature">
+            <img src="quadrat.png" alt="Deployment Infrastructure">
+
+            <div>
+              <h3>
+                Deployment Infrastructure
+              </h3>
+
+              <p>
+                Bridges robots and industrial environments.
+              </p>
+            </div>
+          </div>
+
+          <div class="tech-feature">
+            <img src="atom.png" alt="Scalability Layer">
+
+            <div>
+              <h3>
+                Scalability Layer
+              </h3>
+
+              <p>
+                Supports long-term fleet deployment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-strip">
+        CYBERSHELL – THE INFRASTRUCTURE LAYER FOR INDUSTRIAL HUMANOID ROBOTICS
+      </div>
+    </section>
+
+    <section class="about" id="about">
       <div class="about-inner">
         <div class="about-text">
           <h3>
