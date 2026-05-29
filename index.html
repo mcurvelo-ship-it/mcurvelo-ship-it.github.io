@@ -706,6 +706,108 @@
       background: rgba(5,16,24,.72);
     }
 
+    .engagement {
+      max-width: 1240px;
+      margin: 60px auto 0;
+      padding-top: 44px;
+    }
+
+    .engagement .center h2 {
+      font-size: 52px;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+
+    .engagement .center p {
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .engagement-card {
+      background: rgba(5,16,24,.76);
+      border: 1px solid rgba(24,244,255,.22);
+      border-radius: 12px;
+      padding: 30px;
+      min-height: 270px;
+    }
+
+    .engagement-card img {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .engagement-card h3 {
+      color: #ffffff;
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .engagement-label {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .engagement-label::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 2px;
+      background: var(--cyan);
+      margin-top: 14px;
+    }
+
+    .engagement-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .engagement-claim {
+      margin-top: 32px;
+      border: 1px solid rgba(24,244,255,.32);
+      border-radius: 12px;
+      padding: 26px 32px;
+      display: grid;
+      grid-template-columns: 76px 1fr auto;
+      align-items: center;
+      gap: 28px;
+      background: rgba(5,16,24,.72);
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .engagement-claim img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .engagement-claim a {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.6px;
+      white-space: nowrap;
+    }
+
     .about {
       max-width: none;
       margin-top: 30px;
@@ -1074,6 +1176,48 @@
         line-height: 1.8;
       }
 
+      .engagement {
+        padding: 44px 24px;
+        margin-top: 40px;
+      }
+
+      .engagement .center h2 {
+        font-size: 34px;
+      }
+
+      .engagement-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .engagement-card {
+        text-align: center;
+        justify-items: center;
+      }
+
+      .engagement-card img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .engagement-label::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .engagement-claim {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+
+      .engagement-claim img {
+        margin: 0 auto;
+      }
+
+      .engagement-claim a {
+        white-space: normal;
+      }
+
       .about-inner {
         gap: 40px;
         padding: 60px 24px;
@@ -1172,6 +1316,7 @@
         <nav>
           <a href="#solutions">SOLUTIONS</a>
           <a href="#technology">TECHNOLOGY</a>
+          <a href="#engagement">ENGAGEMENT</a>
           <a href="#about">ABOUT</a>
           <a href="#partnerships">PARTNERSHIPS</a>
           <a href="https://www.linkedin.com/in/mario-curvelo-carvalho-116b722a2/" target="_blank" rel="noopener noreferrer">NEWS</a>
@@ -1190,6 +1335,7 @@
         <div class="mobile-menu">
           <a href="#solutions">SOLUTIONS</a>
           <a href="#technology">TECHNOLOGY</a>
+          <a href="#engagement">ENGAGEMENT</a>
           <a href="#about">ABOUT</a>
           <a href="#partnerships">PARTNERSHIPS</a>
           <a href="https://www.linkedin.com/in/mario-curvelo-carvalho-116b722a2/" target="_blank" rel="noopener noreferrer">NEWS</a>
@@ -1569,6 +1715,93 @@
 
       <div class="tech-strip">
         CYBERSHELL – THE INFRASTRUCTURE LAYER FOR INDUSTRIAL HUMANOID ROBOTICS
+      </div>
+    </section>
+
+    <section class="engagement" id="engagement">
+      <div class="center">
+        <div class="eyebrow">
+          Industry & Standards Engagement
+        </div>
+
+        <h2>
+          Engaged. Collaborative. <span class="cyan">Committed.</span>
+        </h2>
+
+        <p>
+          Cybershell actively engages with leading organizations, experts and standardization bodies
+          to advance the infrastructure layer for safe, reliable and scalable deployment of humanoid
+          robots in real industrial environments.
+        </p>
+      </div>
+
+      <div class="engagement-grid">
+        <div class="engagement-card">
+          <img src="pencil.png" alt="Studio F. A. Porsche">
+          <h3>Studio F. A. Porsche</h3>
+          <div class="engagement-label">Design Dialogue</div>
+          <p>
+            Design dialogue and category exploration for industrial humanoid robotics.
+          </p>
+        </div>
+
+        <div class="engagement-card">
+          <img src="schild4.png" alt="Austrian Standards">
+          <h3>Austrian Standards</h3>
+          <div class="engagement-label">Standardization</div>
+          <p>
+            Participation in standardization activities related to future robotic systems.
+          </p>
+        </div>
+
+        <div class="engagement-card">
+          <img src="ove.png" alt="OVE">
+          <h3>OVE</h3>
+          <div class="engagement-label">Safety & Technology</div>
+          <p>
+            Engagement in electrical, safety and technical standardization.
+          </p>
+        </div>
+
+        <div class="engagement-card">
+          <img src="certix.png" alt="CETICS">
+          <h3>CETICS</h3>
+          <div class="engagement-label">Compliance Dialogue</div>
+          <p>
+            Dialogue on certification, conformity assessment and compliance.
+          </p>
+        </div>
+
+        <div class="engagement-card">
+          <img src="eit.png" alt="EIT Manufacturing">
+          <h3>EIT Manufacturing</h3>
+          <div class="engagement-label">Innovation Ecosystem</div>
+          <p>
+            Part of the European innovation ecosystem for advanced manufacturing.
+          </p>
+        </div>
+
+        <div class="engagement-card">
+          <img src="mass.png" alt="MassRobotics">
+          <h3>MassRobotics</h3>
+          <div class="engagement-label">Global Network</div>
+          <p>
+            Connected to a global robotics network supporting responsible deployment.
+          </p>
+        </div>
+      </div>
+
+      <div class="engagement-claim">
+        <img src="people.png" alt="Shared Future">
+
+        <div>
+          We believe the future of humanoid robotics is built together — through open dialogue,
+          shared knowledge and a commitment to safety, reliability and real-world progress.
+        </div>
+
+        <a href="#partnerships">
+          LET’S BUILD THE FUTURE, TOGETHER →
+        </a>
       </div>
     </section>
 
