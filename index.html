@@ -662,15 +662,17 @@
     .tech-stack-right {
       display: grid;
       gap: 22px;
+      min-width: 0;
     }
 
     .tech-feature {
       display: grid;
-      grid-template-columns: 112px 1fr;
+      grid-template-columns: 112px minmax(0, 1fr);
       gap: 20px;
       align-items: start;
       padding-bottom: 18px;
       border-bottom: 1px solid rgba(255,255,255,.10);
+      min-width: 0;
     }
 
     .tech-feature:last-child {
@@ -683,6 +685,13 @@
       height: 96px;
       object-fit: contain;
       display: block;
+    }
+
+    .tech-feature h3,
+    .tech-feature p {
+      min-width: 0;
+      overflow-wrap: break-word;
+      word-break: normal;
     }
 
     .tech-strip {
@@ -984,11 +993,22 @@
 
       .solution-text h3 { min-height: auto; }
 
-      .tech-card { grid-template-columns: 1fr; }
+      .tech-card {
+        grid-template-columns: 1fr;
+      }
 
-      .tech-card-image { height: 220px; }
+      .tech-card-image {
+        height: 220px;
+      }
 
-      .tech-stack-box { padding: 32px 24px; }
+      .tech-stack-box {
+        width: 100%;
+        max-width: calc(100vw - 48px);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 32px 24px;
+        overflow: hidden;
+      }
 
       .stack-pictogram {
         width: 156px;
@@ -996,9 +1016,62 @@
         margin-top: 24px;
       }
 
+      .stack-flow {
+        width: 100%;
+        max-width: 260px;
+      }
+
+      .tech-stack-right {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        gap: 0;
+      }
+
+      .tech-feature {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        gap: 18px;
+        padding: 34px 0;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .tech-feature img {
+        width: 96px;
+        height: 96px;
+      }
+
+      .tech-feature h3 {
+        font-size: 24px;
+        line-height: 1.25;
+        letter-spacing: 2.5px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        max-width: 100%;
+      }
+
+      .tech-feature h3::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .tech-feature p {
+        font-size: 19px;
+        line-height: 1.55;
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+
       .tech-strip {
+        max-width: calc(100vw - 48px);
+        margin-left: auto;
+        margin-right: auto;
         letter-spacing: 3px;
         font-size: 12px;
+        line-height: 1.8;
       }
 
       .about-inner {
@@ -1064,6 +1137,21 @@
 
       .hero p {
         font-size: 22px;
+      }
+
+      .tech-feature h3 {
+        font-size: 21px;
+        letter-spacing: 2px;
+      }
+
+      .tech-feature p {
+        font-size: 18px;
+      }
+
+      .tech-strip {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+        padding: 18px 18px;
       }
     }
   </style>
