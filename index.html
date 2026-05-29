@@ -20,9 +20,7 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: "Inter", sans-serif;
@@ -97,6 +95,33 @@
     }
 
     .contact-btn:hover { background: rgba(24,244,255,.08); }
+
+    .mobile-menu-toggle {
+      display: none;
+      width: 54px;
+      height: 54px;
+      border: 1px solid var(--cyan);
+      border-radius: 12px;
+      background: rgba(0,0,0,.18);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--cyan);
+      border-radius: 2px;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
 
     .hero {
       min-height: 640px;
@@ -775,16 +800,123 @@
     @media (max-width: 900px) {
       header {
         position: relative;
-        padding: 22px 0;
+        padding: 18px 0;
+        background: rgba(3, 35, 38, .92);
+        border-bottom: 1px solid rgba(24,244,255,.12);
       }
 
-      .header-inner { padding: 0 22px; }
+      .header-inner {
+        padding: 0 22px;
+        justify-content: space-between;
+      }
 
-      nav { display: none; }
+      .logo {
+        gap: 14px;
+        font-size: 24px;
+        letter-spacing: 9px;
+      }
+
+      .logo-mark img {
+        width: 82px;
+        height: 82px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .contact-btn {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 22px;
+        right: 22px;
+        background: rgba(4, 20, 28, .98);
+        border: 1px solid rgba(24,244,255,.35);
+        border-radius: 14px;
+        padding: 18px;
+        z-index: 30;
+        box-shadow: 0 20px 40px rgba(0,0,0,.45);
+      }
+
+      .mobile-menu.active {
+        display: grid;
+        gap: 14px;
+      }
+
+      .mobile-menu a {
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        padding: 12px 10px;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+
+      .mobile-menu a:last-child {
+        border-bottom: none;
+        color: var(--cyan);
+      }
 
       .hero {
         padding: 90px 24px 70px;
         min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(2,8,12,.74) 0%, rgba(2,8,12,.86) 58%, rgba(2,8,12,.98) 100%),
+          url("hero.png");
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: clamp(48px, 11vw, 82px);
+        line-height: 1.08;
+        letter-spacing: -2px;
+      }
+
+      .eyebrow {
+        font-size: 22px;
+        letter-spacing: 1.5px;
+      }
+
+      .divider {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero p {
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 26px;
+        line-height: 1.55;
+      }
+
+      .buttons {
+        justify-content: center;
       }
 
       section { padding: 30px 24px; }
@@ -867,6 +999,44 @@
         flex-wrap: wrap;
       }
     }
+
+    @media (max-width: 520px) {
+      .header-inner {
+        padding: 0 18px;
+      }
+
+      .logo {
+        font-size: 19px;
+        letter-spacing: 7px;
+        gap: 12px;
+      }
+
+      .logo-mark img {
+        width: 68px;
+        height: 68px;
+      }
+
+      .mobile-menu-toggle {
+        width: 50px;
+        height: 50px;
+      }
+
+      .hero {
+        padding: 76px 20px 64px;
+      }
+
+      h1 {
+        font-size: clamp(42px, 12vw, 64px);
+      }
+
+      .eyebrow {
+        font-size: 18px;
+      }
+
+      .hero p {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 
@@ -893,6 +1063,21 @@
         <a class="contact-btn" href="mailto:m.curvelo@cybershell.tech">
           CONTACT
         </a>
+
+        <button class="mobile-menu-toggle" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('active')">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="mobile-menu">
+          <a href="#solutions">SOLUTIONS</a>
+          <a href="#technology">TECHNOLOGY</a>
+          <a href="#about">ABOUT</a>
+          <a href="#partnerships">PARTNERSHIPS</a>
+          <a href="https://www.linkedin.com/in/mario-curvelo-carvalho-116b722a2/" target="_blank" rel="noopener noreferrer">NEWS</a>
+          <a href="mailto:m.curvelo@cybershell.tech">CONTACT</a>
+        </div>
       </div>
     </header>
 
@@ -1335,5 +1520,13 @@
     </footer>
 
   </div>
+
+  <script>
+    document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.querySelector('.mobile-menu').classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
