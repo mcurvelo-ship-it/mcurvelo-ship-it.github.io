@@ -20,6 +20,10 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Inter", sans-serif;
       background: var(--bg);
@@ -181,6 +185,7 @@
       padding: 34px 48px;
       max-width: 1240px;
       margin: 0 auto;
+      scroll-margin-top: 40px;
     }
 
     .center {
@@ -581,7 +586,6 @@
     }
 
     .wave-left { left: 0; }
-
     .wave-right { right: 0; }
 
     .wave-left img,
@@ -675,6 +679,7 @@
       border-top: 1px solid rgba(255,255,255,.06);
       border-bottom: 1px solid rgba(255,255,255,.06);
       overflow: hidden;
+      scroll-margin-top: 40px;
     }
 
     .about-inner {
@@ -719,6 +724,7 @@
       padding: 0 48px;
       position: relative;
       z-index: 5;
+      scroll-margin-top: 60px;
     }
 
     .cta-box {
@@ -772,9 +778,7 @@
         padding: 22px 0;
       }
 
-      .header-inner {
-        padding: 0 22px;
-      }
+      .header-inner { padding: 0 22px; }
 
       nav { display: none; }
 
@@ -783,9 +787,7 @@
         min-height: auto;
       }
 
-      section {
-        padding: 30px 24px;
-      }
+      section { padding: 30px 24px; }
 
       .cards,
       .why,
@@ -806,9 +808,7 @@
         padding-right: 0;
       }
 
-      .solution-card {
-        min-height: 360px;
-      }
+      .solution-card { min-height: 360px; }
 
       .solution-content {
         top: 120px;
@@ -821,21 +821,13 @@
         height: 86px;
       }
 
-      .solution-text h3 {
-        min-height: auto;
-      }
+      .solution-text h3 { min-height: auto; }
 
-      .tech-card {
-        grid-template-columns: 1fr;
-      }
+      .tech-card { grid-template-columns: 1fr; }
 
-      .tech-card-image {
-        height: 220px;
-      }
+      .tech-card-image { height: 220px; }
 
-      .tech-stack-box {
-        padding: 32px 24px;
-      }
+      .tech-stack-box { padding: 32px 24px; }
 
       .stack-pictogram {
         width: 156px;
@@ -853,9 +845,7 @@
         padding: 60px 24px;
       }
 
-      .about-image {
-        justify-content: center;
-      }
+      .about-image { justify-content: center; }
 
       .about-image img {
         width: 100%;
@@ -863,18 +853,14 @@
         height: auto;
       }
 
-      .cta {
-        padding: 0 24px;
-      }
+      .cta { padding: 0 24px; }
 
       .cta-box {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      footer {
-        padding: 40px 24px;
-      }
+      footer { padding: 40px 24px; }
 
       .footer-links {
         justify-content: flex-start;
@@ -900,8 +886,8 @@
           <a href="#solutions">SOLUTIONS</a>
           <a href="#technology">TECHNOLOGY</a>
           <a href="#about">ABOUT</a>
-          <a href="#">PARTNERSHIPS</a>
-          <a href="#">NEWS</a>
+          <a href="#partnerships">PARTNERSHIPS</a>
+          <a href="https://www.linkedin.com/in/mario-curvelo-carvalho-116b722a2/" target="_blank" rel="noopener noreferrer">NEWS</a>
         </nav>
 
         <a class="contact-btn" href="mailto:m.curvelo@cybershell.tech">
@@ -933,7 +919,7 @@
           </p>
 
           <div class="buttons">
-            <a class="primary" href="mailto:m.curvelo@cybershell.tech">
+            <a class="primary" href="#partnerships">
               PARTNERSHIP & PILOT DISCUSSIONS →
             </a>
 
@@ -1306,7 +1292,7 @@
       </div>
     </section>
 
-    <div class="cta">
+    <div class="cta" id="partnerships">
       <div class="cta-box">
         <div>
           <h3>
