@@ -735,16 +735,23 @@
       background: rgba(5,16,24,.76);
       border: 1px solid rgba(24,244,255,.22);
       border-radius: 12px;
-      padding: 30px;
-      min-height: 270px;
+      padding: 38px;
+      min-height: 287px;
     }
 
     .engagement-card img {
-      width: 76px;
-      height: 76px;
+      width: 108px;
+      height: 108px;
       object-fit: contain;
       display: block;
-      margin-bottom: 20px;
+      margin: 0 0 18px 0;
+    }
+
+    .engagement-card img.mass-logo {
+      width: 165px;
+      height: auto;
+      max-width: 100%;
+      margin: 14px 0 36px 0;
     }
 
     .engagement-card h3 {
@@ -1192,11 +1199,21 @@
       .engagement-card {
         text-align: center;
         justify-items: center;
+        padding: 38px;
       }
 
       .engagement-card img {
+        width: 108px;
+        height: 108px;
         margin-left: auto;
         margin-right: auto;
+      }
+
+      .engagement-card img.mass-logo {
+        width: 165px;
+        height: auto;
+        max-width: 100%;
+        margin: 14px auto 36px auto;
       }
 
       .engagement-label::after {
@@ -1782,7 +1799,7 @@
         </div>
 
         <div class="engagement-card">
-          <img src="mass.png" alt="MassRobotics">
+          <img class="mass-logo" src="mass.png" alt="MassRobotics">
           <h3>MassRobotics</h3>
           <div class="engagement-label">Global Network</div>
           <p>
