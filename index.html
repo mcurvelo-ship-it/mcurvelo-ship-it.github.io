@@ -791,6 +791,125 @@
       line-height: 1.7;
     }
 
+    .funding-support {
+      margin-top: 34px;
+    }
+
+    .funding-title {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 14px;
+      margin: 8px 0 12px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .funding-title::before,
+    .funding-title::after {
+      content: "";
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(24,244,255,.88));
+      position: relative;
+    }
+
+    .funding-title::after {
+      background: linear-gradient(90deg, rgba(24,244,255,.88), transparent);
+    }
+
+    .funding-title span {
+      white-space: nowrap;
+      text-shadow: 0 0 12px rgba(255,255,255,.55);
+    }
+
+    .funding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 10px;
+    }
+
+    .funding-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(5,16,24,.76);
+      border: 1px solid rgba(24,244,255,.58);
+      border-radius: 12px;
+      padding: 30px 40px 26px;
+      min-height: 265px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .funding-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 90px;
+      background:
+        radial-gradient(circle at 15% 90%, rgba(24,244,255,.24), transparent 34%),
+        repeating-linear-gradient(170deg, rgba(24,244,255,.22) 0 1px, transparent 1px 11px);
+      opacity: .35;
+      pointer-events: none;
+      transform: skewY(-6deg);
+      transform-origin: bottom left;
+    }
+
+    .funding-card img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      object-position: left center;
+      display: block;
+      margin: 0 0 16px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .funding-card h3 {
+      color: #ffffff;
+      font-size: 30px;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .funding-label {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .funding-label::after {
+      content: "";
+      display: block;
+      width: 45px;
+      height: 2px;
+      background: var(--cyan);
+      margin-top: 12px;
+    }
+
+    .funding-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+      position: relative;
+      z-index: 2;
+    }
+
     .engagement-claim {
       margin-top: 32px;
       border: 1px solid rgba(24,244,255,.32);
@@ -819,9 +938,7 @@
       font-weight: 900;
       letter-spacing: 1.6px;
       white-space: nowrap;
-    }
-
-    .about {
+    }    .about {
       max-width: none;
       margin-top: 30px;
       padding: 0;
@@ -1198,11 +1315,13 @@
         font-size: 34px;
       }
 
-      .engagement-grid {
+      .engagement-grid,
+      .funding-grid {
         grid-template-columns: 1fr;
       }
 
-      .engagement-card {
+      .engagement-card,
+      .funding-card {
         text-align: center;
         align-items: center;
         padding: 38px;
@@ -1224,7 +1343,26 @@
         margin: 0 auto 18px auto;
       }
 
-      .engagement-label::after {
+      .funding-title {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        font-size: 12px;
+        letter-spacing: 4px;
+        line-height: 1.6;
+      }
+
+      .funding-title::before,
+      .funding-title::after {
+        width: 100%;
+      }
+
+      .funding-card img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .engagement-label::after,
+      .funding-label::after {
         margin-left: auto;
         margin-right: auto;
       }
@@ -1321,6 +1459,15 @@
         font-size: 11px;
         letter-spacing: 2.5px;
         padding: 18px 18px;
+      }
+
+      .funding-title {
+        font-size: 11px;
+        letter-spacing: 3px;
+      }
+
+      .funding-card h3 {
+        font-size: 28px;
       }
     }
   </style>
@@ -1813,6 +1960,43 @@
           <p>
             Connected to a global robotics network supporting responsible deployment.
           </p>
+        </div>
+      </div>
+
+      <div class="funding-support">
+        <div class="funding-title">
+          <span>Funding & Public Support Ecosystem</span>
+        </div>
+
+        <div class="funding-grid">
+          <div class="funding-card">
+            <img src="WNO.png" alt="WNÖ">
+            <h3>WNÖ</h3>
+            <div class="funding-label">Regional Business Support</div>
+            <p>
+              Support through the Lower Austria business and innovation ecosystem.
+            </p>
+          </div>
+
+          <div class="funding-card">
+            <img src="FFG.png" alt="FFG">
+            <h3>FFG</h3>
+            <div class="funding-label">R&D Funding Pathway</div>
+            <p>
+              Austrian research funding pathway for technical validation, prototyping
+              and industrial development.
+            </p>
+          </div>
+
+          <div class="funding-card">
+            <img src="AWS.png" alt="AWS">
+            <h3>AWS</h3>
+            <div class="funding-label">Startup & Deep-Tech Funding</div>
+            <p>
+              Startup-oriented funding pathway supporting early-stage innovation
+              and business development.
+            </p>
+          </div>
         </div>
       </div>
 
