@@ -3,7 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cybershell</title>
+  <title>Cybershell Technologies | Safety Infrastructure for Humanoid Robots</title>
+  <meta name="description" content="Cybershell develops modular external protection and deployment systems for industrial humanoid robots, focused on physical risk reduction, reliability and maintainability.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.cybershell.tech/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cybershell Technologies">
+  <meta property="og:title" content="Cybershell Technologies | Safety Infrastructure for Humanoid Robots">
+  <meta property="og:description" content="Modular external protection and deployment systems for industrial humanoid robots.">
+  <meta property="og:url" content="https://www.cybershell.tech/">
+  <meta property="og:image" content="https://www.cybershell.tech/hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cybershell Technologies",
+    "url": "https://www.cybershell.tech/",
+    "logo": "https://www.cybershell.tech/CStrans.png",
+    "description": "Cybershell develops modular external protection and deployment systems for industrial humanoid robots.",
+    "founder": {
+      "@type": "Person",
+      "name": "Mario Curvelo Carvalho",
+      "jobTitle": "Founder & CEO"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vienna",
+      "addressCountry": "AT"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/mario-curvelo-carvalho-116b722a2/"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Missing Physical Layer of Industrial Humanoid Robotics",
+    "datePublished": "2026-08-03",
+    "dateModified": "2026-08-03",
+    "author": {
+      "@type": "Person",
+      "name": "Mario Curvelo Carvalho",
+      "jobTitle": "Founder & CEO"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Cybershell Technologies",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.cybershell.tech/CStrans.png"
+      }
+    },
+    "mainEntityOfPage": "https://www.cybershell.tech/#evidence-note",
+    "description": "Cybershell documents the current development scope of its first mechanical architecture for industrial humanoid robot protection and deployment systems."
+  }
+  </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -706,6 +766,303 @@
       background: rgba(5,16,24,.72);
     }
 
+    .evidence {
+      max-width: 1240px;
+      margin: 60px auto 0;
+      padding-top: 44px;
+    }
+
+    .evidence-shell {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr);
+      gap: 54px;
+      padding: 48px;
+      border: 1px solid rgba(24,244,255,.28);
+      border-radius: 12px;
+      background:
+        linear-gradient(135deg, rgba(5,16,24,.96), rgba(8,31,42,.78)),
+        url("hero.png") right center / cover no-repeat;
+    }
+
+    .evidence-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(2,8,12,.08), rgba(2,8,12,.52));
+      pointer-events: none;
+    }
+
+    .evidence-copy,
+    .evidence-status {
+      position: relative;
+      z-index: 2;
+    }
+
+    .evidence-kicker {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .evidence-copy h2 {
+      max-width: 760px;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+
+    .evidence-copy > p {
+      max-width: 710px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .evidence-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .evidence-link {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 15px 0;
+    }
+
+    .evidence-status {
+      align-self: stretch;
+      display: grid;
+      align-content: center;
+      gap: 0;
+      border-left: 1px solid rgba(24,244,255,.28);
+      padding-left: 38px;
+    }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .status-row:last-child { border-bottom: 0; }
+
+    .status-label {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .status-value {
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+
+    /* Full Evidence Note integrated into this single HTML file */
+    .evidence-document {
+      max-width: 1240px;
+      margin: 24px auto 0;
+      border: 1px solid rgba(24,244,255,.22);
+      border-radius: 12px;
+      background: rgba(5,16,24,.78);
+      overflow: hidden;
+    }
+
+    .evidence-document > summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 22px 28px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .evidence-document > summary::-webkit-details-marker { display: none; }
+
+    .evidence-document > summary::after {
+      content: "+";
+      color: var(--cyan);
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .evidence-document[open] > summary {
+      border-bottom: 1px solid rgba(24,244,255,.20);
+    }
+
+    .evidence-document[open] > summary::after { content: "−"; }
+
+    .evidence-document-body {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 48px;
+      padding: 46px 48px 54px;
+    }
+
+    .evidence-meta {
+      align-self: start;
+      position: sticky;
+      top: 24px;
+      border-top: 1px solid var(--cyan);
+    }
+
+    .evidence-meta-block {
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .evidence-meta-label {
+      color: var(--cyan);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .evidence-meta-value {
+      color: #ffffff;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .evidence-article {
+      min-width: 0;
+      max-width: 820px;
+    }
+
+    .evidence-article section {
+      max-width: none;
+      margin: 0 0 38px;
+      padding: 0 0 38px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      scroll-margin-top: 24px;
+    }
+
+    .evidence-article section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .evidence-article h2 {
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: -.5px;
+      margin-bottom: 18px;
+    }
+
+    .evidence-article p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .evidence-article p:last-child { margin-bottom: 0; }
+
+    .evidence-article ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .evidence-article li {
+      position: relative;
+      padding-left: 22px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .evidence-article li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+    }
+
+    .evidence-article a {
+      color: var(--cyan);
+      font-weight: 700;
+      border-bottom: 1px solid rgba(24,244,255,.35);
+    }
+
+    .evidence-disclaimer {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(24,244,255,.28);
+      color: rgba(255,255,255,.56);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .evidence-document {
+        width: calc(100% - 48px);
+      }
+
+      .evidence-document-body {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding: 36px 28px 44px;
+      }
+
+      .evidence-meta {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 24px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .evidence-document {
+        width: calc(100% - 40px);
+      }
+
+      .evidence-document > summary {
+        padding: 20px;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .evidence-document-body {
+        padding: 30px 20px 38px;
+      }
+
+      .evidence-meta { grid-template-columns: 1fr; }
+      .evidence-article h2 { font-size: 24px; }
+      .evidence-article p { font-size: 15px; }
+    }
+
+
     .engagement {
       max-width: 1240px;
       margin: 60px auto 0;
@@ -1306,6 +1663,42 @@
         line-height: 1.8;
       }
 
+      .evidence {
+        padding: 44px 24px;
+        margin-top: 40px;
+      }
+
+      .evidence-shell {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding: 36px 28px;
+        background:
+          linear-gradient(180deg, rgba(5,16,24,.92), rgba(5,16,24,.98)),
+          url("hero.png") center top / cover no-repeat;
+      }
+
+      .evidence-copy { text-align: center; }
+
+      .evidence-copy h2 {
+        font-size: 34px;
+        letter-spacing: -1px;
+      }
+
+      .evidence-actions { justify-content: center; }
+
+      .evidence-status {
+        border-left: 0;
+        border-top: 1px solid rgba(24,244,255,.28);
+        padding-left: 0;
+        padding-top: 12px;
+      }
+
+      .status-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        text-align: center;
+      }
+
       .engagement {
         padding: 44px 24px;
         margin-top: 40px;
@@ -1491,7 +1884,7 @@
           <a href="#engagement">ENGAGEMENT</a>
           <a href="#about">ABOUT</a>
           <a href="#partnerships">PARTNERSHIPS</a>
-          <a href="https://www.linkedin.com/in/mario-curvelo-carvalho-116b722a2/" target="_blank" rel="noopener noreferrer">NEWS</a>
+          <a href="#evidence">EVIDENCE</a>
         </nav>
 
         <a class="contact-btn" href="mailto:info@cybershell.tech">
@@ -1510,7 +1903,7 @@
           <a href="#engagement">ENGAGEMENT</a>
           <a href="#about">ABOUT</a>
           <a href="#partnerships">PARTNERSHIPS</a>
-          <a href="https://www.linkedin.com/in/mario-curvelo-carvalho-116b722a2/" target="_blank" rel="noopener noreferrer">NEWS</a>
+          <a href="#evidence">EVIDENCE</a>
           <a href="mailto:info@cybershell.tech">CONTACT</a>
         </div>
       </div>
@@ -1533,8 +1926,8 @@
           <div class="divider"></div>
 
           <p>
-            Cybershell builds the external infrastructure layer
-            that makes humanoid robots safe, reliable and scalable
+            Cybershell develops modular external protection and deployment systems
+            designed to reduce physical risk, downtime and service complexity
             in real industrial environments.
           </p>
 
@@ -1564,8 +1957,8 @@
         <p>
           Humanoid robots are entering environments
           they were never physically designed for.<br>
-          Cybershell provides the infrastructure
-          that closes this gap.
+          Cybershell develops the external protection and deployment infrastructure
+          designed to address this gap.
         </p>
       </div>
 
@@ -1646,7 +2039,7 @@
           <div class="why-item active">
             <img src="CStrans.png" alt="Cybershell">
             <strong>
-              Cybershell closes this gap.
+              Cybershell is being built to address this gap.
             </strong>
           </div>
         </div>
@@ -1664,8 +2057,8 @@
         </h2>
 
         <p>
-          Cybershell provides the missing physical infrastructure layer
-          required for safe and scalable humanoid deployment.
+          Cybershell develops the physical infrastructure layer designed to support
+          safer, more reliable and scalable humanoid deployment.
         </p>
       </div>
 
@@ -1819,8 +2212,8 @@
 
           <p>
             Cybershell sits between the robot and the real world.
-            Our infrastructure layer makes physical AI safe, reliable
-            and scalable in industrial environments.
+            Our infrastructure layer is being developed to support safer,
+            more reliable and scalable deployment in industrial environments.
           </p>
 
           <img class="stack-pictogram" src="stack.png" alt="Technology Stack">
@@ -1889,6 +2282,178 @@
         CYBERSHELL – THE INFRASTRUCTURE LAYER FOR INDUSTRIAL HUMANOID ROBOTICS
       </div>
     </section>
+
+    <section class="evidence" id="evidence">
+      <div class="evidence-shell">
+        <div class="evidence-copy">
+          <div class="evidence-kicker">Evidence Note 01 · 3 August 2026 · Vienna</div>
+          <h2>The Missing Physical Layer of Industrial Humanoid Robotics</h2>
+          <p>
+            Cybershell documents its current development status, the scope of its first
+            mechanical architecture and the distinction between confirmed work, active
+            development and future validation objectives.
+          </p>
+          <div class="evidence-actions">
+            <a class="primary" href="#evidence-note">READ EVIDENCE NOTE →</a>
+          </div>
+        </div>
+
+        <div class="evidence-status" aria-label="Current development status">
+          <div class="status-row">
+            <div class="status-label">Documented</div>
+            <div class="status-value">Independent machinery-safety assessment completed</div>
+          </div>
+          <div class="status-row">
+            <div class="status-label">In development</div>
+            <div class="status-value">First mechanical architecture and focused demonstrator</div>
+          </div>
+          <div class="status-row">
+            <div class="status-label">Active</div>
+            <div class="status-value">Standardization and safety-oriented technical exchange</div>
+          </div>
+          <div class="status-row">
+            <div class="status-label">Open</div>
+            <div class="status-value">Focused industrial pilot and development partnerships</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <details class="evidence-document" id="evidence-note">
+        <summary>Open complete Evidence Note 01</summary>
+
+        <div class="evidence-document-body">
+          <aside class="evidence-meta" aria-label="Document metadata">
+            <div class="evidence-meta-block">
+              <div class="evidence-meta-label">Document</div>
+              <div class="evidence-meta-value">Evidence Note 01</div>
+            </div>
+            <div class="evidence-meta-block">
+              <div class="evidence-meta-label">Published</div>
+              <div class="evidence-meta-value">3 August 2026</div>
+            </div>
+            <div class="evidence-meta-block">
+              <div class="evidence-meta-label">Location</div>
+              <div class="evidence-meta-value">Vienna, Austria</div>
+            </div>
+            <div class="evidence-meta-block">
+              <div class="evidence-meta-label">Development stage</div>
+              <div class="evidence-meta-value">Early development</div>
+            </div>
+            <div class="evidence-meta-block">
+              <div class="evidence-meta-label">Focus</div>
+              <div class="evidence-meta-value">Physical protection<br>Maintainability<br>Deployment safety</div>
+            </div>
+            <div class="evidence-meta-block">
+              <div class="evidence-meta-label">Author</div>
+              <div class="evidence-meta-value">Mario Curvelo Carvalho<br>Founder &amp; CEO</div>
+            </div>
+          </aside>
+
+          <article class="evidence-article">
+            <section>
+              <h2>Industrial humanoids require more than robot hardware</h2>
+              <p>
+                Humanoid robots are increasingly being developed for production, logistics and other
+                industrial environments. The transition from controlled development settings into real
+                operations creates additional requirements for protection, maintainability, availability
+                and physical system safety.
+              </p>
+              <p>
+                Damage to exposed external areas can affect more than repair costs. It can also influence
+                sensors, motion sequences, maintenance processes and the conditions under which operation
+                may safely continue.
+              </p>
+              <p>
+                Cybershell therefore does not develop the humanoid robot itself. The company focuses on the
+                physical interface between the robot and the real industrial environment.
+              </p>
+            </section>
+
+            <section>
+              <h2>The development approach</h2>
+              <p>
+                The intended Cybershell architecture is based on modular, replaceable external components
+                with defined mechanical and functional interfaces.
+              </p>
+              <ul>
+                <li>Impact and wear protection for exposed robot areas</li>
+                <li>Localization of damage to replaceable modules</li>
+                <li>Reduction of repair effort and operational downtime</li>
+                <li>Controlled installation and locking states</li>
+                <li>Traceable configurations and replacement cycles</li>
+                <li>Preparation for future safety and validation requirements</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Current development status</h2>
+              <p>
+                Cybershell is currently developing and validating its first mechanical architecture.
+                The immediate scope is deliberately narrow: one platform interface, one contact zone and
+                one falsifiable mechanical scope.
+              </p>
+              <p>
+                The focused demonstrator is intended to examine basic mechanical principles, defined states
+                and the exchangeability of a modular protection system. It is not a production-ready product
+                and does not constitute a complete safety validation.
+              </p>
+              <p>
+                Its purpose is to create a technical basis for subsequent engineering validation, material
+                testing and a focused industrial pilot application.
+              </p>
+            </section>
+
+            <section>
+              <h2>External classification and technical exchange</h2>
+              <p>
+                Cybershell contributes the question of the physical system boundary of humanoid robots to
+                professional discussions concerning machinery safety, standardization and industrial scaling.
+              </p>
+              <p>
+                On 8 October 2026, Cybershell is scheduled to present the contribution “The Missing Layer of
+                Humanoid Safety — Physical System Boundaries as a Foundation for Industrial Scaling” at the
+                TÜV AUSTRIA SafeSec Day.
+              </p>
+              <p>
+                The company is also engaged in technical dialogue with organizations and specialists in
+                standardization, certification, material testing, industrial design and industrial robotics.
+                The status of each engagement is described separately on the Cybershell website and should
+                not be interpreted as a blanket partnership or endorsement.
+              </p>
+            </section>
+
+            <section>
+              <h2>Next step</h2>
+              <p>
+                Cybershell is preparing a focused industrial pilot application. The company is seeking
+                development and industry partners that consider not only robot hardware, but also protection,
+                maintainability, lifecycle management and physical system safety as part of the deployment
+                architecture.
+              </p>
+            </section>
+
+            <section>
+              <h2>About Cybershell Technologies</h2>
+              <p>
+                Cybershell Technologies develops modular external protection and deployment systems for
+                industrial humanoid robots.
+              </p>
+              <p>
+                The company is based in Vienna, Austria. Contact: Mario Curvelo Carvalho, Founder &amp; CEO,
+                <a href="mailto:info@cybershell.tech">info@cybershell.tech</a>.
+              </p>
+            </section>
+
+            <div class="evidence-disclaimer">
+              This document describes the development status as of 3 August 2026. Statements concerning
+              future functions are development objectives and do not constitute completed validation,
+              certification, product availability or a performance guarantee.
+            </div>
+          </article>
+        </div>
+      </details>
+
 
     <section class="engagement" id="engagement">
       <div class="center">
@@ -2023,11 +2588,12 @@
           </h3>
 
           <p>
-            Cybershell develops modular, external infrastructure systems
-            for industrial humanoid robotics.
+            Cybershell Technologies develops modular external protection and deployment systems
+            for industrial humanoid robots.
 
-            Our mission is to create the physical foundation for safe,
-            reliable and scalable deployment in real world environments.
+            The company focuses on the physical interface between the robot and real industrial
+            environments: impact protection, damage localization, maintainability, operational
+            reliability and future safety-oriented deployment requirements.
           </p>
         </div>
 
@@ -2073,9 +2639,10 @@
       </div>
 
       <div class="footer-links">
+        <a href="#evidence">EVIDENCE</a>
+        <a href="https://www.linkedin.com/in/mario-curvelo-carvalho-116b722a2/" target="_blank" rel="noopener noreferrer">NEWS</a>
         <a href="#">IMPRESSUM</a>
         <a href="#">PRIVACY</a>
-        <a href="#">TERMS</a>
       </div>
     </footer>
 
@@ -2087,6 +2654,17 @@
         document.querySelector('.mobile-menu').classList.remove('active');
       });
     });
+
+    function openEvidenceNoteFromHash() {
+      if (window.location.hash === '#evidence-note') {
+        var note = document.getElementById('evidence-note');
+        if (note) note.open = true;
+      }
+    }
+
+    window.addEventListener('hashchange', openEvidenceNoteFromHash);
+    openEvidenceNoteFromHash();
   </script>
 </body>
 </html>
+
