@@ -1100,13 +1100,19 @@
       align-items: flex-start;
     }
 
-    .engagement-card img {
+    .engagement-card img,
+    .engagement-card .engagement-icon {
       width: 108px;
       height: 108px;
       object-fit: contain;
       object-position: left center;
       display: block;
       margin: 0 0 18px 0;
+    }
+
+    .engagement-card .engagement-icon {
+      flex: 0 0 auto;
+      overflow: visible;
     }
 
     .engagement-card img.ofi-logo {
@@ -1881,7 +1887,8 @@
         padding: 38px;
       }
 
-      .engagement-card img {
+      .engagement-card img,
+      .engagement-card .engagement-icon {
         width: 108px;
         height: 108px;
         object-position: center center;
@@ -2680,11 +2687,20 @@
 
       <div class="engagement-grid">
         <div class="engagement-card">
-          <img src="pencil.png" alt="Studio F. A. Porsche">
-          <h3>Studio F. A. Porsche</h3>
-          <div class="engagement-label">Design Dialogue</div>
+          <svg class="engagement-icon" viewBox="0 0 120 120" role="img" aria-labelledby="studio-mcc-title studio-mcc-desc">
+            <title id="studio-mcc-title">Studio M.C.C. Cybershell</title>
+            <desc id="studio-mcc-desc">Two open exterior shells framing a central M structure.</desc>
+            <g transform="translate(24.6 24.6) scale(0.59)" fill="none" stroke="#90FCFD" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M46 8C22 8 8 26 8 60C8 94 22 112 46 112" />
+              <path d="M74 8C98 8 112 26 112 60C112 94 98 112 74 112" />
+              <path d="M48 106V18L60 54L72 18V106" />
+            </g>
+          </svg>
+          <h3>Studio M.C.C. Cybershell</h3>
+          <div class="engagement-label">Humanoid Exterior Architecture</div>
           <p>
-            Design dialogue and category exploration for industrial humanoid robotics.
+            Strategic design leadership and binding architecture specifications for leading
+            design studios worldwide.
           </p>
         </div>
 
@@ -2922,4 +2938,3 @@
   </script>
 </body>
 </html>
-
